@@ -1,0 +1,89 @@
+CREATE TABLE IF NOT EXISTS users (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(190) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  role ENUM('admin') NOT NULL DEFAULT 'admin',
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS refresh_tokens (
+  id CHAR(36) NOT NULL PRIMARY KEY,
+  user_id BIGINT UNSIGNED NOT NULL,
+  token_hash CHAR(64) NOT NULL UNIQUE,
+  expires_at DATETIME NOT NULL,
+  revoked_at DATETIME NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_refresh_tokens_user
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_refresh_tokens_user (user_id),
+  INDEX idx_refresh_tokens_expiry (expires_at)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS articles (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(220) NOT NULL,
+  slug VARCHAR(220) NOT NULL UNIQUE,
+  thumbnail VARCHAR(1000) NULL,
+  excerpt VARCHAR(500) NULL,
+  content MEDIUMTEXT NOT NULL,
+  author VARCHAR(150) NOT NULL,
+  category VARCHAR(80) NOT NULL,
+  status ENUM('draft', 'published') NOT NULL DEFAULT 'draft',
+  published_at DATETIME NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_articles_listing (status, published_at),
+  INDEX idx_articles_category (category)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS partners (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(180) NOT NULL,
+  logo VARCHAR(1000) NULL,
+  category VARCHAR(100) NOT NULL,
+  description TEXT NULL,
+  website VARCHAR(1000) NULL,
+  is_published BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_partners_listing (is_published, category, name)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS certificates (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  certificate_number VARCHAR(100) NOT NULL UNIQUE,
+  company_name VARCHAR(180) NOT NULL,
+  certification_type VARCHAR(180) NOT NULL,
+  status ENUM('active', 'revoked') NOT NULL DEFAULT 'active',
+  issued_at DATE NOT NULL,
+  expired_at DATE NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_certificates_status (status, expired_at)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS service_requests (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  organization VARCHAR(180) NOT NULL,
+  email VARCHAR(190) NOT NULL,
+  phone VARCHAR(40) NOT NULL DEFAULT '',
+  service VARCHAR(100) NOT NULL,
+  details TEXT NOT NULL,
+  status ENUM('received', 'in_progress', 'closed') NOT NULL DEFAULT 'received',
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_service_requests_created (created_at)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS contacts (
+  id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(150) NOT NULL,
+  email VARCHAR(190) NOT NULL,
+  phone VARCHAR(40) NOT NULL DEFAULT '',
+  subject VARCHAR(180) NOT NULL,
+  message TEXT NOT NULL,
+  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  INDEX idx_contacts_created (created_at)
+) ENGINE=InnoDB;
