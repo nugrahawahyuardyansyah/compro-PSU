@@ -21,7 +21,7 @@ export default function Sejarah() {
 
       <ol className="sejarah__timeline">
         <li className="sejarah__timeline-item">
-          <span className="sejarah__timeline-period">2016–2030</span>
+          <span className="sejarah__timeline-period">2020 – 2030</span>
           <div className="sejarah__timeline-content">
             <h3>Akreditasi Awal &amp; Perluasan LSPro</h3>
             <p>
@@ -64,7 +64,7 @@ export default function Sejarah() {
         </li>
 
         <li className="sejarah__timeline-item">
-          <span className="sejarah__timeline-period">2024–Sekarang</span>
+          <span className="sejarah__timeline-period">2024 – Sekarang</span>
           <div className="sejarah__timeline-content">
             <h3>Transformasi Identitas Perusahaan</h3>
             <p>
