@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
 
 :root {
-  --topbar-height: 50px;
+  --topbar-height: 40px;
   --topbar-bg: #0a2152;     /* biru tua dari logo PSU */
   --topbar-text: #ffffff;
   --topbar-accent: #c49c24; /* emas dari logo PSU */
@@ -69,39 +69,33 @@ a.header-top__item:focus-visible {
   cursor: default;
 }
 
-/* ---------- Mobile & tablet: dua baris ----------
-   Baris 1: email (kiri) + telepon (kanan)
-   Baris 2: jam operasional (kanan) */
+/* ---------- Mobile & tablet: satu baris ----------
+   Email (dipotong "..." jika sempit) | telepon | jam operasional */
 @media (max-width: 860px) {
   :root {
-    --topbar-height: 58px;
+    --topbar-height: 36px;
   }
 
   .header-top {
-    font-size: 12.5px;
+    font-size: 11.5px;
   }
 
   .header-top__inner {
-    padding: 6px 16px;
-    gap: 4px 14px;
-    flex-wrap: wrap;
-    align-content: center;
+    padding: 0 12px;
+    gap: 10px;
+    flex-wrap: nowrap;
     justify-content: space-between;
   }
 
   .header-top__item {
-    gap: 6px;
+    gap: 5px;
     white-space: nowrap;
   }
 
-  /* Email mengisi sisa ruang & dipotong "..." jika sempit; telepon selalu utuh */
+  /* Email mengisi sisa ruang dan dipotong dengan "..." bila tidak muat */
   .header-top__item--email {
     flex: 1 1 0;
     min-width: 0;
-  }
-
-  .header-top__item--phone {
-    flex: 0 0 auto;
   }
 
   .header-top__item span {
@@ -110,16 +104,16 @@ a.header-top__item:focus-visible {
     text-overflow: ellipsis;
   }
 
-  .header-top__item svg {
-    width: 14px;
-    height: 14px;
+  /* Telepon dan jam operasional selalu utuh */
+  .header-top__item--phone,
+  .header-top__hours {
+    flex: 0 0 auto;
+    margin-left: 0;
   }
 
-  /* Jam operasional turun ke baris kedua, rata kanan */
-  .header-top__hours {
-    flex: 0 0 100%;
-    margin-left: 0;
-    justify-content: flex-end;
+  .header-top__item svg {
+    width: 12px;
+    height: 12px;
   }
 }
 
