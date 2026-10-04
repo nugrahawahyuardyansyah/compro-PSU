@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --topbar-height: 50px;
+  --topbar-bg: #0a2152;     /* biru tua dari logo PSU */
+  --topbar-text: #ffffff;
+  --topbar-accent: #c49c24; /* emas dari logo PSU */
+}
+
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 51;
+  height: var(--topbar-height);
+  background: var(--topbar-bg);
+  color: var(--topbar-text);
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 14px;
+  transition: transform 0.25s, visibility 0s;
+}
+
+/* Saat di-scroll: bar naik ke atas dan menghilang */
+.header-top.is-hidden {
+  transform: translateY(-100%);
+  visibility: hidden;
+  transition: transform 0.25s, visibility 0s 0.25s;
+}
+
+.header-top__inner {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 0 clamp(20px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header-top__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--topbar-text);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.header-top__item svg {
+  color: var(--topbar-accent);
+  flex-shrink: 0;
+}
+
+/* Hanya email & telepon (link) yang berubah warna saat disorot */
+a.header-top__item:hover {
+  color: #e3c25a;
+}
+
+a.header-top__item:focus-visible {
+  outline: 2px solid var(--topbar-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Jam operasional: menempel di tepi kanan (desktop) */
+.header-top__hours {
+  margin-left: auto;
+  white-space: nowrap;
+  cursor: default;
+}
+
+/* ---------- Mobile & tablet: dua baris ----------
+   Baris 1: email (kiri) + telepon (kanan)
+   Baris 2: jam operasional (kanan) */
+@media (max-width: 860px) {
+  :root {
+    --topbar-height: 58px;
+  }
+
+  .header-top {
+    font-size: 12.5px;
+  }
+
+  .header-top__inner {
+    padding: 6px 16px;
+    gap: 4px 14px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+  }
+
+  .header-top__item {
+    gap: 6px;
+    white-space: nowrap;
+  }
+
+  /* Email mengisi sisa ruang & dipotong "..." jika sempit; telepon selalu utuh */
+  .header-top__item--email {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .header-top__item--phone {
+    flex: 0 0 auto;
+  }
+
+  .header-top__item span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .header-top__item svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Jam operasional turun ke baris kedua, rata kanan */
+  .header-top__hours {
+    flex: 0 0 100%;
+    margin-left: 0;
+    justify-content: flex-end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-top,
+  .header-top.is-hidden {
+    transition: none;
+  }
+}

@@ -6,29 +6,34 @@
   --nav-line: #e1e5eb;
   --nav-wash: #f1f3f7;
   --nav-accent: #c98a12;
-  --nav-height: 72px;
+  --nav-height: 92px;
 
-  --nav-cta-bg: #a58a00;
-  --nav-cta-bg-hover: #887100;
+  /* Warna tombol "Kontak" (desktop). Ganti sesuka hati */
+  --nav-cta-bg: #b09b00;
+  --nav-cta-bg-hover: #22406b;
   --nav-cta-text: #ffffff;
 }
 
+/* ---------- Bar: fixed, selebar layar, tidak terpengaruh #root ---------- */
 .navbar {
   position: fixed;
-  top: 0;
+  top: var(--topbar-height, 0px);
   left: 0;
   right: 0;
   z-index: 50;
   background: #fff;
   font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  transition: box-shadow 0.2s;
+  box-shadow: 0 6px 24px rgba(20, 35, 59, 0.08);
+  transition: box-shadow 0.2s, top 0.25s;
 }
 
+/* Pemisah dari konten hanya muncul saat halaman di-scroll */
 .navbar.is-scrolled {
+  top: 0;
   box-shadow: 0 6px 24px rgba(20, 35, 59, 0.08);
 }
 
-.navbar_inner {
+.navbar__inner {
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -39,22 +44,23 @@
   justify-content: space-between;
 }
 
-.navbar_spacer {
-  height: var(--nav-height);
+.navbar__spacer {
+  height: calc(var(--nav-height) + var(--topbar-height, 0px));
 }
 
-.navbar_brand {
+.navbar__brand {
   display: flex;
   align-items: center;
 }
 
-.navbar_logo {
-  height: 58px;
+.navbar__logo {
+  height: 78px;
   width: auto;
   display: block;
 }
 
-.navbar_links {
+/* ---------- Link (desktop) ---------- */
+.navbar__links {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -64,13 +70,13 @@
   gap: 4px;
 }
 
-.navbar_links > li {
+.navbar__links > li {
   display: flex;
   align-items: center;
 }
 
-.navbar_links a,
-.navbar_trigger {
+.navbar__links a,
+.navbar__trigger {
   position: relative;
   display: flex;
   align-items: center;
@@ -88,16 +94,18 @@
   transition: background-color 0.15s;
 }
 
+/* Hover hanya untuk perangkat dengan mouse, supaya tidak "nyangkut" di layar sentuh */
 @media (hover: hover) {
-  .navbar_links a:hover,
-  .navbar_trigger:hover,
-  .navbar_dropdown:hover > .navbar_trigger {
+  .navbar__links a:hover,
+  .navbar__trigger:hover,
+  .navbar__dropdown:hover > .navbar__trigger {
     background: var(--nav-wash);
   }
 }
 
-.navbar_links a.is-active::after,
-.navbar_trigger.is-active::after {
+/* Titik kecil penanda halaman aktif */
+.navbar__links a.is-active::after,
+.navbar__trigger.is-active::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -109,31 +117,33 @@
   background: var(--nav-accent);
 }
 
-.navbar_links a:focus-visible,
-.navbar_trigger:focus-visible,
-.navbar_toggle:focus-visible {
+.navbar__links a:focus-visible,
+.navbar__trigger:focus-visible,
+.navbar__toggle:focus-visible {
   outline: 2px solid var(--nav-ink);
   outline-offset: 2px;
 }
 
-.navbar_dropdown {
+/* ---------- Dropdown ---------- */
+.navbar__dropdown {
   position: relative;
   height: 100%;
 }
 
-.navbar_trigger {
+.navbar__trigger {
   z-index: 1;
 }
 
-.navbar_caret {
+.navbar__caret {
   transition: transform 0.2s;
 }
 
-.navbar_caret.is-open {
+.navbar__caret.is-open {
   transform: rotate(180deg);
 }
 
-.navbar_panel {
+/* Muncul persis di bawah bar. padding-top jadi "jembatan" agar hover tidak putus */
+.navbar__panel {
   position: absolute;
   top: 100%;
   left: 0;
@@ -144,14 +154,14 @@
   transition: opacity 0.16s, transform 0.16s, visibility 0s 0.16s;
 }
 
-.navbar_panel.is-open {
+.navbar__panel.is-open {
   opacity: 1;
   visibility: visible;
   transform: none;
   transition-delay: 0s;
 }
 
-.navbar_submenu {
+.navbar__submenu {
   display: flex;
   flex-direction: column;
   width: max-content;
@@ -165,35 +175,36 @@
   box-shadow: 0 12px 32px rgba(20, 35, 59, 0.1);
 }
 
-.navbar_submenu a {
+.navbar__submenu a {
   justify-content: space-between;
   padding: 11px 12px;
   font-weight: 400;
 }
 
-.navbar_submenu a.is-active {
+.navbar__submenu a.is-active {
   background: var(--nav-wash);
   font-weight: 500;
 }
 
-.navbar_submenu a.is-active::after {
+.navbar__submenu a.is-active::after {
   display: none;
 }
 
-.navbar_arrow {
+.navbar__arrow {
   color: var(--nav-muted);
   opacity: 0;
   transform: translateX(-4px);
   transition: opacity 0.15s, transform 0.15s;
 }
 
-.navbar_submenu a:hover .navbar_arrow,
-.navbar_submenu a:focus-visible .navbar_arrow {
+.navbar__submenu a:hover .navbar__arrow,
+.navbar__submenu a:focus-visible .navbar__arrow {
   opacity: 1;
   transform: none;
 }
 
-.navbar_toggle {
+/* ---------- Hamburger ---------- */
+.navbar__toggle {
   display: none;
   position: relative;
   width: 44px;
@@ -204,7 +215,7 @@
   cursor: pointer;
 }
 
-.navbar_toggle span {
+.navbar__toggle span {
   position: absolute;
   left: 12px;
   right: 12px;
@@ -214,52 +225,61 @@
   transition: transform 0.2s, opacity 0.2s;
 }
 
-.navbar_toggle span:nth-child(1) { top: 15px; }
-.navbar_toggle span:nth-child(2) { top: 21px; }
-.navbar_toggle span:nth-child(3) { top: 27px; }
+.navbar__toggle span:nth-child(1) { top: 15px; }
+.navbar__toggle span:nth-child(2) { top: 21px; }
+.navbar__toggle span:nth-child(3) { top: 27px; }
 
-.navbar_toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.navbar_toggle.is-open span:nth-child(2) { opacity: 0; }
-.navbar_toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+.navbar__toggle.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.navbar__toggle.is-open span:nth-child(2) { opacity: 0; }
+.navbar__toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
+/* ---------- Tombol "Kontak" (desktop saja) ---------- */
 @media (min-width: 861px) {
-  .navbar_links a.navbar_cta {
+  .navbar__links a.navbar__cta {
     margin-left: 10px;
     padding: 10px 22px;
     background: var(--nav-cta-bg);
     color: var(--nav-cta-text);
   }
 
-  .navbar_links a.navbar_cta.is-active::after {
+  .navbar__links a.navbar__cta.is-active::after {
     display: none;
   }
 
-  .navbar_links a.navbar_cta:focus-visible {
+  .navbar__links a.navbar__cta:focus-visible {
     outline-offset: 3px;
   }
 }
 
 @media (min-width: 861px) and (hover: hover) {
-  .navbar_links a.navbar_cta:hover {
+  .navbar__links a.navbar__cta:hover {
     background: var(--nav-cta-bg-hover);
   }
 }
 
+/* ---------- Mobile & tablet ---------- */
 @media (max-width: 860px) {
   :root {
-    --nav-height: 60px;
+    --nav-height: 50px;
   }
 
-  .navbar_inner {
+  .navbar__inner {
     height: 60px;
     padding: 0 12px 0 16px;
   }
 
-  .navbar_toggle {
+  .navbar__logo {
+  height: 58px;
+  width: auto;
+  display: block;
+}
+
+  .navbar__toggle {
     display: block;
   }
 
-  .navbar_links {
+  /* Drawer selebar layar, turun dari bawah bar */
+  .navbar__links {
     position: absolute;
     top: 100%;
     left: 0;
@@ -269,8 +289,8 @@
     align-items: stretch;
     gap: 0;
     padding: 8px 12px 16px;
-    max-height: calc(100vh - 60px);
-    max-height: calc(100dvh - 60px);
+    max-height: calc(100vh - 60px - var(--topbar-height, 0px));
+    max-height: calc(100dvh - 60px - var(--topbar-height, 0px));
     overflow-y: auto;
     background: #fff;
     border-top: 1px solid var(--nav-line);
@@ -281,38 +301,40 @@
     transition: opacity 0.18s, transform 0.18s, visibility 0s 0.18s;
   }
 
-  .navbar_links.is-open {
+  .navbar__links.is-open {
     opacity: 1;
     visibility: visible;
     transform: none;
     transition-delay: 0s;
   }
 
-  .navbar_links > li {
+  .navbar__links > li {
     display: block;
   }
 
-  .navbar_dropdown {
+  .navbar__dropdown {
     height: auto;
   }
 
-  .navbar_links a,
-  .navbar_trigger {
+  .navbar__links a,
+  .navbar__trigger {
     width: 100%;
     box-sizing: border-box;
     justify-content: space-between;
     padding: 14px 12px 14px 22px;
   }
 
-  .navbar_links a.is-active::after,
-  .navbar_trigger.is-active::after {
+  /* Titik aktif pindah ke kiri teks */
+  .navbar__links a.is-active::after,
+  .navbar__trigger.is-active::after {
     left: 10px;
     bottom: auto;
     top: 50%;
     margin: -2px 0 0;
   }
 
-  .navbar_panel {
+  /* Dropdown: daftar biasa yang tampil/sembunyi, tanpa animasi rumit */
+  .navbar__panel {
     position: static;
     display: none;
     padding: 0;
@@ -322,11 +344,11 @@
     transition: none;
   }
 
-  .navbar_panel.is-open {
+  .navbar__panel.is-open {
     display: block;
   }
 
-  .navbar_submenu {
+  .navbar__submenu {
     display: block;
     width: auto;
     min-width: 0;
@@ -337,12 +359,16 @@
     box-shadow: none;
   }
 
-  .navbar_submenu a {
+  .navbar__submenu a {
     padding-left: 40px;
     color: var(--nav-muted);
   }
 
-  .navbar_arrow {
+  .navbar__subheading {
+    padding-left: 40px;
+  }
+
+  .navbar__arrow {
     display: none;
   }
 }
@@ -350,5 +376,91 @@
 @media (prefers-reduced-motion: reduce) {
   .navbar * {
     transition: none !important;
+  }
+}
+
+/* ---------- Sub-dropdown (Profile → Sejarah, Visi Misi, Legalitas) ---------- */
+.navbar__subrow {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: background-color 0.15s;
+}
+
+.navbar__subrow.is-active {
+  background: var(--nav-wash);
+}
+
+@media (hover: hover) {
+  .navbar__subrow:hover {
+    background: var(--nav-wash);
+  }
+}
+
+/* Link di dalam baris tidak punya latar sendiri; latarnya dipegang baris */
+.navbar__subheading {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--nav-ink);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.navbar__subheading:hover,
+.navbar__subheading:focus-visible {
+  background: var(--nav-wash);
+}
+
+.navbar__subheading:focus-visible {
+  outline: 2px solid var(--nav-ink);
+  outline-offset: -2px;
+}
+
+.navbar__subheading svg {
+  flex: none;
+  color: var(--nav-muted);
+  transition: transform 0.2s;
+}
+
+.navbar__subheading[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Daftar anak: turun ke bawah, dengan garis tipis di kiri */
+.navbar__subsub {
+  display: none;
+  list-style: none;
+  margin: 2px 0 6px 14px;
+  padding: 0 0 0 8px;
+  border-left: 2px solid var(--nav-line);
+}
+
+.navbar__subsub.is-open {
+  display: block;
+}
+
+.navbar__submenu .navbar__subsub a {
+  padding: 9px 12px;
+  font-size: 14px;
+  color: var(--nav-muted);
+}
+
+.navbar__submenu .navbar__subsub a.is-active {
+  color: var(--nav-ink);
+  font-weight: 500;
+}
+
+@media (max-width: 860px) {
+  .navbar__subsub {
+    margin-left: 40px;
   }
 }

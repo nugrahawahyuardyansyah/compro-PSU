@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
+
+.footer {
+  --footer-bg: #f1f3f7;
+  --footer-ink: #14233b;
+  --footer-muted: #5b6778;
+  --footer-line: #dbe0e8;
+  --footer-accent: #c98a12;
+
+  background: var(--footer-bg);
+  color: var(--footer-ink);
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+
+  /* Warna latar diperluas sampai tepi layar, walau footer berada di dalam #root yang dibatasi */
+  box-shadow: 0 0 0 100vmax var(--footer-bg);
+  clip-path: inset(0 -100vmax);
+}
+
+.footer__inner {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 56px clamp(20px, 4vw, 56px) 24px;
+}
+
+/* Kiri: brand. Kanan: kontak (rata ke tepi kanan) */
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 48px;
+}
+
+/* ---------- Brand ---------- */
+.footer__logo {
+  display: block;
+  height: 44px;
+  width: auto;
+  margin-bottom: 16px;
+}
+
+.footer .footer__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--footer-ink);
+}
+
+.footer .footer__tagline {
+  margin: 2px 0 0;
+  color: var(--footer-muted);
+}
+
+/* ---------- Kontak (rata kanan, menempel ke tepi kanan) ---------- */
+.footer_col {
+  justify-self: start;
+  max-width: none;
+  text-align: left;
+}
+
+.footer .footer_col a {
+  background-position: 100% 100%;
+}
+
+.footer__col {
+  justify-self: end;
+  max-width: 340px;
+  text-align: right;
+}
+
+.footer .footer__col a {
+  background-position: 100% 100%;
+}
+
+/* Warna dipaksa agar tidak ikut style global (h2 putih dari template) */
+.footer .footer_title {
+  margin: 0 0 14px;
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--footer-ink);
+}
+
+.footer .footer__title {
+  margin: 0 0 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--footer-ink);
+}
+
+.footer .footer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-style: normal;
+  color: var(--footer-ink);
+}
+
+.footer .footer__list p {
+  margin: 0 0 10px;
+  color: var(--footer-ink);
+}
+
+.footer .footer__list p:last-child {
+  margin-bottom: 0;
+}
+
+.footer a {
+  color: var(--footer-ink);
+  text-decoration: none;
+  background-image: linear-gradient(var(--footer-accent), var(--footer-accent));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1.5px;
+  transition: background-size 0.2s;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+  background-size: 100% 1.5px;
+}
+
+.footer a:focus-visible {
+  outline: 2px solid var(--footer-ink);
+  outline-offset: 3px;
+}
+
+/* Logo tidak perlu garis bawah */
+.footer__brand a {
+  background-image: none;
+  display: inline-block;
+}
+
+/* ---------- Baris bawah ---------- */
+.footer__bar {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--footer-line);
+  color: var(--footer-muted);
+  font-size: 14px;
+}
+
+.footer .footer__bar p {
+  margin: 0;
+  color: var(--footer-muted);
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 860px) {
+  .footer__inner {
+    padding-top: 40px;
+  }
+
+  .footer__brand,
+  .footer__col {
+    justify-self: start !important;
+    text-align: left !important;
+    max-width: none !important;
+  }
+
+  .footer .footer__col a {
+    background-position: 0 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer a {
+    transition: none;
+  }
+}
+
+/* ---------- Layout: footer selalu di dasar halaman ---------- */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
