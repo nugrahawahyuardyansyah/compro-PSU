@@ -13,7 +13,6 @@ function useIsMobile(breakpoint) {
   useEffect(() => {
     const mq = window.matchMedia(query);
     const onChange = (e) => setIsMobile(e.matches);
-    setIsMobile(mq.matches);
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
   }, [query]);

@@ -1,15 +1,44 @@
+import { useEffect, useState } from "react";
 import "./Home.css";
 
+const BANNERS = [
+  { desktop: "/Logo_PSU_banner1.jpeg", mobile: "/Logo_PSU_banner1.jpeg" },
+  { desktop: "/Logo_PSU_banner2.jpeg", mobile: "/Logo_PSU_banner2_hp.jpeg" },
+  { desktop: "/Logo_PSU_banner3.jpeg", mobile: "/Logo_PSU_banner3_hp.jpeg" },
+  { desktop: "/Logo_PSU_banner4.jpeg", mobile: "/Logo_PSU_banner4_hp.jpeg" },
+  { desktop: "/Logo_PSU_banner5.jpeg", mobile: "/Logo_PSU_banner5_hp.jpeg" },
+  { desktop: "/Logo_PSU_banner6.jpeg", mobile: "/Logo_PSU_banner6_hp.jpeg" },
+];
+
+const isMobile = () => window.matchMedia("(max-width: 860px)").matches;
+
 export default function Home() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c + 1) % BANNERS.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <main className="home">
-      <img
-        className="home__banner"
-        src="/Logo_PSU_banner.jpg"
-        alt="PT Penilai Standar Uji"
-      />
-
-      <section className="about">
+      <div className="home__hero">
+        {BANNERS.map((banner, i) => (
+          <img
+            key={banner.desktop}
+            className={`home__banner${i === current ? " home__banner--active" : ""}`}
+            src={isMobile() ? banner.mobile : banner.desktop}
+            alt={`PT Penilai Standar Uji ${i + 1}`}
+          />
+        ))}
+        <div className="home__hero-text">
+          <span className="home__hero-title">Company Profile</span>
+          <br />
+          <span className="home__hero-subtitle">PT. PENILAI STANDAR UJI</span>
+        </div>
+      </div>      <section className="about">
         <div className="about__body">
           <p>
             <strong>PT Penilai Standar Uji (PSU)</strong> merupakan perusahaan

@@ -25,8 +25,27 @@
 
 .home__banner {
   display: block;
-  height: auto;
-  margin-top: 32px;
+  position: absolute;
+  inset: 0;
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  margin-top: 3px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.home__banner--active {
+  opacity: 1;
+}
+
+@media (min-width: 861px) {
+  .home__banner {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
 }
 
 .about {
@@ -76,5 +95,86 @@
   .about__quote {
     margin-top: 8px;
     font-size: 1.2rem;
+  }
+}
+/* ===== Text di atas banner ===== */
+.home__hero {
+  position: relative;
+  height: 550px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+.home__hero .home__banner {
+  filter: brightness(0.6);
+}
+.home__hero-text {
+  position: absolute;
+  bottom: clamp(36px, 7vh, 72px);
+  left: var(--psu-gutter);
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  pointer-events: none;
+}
+.home__hero-text br {
+  display: none;
+}
+.home__hero-title {
+  font-size: clamp(1rem, 1.9vw, 1.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: capitalize;
+  /* efek putih metalik */
+  background: linear-gradient(
+    175deg,
+    #ffffff 0%,
+    #eef1f4 40%,
+    #c9d0d7 55%,
+    #f7f8fa 75%,
+    #dde2e7 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f2f4f6;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+}
+.home__hero-subtitle {
+  position: relative;
+  padding-top: 12px;
+  font-size: clamp(1.6rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: #f2f4f6;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+.home__hero-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  height: 3px;
+  border-radius: 2px;
+  background: #b09b00;
+}
+@media (max-width: 860px) {
+  .home__hero-text {
+    top: 18%;
+    transform: none;
+    max-width: 85%;
+    gap: 8px;
+  }
+  .home__hero-subtitle {
+    padding-top: 10px;
+    font-size: clamp(1.4rem, 6.5vw, 2rem);
+    letter-spacing: 0.02em;
+  }
+  .home__hero-subtitle::before {
+    width: 100px;
   }
 }
