@@ -464,3 +464,77 @@
     margin-left: 40px;
   }
 }
+
+@media (min-width: 861px) and (max-width: 1180px) {
+  .navbar__links {
+    gap: 0;
+  }
+
+  .navbar__links a,
+  .navbar__trigger {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+}
+
+/* ---------- Desktop: sub-dropdown Profile membuka ke samping ---------- */
+@media (min-width: 861px) {
+  .navbar__submenu > li {
+    position: relative;
+  }
+
+  .navbar__submenu .navbar__subsub {
+    display: block;
+    position: absolute;
+    top: -7px;
+    left: 100%;
+    min-width: 190px;
+    margin: 0 0 0 10px;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid var(--nav-line);
+    border-radius: 14px;
+    box-shadow: 0 12px 32px rgba(20, 35, 59, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-4px);
+    transition: opacity 0.16s, transform 0.16s, visibility 0s 0.16s;
+  }
+
+  .navbar__submenu .navbar__subsub.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition-delay: 0s;
+  }
+
+  /* Jembatan transparan agar hover tidak putus saat kursor melewati celah */
+  .navbar__subsub::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -12px;
+    width: 12px;
+  }
+
+  .navbar__submenu .navbar__subsub a {
+    padding: 11px 12px;
+    font-size: 15px;
+    color: var(--nav-ink);
+  }
+
+  /* Panah penanda menunjuk ke kanan */
+  .navbar__subtoggle svg,
+  .navbar__subtoggle[aria-expanded="true"] svg {
+    transform: rotate(-90deg);
+  }
+}
+
+/* Panah sub-menu "Profile": menunjuk ke samping (kanan) di desktop */
+@media (min-width: 861px) {
+  .navbar__subtoggle svg,
+  .navbar__subtoggle[aria-expanded="true"] svg {
+    transform: rotate(-90deg) !important;
+  }
+}

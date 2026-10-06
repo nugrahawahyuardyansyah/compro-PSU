@@ -3,6 +3,24 @@ import { Link, useLocation } from "react-router-dom";
 import HeaderTop from "./HeaderTop";
 import "./Navbar.css";
 
+// Mendeteksi layar HP/tablet langsung dari JavaScript
+function useIsMobile(breakpoint) {
+  const query = `(max-width: ${breakpoint}px)`;
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, [query]);
+
+  return isMobile;
+}
+
 const menuTentangKami = [
   {
     id: "profile",
@@ -18,6 +36,7 @@ const menuTentangKami = [
 
 const menuLinks = [
   { label: "Client", href: "/Client" },
+  { label: "Portofolio", href: "/portofolio" },
   { label: "Sertifikasi", href: "/sertifikasi" },
   { label: "Artikel", href: "/artikel" },
   { label: "Kontak", href: "/kontak" },
@@ -38,6 +57,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const closeTimer = useRef(null);
+  const isMobile = useIsMobile(860);
 
   const isActive = (href) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -196,9 +216,7 @@ export default function Navbar() {
                             aria-label={`${openSub === item.id ? "Tutup" : "Buka"} submenu ${item.label}`}
                             aria-expanded={openSub === item.id}
                             onClick={() =>
-                              setOpenSub(
-                                openSub === item.id ? null : item.id,
-                              )
+                              setOpenSub(openSub === item.id ? null : item.id)
                             }
                           >
                             <span>{item.label}</span>
@@ -207,6 +225,13 @@ export default function Navbar() {
                               height="6"
                               viewBox="0 0 10 6"
                               aria-hidden="true"
+                              style={{
+                                transform: isMobile
+                                  ? openSub === item.href
+                                    ? "rotate(180deg)"
+                                    : "none"
+                                  : "rotate(-90deg)",
+                              }}
                             >
                               <path
                                 d="M1 1l4 4 4-4"

@@ -7,6 +7,7 @@ import VisiMisi from './pages/VisiMisi';
 import Legalitas from './pages/Legalitas';
 import Struktur from './pages/Struktur';
 import Client from './pages/Client';
+import Portofolio from './pages/Portofolio';
 import Sertifikasi from './pages/Sertifikasi';
 import Artikel from './pages/Artikel';
 import Kontak from './pages/Kontak';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/about/legalitas" element={<Legalitas />} />
           <Route path="/about/struktur-organisasi" element={<Struktur />} />
           <Route path="/client" element={<Client />} />
+          <Route path="/portofolio" element={<Portofolio />} />
           <Route path="/sertifikasi" element={<Sertifikasi />} />
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/kontak" element={<Kontak />} />
