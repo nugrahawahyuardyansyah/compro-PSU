@@ -42,7 +42,11 @@ export default function Legalitas() {
         aria-labelledby={`tab-${active.id}`}
         key={active.id}
       >
-        <div className="legalitas__frame">
+        <div
+          className={`legalitas__frame${
+            active.id === "npwp" ? " legalitas__frame--wide" : ""
+          }`}
+        >
           {active.image ? (
             <img src={active.image} alt={`Dokumen ${active.label}`} />
           ) : (
