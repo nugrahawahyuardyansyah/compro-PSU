@@ -1,5 +1,5 @@
 import { useState } from "react";
-import clientData from "./ClientData";
+import clientData from "./Clientdata";
 import "./Client.css";
 
 const years = Object.keys(clientData).sort();

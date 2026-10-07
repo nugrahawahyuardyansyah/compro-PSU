@@ -21,7 +21,6 @@
   line-height: 1.25;
 }
 
-/* Tombol tahun: setiap baris diisi penuh sehingga tepinya rata kiri-kanan */
 .client__tabs {
   display: flex;
   flex-wrap: wrap;
@@ -87,7 +86,6 @@
   font-size: 0.875rem;
 }
 
-/* Area geser: tabel lebar bisa digeser ke samping, terutama di HP */
 .client__scroll {
   overflow-x: auto;
   border: 1px solid var(--psu-line);

@@ -1,5 +1,3 @@
-// Data klien per tahun, diambil dari file F-PRO-70-12 Data Klien LSPro (kolom yang ditampilkan di halaman Client).
-// Untuk memperbaiki atau menambah data, ubah langsung di sini.
 const clientData = {
   "2016": [
     {
