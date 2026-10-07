@@ -1,30 +1,57 @@
-import "./Sejarah.css";
+import { useState } from "react";
+import "./Legalitas.css";
+import aktePendirian from "../assets/01-Akte-Pendirian.webp";
+import nib from "../assets/02-NIB.webp";
+import npwp from "../assets/03-NPWP.webp";
+
+const documents = [
+  { id: "akte", label: "Akte Pendirian", image: aktePendirian },
+  { id: "nib", label: "Nomor Induk Berusaha", image: nib },
+  { id: "npwp", label: "NPWP", image: npwp },
+];
 
 export default function Legalitas() {
+  const [activeId, setActiveId] = useState(documents[0].id);
+  const active = documents.find((doc) => doc.id === activeId);
+
   return (
-    <main className="about-page">
-      <h1 className="about-page__title">Legalitas dan Akreditasi</h1>
+    <main className="legalitas">
+      <h1 className="legalitas__title">Dokumen Legalitas</h1>
 
-      <section>
-        <h2 className="about-page__subtitle">Identitas Perusahaan</h2>
-        <p className="about-page__intro">
-          Berdasarkan Akta Perubahan No. 12 tanggal 19 November 2024, PT Penilai
-          Standar Nasional resmi berubah nama menjadi PT Penilai Standar Uji
-          (PSU).
-        </p>
-      </section>
+      <div className="legalitas__tabs" role="tablist" aria-label="Dokumen legalitas">
+        {documents.map((doc) => (
+          <button
+            key={doc.id}
+            id={`tab-${doc.id}`}
+            type="button"
+            role="tab"
+            className="legalitas__tab"
+            aria-selected={doc.id === activeId}
+            aria-controls="legalitas-panel"
+            onClick={() => setActiveId(doc.id)}
+          >
+            {doc.label}
+          </button>
+        ))}
+      </div>
 
-      <section>
-        <h2 className="about-page__subtitle">Akreditasi</h2>
-        <p className="about-page__intro">
-          Lembaga Sertifikasi Produk PSU terakreditasi KAN dengan nomor
-          LSPR-051-IDN berdasarkan SNI ISO/IEC 17065:2012.
-        </p>
-        <p className="about-page__intro">
-          Laboratorium Pengujian PSU terakreditasi KAN dengan nomor LP-1554-IDN
-          berdasarkan SNI ISO/IEC 17025:2017.
-        </p>
-      </section>
+      <div
+        id="legalitas-panel"
+        className="legalitas__panel"
+        role="tabpanel"
+        aria-labelledby={`tab-${active.id}`}
+        key={active.id}
+      >
+        <div className="legalitas__frame">
+          {active.image ? (
+            <img src={active.image} alt={`Dokumen ${active.label}`} />
+          ) : (
+            <div className="legalitas__empty">
+              Foto {active.label} belum ditambahkan
+            </div>
+          )}
+        </div>
+      </div>
     </main>
   );
 }

@@ -8,13 +8,12 @@
   --nav-accent: #c98a12;
   --nav-height: 92px;
 
-  /* Warna tombol "Kontak" (desktop). Ganti sesuka hati */
+  /*Warna tombol "Login" (desktop).*/
   --nav-cta-bg: #b09b00;
   --nav-cta-bg-hover: #22406b;
   --nav-cta-text: #ffffff;
 }
 
-/* ---------- Bar: fixed, selebar layar, tidak terpengaruh #root ---------- */
 .navbar {
   position: fixed;
   top: var(--topbar-height, 0px);
@@ -27,7 +26,6 @@
   transition: box-shadow 0.2s, top 0.25s;
 }
 
-/* Pemisah dari konten hanya muncul saat halaman di-scroll */
 .navbar.is-scrolled {
   top: 0;
   box-shadow: 0 6px 24px rgba(20, 35, 59, 0.08);
@@ -59,7 +57,6 @@
   display: block;
 }
 
-/* ---------- Link (desktop) ---------- */
 .navbar__links {
   list-style: none;
   margin: 0;
@@ -94,7 +91,6 @@
   transition: background-color 0.15s;
 }
 
-/* Hover hanya untuk perangkat dengan mouse, supaya tidak "nyangkut" di layar sentuh */
 @media (hover: hover) {
   .navbar__links a:hover,
   .navbar__trigger:hover,
@@ -103,7 +99,6 @@
   }
 }
 
-/* Titik kecil penanda halaman aktif */
 .navbar__links a.is-active::after,
 .navbar__trigger.is-active::after {
   content: "";
@@ -124,7 +119,6 @@
   outline-offset: 2px;
 }
 
-/* ---------- Dropdown ---------- */
 .navbar__dropdown {
   position: relative;
   height: 100%;
@@ -142,7 +136,6 @@
   transform: rotate(180deg);
 }
 
-/* Muncul persis di bawah bar. padding-top jadi "jembatan" agar hover tidak putus */
 .navbar__panel {
   position: absolute;
   top: 100%;
@@ -203,7 +196,6 @@
   transform: none;
 }
 
-/* ---------- Hamburger ---------- */
 .navbar__toggle {
   display: none;
   position: relative;
@@ -233,7 +225,6 @@
 .navbar__toggle.is-open span:nth-child(2) { opacity: 0; }
 .navbar__toggle.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ---------- Tombol "Kontak" (desktop saja) ---------- */
 @media (min-width: 861px) {
   .navbar__links a.navbar__cta {
     margin-left: 10px;
@@ -257,7 +248,6 @@
   }
 }
 
-/* ---------- Mobile & tablet ---------- */
 @media (max-width: 860px) {
   :root {
     --nav-height: 50px;
@@ -278,7 +268,6 @@
     display: block;
   }
 
-  /* Drawer selebar layar, turun dari bawah bar */
   .navbar__links {
     position: absolute;
     top: 100%;
@@ -324,7 +313,6 @@
     padding: 14px 12px 14px 22px;
   }
 
-  /* Titik aktif pindah ke kiri teks */
   .navbar__links a.is-active::after,
   .navbar__trigger.is-active::after {
     left: 10px;
@@ -333,7 +321,6 @@
     margin: -2px 0 0;
   }
 
-  /* Dropdown: daftar biasa yang tampil/sembunyi, tanpa animasi rumit */
   .navbar__panel {
     position: static;
     display: none;
@@ -379,7 +366,6 @@
   }
 }
 
-/* ---------- Sub-dropdown (Profile → Sejarah, Visi Misi, Legalitas) ---------- */
 .navbar__subrow {
   display: flex;
   align-items: center;
@@ -397,7 +383,6 @@
   }
 }
 
-/* Link di dalam baris tidak punya latar sendiri; latarnya dipegang baris */
 .navbar__subheading {
   flex: 1;
   display: flex;
@@ -435,7 +420,6 @@
   transform: rotate(180deg);
 }
 
-/* Daftar anak: turun ke bawah, dengan garis tipis di kiri */
 .navbar__subsub {
   display: none;
   list-style: none;
@@ -477,7 +461,6 @@
   }
 }
 
-/* ---------- Desktop: sub-dropdown Profile membuka ke samping ---------- */
 @media (min-width: 861px) {
   .navbar__submenu > li {
     position: relative;
@@ -508,7 +491,6 @@
     transition-delay: 0s;
   }
 
-  /* Jembatan transparan agar hover tidak putus saat kursor melewati celah */
   .navbar__subsub::before {
     content: "";
     position: absolute;
@@ -524,14 +506,12 @@
     color: var(--nav-ink);
   }
 
-  /* Panah penanda menunjuk ke kanan */
   .navbar__subtoggle svg,
   .navbar__subtoggle[aria-expanded="true"] svg {
     transform: rotate(-90deg);
   }
 }
 
-/* Panah sub-menu "Profile": menunjuk ke samping (kanan) di desktop */
 @media (min-width: 861px) {
   .navbar__subtoggle svg,
   .navbar__subtoggle[aria-expanded="true"] svg {

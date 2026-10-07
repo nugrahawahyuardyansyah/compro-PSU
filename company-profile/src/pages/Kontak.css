@@ -8,8 +8,6 @@
   margin: 0 auto;
 }
 
-/* Header */
-
 .contact-header {
   text-align: left;
   margin-bottom: 50px;
@@ -29,15 +27,11 @@
   margin: 0;
 }
 
-/* Content */
-
 .contact-content {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 30px;
 }
-
-/* Maps */
 
 .map-container {
   width: 100%;
@@ -53,8 +47,6 @@
   border: none;
   display: block;
 }
-
-/* Contact Information */
 
 .contact-info {
   padding: 30px;
@@ -99,9 +91,6 @@
 .contact-item a:hover {
   color: #0066cc;
 }
-
-
-/* Responsive */
 
 @media (max-width: 768px) {
 

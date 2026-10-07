@@ -30,7 +30,9 @@ const leaders = [
 export default function Struktur() {
   return (
     <main className="org">
-      <h1 className="org__title">Struktur Kepemimpinan PT Penilai Standar Uji</h1>
+      <h1 className="org__title">
+        Struktur Kepemimpinan PT Penilai Standar Uji
+      </h1>
       <p className="org__caption"></p>
 
       <ul className="org__list">

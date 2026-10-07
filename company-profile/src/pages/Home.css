@@ -98,7 +98,6 @@
     font-size: 1.2rem;
   }
 }
-/* ===== Text di atas banner ===== */
 .home__hero {
   position: relative;
   height: 550px;
@@ -128,7 +127,6 @@
   line-height: 1.2;
   letter-spacing: 0.06em;
   text-transform: capitalize;
-  /* efek putih metalik */
   background: linear-gradient(
     175deg,
     #ffffff 0%,

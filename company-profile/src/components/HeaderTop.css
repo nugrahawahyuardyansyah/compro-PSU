@@ -2,9 +2,9 @@
 
 :root {
   --topbar-height: 40px;
-  --topbar-bg: #0a2152;     /* biru tua dari logo PSU */
+  --topbar-bg: #0a2152;
   --topbar-text: #ffffff;
-  --topbar-accent: #c49c24; /* emas dari logo PSU */
+  --topbar-accent: #c49c24;
 }
 
 .header-top {
@@ -21,7 +21,6 @@
   transition: transform 0.25s, visibility 0s;
 }
 
-/* Saat di-scroll: bar naik ke atas dan menghilang */
 .header-top.is-hidden {
   transform: translateY(-100%);
   visibility: hidden;
@@ -51,7 +50,6 @@
   flex-shrink: 0;
 }
 
-/* Hanya email & telepon (link) yang berubah warna saat disorot */
 a.header-top__item:hover {
   color: #e3c25a;
 }
@@ -62,15 +60,12 @@ a.header-top__item:focus-visible {
   border-radius: 4px;
 }
 
-/* Jam operasional: menempel di tepi kanan (desktop) */
 .header-top__hours {
   margin-left: auto;
   white-space: nowrap;
   cursor: default;
 }
 
-/* ---------- Mobile & tablet: satu baris ----------
-   Email (dipotong "..." jika sempit) | telepon | jam operasional */
 @media (max-width: 860px) {
   :root {
     --topbar-height: 36px;
@@ -92,7 +87,6 @@ a.header-top__item:focus-visible {
     white-space: nowrap;
   }
 
-  /* Email mengisi sisa ruang dan dipotong dengan "..." bila tidak muat */
   .header-top__item--email {
     flex: 1 1 0;
     min-width: 0;
@@ -104,7 +98,6 @@ a.header-top__item:focus-visible {
     text-overflow: ellipsis;
   }
 
-  /* Telepon dan jam operasional selalu utuh */
   .header-top__item--phone,
   .header-top__hours {
     flex: 0 0 auto;

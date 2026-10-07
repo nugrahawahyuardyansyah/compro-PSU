@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import HeaderTop from "./HeaderTop";
 import "./Navbar.css";
 
-// Mendeteksi layar HP/tablet langsung dari JavaScript
 function useIsMobile(breakpoint) {
   const query = `(max-width: ${breakpoint}px)`;
   const [isMobile, setIsMobile] = useState(
@@ -33,7 +32,6 @@ const menuTentangKami = [
   { label: "Struktur Organisasi", href: "/about/struktur-organisasi" },
 ];
 
-// Dropdown baru (di antara Tentang Kami dan Client)
 const menuLayanan = [
   { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertifikasi-produk" },
   { label: "Lembaga Pengujian", href: "/layanan/pengujian" },
@@ -54,8 +52,6 @@ const menuLinks = [
   { label: "Login", href: "/login", cta: true },
 ];
 
-// Hover hanya dipakai di layar lebar yang punya mouse.
-// Di HP/tablet sentuh, dropdown tetap dibuka lewat ketukan.
 const canHover = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(hover: hover) and (min-width: 861px)").matches;
@@ -63,7 +59,7 @@ const canHover = () =>
 export default function Navbar() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // "about" | "layanan" | null
+  const [openDropdown, setOpenDropdown] = useState(null);
   const [openSub, setOpenSub] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef(null);
@@ -72,7 +68,6 @@ export default function Navbar() {
   const isActive = (href) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  // Bayangan muncul setelah halaman di-scroll
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 4);
     onScroll();
@@ -80,7 +75,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Klik di luar / Escape menutup dropdown, resize ke desktop menutup drawer
   useEffect(() => {
     const onClickOutside = (e) => {
       if (!e.target.closest(".navbar__dropdown")) {
@@ -122,7 +116,6 @@ export default function Navbar() {
     setOpenSub(null);
   };
 
-  // Jeda singkat supaya dropdown tidak menutup saat kursor melintas
   const handleLeave = () => {
     if (!canHover()) return;
     closeTimer.current = setTimeout(() => {
@@ -148,7 +141,6 @@ export default function Navbar() {
     className: isActive(href) ? "is-active" : undefined,
   });
 
-  // Satu baris di dalam kartu dropdown: link biasa, atau judul dengan sub-dropdown (Profile)
   const renderSubItem = (item) =>
     item.children ? (
       <li
@@ -177,7 +169,6 @@ export default function Navbar() {
               viewBox="0 0 10 6"
               aria-hidden="true"
               style={{
-                // Desktop: panah ke samping. HP: ke bawah, berbalik ke atas saat terbuka
                 transform: isMobile
                   ? openSub === item.id
                     ? "rotate(180deg)"
@@ -231,7 +222,6 @@ export default function Navbar() {
       </li>
     );
 
-  // Satu menu dropdown lengkap (tombol + kartu isi)
   const renderDropdown = ({ id, label, items, active }) => {
     const open = openDropdown === id;
     return (
@@ -277,7 +267,6 @@ export default function Navbar() {
       <HeaderTop hidden={scrolled} />
       <header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
         <nav className="navbar__inner" aria-label="Navigasi utama">
-          {/* Logo: ganti src dengan path foto logo kamu */}
           <Link to="/" className="navbar__brand" onClick={closeAll}>
             <img src="/Logo_PSU1.png" alt="Logo" className="navbar__logo" />
           </Link>
@@ -305,10 +294,9 @@ export default function Navbar() {
               active: pathname.startsWith("/about/"),
             })}
 
-            {/* Menu baru: di antara Tentang Kami dan Client */}
             {renderDropdown({
               id: "layanan",
-              label: "Layanan", // ganti nama menu di sini kalau perlu
+              label: "Layanan",
               items: menuLayanan,
               active: pathname.startsWith("/layanan/"),
             })}
@@ -333,7 +321,6 @@ export default function Navbar() {
           </ul>
         </nav>
       </header>
-      {/* Pengganti ruang navbar (navbar memakai position: fixed) */}
       <div className="navbar__spacer" aria-hidden="true" />
     </>
   );

@@ -1,6 +1,5 @@
 import "./HeaderTop.css";
 
-// Ganti dengan data asli perusahaan
 const kontak = {
   email: "psnindonesia.info@gmail.com",
   telepon: "021 - 8602367",
@@ -19,7 +18,6 @@ const iconProps = {
   "aria-hidden": true,
 };
 
-// hidden = true saat halaman di-scroll (bar naik ke atas, navbar menempel di puncak)
 export default function HeaderTop({ hidden = false }) {
   const tabIndex = hidden ? -1 : undefined;
 
@@ -49,7 +47,6 @@ export default function HeaderTop({ hidden = false }) {
           <span>{kontak.telepon}</span>
         </a>
 
-        {/* Jam operasional: paling kanan di desktop */}
         <div className="header-top__item header-top__hours">
           <svg {...iconProps}>
             <circle cx="12" cy="12" r="9" />
