@@ -12,7 +12,12 @@ import Sertifikasi from './pages/Sertifikasi';
 import Artikel from './pages/Artikel';
 import Kontak from './pages/Kontak';
 import Login from './pages/Login';
- 
+ import LbgSertifProduk from './pages/lbg_sertif_produk';
+import LbgPenguji from './pages/lbg_penguji';
+import LbgKalibrasi from './pages/lbg_kalibrasi';
+import LbgSertifSistem from './pages/lbg_sertif_sistem';
+import LbgPelatihan from './pages/lbg_pelatihan';
+
 function App() {
   return (
     <div className="app-layout">
@@ -30,6 +35,11 @@ function App() {
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/kontak" element={<Kontak />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/layanan/sertifikasi-produk" element={<LbgSertifProduk />} />
+          <Route path="/layanan/pengujian" element={<LbgPenguji />} />
+          <Route path="/layanan/kalibrasi" element={<LbgKalibrasi />} />
+          <Route path="/layanan/sertifikasi-sistem-manajemen" element={<LbgSertifSistem />} />
+          <Route path="/layanan/pelatihan" element={<LbgPelatihan />} />
         </Routes>
       </main>
       <Footer />

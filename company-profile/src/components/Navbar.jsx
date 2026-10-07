@@ -33,6 +33,18 @@ const menuTentangKami = [
   { label: "Struktur Organisasi", href: "/about/struktur-organisasi" },
 ];
 
+// Dropdown baru (di antara Tentang Kami dan Client)
+const menuLayanan = [
+  { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertifikasi-produk" },
+  { label: "Lembaga Pengujian", href: "/layanan/pengujian" },
+  { label: "Lembaga Kalibrasi", href: "/layanan/kalibrasi" },
+  {
+    label: "Lembaga Sertifikasi Sistem Manajemen",
+    href: "/layanan/sertifikasi-sistem-manajemen",
+  },
+  { label: "Lembaga Pelatihan", href: "/layanan/pelatihan" },
+];
+
 const menuLinks = [
   { label: "Client", href: "/Client" },
   { label: "Portofolio", href: "/portofolio" },
@@ -51,10 +63,9 @@ const canHover = () =>
 export default function Navbar() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // "about" | "layanan" | null
   const [openSub, setOpenSub] = useState(null);
   const [scrolled, setScrolled] = useState(false);
-  const dropdownRef = useRef(null);
   const closeTimer = useRef(null);
   const isMobile = useIsMobile(860);
 
@@ -72,14 +83,14 @@ export default function Navbar() {
   // Klik di luar / Escape menutup dropdown, resize ke desktop menutup drawer
   useEffect(() => {
     const onClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setDropdownOpen(false);
+      if (!e.target.closest(".navbar__dropdown")) {
+        setOpenDropdown(null);
         setOpenSub(null);
       }
     };
     const onEscape = (e) => {
       if (e.key === "Escape") {
-        setDropdownOpen(false);
+        setOpenDropdown(null);
         setOpenSub(null);
         setMenuOpen(false);
       }
@@ -100,30 +111,33 @@ export default function Navbar() {
 
   const closeAll = () => {
     setMenuOpen(false);
-    setDropdownOpen(false);
+    setOpenDropdown(null);
     setOpenSub(null);
   };
 
-  const handleEnter = () => {
+  const handleEnter = (id) => {
     if (!canHover()) return;
     clearTimeout(closeTimer.current);
-    setDropdownOpen(true);
+    setOpenDropdown(id);
+    setOpenSub(null);
   };
 
   // Jeda singkat supaya dropdown tidak menutup saat kursor melintas
   const handleLeave = () => {
     if (!canHover()) return;
     closeTimer.current = setTimeout(() => {
-      setDropdownOpen(false);
+      setOpenDropdown(null);
       setOpenSub(null);
     }, 140);
   };
 
-  const handleTriggerClick = () => {
-    if (canHover()) setDropdownOpen(true);
-    else {
-      if (dropdownOpen) setOpenSub(null);
-      setDropdownOpen(!dropdownOpen);
+  const handleTriggerClick = (id) => {
+    const nextOpen = openDropdown === id ? null : id;
+    setOpenDropdown(nextOpen);
+    setOpenSub(null);
+
+    if (canHover()) {
+      return;
     }
   };
 
@@ -133,6 +147,130 @@ export default function Navbar() {
     "aria-current": isActive(href) ? "page" : undefined,
     className: isActive(href) ? "is-active" : undefined,
   });
+
+  // Satu baris di dalam kartu dropdown: link biasa, atau judul dengan sub-dropdown (Profile)
+  const renderSubItem = (item) =>
+    item.children ? (
+      <li
+        key={item.id}
+        onMouseEnter={() => canHover() && setOpenSub(item.id)}
+        onMouseLeave={() => canHover() && setOpenSub(null)}
+      >
+        <div
+          className={`navbar__subrow ${
+            item.children.some((child) => isActive(child.href))
+              ? "is-active"
+              : ""
+          }`}
+        >
+          <button
+            type="button"
+            className="navbar__subheading"
+            aria-label={`${openSub === item.id ? "Tutup" : "Buka"} submenu ${item.label}`}
+            aria-expanded={openSub === item.id}
+            onClick={() => setOpenSub(openSub === item.id ? null : item.id)}
+          >
+            <span>{item.label}</span>
+            <svg
+              width="10"
+              height="6"
+              viewBox="0 0 10 6"
+              aria-hidden="true"
+              style={{
+                // Desktop: panah ke samping. HP: ke bawah, berbalik ke atas saat terbuka
+                transform: isMobile
+                  ? openSub === item.id
+                    ? "rotate(180deg)"
+                    : "none"
+                  : "rotate(-90deg)",
+              }}
+            >
+              <path
+                d="M1 1l4 4 4-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <ul
+          className={`navbar__subsub ${openSub === item.id ? "is-open" : ""}`}
+        >
+          {item.children.map((child) => (
+            <li key={child.href}>
+              <Link {...linkProps(child.href)}>{child.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ) : (
+      <li key={item.href}>
+        <Link {...linkProps(item.href)}>
+          {item.label}
+          <svg
+            className="navbar__arrow"
+            width="14"
+            height="14"
+            viewBox="0 0 14 14"
+            aria-hidden="true"
+          >
+            <path
+              d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Link>
+      </li>
+    );
+
+  // Satu menu dropdown lengkap (tombol + kartu isi)
+  const renderDropdown = ({ id, label, items, active }) => {
+    const open = openDropdown === id;
+    return (
+      <li
+        className="navbar__dropdown"
+        onMouseEnter={() => handleEnter(id)}
+        onMouseLeave={handleLeave}
+      >
+        <button
+          className={`navbar__trigger ${active ? "is-active" : ""}`}
+          aria-haspopup="true"
+          aria-expanded={open}
+          onClick={() => handleTriggerClick(id)}
+        >
+          {label}
+          <svg
+            className={`navbar__caret ${open ? "is-open" : ""}`}
+            width="10"
+            height="6"
+            viewBox="0 0 10 6"
+            aria-hidden="true"
+          >
+            <path
+              d="M1 1l4 4 4-4"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+
+        <div className={`navbar__panel ${open ? "is-open" : ""}`}>
+          <ul className="navbar__submenu">{items.map(renderSubItem)}</ul>
+        </div>
+      </li>
+    );
+  };
 
   return (
     <>
@@ -160,129 +298,20 @@ export default function Navbar() {
               <Link {...linkProps("/")}>Home</Link>
             </li>
 
-            <li
-              className="navbar__dropdown"
-              ref={dropdownRef}
-              onMouseEnter={handleEnter}
-              onMouseLeave={handleLeave}
-            >
-              <button
-                className={`navbar__trigger ${
-                  pathname.startsWith("/about/") ? "is-active" : ""
-                }`}
-                aria-haspopup="true"
-                aria-expanded={dropdownOpen}
-                onClick={handleTriggerClick}
-              >
-                Tentang Kami
-                <svg
-                  className={`navbar__caret ${dropdownOpen ? "is-open" : ""}`}
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M1 1l4 4 4-4"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+            {renderDropdown({
+              id: "about",
+              label: "Tentang Kami",
+              items: menuTentangKami,
+              active: pathname.startsWith("/about/"),
+            })}
 
-              <div className={`navbar__panel ${dropdownOpen ? "is-open" : ""}`}>
-                <ul className="navbar__submenu">
-                  {menuTentangKami.map((item) =>
-                    item.children ? (
-                      <li
-                        key={item.id}
-                        onMouseEnter={() => canHover() && setOpenSub(item.id)}
-                        onMouseLeave={() => canHover() && setOpenSub(null)}
-                      >
-                        <div
-                          className={`navbar__subrow ${
-                            item.children.some((child) => isActive(child.href))
-                              ? "is-active"
-                              : ""
-                          }`}
-                        >
-                          <button
-                            type="button"
-                            className="navbar__subheading"
-                            aria-label={`${openSub === item.id ? "Tutup" : "Buka"} submenu ${item.label}`}
-                            aria-expanded={openSub === item.id}
-                            onClick={() =>
-                              setOpenSub(openSub === item.id ? null : item.id)
-                            }
-                          >
-                            <span>{item.label}</span>
-                            <svg
-                              width="10"
-                              height="6"
-                              viewBox="0 0 10 6"
-                              aria-hidden="true"
-                              style={{
-                                transform: isMobile
-                                  ? openSub === item.href
-                                    ? "rotate(180deg)"
-                                    : "none"
-                                  : "rotate(-90deg)",
-                              }}
-                            >
-                              <path
-                                d="M1 1l4 4 4-4"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-
-                        <ul
-                          className={`navbar__subsub ${openSub === item.id ? "is-open" : ""}`}
-                        >
-                          {item.children.map((child) => (
-                            <li key={child.href}>
-                              <Link {...linkProps(child.href)}>
-                                {child.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                    ) : (
-                      <li key={item.href}>
-                        <Link {...linkProps(item.href)}>
-                          {item.label}
-                          <svg
-                            className="navbar__arrow"
-                            width="14"
-                            height="14"
-                            viewBox="0 0 14 14"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M3 7h8M7.5 3.5L11 7l-3.5 3.5"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </Link>
-                      </li>
-                    ),
-                  )}
-                </ul>
-              </div>
-            </li>
+            {/* Menu baru: di antara Tentang Kami dan Client */}
+            {renderDropdown({
+              id: "layanan",
+              label: "Layanan", // ganti nama menu di sini kalau perlu
+              items: menuLayanan,
+              active: pathname.startsWith("/layanan/"),
+            })}
 
             {menuLinks.map((item) => (
               <li key={item.href}>

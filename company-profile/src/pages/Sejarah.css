@@ -24,6 +24,7 @@
 .about-page__intro {
   max-width: 80ch;
   margin: 0;
+  text-align: justify;
   font-size: 1.0625rem;
   line-height: 1.7;
 }
@@ -76,6 +77,7 @@
 .sejarah__timeline-content p {
   max-width: 80ch;
   margin: 0;
+  text-align: justify;
   font-size: 1.0625rem;
   line-height: 1.7;
 }

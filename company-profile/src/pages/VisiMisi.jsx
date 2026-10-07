@@ -8,9 +8,9 @@ export default function VisiMisi() {
       <section className="visimisi__row">
         <h2 className="visimisi__label">Visi</h2>
         <p className="visimisi__vision">
-          Meniadi salah satu perusahaan jasa inspeksi dan sertifikasi standar
+          Menjadi salah satu perusahaan jasa inspeksi dan sertifikasi standar
           nasional terbaik dan terpercaya di Indonesia dengan pelayanan prima
-          dan berkualitas handal. Meniadi salah satu perusahaan jasa inspeksi
+          dan berkualitas handal. Menjadi salah satu perusahaan jasa inspeksi
           dan sertifikasi standar nasional terbaik dan terpercaya di Indonesia
           dengan pelayanan prima dan berkualitas handal.
         </p>
