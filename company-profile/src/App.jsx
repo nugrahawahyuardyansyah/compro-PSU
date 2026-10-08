@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar';
+import WaFloat from './components/WaFloat';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Sejarah from './pages/Sejarah';
@@ -13,7 +14,8 @@ import Sertifikasi from './pages/Sertifikasi';
 import Artikel from './pages/Artikel';
 import Kontak from './pages/Kontak';
 import Login from './pages/Login';
- import LbgSertifProduk from './pages/lbg_sertif_produk';
+import Layanan from './pages/Layanan';
+import LbgSertifProduk from './pages/lbg_sertif_produk';
 import LbgPenguji from './pages/lbg_penguji';
 import LbgKalibrasi from './pages/lbg_kalibrasi';
 import LbgSertifSistem from './pages/lbg_sertif_sistem';
@@ -37,6 +39,7 @@ function App() {
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/kontak" element={<Kontak />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/layanan" element={<Layanan />} />
           <Route path="/layanan/sertifikasi-produk" element={<LbgSertifProduk />} />
           <Route path="/layanan/pengujian" element={<LbgPenguji />} />
           <Route path="/layanan/kalibrasi" element={<LbgKalibrasi />} />
@@ -44,6 +47,7 @@ function App() {
           <Route path="/layanan/pelatihan" element={<LbgPelatihan />} />
         </Routes>
       </main>
+      <WaFloat />
       <Footer />
     </div>
   );

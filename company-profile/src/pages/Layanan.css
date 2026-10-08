@@ -1,0 +1,137 @@
+.layanan {
+  --psu-navy: #0b2a5b;
+  --psu-gold: #b09b00;
+  --psu-text: #1d2733;
+  --psu-gutter: clamp(20px, 5vw, 96px);
+  --layanan-gap: 28px;
+
+  width: calc(100% - 2 * var(--psu-gutter));
+  max-width: 1180px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 56px 0 96px;
+  background: #fff;
+  color: var(--psu-text);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+.layanan__header {
+  max-width: 640px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.layanan__title {
+  position: relative;
+  margin: 0 0 28px;
+  padding-bottom: 20px;
+  color: var(--psu-navy);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.25;
+}
+
+.layanan__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--psu-gold);
+  transform: translateX(-50%);
+}
+
+.layanan__intro {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.layanan__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 56px var(--layanan-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.layanan__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc((100% - 2 * var(--layanan-gap)) / 3);
+  padding: 44px 28px 28px;
+  border: 2px solid var(--psu-navy);
+  background: #fff;
+  text-align: left;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.layanan__card:hover,
+.layanan__card:focus-within {
+  border-color: var(--psu-gold);
+  box-shadow: 0 10px 30px rgba(11, 42, 91, 0.1);
+}
+
+.layanan__no {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  padding: 0 14px;
+  background: #fff;
+  color: var(--psu-navy);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.layanan__card-title {
+  margin: 0 0 12px;
+  color: var(--psu-navy);
+  font-size: 1.375rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.layanan__card-text {
+  margin: 0 0 22px;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.layanan__link {
+  margin-top: auto;
+  color: var(--psu-navy);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.layanan__link:focus-visible {
+  outline: 2px solid var(--psu-navy);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .layanan__card {
+    flex-basis: calc((100% - var(--layanan-gap)) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .layanan {
+    padding: 36px 0 64px;
+  }
+
+  .layanan__header {
+    margin-bottom: 56px;
+  }
+
+  .layanan__card {
+    flex-basis: 100%;
+  }
+}
