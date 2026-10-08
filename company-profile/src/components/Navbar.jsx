@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HeaderTop from "./HeaderTop";
 import "./Navbar.css";
+import "./NavbarLogin.css";
 
 function useIsMobile(breakpoint) {
   const query = `(max-width: ${breakpoint}px)`;
@@ -49,7 +50,7 @@ const menuLinks = [
   { label: "Sertifikasi", href: "/sertifikasi" },
   { label: "Artikel", href: "/artikel" },
   { label: "Kontak", href: "/kontak" },
-  { label: "Login", href: "/login", cta: true },
+  { label: "Login", href: "/login", cta: true, extraClass: "navbar__login" },
 ];
 
 const canHover = () =>
@@ -112,8 +113,8 @@ export default function Navbar() {
   const handleEnter = (id) => {
     if (!canHover()) return;
     clearTimeout(closeTimer.current);
-    setOpenDropdown(id);
     setOpenSub(null);
+    setOpenDropdown(id);
   };
 
   const handleLeave = () => {
@@ -125,13 +126,9 @@ export default function Navbar() {
   };
 
   const handleTriggerClick = (id) => {
-    const nextOpen = openDropdown === id ? null : id;
-    setOpenDropdown(nextOpen);
     setOpenSub(null);
-
-    if (canHover()) {
-      return;
-    }
+    if (canHover()) setOpenDropdown(id);
+    else setOpenDropdown(openDropdown === id ? null : id);
   };
 
   const linkProps = (href) => ({
@@ -309,6 +306,7 @@ export default function Navbar() {
                     [
                       isActive(item.href) && "is-active",
                       item.cta && "navbar__cta",
+                      item.extraClass,
                     ]
                       .filter(Boolean)
                       .join(" ") || undefined
