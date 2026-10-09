@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HeaderTop from "./HeaderTop";
+import LangToggle from "./LangToggle";
 import "./Navbar.css";
 import "./NavbarLogin.css";
 
@@ -21,27 +22,154 @@ function useIsMobile(breakpoint) {
 }
 
 const menuTentangKami = [
-  {
-    id: "profile",
-    label: "Profile",
-    children: [
-      { label: "Sejarah", href: "/about/sejarah" },
-      { label: "Visi Misi", href: "/about/visi-misi" },
-      { label: "Legalitas", href: "/about/legalitas" },
-    ],
-  },
+  { label: "Profile", href: "/about/profile" },
   { label: "Struktur Organisasi", href: "/about/struktur-organisasi" },
 ];
 
 const menuLayanan = [
-  { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertifikasi-produk" },
-  { label: "Lembaga Pengujian", href: "/layanan/pengujian" },
-  { label: "Lembaga Kalibrasi", href: "/layanan/kalibrasi" },
+  {
+    label: "Lembaga Sertifikasi Produk",
+    id: "sertifikasi-produk",
+    href: "/layanan/sertifikasi-produk",
+    children: [
+      {
+        label: "legalitas",
+        href: "/layanan/sertifikasi-produk/legalitas",
+      },
+      {
+        label: "ruang lingkup",
+        href: "/layanan/sertifikasi-produk/ruang-lingkup",
+      },
+      {
+        label: "permohonan sertifikasi",
+        href: "/layanan/sertifikasi-produk/permohonan-sertifikasi",
+      },
+      {
+        label: "proses sertifikasi",
+        id: "sertifikasi-produk-proses",
+        children: [
+          {
+            label: "tipe 1B",
+            href: "/layanan/sertifikasi-produk/tipe-1b",
+          },
+          {
+            label: "tipe 5",
+            href: "/layanan/sertifikasi-produk/tipe-5",
+          },
+        ],
+      },
+      {
+        label: "ketentuan dan tata cara pengunaan SNI",
+        href: "/layanan/sertifikasi-produk/ketentuan-penggunaan-sni",
+      },
+      {
+        label: "keluhan dan banding",
+        href: "/layanan/sertifikasi-produk/keluhan-banding",
+      },
+      {
+        label: "hak dan kewajiban klien",
+        href: "/layanan/sertifikasi-produk/hak-kewajiban-klien",
+      },
+      {
+        label: "biaya dan penawaran sertifikasi",
+        href: "/layanan/sertifikasi-produk/biaya-penawaran",
+      },
+    ],
+  },
+  {
+    label: "Lembaga Pengujian",
+    id: "pengujian",
+    href: "/layanan/pengujian",
+    children: [
+      {
+        label: "legalitas",
+        href: "/layanan/pengujian/legalitas",
+      },
+      {
+        label: "ruang lingkup",
+        id: "pengujian-ruang-lingkup",
+        href: "/layanan/pengujian/ruang-lingkup",
+      },
+      {
+        label: "proses pengujian",
+        href: "/layanan/pengujian/proses-pengujian",
+      },
+      {
+        label: "biaya dan penawaran pengujian",
+        href: "/layanan/pengujian/biaya-penawaran",
+      },
+    ],
+  },
+  {
+    label: "Lembaga Kalibrasi",
+    id: "kalibrasi",
+    href: "/layanan/kalibrasi",
+    children: [
+      { label: "legalitas", href: "/layanan/kalibrasi/legalitas" },
+      {
+        label: "ruang lingkup",
+        id: "kalibrasi-ruang-lingkup",
+        href: "/layanan/kalibrasi/ruang-lingkup",
+        linkParent: true,
+        children: [
+          {
+            label: "alat kesehatan",
+            href: "/layanan/kalibrasi/ruang-lingkup/alat-kesehatan",
+          },
+        ],
+      },
+      {
+        label: "biaya dan penawaran kalibrasi",
+        href: "/layanan/kalibrasi/biaya-penawaran",
+      },
+    ],
+  },
   {
     label: "Lembaga Sertifikasi Sistem Manajemen",
+    id: "sertifikasi-sistem",
     href: "/layanan/sertifikasi-sistem-manajemen",
+    children: [
+      {
+        label: "legalitas",
+        href: "/layanan/sertifikasi-sistem-manajemen/legalitas",
+      },
+      {
+        label: "ruang lingkup",
+        href: "/layanan/sertifikasi-sistem-manajemen/ruang-lingkup",
+      },
+      {
+        label: "proses sertifikasi",
+        href: "/layanan/sertifikasi-sistem-manajemen/proses-sertifikasi",
+      },
+      {
+        label: "keluhan dan banding",
+        href: "/layanan/sertifikasi-sistem-manajemen/keluhan-banding",
+      },
+      {
+        label: "hak dan kewajiban klien",
+        href: "/layanan/sertifikasi-sistem-manajemen/hak-kewajiban-klien",
+      },
+      {
+        label: "biaya dan penawaran sertifikasi",
+        href: "/layanan/sertifikasi-sistem-manajemen/biaya-penawaran",
+      },
+    ],
   },
-  { label: "Lembaga Pelatihan", href: "/layanan/pelatihan" },
+  {
+    label: "Lembaga Pelatihan",
+    id: "pelatihan",
+    href: "/layanan/pelatihan",
+    children: [
+      {
+        label: "general training",
+        href: "/layanan/pelatihan/general-training",
+      },
+      {
+        label: "inhouse training",
+        href: "/layanan/pelatihan/inhouse-training",
+      },
+    ],
+  },
 ];
 
 const menuLinks = [
@@ -53,18 +181,61 @@ const menuLinks = [
   { label: "Login", href: "/login", cta: true, extraClass: "navbar__login" },
 ];
 
+const SUBMENU_GAP = 10;
+const VIEWPORT_MARGIN = 8;
+
+function measureSubmenuWidth(li) {
+  if (!li || window.innerWidth <= 1024) return undefined;
+  const sub = li.querySelector(":scope > .navbar__subsub");
+  if (!sub) return undefined;
+
+  const previousMaxWidth = sub.style.maxWidth;
+  const wasConstrained = sub.classList.contains("is-constrained");
+  sub.style.maxWidth = "none";
+  sub.classList.remove("is-constrained");
+  const width = sub.offsetWidth;
+  sub.style.maxWidth = previousMaxWidth;
+  if (wasConstrained) sub.classList.add("is-constrained");
+
+  const roomLeft = li.getBoundingClientRect().left - SUBMENU_GAP - VIEWPORT_MARGIN;
+  return width > roomLeft ? Math.max(roomLeft, 140) : null;
+}
+
 const canHover = () =>
   typeof window !== "undefined" &&
-  window.matchMedia("(hover: hover) and (min-width: 861px)").matches;
+  window.matchMedia("(hover: hover) and (min-width: 1025px)").matches;
 
 export default function Navbar() {
   const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [openSub, setOpenSub] = useState(null);
+  const [openSubs, setOpenSubs] = useState(() => new Set());
   const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef(null);
-  const isMobile = useIsMobile(860);
+  const isMobile = useIsMobile(1024);
+  const [subMaxWidth, setSubMaxWidth] = useState({});
+
+  const updateSubWidth = (id, li) => {
+    const next = measureSubmenuWidth(li);
+    if (next === undefined) return;
+    setSubMaxWidth((previous) =>
+      previous[id] === next ? previous : { ...previous, [id]: next }
+    );
+  };
+
+  useLayoutEffect(() => {
+    if (!openDropdown) return;
+    document
+      .querySelectorAll(".navbar__panel.is-open > .navbar__submenu > li[data-sub-id]")
+      .forEach((li) => {
+        const next = measureSubmenuWidth(li);
+        if (next === undefined) return;
+        const id = li.dataset.subId;
+        setSubMaxWidth((previous) =>
+          previous[id] === next ? previous : { ...previous, [id]: next }
+        );
+      });
+  }, [openDropdown]);
 
   const isActive = (href) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -80,18 +251,18 @@ export default function Navbar() {
     const onClickOutside = (e) => {
       if (!e.target.closest(".navbar__dropdown")) {
         setOpenDropdown(null);
-        setOpenSub(null);
+        setOpenSubs(new Set());
       }
     };
     const onEscape = (e) => {
       if (e.key === "Escape") {
         setOpenDropdown(null);
-        setOpenSub(null);
+        setOpenSubs(new Set());
         setMenuOpen(false);
       }
     };
     const onResize = () => {
-      if (window.innerWidth > 860) setMenuOpen(false);
+      if (window.innerWidth > 1024) setMenuOpen(false);
     };
     document.addEventListener("mousedown", onClickOutside);
     document.addEventListener("keydown", onEscape);
@@ -107,13 +278,41 @@ export default function Navbar() {
   const closeAll = () => {
     setMenuOpen(false);
     setOpenDropdown(null);
-    setOpenSub(null);
+    setOpenSubs(new Set());
+  };
+
+  const openSub = (id) => {
+    setOpenSubs((previous) => new Set(previous).add(id));
+  };
+
+  const closeSubtree = (id) => {
+    setOpenSubs((previous) => {
+      const next = new Set(previous);
+      for (const openId of next) {
+        if (openId === id || openId.startsWith(`${id}-`)) next.delete(openId);
+      }
+      return next;
+    });
+  };
+
+  const toggleSub = (id) => {
+    setOpenSubs((previous) => {
+      const next = new Set(previous);
+      if (next.has(id)) {
+        for (const openId of next) {
+          if (openId === id || openId.startsWith(`${id}-`)) next.delete(openId);
+        }
+      } else {
+        next.add(id);
+      }
+      return next;
+    });
   };
 
   const handleEnter = (id) => {
     if (!canHover()) return;
     clearTimeout(closeTimer.current);
-    setOpenSub(null);
+    setOpenSubs(new Set());
     setOpenDropdown(id);
   };
 
@@ -121,12 +320,12 @@ export default function Navbar() {
     if (!canHover()) return;
     closeTimer.current = setTimeout(() => {
       setOpenDropdown(null);
-      setOpenSub(null);
+      setOpenSubs(new Set());
     }, 140);
   };
 
   const handleTriggerClick = (id) => {
-    setOpenSub(null);
+    setOpenSubs(new Set());
     if (canHover()) setOpenDropdown(id);
     else setOpenDropdown(openDropdown === id ? null : id);
   };
@@ -138,28 +337,45 @@ export default function Navbar() {
     className: isActive(href) ? "is-active" : undefined,
   });
 
-  const renderSubItem = (item) =>
+  const renderSubItem = (item, index) =>
     item.children ? (
       <li
         key={item.id}
-        onMouseEnter={() => canHover() && setOpenSub(item.id)}
-        onMouseLeave={() => canHover() && setOpenSub(null)}
+        data-sub-id={item.id}
+        onMouseEnter={(event) => {
+          if (!canHover()) return;
+          openSub(item.id);
+          updateSubWidth(item.id, event.currentTarget);
+        }}
+        onMouseLeave={() => canHover() && closeSubtree(item.id)}
       >
         <div
           className={`navbar__subrow ${
-            item.children.some((child) => isActive(child.href))
+            item.children.some(
+              (child) =>
+                (child.href && isActive(child.href)) ||
+                child.children?.some((grandchild) => isActive(grandchild.href))
+            )
               ? "is-active"
               : ""
           }`}
         >
+          {item.linkParent && (
+            <Link {...linkProps(item.href)} className="navbar__subheading-link">
+              {item.label}
+            </Link>
+          )}
           <button
             type="button"
             className="navbar__subheading"
-            aria-label={`${openSub === item.id ? "Tutup" : "Buka"} submenu ${item.label}`}
-            aria-expanded={openSub === item.id}
-            onClick={() => setOpenSub(openSub === item.id ? null : item.id)}
+            aria-label={`${openSubs.has(item.id) ? "Tutup" : "Buka"} submenu ${item.label}`}
+            aria-expanded={openSubs.has(item.id)}
+            onClick={(event) => {
+              updateSubWidth(item.id, event.currentTarget.closest("li"));
+              toggleSub(item.id);
+            }}
           >
-            <span>{item.label}</span>
+            {!item.linkParent && <span>{item.label}</span>}
             <svg
               width="10"
               height="6"
@@ -167,10 +383,10 @@ export default function Navbar() {
               aria-hidden="true"
               style={{
                 transform: isMobile
-                  ? openSub === item.id
+                  ? openSubs.has(item.id)
                     ? "rotate(180deg)"
                     : "none"
-                  : "rotate(-90deg)",
+                  : "rotate(90deg)",
               }}
             >
               <path
@@ -186,17 +402,24 @@ export default function Navbar() {
         </div>
 
         <ul
-          className={`navbar__subsub ${openSub === item.id ? "is-open" : ""}`}
+          className={[
+            "navbar__subsub",
+            openSubs.has(item.id) && "is-open",
+            subMaxWidth[item.id] && "is-constrained",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+          style={
+            !isMobile && subMaxWidth[item.id]
+              ? { maxWidth: subMaxWidth[item.id] }
+              : undefined
+          }
         >
-          {item.children.map((child) => (
-            <li key={child.href}>
-              <Link {...linkProps(child.href)}>{child.label}</Link>
-            </li>
-          ))}
+          {item.children.map(renderSubItem)}
         </ul>
       </li>
     ) : (
-      <li key={item.href}>
+      <li key={`${item.label}-${index}`}>
         <Link {...linkProps(item.href)}>
           {item.label}
           <svg
@@ -264,6 +487,10 @@ export default function Navbar() {
       <HeaderTop hidden={scrolled} />
       <header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
         <nav className="navbar__inner" aria-label="Navigasi utama">
+          <div className="navbar__language">
+            <LangToggle />
+          </div>
+
           <Link to="/" className="navbar__brand" onClick={closeAll}>
             <img src="/Logo_PSU1.png" alt="Logo" className="navbar__logo" />
           </Link>

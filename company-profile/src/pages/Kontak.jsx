@@ -29,9 +29,16 @@ export default function Kontak() {
               </p>
 
               <p>
+                <b>WhatsApp: </b>
+                <a href="https://wa.me/6281908344114" target="_blank" rel="noreferrer">
+                  +62 819-0834-4114
+                </a>
+              </p>
+
+              <p>
                 <b>Email: </b>
-                <a href="mailto:psnindonesia.info@gmail.com">
-                  psnindonesia.info@gmail.com
+                <a href="mailto:psuindonesia.info@gmail.com">
+                  psuindonesia.info@gmail.com
                 </a>
               </p>
 

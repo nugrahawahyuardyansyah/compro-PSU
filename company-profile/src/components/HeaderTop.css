@@ -66,6 +66,22 @@ a.header-top__item:focus-visible {
   cursor: default;
 }
 
+.header-top__language {
+  display: flex;
+  align-items: center;
+}
+
+.header-top__language .lang-toggle {
+  border-color: var(--topbar-text);
+  background: transparent;
+  color: var(--topbar-text);
+}
+
+.header-top__language .lang-toggle:hover {
+  background: var(--topbar-text);
+  color: var(--topbar-bg);
+}
+
 @media (max-width: 860px) {
   :root {
     --topbar-height: 36px;
@@ -107,6 +123,16 @@ a.header-top__item:focus-visible {
   .header-top__item svg {
     width: 12px;
     height: 12px;
+  }
+
+  .header-top__language {
+    display: none;
+  }
+}
+
+@media (min-width: 861px) and (max-width: 1024px) {
+  .header-top__language {
+    display: none;
   }
 }
 

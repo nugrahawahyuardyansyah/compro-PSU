@@ -1,0 +1,238 @@
+.profile-page {
+  --psu-navy: #0b2a5b;
+  --psu-gold: #b09b00;
+  --psu-text: #1d2733;
+  --psu-line: #e3e7ee;
+  --psu-gutter: clamp(20px, 5vw, 96px);
+
+  width: calc(100% - 2 * var(--psu-gutter));
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 0 88px;
+  color: var(--psu-text);
+  text-align: left;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+.profile-page__center-title {
+  margin: 0 0 32px;
+  color: var(--psu-navy);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.profile-page__center-title--spaced {
+  margin-top: 88px;
+}
+
+.profile-page__section-title {
+  margin: 64px 0 24px;
+  padding-top: 40px;
+  border-top: 2px solid var(--psu-line);
+  color: var(--psu-navy);
+  font-size: 1.625rem;
+  line-height: 1.3;
+}
+
+.profile-page__subtitle {
+  margin: 40px 0 8px;
+  color: var(--psu-navy);
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+.profile-page__intro {
+  max-width: 80ch;
+  margin: 0;
+  text-align: justify;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.profile-page strong {
+  color: var(--psu-navy);
+  font-weight: 650;
+}
+
+.profile-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: 32px 56px;
+  align-items: center;
+  padding: 48px 56px;
+  border-radius: 20px;
+  background: var(--psu-navy);
+  color: #fff;
+}
+
+.profile-panel + .profile-panel {
+  margin-top: 32px;
+}
+
+.profile-panel--top {
+  align-items: start;
+}
+
+.profile-panel strong {
+  color: inherit;
+}
+
+.profile-panel__side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.profile-panel__photo {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.18);
+}
+
+.profile-panel__accreditation {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 650;
+  line-height: 1.9;
+}
+
+.profile-panel__accreditation span {
+  display: block;
+}
+
+.profile-panel__text p {
+  margin: 0 0 18px;
+  text-align: justify;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.profile-panel__quote {
+  margin: 8px 0 0;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--psu-gold);
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.profile-panel__label {
+  margin: 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.profile-panel__vision {
+  margin: 0;
+  text-align: justify;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.profile-panel__list {
+  margin: 0;
+  padding-left: 22px;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.profile-panel__list li + li {
+  margin-top: 12px;
+}
+
+.sejarah__timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sejarah__timeline-item {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 32px;
+  padding: 28px 0;
+  border-top: 1px solid var(--psu-line);
+}
+
+.sejarah__timeline-item:first-child {
+  margin-top: 16px;
+}
+
+.sejarah__timeline-period {
+  color: var(--psu-gold);
+  font-size: 1.0625rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+.sejarah__timeline-content h4 {
+  margin: 0 0 8px;
+  color: var(--psu-navy);
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.sejarah__timeline-content p {
+  max-width: 80ch;
+  margin: 0;
+  text-align: justify;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 860px) {
+  .profile-panel {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .profile-panel__photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile-panel__label {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .profile-page {
+    padding: 32px 0 56px;
+  }
+
+  .profile-page__center-title {
+    font-size: 1.875rem;
+  }
+
+  .profile-page__center-title--spaced {
+    margin-top: 64px;
+  }
+
+  .profile-page__section-title {
+    font-size: 1.375rem;
+  }
+
+  .sejarah__timeline-item {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

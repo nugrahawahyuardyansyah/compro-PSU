@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const kontak = {
   alamat: "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur - 13430",
-  email: "psnindonesia.info@gmail.com",
+  email: "psuindonesia.info@gmail.com",
   telepon: "021 - 8602367",
 };
 
@@ -83,6 +83,8 @@ export default function Footer() {
             </Link>
             <p className="footer__name">PT Penilai Standar Uji</p>
             <p className="footer__tagline">Lembaga Penilaian Kesesuaian</p>
+            <p className="footer__tagline">LSPr-051-IDN</p>
+            <p className="footer__tagline">LP-1554-IDN</p>
           </div>
 
           <div className="footer__col" style={alamatStyle}>

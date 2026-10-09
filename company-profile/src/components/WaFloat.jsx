@@ -1,6 +1,6 @@
 import "./WaFloat.css";
 
-const WA_NUMBER = "628123456789";
+const WA_NUMBER = "6281908344114";
 
 export default function WaFloat() {
   return (

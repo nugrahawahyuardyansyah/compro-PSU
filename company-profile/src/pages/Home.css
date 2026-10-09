@@ -83,8 +83,12 @@
 }
 
 @media (max-width: 860px) {
+  .home__hero {
+    margin-top: 0;
+  }
+
   .home__banner {
-    margin-top: 16px;
+    margin-top: 0;
   }
 
   .about {

@@ -1,7 +1,8 @@
 import "./HeaderTop.css";
+import LangToggle from "./LangToggle";
 
 const kontak = {
-  email: "psnindonesia.info@gmail.com",
+  email: " psuindonesia.info@gmail.com",
   telepon: "021 - 8602367",
   jam: "Sen - Jum 08.00 - 16.00 WIB",
 };
@@ -53,6 +54,10 @@ export default function HeaderTop({ hidden = false }) {
             <path d="M12 7v5l3 2" />
           </svg>
           <span>{kontak.jam}</span>
+        </div>
+
+        <div className="header-top__language">
+          <LangToggle tabIndex={tabIndex} />
         </div>
       </div>
     </div>
