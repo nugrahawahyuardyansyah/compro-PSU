@@ -1,7 +1,9 @@
+import LocalizedText from "../components/LocalizedText";
+
 export default function Portofolio() {
   return (
     <section>
-      <h1>Portofolio</h1>
+      <LocalizedText as="h1">Portofolio</LocalizedText>
     </section>
   );
 }

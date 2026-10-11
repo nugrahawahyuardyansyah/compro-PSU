@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "../context/useLanguage";
 import HeaderTop from "./HeaderTop";
 import LangToggle from "./LangToggle";
 import "./Navbar.css";
@@ -30,73 +31,73 @@ const menuLayanan = [
   {
     label: "Lembaga Sertifikasi Produk",
     id: "sertifikasi-produk",
-    href: "/layanan/sertifikasi-produk",
+    href: "/layanan/sertif-produk",
     children: [
       {
-        label: "legalitas",
-        href: "/layanan/sertifikasi-produk/legalitas",
+        label: "Legalitas",
+        href: "/layanan/sertif-produk/legalitas",
       },
       {
-        label: "ruang lingkup",
-        href: "/layanan/sertifikasi-produk/ruang-lingkup",
+        label: "Ruang Lingkup",
+        href: "/layanan/sertif-produk/ruang-lingkup",
       },
       {
-        label: "permohonan sertifikasi",
-        href: "/layanan/sertifikasi-produk/permohonan-sertifikasi",
+        label: "Permohonan Sertifikasi",
+        href: "/layanan/sertif-produk/permohonan-sertifikasi",
       },
       {
-        label: "proses sertifikasi",
+        label: "Proses Sertifikasi",
         id: "sertifikasi-produk-proses",
         children: [
           {
-            label: "tipe 1B",
-            href: "/layanan/sertifikasi-produk/tipe-1b",
+            label: "Tipe 1B",
+            href: "/layanan/sertif-produk/tipe-1b",
           },
           {
-            label: "tipe 5",
-            href: "/layanan/sertifikasi-produk/tipe-5",
+            label: "Tipe 5",
+            href: "/layanan/sertif-produk/tipe-5",
           },
         ],
       },
       {
-        label: "ketentuan dan tata cara pengunaan SNI",
-        href: "/layanan/sertifikasi-produk/ketentuan-penggunaan-sni",
+        label: "Ketentuan dan Tata Cara Penggunaan SNI",
+        href: "/layanan/sertif-produk/penggunaan-sni",
       },
       {
-        label: "keluhan dan banding",
-        href: "/layanan/sertifikasi-produk/keluhan-banding",
+        label: "Keluhan dan Banding",
+        href: "/layanan/sertif-produk/keluhan-banding",
       },
       {
-        label: "hak dan kewajiban klien",
-        href: "/layanan/sertifikasi-produk/hak-kewajiban-klien",
+        label: "Hak dan Kewajiban Klien",
+        href: "/layanan/sertif-produk/hak-kewajiban-klien",
       },
       {
-        label: "biaya dan penawaran sertifikasi",
-        href: "/layanan/sertifikasi-produk/biaya-penawaran",
+        label: "Biaya dan Penawaran Sertifikasi",
+        href: "/layanan/sertif-produk/biaya-sertif",
       },
     ],
   },
   {
     label: "Lembaga Pengujian",
     id: "pengujian",
-    href: "/layanan/pengujian",
+    href: "/layanan/penguji",
     children: [
       {
-        label: "legalitas",
-        href: "/layanan/pengujian/legalitas",
+        label: "Legalitas",
+        href: "/layanan/penguji/legalitas",
       },
       {
-        label: "ruang lingkup",
+        label: "Ruang Lingkup",
         id: "pengujian-ruang-lingkup",
-        href: "/layanan/pengujian/ruang-lingkup",
+        href: "/layanan/penguji/ruang-lingkup",
       },
       {
-        label: "proses pengujian",
-        href: "/layanan/pengujian/proses-pengujian",
+        label: "Proses Pengujian",
+        href: "/layanan/penguji/proses-pengujian",
       },
       {
-        label: "biaya dan penawaran pengujian",
-        href: "/layanan/pengujian/biaya-penawaran",
+        label: "Biaya dan Penawaran Pengujian",
+        href: "/layanan/penguji/biaya-sertif",
       },
     ],
   },
@@ -105,53 +106,54 @@ const menuLayanan = [
     id: "kalibrasi",
     href: "/layanan/kalibrasi",
     children: [
-      { label: "legalitas", href: "/layanan/kalibrasi/legalitas" },
+      { 
+        label: "Legalitas", 
+        href: "/layanan/kalibrasi/legalitas" 
+      },
       {
-        label: "ruang lingkup",
+        label: "Ruang Lingkup",
         id: "kalibrasi-ruang-lingkup",
-        href: "/layanan/kalibrasi/ruang-lingkup",
-        linkParent: true,
         children: [
           {
-            label: "alat kesehatan",
+            label: "Alat Kesehatan",
             href: "/layanan/kalibrasi/ruang-lingkup/alat-kesehatan",
           },
         ],
       },
       {
-        label: "biaya dan penawaran kalibrasi",
-        href: "/layanan/kalibrasi/biaya-penawaran",
+        label: "Biaya dan Penawaran Kalibrasi",
+        href: "/layanan/kalibrasi/biaya-sertif",
       },
     ],
   },
   {
     label: "Lembaga Sertifikasi Sistem Manajemen",
     id: "sertifikasi-sistem",
-    href: "/layanan/sertifikasi-sistem-manajemen",
+    href: "/layanan/sertif-manajemen",
     children: [
       {
-        label: "legalitas",
-        href: "/layanan/sertifikasi-sistem-manajemen/legalitas",
+        label: "Legalitas",
+        href: "/layanan/sertif-manajemen/legalitas",
       },
       {
-        label: "ruang lingkup",
-        href: "/layanan/sertifikasi-sistem-manajemen/ruang-lingkup",
+        label: "Ruang Lingkup",
+        href: "/layanan/sertif-manajemen/ruang-lingkup",
       },
       {
-        label: "proses sertifikasi",
-        href: "/layanan/sertifikasi-sistem-manajemen/proses-sertifikasi",
+        label: "Proses Sertifikasi",
+        href: "/layanan/sertif-manajemen/proses-sertifikasi",
       },
       {
-        label: "keluhan dan banding",
-        href: "/layanan/sertifikasi-sistem-manajemen/keluhan-banding",
+        label: "Keluhan dan Banding",
+        href: "/layanan/sertif-manajemen/keluhan-banding",
       },
       {
-        label: "hak dan kewajiban klien",
-        href: "/layanan/sertifikasi-sistem-manajemen/hak-kewajiban-klien",
+        label: "Hak dan Kewajiban Klien",
+        href: "/layanan/sertif-manajemen/hak-kewajiban-klien",
       },
       {
-        label: "biaya dan penawaran sertifikasi",
-        href: "/layanan/sertifikasi-sistem-manajemen/biaya-penawaran",
+        label: "Biaya dan Penawaran Sertifikasi",
+        href: "/layanan/sertif-manajemen/biaya-sertif",
       },
     ],
   },
@@ -161,11 +163,11 @@ const menuLayanan = [
     href: "/layanan/pelatihan",
     children: [
       {
-        label: "general training",
+        label: "General Training",
         href: "/layanan/pelatihan/general-training",
       },
       {
-        label: "inhouse training",
+        label: "Inhouse Training",
         href: "/layanan/pelatihan/inhouse-training",
       },
     ],
@@ -207,10 +209,10 @@ const canHover = () =>
 
 export default function Navbar() {
   const { pathname } = useLocation();
+  const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubs, setOpenSubs] = useState(() => new Set());
-  const [scrolled, setScrolled] = useState(false);
   const closeTimer = useRef(null);
   const isMobile = useIsMobile(1024);
   const [subMaxWidth, setSubMaxWidth] = useState({});
@@ -241,17 +243,35 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 4);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!menuOpen) return undefined;
+
+    const scrollY = window.scrollY;
+    const bodyStyles = {
+      position: document.body.style.position,
+      top: document.body.style.top,
+      width: document.body.style.width,
+      overflow: document.body.style.overflow,
+    };
+
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      Object.assign(document.body.style, bodyStyles);
+      window.scrollTo(0, scrollY);
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     const onClickOutside = (e) => {
       if (!e.target.closest(".navbar__dropdown")) {
         setOpenDropdown(null);
         setOpenSubs(new Set());
+      }
+      if (!e.target.closest(".navbar")) {
+        setMenuOpen(false);
       }
     };
     const onEscape = (e) => {
@@ -295,17 +315,17 @@ export default function Navbar() {
     });
   };
 
-  const toggleSub = (id) => {
+  const toggleSub = (id, ancestors) => {
     setOpenSubs((previous) => {
-      const next = new Set(previous);
-      if (next.has(id)) {
+      if (previous.has(id)) {
+        const next = new Set(previous);
         for (const openId of next) {
           if (openId === id || openId.startsWith(`${id}-`)) next.delete(openId);
         }
-      } else {
-        next.add(id);
+        return next;
       }
-      return next;
+
+      return new Set([...ancestors, id]);
     });
   };
 
@@ -337,7 +357,7 @@ export default function Navbar() {
     className: isActive(href) ? "is-active" : undefined,
   });
 
-  const renderSubItem = (item, index) =>
+  const renderSubItem = (item, index, ancestors = []) =>
     item.children ? (
       <li
         key={item.id}
@@ -362,20 +382,20 @@ export default function Navbar() {
         >
           {item.linkParent && (
             <Link {...linkProps(item.href)} className="navbar__subheading-link">
-              {item.label}
+              {t(item.label)}
             </Link>
           )}
           <button
             type="button"
             className="navbar__subheading"
-            aria-label={`${openSubs.has(item.id) ? "Tutup" : "Buka"} submenu ${item.label}`}
+            aria-label={`${t(openSubs.has(item.id) ? "Tutup" : "Buka")} submenu ${t(item.label)}`}
             aria-expanded={openSubs.has(item.id)}
             onClick={(event) => {
               updateSubWidth(item.id, event.currentTarget.closest("li"));
-              toggleSub(item.id);
+              toggleSub(item.id, ancestors);
             }}
           >
-            {!item.linkParent && <span>{item.label}</span>}
+            {!item.linkParent && <span>{t(item.label)}</span>}
             <svg
               width="10"
               height="6"
@@ -415,13 +435,15 @@ export default function Navbar() {
               : undefined
           }
         >
-          {item.children.map(renderSubItem)}
+          {item.children.map((child, childIndex) =>
+            renderSubItem(child, childIndex, [...ancestors, item.id])
+          )}
         </ul>
       </li>
     ) : (
       <li key={`${item.label}-${index}`}>
         <Link {...linkProps(item.href)}>
-          {item.label}
+          {t(item.label)}
           <svg
             className="navbar__arrow"
             width="14"
@@ -446,7 +468,7 @@ export default function Navbar() {
     const open = openDropdown === id;
     return (
       <li
-        className="navbar__dropdown"
+        className={`navbar__dropdown navbar__dropdown--${id}`}
         onMouseEnter={() => handleEnter(id)}
         onMouseLeave={handleLeave}
       >
@@ -456,7 +478,7 @@ export default function Navbar() {
           aria-expanded={open}
           onClick={() => handleTriggerClick(id)}
         >
-          {label}
+          {t(label)}
           <svg
             className={`navbar__caret ${open ? "is-open" : ""}`}
             width="10"
@@ -476,7 +498,9 @@ export default function Navbar() {
         </button>
 
         <div className={`navbar__panel ${open ? "is-open" : ""}`}>
-          <ul className="navbar__submenu">{items.map(renderSubItem)}</ul>
+          <ul className="navbar__submenu">
+            {items.map((item, index) => renderSubItem(item, index))}
+          </ul>
         </div>
       </li>
     );
@@ -484,9 +508,18 @@ export default function Navbar() {
 
   return (
     <>
-      <HeaderTop hidden={scrolled} />
-      <header className={`navbar ${scrolled ? "is-scrolled" : ""}`}>
-        <nav className="navbar__inner" aria-label="Navigasi utama">
+      <HeaderTop />
+      {menuOpen && (
+        <div
+          className="navbar__backdrop"
+          aria-hidden="true"
+          onClick={closeAll}
+        />
+      )}
+      <header
+        className={`navbar ${menuOpen ? "is-menu-open" : ""}`}
+      >
+        <nav className="navbar__inner" aria-label={t("Navigasi utama")}>
           <div className="navbar__language">
             <LangToggle />
           </div>
@@ -497,7 +530,7 @@ export default function Navbar() {
 
           <button
             className={`navbar__toggle ${menuOpen ? "is-open" : ""}`}
-            aria-label={menuOpen ? "Tutup menu" : "Buka menu"}
+            aria-label={t(menuOpen ? "Tutup menu" : "Buka menu")}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           >
@@ -507,10 +540,12 @@ export default function Navbar() {
           </button>
 
           <ul className={`navbar__links ${menuOpen ? "is-open" : ""}`}>
-            <li>
-              <Link {...linkProps("/")}>Home</Link>
+            <li className="navbar__home-link">
+              <Link {...linkProps("/")}>{t("Home")}</Link>
             </li>
-
+            <li className="navbar__menu-label" aria-hidden="true">
+              {t("Menu")}
+            </li>
             {renderDropdown({
               id: "about",
               label: "Tentang Kami",
@@ -539,7 +574,7 @@ export default function Navbar() {
                       .join(" ") || undefined
                   }
                 >
-                  {item.label}
+                  {t(item.label)}
                 </Link>
               </li>
             ))}

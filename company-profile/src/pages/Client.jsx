@@ -1,3 +1,5 @@
+import LocalizedText from "../components/LocalizedText";
+
 export default function Client() {
-  return <section><h1>Client</h1></section>;
+  return <section><LocalizedText as="h1">Client</LocalizedText></section>;
 }

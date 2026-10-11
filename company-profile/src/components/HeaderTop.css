@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
 
 :root {
-  --topbar-height: 40px;
+  --topbar-height: 50px;
   --topbar-bg: #0a2152;
   --topbar-text: #ffffff;
   --topbar-accent: #c49c24;
@@ -13,18 +13,13 @@
   left: 0;
   right: 0;
   z-index: 51;
+  box-sizing: border-box;
   height: var(--topbar-height);
-  background: var(--topbar-bg);
+  border-top: 3px solid var(--topbar-accent);
+  background: linear-gradient(105deg, #071a40 0%, #0a2152 48%, #16396e 100%);
   color: var(--topbar-text);
   font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 14px;
-  transition: transform 0.25s, visibility 0s;
-}
-
-.header-top.is-hidden {
-  transform: translateY(-100%);
-  visibility: hidden;
-  transition: transform 0.25s, visibility 0s 0.25s;
 }
 
 .header-top__inner {
@@ -84,7 +79,7 @@ a.header-top__item:focus-visible {
 
 @media (max-width: 860px) {
   :root {
-    --topbar-height: 36px;
+    --topbar-height: 42px;
   }
 
   .header-top {
@@ -137,8 +132,7 @@ a.header-top__item:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .header-top,
-  .header-top.is-hidden {
+  .header-top {
     transition: none;
   }
 }

@@ -25,21 +25,21 @@
 }
 
 .tipe-5__button {
-  padding: 10px 22px;
+  padding: 8px 16px;
   border: 1.5px solid var(--service-line);
   border-radius: 999px;
   background: #fff;
   color: var(--service-text);
   font: inherit;
-  font-size: 0.975rem;
+  font-size: 0.875rem;
   cursor: pointer;
-  transition: border-color 0.15s, background-color 0.15s, color 0.15s,
-    transform 0.15s;
-}
-
-.tipe-5__button:hover {
-  border-color: var(--service-gold);
-  transform: translateY(-1px);
+  box-shadow: 0 3px 0 var(--service-gold);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .tipe-5__button:focus-visible {
@@ -52,7 +52,19 @@
   background: var(--service-navy);
   color: #fff;
   font-weight: 600;
-  box-shadow: 0 3px 0 var(--service-gold);
+}
+
+@media (hover: hover) {
+  .tipe-5__button:hover {
+    border-color: var(--service-navy);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 4px 0 var(--service-gold), 0 6px 10px rgba(11, 42, 91, 0.14);
+  }
+}
+
+.tipe-5__button:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 1px 0 var(--service-gold);
 }
 
 .service-detail--tipe-5 p,
@@ -83,6 +95,19 @@
 
   .service-detail--tipe-5 h1 {
     font-size: 1.5rem;
+  }
+
+  .tipe-5__buttons {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .tipe-5__button {
+    min-width: 0;
+    flex: 0 1 auto;
+    padding: 5px 6px;
+    font-size: 0.899rem;
+    white-space: nowrap;
   }
 }
 

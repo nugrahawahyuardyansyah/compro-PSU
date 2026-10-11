@@ -28,7 +28,6 @@ import TestingScope from './pages/layanan/pengujian/Ruang_lingkup_penguji';
 import TestingProcess from './pages/layanan/pengujian/Proses_penguji';
 import TestingFees from './pages/layanan/pengujian/Biaya_penawaran_penguji';
 import CalibrationLegalitas from './pages/layanan/kalibrasi/Legalitas_kalibrasi';
-import CalibrationScope from './pages/layanan/kalibrasi/Ruang_lingkup_kalibrasi';
 import CalibrationFees from './pages/layanan/kalibrasi/Biaya_penawaran_kalibrasi';
 import ManagementLegalitas from './pages/layanan/sertifikasi-sistem-manajemen/Legalitas_sertif_sistem';
 import ManagementScope from './pages/layanan/sertifikasi-sistem-manajemen/Ruang_lingkup_sertif_sistem';
@@ -56,29 +55,28 @@ function App() {
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/kontak" element={<Kontak />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/layanan/sertifikasi-produk/legalitas" element={<ProductLegalitas />} />
-          <Route path="/layanan/sertifikasi-produk/ruang-lingkup" element={<ProductScope />} />
-          <Route path="/layanan/sertifikasi-produk/permohonan-sertifikasi" element={<ProductApplication />} />
-          <Route path="/layanan/sertifikasi-produk/tipe-1b" element={<ProductType1B />} />
-          <Route path="/layanan/sertifikasi-produk/tipe-5" element={<ProductType5 />} />
-          <Route path="/layanan/sertifikasi-produk/ketentuan-penggunaan-sni" element={<ProductSniRules />} />
-          <Route path="/layanan/sertifikasi-produk/keluhan-banding" element={<ProductComplaints />} />
-          <Route path="/layanan/sertifikasi-produk/hak-kewajiban-klien" element={<ProductClientRights />} />
-          <Route path="/layanan/sertifikasi-produk/biaya-penawaran" element={<ProductFees />} />
-          <Route path="/layanan/pengujian/legalitas" element={<TestingLegalitas />} />
-          <Route path="/layanan/pengujian/ruang-lingkup" element={<TestingScope />} />
+          <Route path="/layanan/sertif-produk/legalitas" element={<ProductLegalitas />} />
+          <Route path="/layanan/sertif-produk/ruang-lingkup" element={<ProductScope />} />
+          <Route path="/layanan/sertif-produk/permohonan-sertifikasi" element={<ProductApplication />} />
+          <Route path="/layanan/sertif-produk/tipe-1b" element={<ProductType1B />} />
+          <Route path="/layanan/sertif-produk/tipe-5" element={<ProductType5 />} />
+          <Route path="/layanan/sertif-produk/penggunaan-sni" element={<ProductSniRules />} />
+          <Route path="/layanan/sertif-produk/keluhan-banding" element={<ProductComplaints />} />
+          <Route path="/layanan/sertif-produk/hak-kewajiban-klien" element={<ProductClientRights />} />
+          <Route path="/layanan/sertif-produk/biaya-sertif" element={<ProductFees />} />
+          <Route path="/layanan/penguji/legalitas" element={<TestingLegalitas />} />
+          <Route path="/layanan/penguji/ruang-lingkup" element={<TestingScope />} />
           <Route path="/layanan/kalibrasi/ruang-lingkup/alat-kesehatan" element={<KalibrasiAlatKesehatan />} />
-          <Route path="/layanan/pengujian/proses-pengujian" element={<TestingProcess />} />
-          <Route path="/layanan/pengujian/biaya-penawaran" element={<TestingFees />} />
+          <Route path="/layanan/penguji/proses-pengujian" element={<TestingProcess />} />
+          <Route path="/layanan/penguji/biaya-sertif" element={<TestingFees />} />
           <Route path="/layanan/kalibrasi/legalitas" element={<CalibrationLegalitas />} />
-          <Route path="/layanan/kalibrasi/ruang-lingkup" element={<CalibrationScope />} />
-          <Route path="/layanan/kalibrasi/biaya-penawaran" element={<CalibrationFees />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/legalitas" element={<ManagementLegalitas />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/ruang-lingkup" element={<ManagementScope />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/proses-sertifikasi" element={<ManagementProcess />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/keluhan-banding" element={<ManagementComplaints />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/hak-kewajiban-klien" element={<ManagementClientRights />} />
-          <Route path="/layanan/sertifikasi-sistem-manajemen/biaya-penawaran" element={<ManagementFees />} />
+          <Route path="/layanan/kalibrasi/biaya-sertif" element={<CalibrationFees />} />
+          <Route path="/layanan/sertif-manajemen/legalitas" element={<ManagementLegalitas />} />
+          <Route path="/layanan/sertif-manajemen/ruang-lingkup" element={<ManagementScope />} />
+          <Route path="/layanan/sertif-manajemen/proses-sertifikasi" element={<ManagementProcess />} />
+          <Route path="/layanan/sertif-manajemen/keluhan-banding" element={<ManagementComplaints />} />
+          <Route path="/layanan/sertif-manajemen/hak-kewajiban-klien" element={<ManagementClientRights />} />
+          <Route path="/layanan/sertif-manajemen/biaya-sertif" element={<ManagementFees />} />
           <Route path="/layanan/pelatihan/general-training" element={<GeneralTraining />} />
           <Route path="/layanan/pelatihan/inhouse-training" element={<InhouseTraining />} />
         </Routes>

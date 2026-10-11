@@ -1,5 +1,6 @@
 import "./HeaderTop.css";
 import LangToggle from "./LangToggle";
+import { useLanguage } from "../context/useLanguage";
 
 const kontak = {
   email: " psuindonesia.info@gmail.com",
@@ -19,16 +20,15 @@ const iconProps = {
   "aria-hidden": true,
 };
 
-export default function HeaderTop({ hidden = false }) {
-  const tabIndex = hidden ? -1 : undefined;
+export default function HeaderTop() {
+  const { t } = useLanguage();
 
   return (
-    <div className={`header-top ${hidden ? "is-hidden" : ""}`} aria-hidden={hidden}>
+    <div className="header-top">
       <div className="header-top__inner">
         <a
           className="header-top__item header-top__item--email"
           href={`mailto:${kontak.email}`}
-          tabIndex={tabIndex}
         >
           <svg {...iconProps}>
             <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -40,7 +40,6 @@ export default function HeaderTop({ hidden = false }) {
         <a
           className="header-top__item header-top__item--phone"
           href={`tel:${kontak.telepon.replace(/[\s-]/g, "")}`}
-          tabIndex={tabIndex}
         >
           <svg {...iconProps}>
             <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
@@ -53,11 +52,11 @@ export default function HeaderTop({ hidden = false }) {
             <circle cx="12" cy="12" r="9" />
             <path d="M12 7v5l3 2" />
           </svg>
-          <span>{kontak.jam}</span>
+          <span>{t(kontak.jam)}</span>
         </div>
 
         <div className="header-top__language">
-          <LangToggle tabIndex={tabIndex} />
+          <LangToggle />
         </div>
       </div>
     </div>

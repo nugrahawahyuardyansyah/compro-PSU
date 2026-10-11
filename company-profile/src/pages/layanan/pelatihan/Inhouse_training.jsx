@@ -1,5 +1,6 @@
 import "./Inhouse_training.css";
+import LocalizedText from "../../../components/LocalizedText";
 
 export default function Inhousetraining() {
-  return <section><h1>Inhouse Training</h1></section>;
+  return <section><LocalizedText as="h1">Inhouse Training</LocalizedText></section>;
 }

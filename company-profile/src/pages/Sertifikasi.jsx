@@ -1,3 +1,5 @@
+import LocalizedText from "../components/LocalizedText";
+
 export default function Sertifikasi() {
-  return <section><h1>Sertifikasi</h1></section>;
+  return <section><LocalizedText as="h1">Sertifikasi</LocalizedText></section>;
 }

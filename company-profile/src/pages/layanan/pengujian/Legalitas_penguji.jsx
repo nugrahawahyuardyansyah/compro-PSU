@@ -1,5 +1,6 @@
 import "./Legalitas_penguji.css";
+import LocalizedText from "../../../components/LocalizedText";
 
 export default function Legalitaspenguji() {
-  return <section><h1>Legalitas</h1></section>;
+  return <section><LocalizedText as="h1">Legalitas</LocalizedText></section>;
 }

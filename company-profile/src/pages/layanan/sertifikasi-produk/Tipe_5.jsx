@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLanguage } from "../../../context/useLanguage";
 import "./Tipe_5.css";
 
 const certificationStages = [
@@ -8,12 +9,13 @@ const certificationStages = [
 ];
 
 export default function Tipe5() {
+  const { t } = useLanguage();
   const [activeStage, setActiveStage] = useState(certificationStages[0]);
 
   return (
     <section className="service-detail--tipe-5">
-      <h1>Tipe 5</h1>
-      <div className="tipe-5__buttons" aria-label="Tahapan sertifikasi">
+      <h1>{t("Tipe 5")}</h1>
+      <div className="tipe-5__buttons" aria-label={t("Tahapan sertifikasi")}>
         {certificationStages.map((stage) => (
           <button
             key={stage}
@@ -22,7 +24,7 @@ export default function Tipe5() {
             aria-pressed={stage === activeStage}
             onClick={() => setActiveStage(stage)}
           >
-            {stage}
+            {t(stage)}
           </button>
         ))}
       </div>

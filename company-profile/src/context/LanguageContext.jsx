@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { LanguageContext } from "./LanguageContextBase";
+import { translateText } from "./translations";
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
@@ -18,8 +19,10 @@ export function LanguageProvider({ children }) {
     setLang((prev) => (prev === "id" ? "en" : "id"));
   };
 
+  const t = (text) => translateText(text, lang);
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang, toggleLang }}>
+    <LanguageContext.Provider value={{ lang, setLang, toggleLang, t }}>
       {children}
     </LanguageContext.Provider>
   );

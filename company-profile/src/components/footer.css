@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&display=swap");
 
 .footer {
+  --footer-fs-body: 15px;
+  --footer-fs-name: 18px;
+  --footer-fs-title: 15px;
+  --footer-fs-bar: 14px;
+
   --footer-bg: #f1f3f7;
   --footer-ink: #14233b;
   --footer-muted: #5b6778;
@@ -10,7 +15,7 @@
   background: var(--footer-bg);
   color: var(--footer-ink);
   font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 15px;
+  font-size: var(--footer-fs-body);
   line-height: 1.6;
   text-align: left;
 
@@ -20,71 +25,66 @@
 
 .footer__inner {
   box-sizing: border-box;
-  width: 100%;
-  padding: 56px clamp(20px, 4vw, 56px) 24px;
+  width: min(1474px, calc(100% - 2 * clamp(20px, 4vw, 56px)));
+  margin: 0 auto;
+  padding: 56px 0 24px;
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
-  gap: 48px;
+  gap: 0 48px;
+}
+
+.footer__brand {
+  justify-self: start;
+  text-align: left;
+}
+
+.footer .footer__logo-link {
+  display: inline-block;
+  background-image: none;
 }
 
 .footer__logo {
   display: block;
-  height: 44px;
+  height: 52px;
   width: auto;
   margin-bottom: 16px;
 }
 
 .footer .footer__name {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--footer-fs-name);
   font-weight: 600;
   color: var(--footer-ink);
 }
 
 .footer .footer__tagline {
   margin: 2px 0 0;
+  font-size: var(--footer-fs-body);
   color: var(--footer-muted);
 }
 
-.footer_col {
-  justify-self: start;
-  max-width: none;
-  text-align: left;
-}
-
-.footer .footer_col a {
-  background-position: 100% 100%;
-}
-
 .footer__col {
-  justify-self: end;
   max-width: 340px;
+}
+
+.footer__col--center {
+  justify-self: center;
+  text-align: center;
+}
+
+.footer__col--end {
+  justify-self: end;
   text-align: right;
-}
-
-.footer .footer__col a {
-  background-position: 100% 100%;
-}
-
-.footer .footer_title {
-  margin: 0 0 14px;
-  text-align: left;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: 0;
-  color: var(--footer-ink);
 }
 
 .footer .footer__title {
   margin: 0 0 14px;
   font-family: inherit;
-  font-size: 15px;
+  font-size: var(--footer-fs-title);
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: 0;
@@ -94,13 +94,14 @@
 .footer .footer__list {
   margin: 0;
   padding: 0;
-  list-style: none;
   font-style: normal;
+  font-size: var(--footer-fs-body);
   color: var(--footer-ink);
 }
 
 .footer .footer__list p {
   margin: 0 0 10px;
+  font-size: inherit;
   color: var(--footer-ink);
 }
 
@@ -118,6 +119,10 @@
   transition: background-size 0.2s;
 }
 
+.footer__col--end a {
+  background-position: 100% 100%;
+}
+
 .footer a:hover,
 .footer a:focus-visible {
   background-size: 100% 1.5px;
@@ -128,38 +133,75 @@
   outline-offset: 3px;
 }
 
-.footer__brand a {
-  background-image: none;
-  display: inline-block;
+.footer .footer__logo-link:hover,
+.footer .footer__logo-link:focus-visible {
+  background-size: 0 0;
 }
 
 .footer__bar {
   margin-top: 48px;
   padding-top: 20px;
   border-top: 1px solid var(--footer-line);
-  color: var(--footer-muted);
-  font-size: 14px;
 }
 
 .footer .footer__bar p {
   margin: 0;
+  font-size: var(--footer-fs-bar);
   color: var(--footer-muted);
 }
 
 @media (max-width: 860px) {
+  .footer {
+    --footer-fs-body: 13px;
+    --footer-fs-name: 20px;
+    --footer-fs-title: 13px;
+    --footer-fs-bar: 12px;
+
+    line-height: 1.5;
+  }
+
   .footer__inner {
-    padding-top: 40px;
+    padding: 28px 0 20px;
   }
 
-  .footer__brand,
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .footer__col {
-    justify-self: start !important;
-    text-align: left !important;
-    max-width: none !important;
+    max-width: none;
   }
 
-  .footer .footer__col a {
+  .footer__col--center,
+  .footer__col--end {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .footer__col--end a {
     background-position: 0 100%;
+  }
+
+  .footer .footer__email {
+    font-size: 15px;
+  }
+
+  .footer .footer__title {
+    margin-bottom: 4px;
+  }
+
+  .footer .footer__list p {
+    margin-bottom: 6px;
+  }
+
+  .footer__bar {
+    margin-top: 24px;
+    padding-top: 14px;
+  }
+
+  .footer .footer__bar p {
+    padding-right: 64px;
   }
 }
 

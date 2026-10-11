@@ -71,6 +71,23 @@
   border-radius: 20px;
   background: var(--psu-navy);
   color: #fff;
+  box-shadow: 0 6px 0 #c49a3c;
+  transition:
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .profile-panel:hover {
+    transform: perspective(900px) translateY(-8px) scale(1.025);
+    box-shadow: 0 10px 0 #c49a3c, 0 24px 40px rgba(11, 42, 91, 0.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-panel {
+    transition: none;
+  }
 }
 
 .profile-panel + .profile-panel {
@@ -104,9 +121,9 @@
 
 .profile-panel__accreditation {
   margin: 0;
-  font-size: 1.0625rem;
+  font-size: 0.88rem;
   font-weight: 650;
-  line-height: 1.9;
+  line-height: 1.55;
 }
 
 .profile-panel__accreditation span {
@@ -114,19 +131,14 @@
 }
 
 .profile-panel__text p {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   text-align: justify;
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-.profile-panel__quote {
-  margin: 8px 0 0;
-  padding: 4px 0 4px 20px;
-  border-left: 3px solid var(--psu-gold);
-  font-size: 1.25rem;
-  font-weight: 650;
-  line-height: 1.5;
+.profile-panel__text p:last-child {
+  margin-bottom: 0;
 }
 
 .profile-panel__label {
@@ -135,24 +147,29 @@
   font-weight: 700;
   line-height: 1.2;
   text-align: center;
+  color: #d7be00;
 }
 
 .profile-panel__vision {
   margin: 0;
   text-align: justify;
-  font-size: 1.125rem;
+  font-size: 0.9rem;
   line-height: 1.75;
 }
 
 .profile-panel__list {
   margin: 0;
   padding-left: 22px;
-  font-size: 1.0625rem;
-  line-height: 1.75;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .profile-panel__list li + li {
-  margin-top: 12px;
+  margin-top: 7px;
+}
+
+li::marker{
+  color: #d7be00;
 }
 
 .sejarah__timeline {
@@ -202,6 +219,17 @@
     gap: 20px;
     padding: 32px 24px;
     border-radius: 16px;
+  }
+
+  .profile-panel__accreditation {
+    font-size: 0.99rem;
+    line-height: 1.2;
+  }
+ 
+  .profile-panel__text p {
+    margin-bottom: 15px;
+    font-size: 0.89rem;
+    line-height: 1.2;
   }
 
   .profile-panel__photo {

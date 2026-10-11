@@ -1,3 +1,5 @@
+import LocalizedText from "../components/LocalizedText";
+
 export default function Login() {
-	return <section><h1>Login</h1></section>;
+	return <section><LocalizedText as="h1">Login</LocalizedText></section>;
 }
