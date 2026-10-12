@@ -11,6 +11,23 @@ const BANNERS = [
   "/Logo_PSU_banner6.jpeg",
 ];
 
+// Foto ada di folder public/. Urutan di sini = urutan tampil (3 foto per baris).
+const SNI_PRODUCTS = [
+  { file: "1. beras.jpg", id: "Beras", en: "Rice" },
+  { file: "2. kakao.jpg", id: "Kakao", en: "Cocoa" },
+  { file: "3. kopi.jpg", id: "Kopi", en: "Coffee" },
+  { file: "4. biskuit.jpg", id: "Biskuit", en: "Biscuit" },
+  { file: "5. gula.jpg", id: "Gula", en: "Sugar" },
+  { file: "6. minyak.jpg", id: "Minyak", en: "Oil" },
+  { file: "7. air.jpg", id: "Air", en: "Water" },
+  { file: "8. pupuk.jpg", id: "Pupuk", en: "Fertilizer" },
+  {
+    file: "9. cookware&flatware.jpg",
+    id: "Cookware & Flatware",
+    en: "Cookware & Flatware",
+  },
+];
+
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const { lang } = useLanguage();
@@ -67,6 +84,28 @@ export default function Home() {
         </blockquote>
       </section>
 
+      <section className="sni" aria-labelledby="sni-title">
+        <h2 id="sni-title" className="sni__title">
+          {lang === "en" ? "Mandatory SNI Products" : "Produk SNI Wajib"}
+        </h2>
+
+        <ul className="sni__grid">
+          {SNI_PRODUCTS.map((product) => {
+            const label = lang === "en" ? product.en : product.id;
+            return (
+              <li className="sni__item" key={product.file}>
+                <img
+                  className="sni__photo"
+                  src={encodeURI(`/${product.file}`)}
+                  alt={label}
+                  loading="lazy"
+                />
+                <span className="sni__label">{label}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </main>
   );
 }
