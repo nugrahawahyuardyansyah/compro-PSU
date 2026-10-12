@@ -1,26 +1,48 @@
 import "./Profile.css";
+import { useEffect } from "react";
 import { useLanguage } from "../context/useLanguage";
 
-const ABOUT_IMAGE = "/about-regulations-gavel-scales.jpeg";
+const ABOUT_IMAGE = "/Logo_PSU_banner1.jpeg";
 
 export default function Profile() {
   const { lang, t } = useLanguage();
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    const revealElements = document.querySelectorAll(".reveal");
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="profile-page">
       <section aria-labelledby="about-title">
-        <h1 id="about-title" className="profile-page__center-title">
+        <h1 id="about-title" className="profile-page__center-title reveal reveal-dark">
           {t("About Us")}
         </h1>
 
-        <div className="profile-panel">
-          <div className="profile-panel__side">
-            <img
-              className="profile-panel__photo"
-              src={ABOUT_IMAGE}
-              alt={t("Palu hakim dan timbangan keadilan")}
-            />
-            <p className="profile-panel__accreditation">
+        <div className="about-showcase">
+          <div className="about-showcase__portrait reveal reveal-left">
+            <div className="about-showcase__img-wrapper">
+              <img
+                className="about-showcase__photo"
+                src={ABOUT_IMAGE}
+                alt={t("Palu hakim dan timbangan keadilan")}
+              />
+            </div>
+            <div className="about-showcase__accreditation">
               <strong>{t("Akreditasi KAN")}</strong>
               <span>LSPr-051-IDN</span>
               <span>LP-1554-IDN</span>
@@ -28,40 +50,42 @@ export default function Profile() {
               <span>{t("Penunjukkan Kemenperin")}</span>
               <span>{t("Penunjukkan Kemendag")}</span>
               <span>{t("Penunjukkan Kementan")}</span>
-            </p>
+            </div>
           </div>
 
-          <div className="profile-panel__text">
-            <p>
-              <strong>PT Penilai Standar Uji (PSU)</strong>{" "}
-              {lang === "en"
-                ? "is a company operating in the conformity assessment ecosystem and providing quality support services. We offer a range of services to help industries ensure their products, processes, and services meet applicable standards and requirements."
-                : "merupakan perusahaan yang bergerak dalam ekosistem penilaian kesesuaian dan layanan pendukung mutu. Kami menyediakan berbagai layanan yang mendukung kebutuhan industri dalam memastikan produk, proses, dan layanan memenuhi standar serta persyaratan yang berlaku."}
-            </p>
-            <p>
-              {lang === "en"
-                ? "Our certification scope covers products such as rice, cocoa, coffee, biscuits, sugar, cooking oil, water, fertilizers, cookware, flatware, and traditional markets."
-                : "Ruang lingkup sertifikasi kami mencakup produk seperti Beras, Kakao, Kopi, Biskuit, Gula, Minyak, Air, Pupuk, Cookware, Flatware, dan Pasar Rakyat."}
-            </p>
-            <p>
-              {lang === "en"
-                ? "Supported by professional, competent, and experienced personnel, PSU continues to develop its services in product certification, laboratory testing, calibration, training, and laboratory and compliance consulting."
-                : "Didukung oleh tenaga profesional, kompeten, dan berpengalaman, PSU terus mengembangkan layanan melalui sertifikasi produk, pengujian laboratorium, kalibrasi, pelatihan, serta konsultasi laboratorium dan kepatuhan."}
-            </p>
-            <p>
-              {lang === "en"
-                ? "We are committed to delivering services with integrity, competence, independence, collaboration, and sustainability, helping industries, communities, and stakeholders improve the quality and trustworthiness of products and services."
-                : "Kami berkomitmen memberikan layanan yang integritas, kompeten, independen, kolaboratif, dan berkelanjutan untuk membantu industri, masyarakat, dan para pemangku kepentingan meningkatkan kualitas dan kepercayaan terhadap produk maupun layanan."}
-            </p>
+          <div className="about-showcase__landscape reveal reveal-right reveal-dark">
+            <div className="about-showcase__text-content">
+              <p>
+                <strong>PT Penilai Standar Uji (PSU)</strong>{" "}
+                {lang === "en"
+                  ? "is a company operating in the conformity assessment ecosystem and providing quality support services. We offer a range of services to help industries ensure their products, processes, and services meet applicable standards and requirements."
+                  : "merupakan perusahaan yang bergerak dalam ekosistem penilaian kesesuaian dan layanan pendukung mutu. Kami menyediakan berbagai layanan yang mendukung kebutuhan industri dalam memastikan produk, proses, dan layanan memenuhi standar serta persyaratan yang berlaku."}
+              </p>
+              <p>
+                {lang === "en"
+                  ? "Our certification scope covers products such as rice, cocoa, coffee, biscuits, sugar, cooking oil, water, fertilizers, cookware, flatware, and traditional markets."
+                  : "Ruang lingkup sertifikasi kami mencakup produk seperti Beras, Kakao, Kopi, Biskuit, Gula, Minyak, Air, Pupuk, Cookware, Flatware, dan Pasar Rakyat."}
+              </p>
+              <p>
+                {lang === "en"
+                  ? "Supported by professional, competent, and experienced personnel, PSU continues to develop its services in product certification, laboratory testing, calibration, training, and laboratory and compliance consulting."
+                  : "Didukung oleh tenaga profesional, kompeten, dan berpengalaman, PSU terus mengembangkan layanan melalui sertifikasi produk, pengujian laboratorium, kalibrasi, pelatihan, serta konsultasi laboratorium dan kepatuhan."}
+              </p>
+              <p>
+                {lang === "en"
+                  ? "We are committed to delivering services with integrity, competence, independence, collaboration, and sustainability, helping industries, communities, and stakeholders improve the quality and trustworthiness of products and services."
+                  : "Kami berkomitmen memberikan layanan yang integritas, kompeten, independen, kolaboratif, dan berkelanjutan untuk membantu industri, masyarakat, dan para pemangku kepentingan meningkatkan kualitas dan kepercayaan terhadap produk maupun layanan."}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <h2 className="profile-page__section-title">
+      <h2 className="profile-page__section-title reveal reveal-dark">
         {t("Sejarah PT Penilai Standar Uji (PSU)")}
       </h2>
 
-      <p className="profile-page__intro">
+      <p className="profile-page__intro reveal reveal-dark">
         {lang === "en"
           ? "PT Penilai Standar Uji (formerly operating as PT Penilai Standar Nasional / PSN) was established to provide conformity assessment, standardization, and product testing services in Indonesia. The company operates a Product Certification Body (LSPro-PSU) and a Testing Laboratory responsible for issuing SNI Mark Product Certificates (SPPT-SNI) in accordance with Law No. 20 of 2014 on Standardization and Conformity Assessment."
           : <>PT Penilai Standar Uji (sebelumnya beroperasi dengan nama{" "}
@@ -74,12 +98,12 @@ export default function Profile() {
             Penilaian Kesesuaian.</>}
       </p>
 
-      <h3 className="profile-page__subtitle">
+      <h3 className="profile-page__subtitle reveal reveal-dark">
         {t("Masa Perkembangan dan Milestones Utama")}
       </h3>
 
       <ol className="sejarah__timeline">
-        <li className="sejarah__timeline-item">
+        <li className="sejarah__timeline-item reveal reveal-dark">
           <span className="sejarah__timeline-period">2020 – 2030</span>
           <div className="sejarah__timeline-content">
             <h4>{t("Akreditasi Awal & Perluasan LSPro")}</h4>
@@ -105,7 +129,7 @@ export default function Profile() {
           </div>
         </li>
 
-        <li className="sejarah__timeline-item">
+        <li className="sejarah__timeline-item reveal reveal-dark">
           <span className="sejarah__timeline-period">2021</span>
           <div className="sejarah__timeline-content">
             <h4>{t("Akreditasi Laboratorium Pengujian")}</h4>
@@ -127,7 +151,7 @@ export default function Profile() {
           </div>
         </li>
 
-        <li className="sejarah__timeline-item">
+        <li className="sejarah__timeline-item reveal reveal-dark">
           <span className="sejarah__timeline-period">2023</span>
           <div className="sejarah__timeline-content">
             <h4>{t("Perkembangan Lingkup Layanan Pengujian")}</h4>
@@ -149,7 +173,7 @@ export default function Profile() {
           </div>
         </li>
 
-        <li className="sejarah__timeline-item">
+        <li className="sejarah__timeline-item reveal reveal-dark">
           <span className="sejarah__timeline-period">
             {lang === "en" ? "2024 – Present" : "2024 – Sekarang"}
           </span>
@@ -177,12 +201,12 @@ export default function Profile() {
       <section aria-labelledby="visimisi-title">
         <h2
           id="visimisi-title"
-          className="profile-page__center-title profile-page__center-title--spaced"
+          className="profile-page__center-title profile-page__center-title--spaced reveal reveal-dark"
         >
           {t("Visi dan Misi")}
         </h2>
 
-        <div className="profile-panel">
+        <div className="profile-panel reveal reveal-left reveal-dark">
           <h3 className="profile-panel__label">{t("Visi")}</h3>
           <p className="profile-panel__vision">
             {lang === "en"
@@ -193,7 +217,7 @@ export default function Profile() {
           </p>
         </div>
 
-        <div className="profile-panel profile-panel--top">
+        <div className="profile-panel profile-panel--top reveal reveal-right reveal-dark">
           <h3 className="profile-panel__label">{t("Misi")}</h3>
           <ul className="profile-panel__list">
             <li>{t("Meningkatkan profesionalisme perusahaan dan karyawan")}</li>

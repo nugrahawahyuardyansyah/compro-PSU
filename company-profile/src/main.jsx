@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 
+window.history.scrollRestoration = 'manual'
+window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>

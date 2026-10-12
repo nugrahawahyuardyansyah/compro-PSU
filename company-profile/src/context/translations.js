@@ -30,8 +30,6 @@ const english = {
   "General Training": "General Training",
   "Inhouse Training": "In-house Training",
   "Client": "Clients",
-  "Portofolio": "Portfolio",
-  "Sertifikasi": "Certifications",
   "Artikel": "Articles",
   "Kontak": "Contact",
   "Login": "Login",

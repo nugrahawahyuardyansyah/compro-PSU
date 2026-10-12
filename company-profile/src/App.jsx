@@ -8,8 +8,10 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Struktur from './pages/Struktur';
 import Client from './pages/Client';
-import Portofolio from './pages/Portofolio';
-import Sertifikasi from './pages/Sertifikasi';
+import ClientProductCertification from './pages/client/ClientProductCertification';
+import ClientTesting from './pages/client/ClientTesting';
+import ClientCalibration from './pages/client/ClientCalibration';
+import ClientManagementSystemCertification from './pages/client/ClientManagementSystemCertification';
 import Artikel from './pages/Artikel';
 import Kontak from './pages/Kontak';
 import Login from './pages/Login';
@@ -37,6 +39,10 @@ import ManagementClientRights from './pages/layanan/sertifikasi-sistem-manajemen
 import ManagementFees from './pages/layanan/sertifikasi-sistem-manajemen/Biaya_penawaran_sertif_sistem';
 import GeneralTraining from './pages/layanan/pelatihan/General_training';
 import InhouseTraining from './pages/layanan/pelatihan/Inhouse_training';
+import Pertanian from './pages/sectors/Pertanian';
+import Tanaman from './pages/sectors/Tanaman';
+import Pangan from './pages/sectors/Pangan';
+import Kimia from './pages/sectors/Kimia';
 
 function App() {
   return (
@@ -47,11 +53,17 @@ function App() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/pertanian" element={<Pertanian />} />
+          <Route path="/tanaman" element={<Tanaman />} />
+          <Route path="/pangan" element={<Pangan />} />
+          <Route path="/kimia" element={<Kimia />} />
           <Route path="/about/profile" element={<Profile />} />
           <Route path="/about/struktur-organisasi" element={<Struktur />} />
           <Route path="/client" element={<Client />} />
-          <Route path="/portofolio" element={<Portofolio />} />
-          <Route path="/sertifikasi" element={<Sertifikasi />} />
+          <Route path="/client/sertifikasi-produk" element={<ClientProductCertification />} />
+          <Route path="/client/pengujian" element={<ClientTesting />} />
+          <Route path="/client/kalibrasi" element={<ClientCalibration />} />
+          <Route path="/client/sertifikasi-sistem-manajemen" element={<ClientManagementSystemCertification />} />
           <Route path="/artikel" element={<Artikel />} />
           <Route path="/kontak" element={<Kontak />} />
           <Route path="/login" element={<Login />} />

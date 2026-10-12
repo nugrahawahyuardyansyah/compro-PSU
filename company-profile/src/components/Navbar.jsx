@@ -174,10 +174,26 @@ const menuLayanan = [
   },
 ];
 
+const menuClient = [
+  {
+    label: "Lembaga Sertifikasi Produk",
+    href: "/client/sertifikasi-produk",
+  },
+  {
+    label: "Lembaga Pengujian",
+    href: "/client/pengujian",
+  },
+  {
+    label: "Lembaga Kalibrasi",
+    href: "/client/kalibrasi",
+  },
+  {
+    label: "Lembaga Sertifikasi Sistem Manajemen",
+    href: "/client/sertifikasi-sistem-manajemen",
+  },
+];
+
 const menuLinks = [
-  { label: "Client", href: "/Client" },
-  { label: "Portofolio", href: "/portofolio" },
-  { label: "Sertifikasi", href: "/sertifikasi" },
   { label: "Artikel", href: "/artikel" },
   { label: "Kontak", href: "/kontak" },
   { label: "Login", href: "/login", cta: true, extraClass: "navbar__login" },
@@ -558,6 +574,13 @@ export default function Navbar() {
               label: "Layanan",
               items: menuLayanan,
               active: pathname.startsWith("/layanan/"),
+            })}
+
+            {renderDropdown({
+              id: "client",
+              label: "Client",
+              items: menuClient,
+              active: pathname.startsWith("/client"),
             })}
 
             {menuLinks.map((item) => (

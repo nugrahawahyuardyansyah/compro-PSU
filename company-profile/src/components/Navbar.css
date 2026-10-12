@@ -416,7 +416,19 @@
 
   .navbar__dropdown--layanan > .navbar__panel > .navbar__submenu {
     margin-left: 12px;
-    padding-left: 6px;
+    padding-left: 0;
+    border-left: 2px solid var(--nav-line);
+  }
+
+  .navbar__dropdown--client > .navbar__panel > .navbar__submenu {
+    margin-left: 12px;
+    padding-left: 0;
+    border-left: 2px solid var(--nav-line);
+  }
+
+  .navbar__dropdown--about > .navbar__panel > .navbar__submenu {
+    margin-left: 12px;
+    padding-left: 0;
     border-left: 2px solid var(--nav-line);
   }
 
@@ -427,7 +439,19 @@
     > li
     > .navbar__subrow
     > .navbar__subheading {
-    padding: 10px 8px 10px 10px;
+    padding: 10px 8px 10px 4px;
+  }
+
+  .navbar__dropdown--client > .navbar__panel > .navbar__submenu > li > a {
+    justify-content: flex-start;
+    padding: 10px 8px;
+    text-align: left;
+  }
+
+  .navbar__dropdown--about > .navbar__panel > .navbar__submenu > li > a {
+    justify-content: flex-start;
+    padding: 10px 8px;
+    text-align: left;
   }
 
   .navbar__submenu a {
@@ -542,8 +566,8 @@
 
 @media (max-width: 1024px) {
   .navbar__dropdown--layanan .navbar__subsub {
-    margin-left: 22px;
-    padding-left: 6px;
+    margin-left: 12px;
+    padding-left: 2px;
   }
 
   .navbar__dropdown--layanan .navbar__subsub > li + li {
