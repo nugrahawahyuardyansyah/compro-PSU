@@ -43,6 +43,48 @@ const addressStyle = {
   color: "#14233b",
 };
 
+function ContactIcon({ type }) {
+  const paths = {
+    email: (
+      <path
+        d="M3 5.5h18v13H3zM3.5 6l8.5 6.5L20.5 6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
+    phone: (
+      <path
+        d="M7.2 3.5h3l1.5 4-2 1.7a15.2 15.2 0 0 0 5.1 5.1l1.7-2 4 1.5v3c0 1-.8 1.8-1.8 1.8C10.2 18.6 5.4 13.8 5.4 7.3c0-1 .8-1.8 1.8-1.8Z"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    ),
+    whatsapp: (
+      <path
+        d="M20.4 3.6A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L.1 24l6.3-1.7a11.9 11.9 0 0 0 5.7 1.5c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.6-8.3ZM12.1 21.8a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.7-.3-.4a9.9 9.9 0 0 1-1.5-5.2c0-5.5 4.4-9.9 9.9-9.9 2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9Zm5.4-7.4c-.3-.1-1.8-.9-2.1-1-.3-.1-.5-.1-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.2-.1.3-.3.5-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.3-.6-.5Z"
+        fill="currentColor"
+      />
+    ),
+  };
+
+  return (
+    <svg
+      className="footer__contact-icon"
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {paths[type]}
+    </svg>
+  );
+}
+
 export default function Footer() {
   const { t } = useLanguage();
   const isMobile = useIsMobile(BATAS_MOBILE);
@@ -85,7 +127,7 @@ export default function Footer() {
         gridRow: 2,
         alignSelf: "baseline",
         justifySelf: "center",
-        textAlign: "center",
+      textAlign: "left",
         maxWidth: 340,
         paddingTop: 0,
       };
@@ -97,12 +139,12 @@ export default function Footer() {
         gridRow: 2,
         alignSelf: "baseline",
         justifySelf: "end",
-        textAlign: "right",
+      textAlign: "left",
         maxWidth: 340,
         paddingTop: 0,
       };
 
-  const linkStyle = { backgroundPosition: isMobile ? "0 100%" : "100% 100%" };
+  const linkStyle = { backgroundPosition: "0 100%" };
 
   const barStyle = { maxWidth: LEBAR_ISI };
 
@@ -121,7 +163,7 @@ export default function Footer() {
             </Link>
 
             <div className="footer__brand-text" style={brandTextStyle}>
-              <p className="footer__name">PT Penilai Standar Uji</p>
+              <p className="footer__name">PT PENILAI STANDAR UJI</p>
               <p className="footer__tagline">
                 {t("Lembaga Penilaian Kesesuaian")}
               </p>
@@ -146,19 +188,22 @@ export default function Footer() {
             <address className="footer__list" style={addressStyle}>
               <p>
                 <a
-                  className="footer__email"
+                  className="footer__contact-link"
                   href={`mailto:${kontak.email}`}
                   style={linkStyle}
                 >
-                  {kontak.email}
+                  <ContactIcon type="email" />
+                  <span>{kontak.email}</span>
                 </a>
               </p>
               <p>
                 <a
                   href={`tel:${kontak.telepon.replace(/[\s-]/g, "")}`}
+                  className="footer__contact-link"
                   style={linkStyle}
                 >
-                  {kontak.telepon}
+                  <ContactIcon type="phone" />
+                  <span>{kontak.telepon}</span>
                 </a>
               </p>
               <p>
@@ -166,9 +211,11 @@ export default function Footer() {
                   href={`https://wa.me/${kontak.whatsapp}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="footer__contact-link"
                   style={linkStyle}
                 >
-                  {kontak.whatsapp}
+                  <ContactIcon type="whatsapp" />
+                  <span>{kontak.whatsapp}</span>
                 </a>
               </p>
             </address>
@@ -177,7 +224,7 @@ export default function Footer() {
 
         <div className="footer__bar" style={barStyle}>
           <p>
-            © {new Date().getFullYear()} PT Penilai Standar Uji.{" "}
+            © {new Date().getFullYear()} PT PENILAI STANDAR UJI.{" "}
             {t("Seluruh hak cipta dilindungi.")}
           </p>
         </div>

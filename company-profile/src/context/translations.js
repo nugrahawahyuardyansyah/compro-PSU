@@ -47,20 +47,22 @@ const english = {
   "Sen - Jum 08.00 - 16.00 WIB": "Mon - Fri, 8:00 AM - 4:00 PM (WIB)",
   "Senin – Jumat": "Monday – Friday",
   "Buka di Google Maps": "Open in Google Maps",
-  "Lokasi PT Penilai Standar Uji": "PT Penilai Standar Uji location",
+  "Lokasi PT PENILAI STANDAR UJI": "PT PENILAI STANDAR UJI location",
   "Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.":
     "Please contact us for more information.",
   "Akreditasi KAN": "KAN Accreditation",
-  "Penunjukkan Kemenperin": "Appointed by the Ministry of Industry",
-  "Penunjukkan Kemendag": "Appointed by the Ministry of Trade",
-  "Penunjukkan Kementan": "Appointed by the Ministry of Agriculture",
-  "Sejarah PT Penilai Standar Uji (PSU)": "History of PT Penilai Standar Uji (PSU)",
+  "Tim bekerja sama dalam diskusi": "Team collaborating in a discussion",
+  "Penunjukkan Kemenperin": "Industry Ministry",
+  "Penunjukkan Kemendag": "Trade Ministry",
+  "Penunjukkan Kementan": "Agriculture Ministry",
+  "Sejarah PT PENILAI STANDAR UJI (PSU)": "History of PT PENILAI STANDAR UJI (PSU)",
   "Masa Perkembangan dan Milestones Utama": "Development and Key Milestones",
   "Akreditasi Awal & Perluasan LSPro": "Initial Accreditation & Product Certification Scope Expansion",
   "Akreditasi Laboratorium Pengujian": "Testing Laboratory Accreditation",
   "Perkembangan Lingkup Layanan Pengujian": "Expansion of Testing Services",
   "Transformasi Identitas Perusahaan": "Corporate Identity Transformation",
   "Visi dan Misi": "Vision and Mission",
+  "Visi & Misi": "Vision & Mission",
   "Visi": "Vision",
   "Misi": "Mission",
   "Struktur Kepemimpinan": "Leadership Structure",
@@ -68,6 +70,10 @@ const english = {
   "Direktur": "Director",
   "Komisaris": "Commissioner",
   "Tahapan sertifikasi": "Certification stages",
+  "Dokumen legalitas": "Legality documents",
+  "Sertifikasi Akreditasi": "Accreditation Certification",
+  "Lampiran Ruang Lingkup": "Scope Attachment",
+  "NIB": "Business Identification Number",
   "Profile": "Profile",
   "Sertifikasi Awal": "Initial Certification",
   "Surveilan": "Surveillance",
@@ -78,10 +84,10 @@ const english = {
   "Lembaga Penilaian Kesesuaian": "Conformity Assessment Body",
   "Seluruh hak cipta dilindungi.": "All rights reserved.",
   "Palu hakim dan timbangan keadilan": "A judge's gavel and scales of justice",
-  "PT Penilai Standar Uji | Lembaga Penilaian Kesesuaian (LPK)":
-    "PT Penilai Standar Uji | Conformity Assessment Body (LPK)",
-  "Menjadi salah satu perusahaan jasa inspeksi dan sertifikasi standar nasional terbaik dan terpercaya di Indonesia dengan pelayanan prima dan berkualitas handal.":
-    "To become one of Indonesia's leading and most trusted national standards inspection and certification service companies, delivering excellent and reliable quality.",
+  "PT PENILAI STANDAR UJI | Lembaga Penilaian Kesesuaian (LPK)":
+    "PT PENILAI STANDAR UJI | Conformity Assessment Body (LPK)",
+  "Menjadi lembaga penilaian kesesuaian dan pengembangan kompetensi yang unggul, independen, profesional, inovatif, serta terpercaya di tingkat nasional dan internasional dalam mendukung peningkatan mutu, keselamatan, keandalan, dan daya saing industri secara berkelanjutan.":
+    "To become an excellent, independent, professional, innovative, and trusted conformity assessment and competency development body at the national and international levels, supporting sustainable improvements in industry quality, safety, reliability, and competitiveness.",
   "Meningkatkan profesionalisme perusahaan dan karyawan":
     "Improve the professionalism of the company and its employees",
   "Meningkatkan kualitas tenaga kerja dengan keahlian terbaik":

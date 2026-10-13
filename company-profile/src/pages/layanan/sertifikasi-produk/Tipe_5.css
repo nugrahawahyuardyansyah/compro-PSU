@@ -25,9 +25,9 @@
 }
 
 .tipe-5__button {
-  padding: 8px 16px;
+  padding: 10px 22px;
   border: 1.5px solid var(--service-line);
-  border-radius: 999px;
+  border-radius: 10px;
   background: #fff;
   color: var(--service-text);
   font: inherit;
@@ -100,12 +100,13 @@
   .tipe-5__buttons {
     flex-wrap: nowrap;
     gap: 6px;
+    overflow-x: auto;
+    padding: 2px 2px 8px;
   }
 
   .tipe-5__button {
-    min-width: 0;
-    flex: 0 1 auto;
-    padding: 5px 6px;
+    flex: 0 0 auto;
+    padding: 8px 12px;
     font-size: 0.899rem;
     white-space: nowrap;
   }

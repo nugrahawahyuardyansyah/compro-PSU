@@ -84,7 +84,7 @@ export default function Kontak() {
         <div className="contact-card">
           <div className="contact-card__title">
             <PinIcon />
-            <span>{t("PT Penilai Standar Uji | Lembaga Penilaian Kesesuaian (LPK)")}</span>
+            <span>{t("PT PENILAI STANDAR UJI | Lembaga Penilaian Kesesuaian (LPK)")}</span>
           </div>
 
           <div className="contact-content">
@@ -161,7 +161,7 @@ export default function Kontak() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title={t("Lokasi PT Penilai Standar Uji")}
+                title={t("Lokasi PT PENILAI STANDAR UJI")}
               ></iframe>
             </div>
           </div>

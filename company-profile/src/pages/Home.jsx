@@ -87,7 +87,7 @@ export default function Home() {
               i === 0 ? " home__banner--office" : ""
             }`}
             src={banner}
-            alt={`PT Penilai Standar Uji ${i + 1}`}
+            alt={`PT PENILAI STANDAR UJI ${i + 1}`}
           />
         ))}
         
@@ -104,7 +104,7 @@ export default function Home() {
       <section className="about">
         <div className="about__body">
           <p className="reveal reveal-fade" style={{ transitionDelay: "0.1s" }}>
-            <strong>PT Penilai Standar Uji (PSU)</strong>{" "}
+            <strong>PT PENILAI STANDAR UJI (PSU)</strong>{" "}
             {lang === "en"
               ? "is a company operating in the conformity assessment ecosystem and providing quality support services. We offer a range of services to help industries ensure their products, processes, and services meet applicable standards and requirements."
               : "merupakan perusahaan yang bergerak dalam ekosistem penilaian kesesuaian dan layanan pendukung mutu. Kami menyediakan berbagai layanan yang mendukung kebutuhan industri dalam memastikan produk, proses, dan layanan memenuhi standar serta persyaratan yang berlaku."}
@@ -163,6 +163,28 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      <section className="tracking-banner reveal">
+        <div className="tracking-banner__bg-left"></div>
+        <div className="tracking-banner__bg-right"></div>
+        
+        <div className="tracking-banner__content">
+          <h3>
+            {lang === "en"
+              ? "Want to Track Your Service Application Status?"
+              : "Ingin Lacak Status Pengajuan Layanan Anda?"}
+          </h3>
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="tracking-banner__btn"
+          >
+            Klik Disini!
+          </a>
+        </div>
+      </section>
+
     </main>
   );
 }

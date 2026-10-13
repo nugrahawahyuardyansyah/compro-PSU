@@ -133,6 +133,18 @@
   outline-offset: 3px;
 }
 
+.footer .footer__contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__contact-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
+
 .footer .footer__logo-link:hover,
 .footer .footer__logo-link:focus-visible {
   background-size: 0 0;
