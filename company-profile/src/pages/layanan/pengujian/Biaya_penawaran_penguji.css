@@ -96,13 +96,13 @@
   font-weight: 650;
   text-align: center;
   text-decoration: none;
-  background: #101112;
+  background: #11336a;
   border-radius: 999px;
   transition: background-color 160ms ease, transform 160ms ease;
 }
 
 .testing-fees__whatsapp-button:hover {
-  background: #2e3338;
+  background: #09224a;
 }
 
 .testing-fees__whatsapp-button:focus-visible {

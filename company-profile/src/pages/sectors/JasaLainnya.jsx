@@ -7,14 +7,14 @@ const COMMODITIES = [
   {
     id: "Kalibrasi Alat Laboratorium",
     en: "Laboratory Equipment Calibration",
-    image: "/lab_kalibrasi.png",
+    image: "/lab_kalibrasi.webp",
     descId: "Layanan kalibrasi untuk berbagai alat laboratorium termasuk pipet, buret, termometer, dan alat analisis lainnya. Memastikan akurasi dan traceability pengukuran sesuai standar nasional dan internasional.",
     descEn: "Calibration services for various laboratory equipment including pipettes, burettes, thermometers, and other analytical instruments. Ensuring measurement accuracy and traceability according to national and international standards."
   },
   {
     id: "Pelatihan Teknis Laboratorium",
     en: "Laboratory Technical Training",
-    image: "/_pelatihan.png",
+    image: "/_pelatihan.webp",
     descId: "Program pelatihan teknis untuk staf laboratorium mencakup Good Laboratory Practice (GLP), Standard Operating Procedure (SOP), dan teknik analisis khusus. Dirancang untuk meningkatkan kompetensi dan mutu hasil pengujian.",
     descEn: "Technical training programs for laboratory staff covering Good Laboratory Practice (GLP), Standard Operating Procedure (SOP), and specialized analysis techniques. Designed to enhance competency and quality of test results."
   }
@@ -50,7 +50,7 @@ export default function JasaLainnya() {
       <div className="sector-detail-page__hero">
         <img
           className="sector-detail-page__image"
-          src="/Banner_Jasa.png"
+          src="/Banner_Jasa.webp"
           alt={title}
         />
         <div className="sector-detail-page__hero-text">

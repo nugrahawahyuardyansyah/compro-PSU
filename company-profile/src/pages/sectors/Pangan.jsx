@@ -7,14 +7,14 @@ const COMMODITIES = [
   {
     id: "Air Mineral",
     en: "Mineral Water",
-    image: "/Air Mineral.jpg",
+    image: "/Air Mineral.webp",
     descId: "PT menyediakan layanan pengujian laboratorium untuk air mineral, memastikan kualitas dan keamanan produk sesuai standar nasional (SNI) dan regulasi BPOM. Uji parameter fisik, kimia, dan mikrobiologi untuk menjamin kebersihan dan kesesuaian komposisi mineral.",
     descEn: "PT provides laboratory testing services for mineral water, ensuring product quality and safety comply with national standards (SNI) and BPOM regulations. Testing physical, chemical, and microbiological parameters to guarantee hygiene and mineral composition compliance.",
   },
   {
     id: "Air Demineral",
     en: "Demineralized Water",
-    image: "/Air Demineral.jpg",
+    image: "/Air Demineral.webp",
     descId: "Layanan pengujian air demineralisasi mencakup analisis kadar ion, konduktivitas, pH, dan kontaminan untuk memverifikasi tingkat kemurnian air. Memastikan air demineral memenuhi spesifikasi industri farmasi, elektronik, dan laboratorium.",
     descEn: "Demineralized water testing services include ion content analysis, conductivity, pH, and contaminants to verify water purity levels. Ensuring demineral water meets pharmaceutical, electronics, and laboratory industry specifications.",
   }
@@ -50,7 +50,7 @@ export default function Pangan() {
       <div className="sector-detail-page__hero">
         <img
           className="sector-detail-page__image"
-          src="/3.pangan.jpg"
+          src="/3.pangan.webp"
           alt={title}
         />
         <div className="sector-detail-page__hero-text">

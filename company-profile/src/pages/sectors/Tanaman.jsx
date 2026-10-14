@@ -7,7 +7,7 @@ const COMMODITIES = [
   {
     id: "Biskuit",
     en: "Biscuits",
-    image: "/Biskuit.jpg",
+    image: "/Biskuit.webp",
     descId:
       "Pengujian mikrobiologi (TPC, E. coli, Salmonella), kadar air, aktivitas air, dan kontaminan kimia sesuai SNI & BPOM.",
     descEn:
@@ -16,7 +16,7 @@ const COMMODITIES = [
   {
     id: "Gula Kristal",
     en: "Crystal Sugar",
-    image: "/Gula kristal.jpg",
+    image: "/Gula kristal.webp",
     descId:
       "Analisis rendemen, warna ICUMSA, keasaman, sulfated ash, pestisida, dan logam berat untuk standar SNI gula.",
     descEn:
@@ -25,7 +25,7 @@ const COMMODITIES = [
   {
     id: "Kopi Instan",
     en: "Instant Coffee",
-    image: "/Kopi Instan.jpg",
+    image: "/Kopi Instan.webp",
     descId:
       "Uji kafein, kadar air, kelarutan, aktivitas air, sensoris, mikrobiologi, oksida etilen, dan akrilamida.",
     descEn:
@@ -34,7 +34,7 @@ const COMMODITIES = [
   {
     id: "Kopi Sangrai dan Kopi Bubuk",
     en: "Roasted and Ground Coffee",
-    image: "/kopi sangrai dan kopi bubuk.jpg",
+    image: "/kopi sangrai dan kopi bubuk.webp",
     descId:
       "Kafein, kadar air, abu, keasaman, cupping, mikrobiologi, okratoksin A, dan logam berat per SNI kopi.",
     descEn:
@@ -43,7 +43,7 @@ const COMMODITIES = [
   {
     id: "Kopi Gula Krimer",
     en: "Coffee, Sugar, and Creamer",
-    image: "/Kopi Gula Krimer.jpg",
+    image: "/Kopi Gula Krimer.webp",
     descId:
       "Komposisi nutrisi (gula, lemak, protein), mikrobiologi, kafein, aktivitas air, pewarna & pengawet sintetis.",
     descEn:
@@ -52,7 +52,7 @@ const COMMODITIES = [
   {
     id: "Kakao Bubuk",
     en: "Cocoa Powder",
-    image: "/Kakao Bubuk.jpg",
+    image: "/Kakao Bubuk.webp",
     descId:
       "Lemak kakao, kadar air, keasaman, kelarutan, teobromin, mikrobiologi (Salmonella, kapang), pestisida, logam berat.",
     descEn:
@@ -61,7 +61,7 @@ const COMMODITIES = [
   {
     id: "Minyak Goreng Sawit",
     en: "Palm Cooking Oil",
-    image: "/Minyak Goreng Sawit.jpg",
+    image: "/Minyak Goreng Sawit.webp",
     descId:
       "Bilangan asam (FFA), peroksida, anisidin, kadar air, warna Lovibond, profil asam lemak, 3-MCPD, GE, logam berat.",
     descEn:
@@ -70,7 +70,7 @@ const COMMODITIES = [
   {
     id: "Minyak Goreng",
     en: "Cooking Oil",
-    image: "/Minyak Goreng.jpg",
+    image: "/Minyak Goreng.webp",
     descId:
       "Parameter kimia (bilangan asam, peroksida, anisidin, yodium), sensoris, mikrobiologi, pestisida, logam berat.",
     descEn:
@@ -121,7 +121,7 @@ export default function Tanaman() {
       <div className="sector-detail-page__hero">
         <img
           className="sector-detail-page__image"
-          src="/2.tanaman.jpg"
+          src="/2.tanaman.webp"
           alt={title}
         />
         <div className="sector-detail-page__hero-text">

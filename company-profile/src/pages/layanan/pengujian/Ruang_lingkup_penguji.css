@@ -7,23 +7,21 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Header halaman */
 .ruang-lingkup__header {
   width: 100%;
-  padding: 10px 16px;
+  padding: 20px 16px;
   box-sizing: border-box;
-  background-color: #80a0ff;
+  background-color: #0b2a5b;
   color: #ffffff;
   text-align: center;
 }
 
 .ruang-lingkup__header h2 {
   margin: 0;
-  font-size: 14px;
+  font-size: 25px;
   font-weight: 600;
 }
 
-/* Area tabel */
 .ruang-lingkup__content {
   width: 100%;
   padding: 24px 16px;
@@ -38,7 +36,6 @@
   border: 1px solid #d1d5db;
 }
 
-/* Tabel */
 .ruang-lingkup__table {
   width: 100%;
   border-collapse: collapse;
@@ -48,7 +45,6 @@
   line-height: 1.6;
 }
 
-/* Header dan isi sel */
 .ruang-lingkup__table th,
 .ruang-lingkup__table td {
   border: 1px solid #d1d5db;
@@ -64,7 +60,6 @@
   text-align: center;
 }
 
-/* Lebar ketiga kolom */
 .ruang-lingkup__table th:nth-child(1),
 .ruang-lingkup__table td.ruang-lingkup__bidang {
   width: 30%;
@@ -78,7 +73,6 @@
   width: 20%;
 }
 
-/* Bidang pengujian yang menggunakan rowSpan */
 .ruang-lingkup__bidang {
   text-align: center;
   vertical-align: middle;
@@ -86,12 +80,10 @@
   background-color: #ffffff;
 }
 
-/* Bahan atau produk */
 .ruang-lingkup__produk {
   text-align: left;
 }
 
-/* Nomor SNI dan ikon */
 .ruang-lingkup__buku {
   text-align: center;
 }
@@ -109,7 +101,6 @@
   text-align: left;
 }
 
-/* Tombol download */
 .ruang-lingkup__download {
   display: inline-flex;
   flex-shrink: 0;
@@ -136,12 +127,10 @@
   height: 14px;
 }
 
-/* Efek hover */
 .ruang-lingkup__table tbody tr:hover td {
   background-color: #f8faff;
 }
 
-/* Responsif tablet dan HP */
 @media (max-width: 768px) {
   .ruang-lingkup__content {
     padding: 16px 10px;

@@ -39,6 +39,7 @@ import ManagementClientRights from './pages/layanan/sertifikasi-sistem-manajemen
 import ManagementFees from './pages/layanan/sertifikasi-sistem-manajemen/Biaya_penawaran_sertif_sistem';
 import GeneralTraining from './pages/layanan/pelatihan/General_training';
 import InhouseTraining from './pages/layanan/pelatihan/Inhouse_training';
+import ExhouseTraining from './pages/layanan/pelatihan/Exhouse_training';
 import Pertanian from './pages/sectors/Pertanian';
 import Tanaman from './pages/sectors/Tanaman';
 import Pangan from './pages/sectors/Pangan';
@@ -95,6 +96,7 @@ function App() {
           <Route path="/layanan/sertif-manajemen/biaya-sertif" element={<ManagementFees />} />
           <Route path="/layanan/pelatihan/general-training" element={<GeneralTraining />} />
           <Route path="/layanan/pelatihan/inhouse-training" element={<InhouseTraining />} />
+          <Route path="/layanan/pelatihan/exhouse-training" element={<ExhouseTraining />} />
         </Routes>
       </main>
       <WaFloat />

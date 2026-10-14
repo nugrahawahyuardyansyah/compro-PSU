@@ -1,12 +1,15 @@
 import "./Biaya_penawaran_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
+import { useLanguage } from "../../../context/useLanguage";
 
 const WHATSAPP_NUMBER = "6281908344114";
 const WHATSAPP_MESSAGE =
   "Halo, saya ingin meminta informasi dan penawaran biaya pengujian produk. Produk atau sampel yang akan diuji adalah [jenis produk], dengan parameter pengujian [parameter]. Mohon informasi mengenai metode atau standar pengujian, estimasi biaya, dan waktu penyelesaian. Terima kasih.";
 
 export default function Biayapenawaranpenguji() {
-  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const { t } = useLanguage();
+  const whatsappMessage = encodeURIComponent(t(WHATSAPP_MESSAGE));
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
 
   return (
     <section className="service-detail--biaya-penawaran-penguji">

@@ -92,8 +92,9 @@ export default function Kontak() {
               <ul className="contact-list">
                 <ContactItem icon={<PinIcon />} label="Alamat">
                   <p>
-                    Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok
-                    Bambu, Kec. Duren Sawit, Jakarta Timur – 13430
+                    {t(
+                      "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur – 13430"
+                    )}
                   </p>
                 </ContactItem>
 
@@ -165,6 +166,22 @@ export default function Kontak() {
               ></iframe>
             </div>
           </div>
+        </div>
+
+        <div className="contact-cta-card">
+          <div className="contact-cta-card__text">
+            <h3>{t("Ingin Mengetahui Lebih Lanjut Tentang Layanan Kami?")}</h3>
+            <h2>{t("Silahkan Hubungi Kami")}</h2>
+          </div>
+          <a
+            href="https://wa.me/6281908344114"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-cta-card__button"
+          >
+            <WhatsAppIcon />
+            <span>WhatsApp</span>
+          </a>
         </div>
       </div>
     </section>

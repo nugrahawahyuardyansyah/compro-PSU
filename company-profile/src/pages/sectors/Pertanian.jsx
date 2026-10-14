@@ -7,21 +7,21 @@ const COMMODITIES = [
   {
     id: "Beras",
     en: "Rice",
-    image: "/Beras.jpg",
+    image: "/Beras.webp",
     descId: "Rasakan keaslian bulir beras pilihan yang ditanam dengan penuh dedikasi oleh petani lokal. Pulen, harum, dan kaya nutrisi untuk sajian istimewa keluarga Anda.",
     descEn: "Experience the authenticity of selected rice grains grown with dedication by local farmers. Fluffy, fragrant, and rich in nutrients for your family's special meals.",
   },
   {
     id: "Biji Kakao",
     en: "Cocoa Beans",
-    image: "/Biji Kakao.jpg",
+    image: "/Biji Kakao.webp",
     descId: "Ekstrak cita rasa cokelat sejati dari biji kakao hasil fermentasi sempurna. Menghadirkan aroma pekat dan kualitas premium untuk mahakarya kuliner Anda.",
     descEn: "Extract the true chocolate flavor from perfectly fermented cocoa beans. Delivering a rich aroma and premium quality for your culinary masterpieces.",
   },
   {
     id: "Biji Kopi",
     en: "Coffee Beans",
-    image: "/Biji Kopi.jpg",
+    image: "/Biji Kopi.webp",
     descId: "Bangkitkan semangat dengan seduhan biji kopi nusantara. Dipanen dari dataran tinggi terbaik, menyimpan profil rasa yang khas dan aroma yang tak terlupakan.",
     descEn: "Awaken your spirit with a brew of archipelago coffee beans. Harvested from the best highlands, retaining a distinct flavor profile and unforgettable aroma.",
   }
@@ -57,7 +57,7 @@ export default function Pertanian() {
       <div className="sector-detail-page__hero">
         <img
           className="sector-detail-page__image"
-          src="/1.pertanian.jpg"
+          src="/1.pertanian.webp"
           alt={title}
         />
         <div className="sector-detail-page__hero-text">

@@ -1,6 +1,7 @@
 
 import "../pengujian/Ruang_lingkup_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
+import { useLanguage } from "../../../context/useLanguage";
 import { FaDownload } from "react-icons/fa";
 
 const dataPengujian = [
@@ -46,6 +47,8 @@ const dataPengujian = [
 ];
 
 export default function Ruanglingkuppenguji() {
+  const { t } = useLanguage();
+
   return (
     <section className="ruang-lingkup">
       <div className="ruang-lingkup__header">
@@ -59,9 +62,9 @@ export default function Ruanglingkuppenguji() {
           <table className="ruang-lingkup__table">
             <thead>
               <tr>
-                <th>Bidang Pengujian</th>
-                <th>Bahan atau Produk yang Diuji</th>
-                <th>Buku SNI</th>
+                <th>{t("Bidang Pengujian")}</th>
+                <th>{t("Bahan atau Produk yang Diuji")}</th>
+                <th>{t("Buku SNI")}</th>
               </tr>
             </thead>
 
@@ -74,12 +77,12 @@ export default function Ruanglingkuppenguji() {
                         rowSpan={kelompok.items.length}
                         className="ruang-lingkup__bidang"
                       >
-                        {kelompok.bidang}
+                        {t(kelompok.bidang)}
                       </td>
                     )}
 
                     <td className="ruang-lingkup__produk">
-                      {item.jenis}
+                      {t(item.jenis)}
                     </td>
 
                     <td className="ruang-lingkup__buku">
@@ -89,7 +92,7 @@ export default function Ruanglingkuppenguji() {
                         <a
                           href="#"
                           className="ruang-lingkup__download"
-                          aria-label={`Download dokumen ${item.sni}`}
+                          aria-label={`${t("Download dokumen")} ${item.sni}`}
                           title={`Download ${item.sni}`}
                           onClick={(e) => e.preventDefault()}
                         >

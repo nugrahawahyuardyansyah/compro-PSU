@@ -1,5 +1,6 @@
 import "../sertifikasi-produk/Ruang_lingkup_sertif.css";
 import LocalizedText from "../../../components/LocalizedText";
+import { useLanguage } from "../../../context/useLanguage";
 import { FaDownload } from "react-icons/fa";
 
 const dataPengujian = [
@@ -96,6 +97,8 @@ const dataPengujian = [
 ];
 
 export default function Ruanglingkuppenguji() {
+  const { t } = useLanguage();
+
   return (
     <section className="ruang-lingkup">
       <div className="ruang-lingkup__header">
@@ -110,9 +113,9 @@ export default function Ruanglingkuppenguji() {
             <thead>
               <tr>
                 <th>No</th>
-                <th>Bidang Pengujian</th>
-                <th>Jenis Pengujian</th>
-                <th>Buku SNI</th>
+                <th>{t("Bidang Pengujian")}</th>
+                <th>{t("Jenis Pengujian")}</th>
+                <th>{t("Buku SNI")}</th>
               </tr>
             </thead>
 
@@ -123,8 +126,8 @@ export default function Ruanglingkuppenguji() {
                     {item.no}
                   </td>
 
-                  <td>{item.bidang}</td>
-                  <td>{item.jenis}</td>
+                  <td>{t(item.bidang)}</td>
+                  <td>{t(item.jenis)}</td>
 
                   <td>
                     <div className="ruang-lingkup__sni">
@@ -133,7 +136,7 @@ export default function Ruanglingkuppenguji() {
                       <a
                         href="#"
                         className="ruang-lingkup__download"
-                        aria-label={`Download dokumen ${item.sni}`}
+                        aria-label={`${t("Download dokumen")} ${item.sni}`}
                         title={`Download ${item.sni}`}
                         onClick={(e) => e.preventDefault()}
                       >

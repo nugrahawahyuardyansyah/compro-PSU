@@ -1,0 +1,7 @@
+.exhouse-training {
+  padding: 48px clamp(20px, 5vw, 96px);
+}
+
+.exhouse-training h1 {
+  margin: 0;
+}
