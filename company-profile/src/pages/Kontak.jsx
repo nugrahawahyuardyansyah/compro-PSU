@@ -126,11 +126,11 @@ export default function Kontak() {
                 <ContactItem icon={<InstagramIcon />} label="Instagram">
                   <p>
                     <a
-                      href="https://www.instagram.com/penilaistandar.nasional"
+                      href="https://instagram.com/penilaistandaruji"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      @penilaistandarnasional
+                      @penilaistandaruji
                     </a>
                   </p>
                 </ContactItem>
@@ -139,7 +139,7 @@ export default function Kontak() {
                   <p>
                     {t("Senin – Jumat")}
                     <br />
-                    08.00 – 16.00 WIB
+                    09.00 – 17.00 WIB
                   </p>
                 </ContactItem>
               </ul>

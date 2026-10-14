@@ -29,7 +29,7 @@ export default function Profile() {
 
   const timelineData = [
     {
-      period: "2020 – 2030",
+      period: lang === "en" ? "2020 – Present" : "2020 – Sekarang",
       titleId: "Akreditasi Awal & Perluasan LSPro",
       titleEn: "Initial Accreditation & Expansion",
       descId: <>Perusahaan mengantongi akreditasi KAN sebagai Lembaga Sertifikasi Produk dengan nomor <strong>LSPr-051-IDN</strong> berbasis standar <strong>SNI ISO/IEC 17065:2012</strong> (<em>diakui internasional via <strong>IAF MLA</strong></em>). Penetapan akreditasi awal dilakukan pada <strong>30 Mei 2020</strong> untuk periode 2020–2025, dengan Sertifikat Perubahan (Amandemen) diterbitkan pada <strong>10 Januari 2022</strong>. Selanjutnya, KAN resmi memperpanjang masa akreditasi LSPro mulai <strong>30 Juni 2025 hingga 29 Mei 2030</strong> dengan perluasan lingkup komoditas pertanian dan pangan (<em>Beras, Biji Kopi, Biji Kakao, Biskuit, dan Gula Kristal</em>).</>,

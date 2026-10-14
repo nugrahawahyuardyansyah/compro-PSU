@@ -1,48 +1,176 @@
-.service-detail--biaya-penawaran-sertif-sistem {
-  --service-navy: #0b2a5b;
-  --service-text: #1d2733;
-  width: calc(100% - 2 * clamp(20px, 5vw, 96px));
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 48px 0 88px;
+.management-fees-page {
+  --service-text: #202124;
+  width: calc(100% - 2 * clamp(20px, 5vw, 64px));
+  max-width: 1160px;
+  margin: 40px auto 72px;
   color: var(--service-text);
   font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-.service-detail--biaya-penawaran-sertif-sistem h1 {
-  margin: 0 0 24px;
-  color: var(--service-navy);
-  font-size: 2rem;
-  line-height: 1.25;
+.management-fees-intro {
+  margin-bottom: 24px;
+  padding: clamp(22px, 4vw, 36px);
+  background: linear-gradient(135deg, #f1f7fc 0%, #f8fafc 100%);
+  border: 1px solid #e0eaf2;
+  border-left: 4px solid #0b2a5b;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgb(20 32 48 / 5%);
 }
 
-.service-detail--biaya-penawaran-sertif-sistem p,
-.service-detail--biaya-penawaran-sertif-sistem li {
-  max-width: 80ch;
-  font-size: 1.0625rem;
-  line-height: 1.7;
-}
-
+.management-fees-intro p,
 .service-detail--biaya-penawaran-sertif-sistem p {
-  margin: 0 0 20px;
+  max-width: 88ch;
+  margin: 0 0 16px;
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: justify;
 }
 
-.service-detail--biaya-penawaran-sertif-sistem ul,
-.service-detail--biaya-penawaran-sertif-sistem ol {
-  max-width: 80ch;
-  padding-left: 22px;
+.management-fees-intro p:last-child,
+.service-detail--biaya-penawaran-sertif-sistem > p:last-of-type {
+  margin-bottom: 0;
 }
 
-.service-detail--biaya-penawaran-sertif-sistem li + li {
-  margin-top: 8px;
+.management-fees-intro strong {
+  color: #0b2a5b;
+  font-weight: 700;
+}
+
+.service-detail--biaya-penawaran-sertif-sistem {
+  box-sizing: border-box;
+  width: 100%;
+  padding: clamp(24px, 5vw, 56px);
+  background: #fff;
+  border: 1px solid #e7e9ec;
+  border-radius: 18px;
+  box-shadow: 0 12px 36px rgb(20 32 48 / 7%);
+}
+
+.management-fees__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.management-fees__heading-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  margin-top: 2px;
+  color: #1769aa;
+}
+
+.management-fees__heading h1 {
+  margin: 0;
+  color: #17191c;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.25;
+  text-align: left;
+}
+
+.service-detail--biaya-penawaran-sertif-sistem .management-fees__tagline {
+  margin-bottom: 18px;
+  font-weight: 650;
+}
+
+.management-fees__consultation {
+  margin-top: 28px;
+  padding: clamp(20px, 3vw, 30px);
+  background: #f7f8fa;
+  border: 1px solid #e6e8eb;
+  border-radius: 14px;
+}
+
+.management-fees__consultation-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.management-fees__consultation-heading svg {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  color: #343a40;
+}
+
+.management-fees__consultation-heading h2 {
+  margin: 0;
+  color: #202124;
+  font-size: 1.125rem;
+  line-height: 1.4;
+}
+
+.management-fees__consultation p {
+  margin-bottom: 18px;
+}
+
+.management-fees__whatsapp-button {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 20px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+  background: #101112;
+  border-radius: 999px;
+  transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.management-fees__whatsapp-button:hover {
+  background: #2e3338;
+}
+
+.management-fees__whatsapp-button:focus-visible {
+  outline: 3px solid #1769aa;
+  outline-offset: 3px;
+}
+
+.management-fees__whatsapp-button:active {
+  transform: translateY(1px);
 }
 
 @media (max-width: 720px) {
-  .service-detail--biaya-penawaran-sertif-sistem {
-    padding: 32px 0 56px;
+  .management-fees-page {
+    width: calc(100% - 32px);
+    margin: 24px auto 48px;
   }
 
-  .service-detail--biaya-penawaran-sertif-sistem h1 {
-    font-size: 1.5rem;
+  .management-fees-intro {
+    margin-bottom: 18px;
+    padding: 22px 20px;
+    border-radius: 14px;
+  }
+
+  .service-detail--biaya-penawaran-sertif-sistem {
+    padding: 24px 20px;
+    border-radius: 14px;
+  }
+
+  .management-fees__heading {
+    gap: 9px;
+  }
+
+  .management-fees__heading-icon {
+    flex-basis: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .management-fees__consultation-heading {
+    align-items: flex-start;
+  }
+
+  .management-fees__consultation-heading h2 {
+    font-size: 1rem;
   }
 }
