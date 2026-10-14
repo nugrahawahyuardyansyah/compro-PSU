@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
-import "./SectorDetail.css";
+import "./Kimia.css";
 
 export default function Kimia() {
   const { lang } = useLanguage();

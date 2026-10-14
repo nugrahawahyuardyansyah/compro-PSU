@@ -47,6 +47,44 @@ const SECTORS = [
   },
 ];
 
+const MAIN_SERVICES = [
+  {
+    id: "Lembaga Sertifikasi Produk (LSPro)",
+    en: "Product Certification Body (LSPro)",
+    descId: "Penilaian kesesuaian dan sertifikasi produk berdasarkan standar serta skema sertifikasi yang berlaku.",
+    descEn: "Conformity assessment and product certification based on applicable standards and certification schemes.",
+    file: "LSPro.png",
+  },
+  {
+    id: "Laboratorium Pengujian",
+    en: "Testing Laboratory",
+    descId: "Pelaksanaan pengujian untuk mendukung evaluasi karakteristik, mutu, keamanan, dan kesesuaian produk terhadap persyaratan teknis.",
+    descEn: "Conducting tests to support the evaluation of characteristics, quality, safety, and product conformity to technical requirements.",
+    file: "lab_pengujian.png",
+  },
+  {
+    id: "Laboratorium Kalibrasi",
+    en: "Calibration Laboratory",
+    descId: "Layanan kalibrasi peralatan ukur untuk mendukung akurasi pengukuran dan ketertelusuran metrologi.",
+    descEn: "Calibration services for measuring instruments to support measurement accuracy and metrological traceability.",
+    file: "lab_kalibrasi.png",
+  },
+  {
+    id: "Lembaga Pelatihan",
+    en: "Training Institution",
+    descId: "Pelatihan teknis, sistem manajemen, standar, audit, dan peningkatan kompetensi personel sesuai kebutuhan organisasi.",
+    descEn: "Technical training, management systems, standards, audits, and personnel competency enhancement according to organizational needs.",
+    file: "_pelatihan.png",
+  },
+  {
+    id: "Sistem Manajemen Mutu",
+    en: "Quality Management System",
+    descId: "Layanan pelatihan dan pendampingan penerapan, evaluasi, serta peningkatan sistem manajemen mutu organisasi.",
+    descEn: "Training services and assistance in the implementation, evaluation, and improvement of organizational quality management systems.",
+    file: "sistem_manajemen_mutu.png",
+  },
+];
+
 export default function Home() {
   const [current, setCurrent] = useState(0);
   const { lang } = useLanguage();
@@ -128,9 +166,52 @@ export default function Home() {
         </blockquote>
       </section>
 
+      <section className="main-services reveal" aria-labelledby="main-services-title">
+        <div className="main-services__bg"></div>
+
+        <div className="main-services__header">
+          <h2 id="main-services-title" className="sectors__heading main-services__heading">
+            {lang === "en" ? "OUR MAIN SERVICES" : "LAYANAN UTAMA KAMI"}
+          </h2>
+        </div>
+
+        <div className="main-services__marquee">
+          <div className="main-services__track">
+            <div className="main-services__group">
+              {MAIN_SERVICES.map((service, index) => (
+                <div 
+                  className="main-services__card" 
+                  key={`original-${index}`} 
+                  style={{ backgroundImage: `url(/${service.file})` }}
+                >
+                  <div className="main-services__card-content">
+                    <h4>{lang === "en" ? service.en : service.id}</h4>
+                    <p>{lang === "en" ? service.descEn : service.descId}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="main-services__group main-services__group--duplicate" aria-hidden="true">
+              {MAIN_SERVICES.map((service, index) => (
+                <div 
+                  className="main-services__card" 
+                  key={`dup-${index}`} 
+                  style={{ backgroundImage: `url(/${service.file})` }}
+                >
+                  <div className="main-services__card-content">
+                    <h4>{lang === "en" ? service.en : service.id}</h4>
+                    <p>{lang === "en" ? service.descEn : service.descId}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="sectors" aria-labelledby="sectors-title">
         <h2 id="sectors-title" className="sectors__heading reveal reveal-fade" style={{ transitionDelay: "0.1s" }}>
-          {lang === "en" ? "Our Service Sectors" : "PRODUK YANG DISERTIFIKASI"}
+          {lang === "en" ? "Products Certified" : "PRODUK YANG DISERTIFIKASI"}
         </h2>
 
         <div className="sectors__container">
