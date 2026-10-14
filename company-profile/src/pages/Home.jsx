@@ -45,6 +45,14 @@ const SECTORS = [
     descEn: "Testing of parameters and chemical composition in industrial raw materials and final products according to applicable standards.",
     link: "/kimia",
   },
+  {
+    file: "Jasa_Lainnya.jpg", 
+    id: "Jasa Lainnya",
+    en: "Other Services",
+    descId: "Layanan sertifikasi berbagai sektor jasa untuk meningkatkan kualitas pelayanan, kepercayaan masyarakat, dan daya saing usaha melalui penerapan standar nasional serta pengembangan ruang lingkup sertifikasi secara berkelanjutan.",
+    descEn: "Certification services across various service sectors to improve service quality, public trust, and business competitiveness through the implementation of national standards and the continuous development of certification scopes.",
+    link: "/jasa-lainnya",
+  },
 ];
 
 const MAIN_SERVICES = [
