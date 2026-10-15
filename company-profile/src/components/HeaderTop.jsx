@@ -5,7 +5,7 @@ import { useLanguage } from "../context/useLanguage";
 const kontak = {
   email: " psuindonesia.info@gmail.com",
   telepon: "021 - 8602367",
-  jam: "Sen - Jum 09.00 - 17.00 WIB",
+  jam: "Sen - Jum 08.00 - 16.00 WIB",
 };
 
 const iconProps = {

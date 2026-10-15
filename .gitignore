@@ -151,3 +151,5 @@ skills.lock
 # AI Agent folders
 claude/
 agents/
+
+node_modules/

@@ -2,8 +2,8 @@ import "./Profile.css";
 import { useEffect } from "react";
 import { useLanguage } from "../context/useLanguage";
 
-const ABOUT_IMAGE = "/Logo_PSU_banner1.webp";
-const VISIMISI_IMAGE = `${import.meta.env.BASE_URL}vision-mission-team.webp`;
+const ABOUT_IMAGE = "/Logo_PSU_banner1.jpeg";
+const VISIMISI_IMAGE = `${import.meta.env.BASE_URL}vision-mission-team.jpg`;
 
 export default function Profile() {
   const { lang, t } = useLanguage();
@@ -29,7 +29,7 @@ export default function Profile() {
 
   const timelineData = [
     {
-      period: lang === "en" ? "2020 – Present" : "2020 – Sekarang",
+      period: "2020 – 2030",
       titleId: "Akreditasi Awal & Perluasan LSPro",
       titleEn: "Initial Accreditation & Expansion",
       descId: <>Perusahaan mengantongi akreditasi KAN sebagai Lembaga Sertifikasi Produk dengan nomor <strong>LSPr-051-IDN</strong> berbasis standar <strong>SNI ISO/IEC 17065:2012</strong> (<em>diakui internasional via <strong>IAF MLA</strong></em>). Penetapan akreditasi awal dilakukan pada <strong>30 Mei 2020</strong> untuk periode 2020–2025, dengan Sertifikat Perubahan (Amandemen) diterbitkan pada <strong>10 Januari 2022</strong>. Selanjutnya, KAN resmi memperpanjang masa akreditasi LSPro mulai <strong>30 Juni 2025 hingga 29 Mei 2030</strong> dengan perluasan lingkup komoditas pertanian dan pangan (<em>Beras, Biji Kopi, Biji Kakao, Biskuit, dan Gula Kristal</em>).</>,
@@ -195,36 +195,12 @@ export default function Profile() {
             <div className="vision-mission__content-box">
               <h4 className="vision-mission__label">{t("Misi")}</h4>
               <ul className="vision-mission__list">
-                <li>{t("Menyelenggarakan Layanan Penilaian Kesesuaian yang Profesional dan Terpercaya")}.</li>
-                <li>{t("Menjamin Mutu, Akurasi, dan Keandalan Layanan")}.</li>
-                <li>{t("Mengembangkan Kompetensi dan Profesionalisme Sumber Daya Manusia")}.</li>
-                <li>{t("Mendorong Inovasi dan Transformasi Digital")}.</li>
-                <li>{t("Memperkuat Kemitraan dan Daya Saing Industri Nasional")}.</li>
+                <li>{t("Meningkatkan profesionalisme perusahaan dan karyawan")}.</li>
+                <li>{t("Meningkatkan kualitas tenaga kerja dengan keahlian terbaik")}.</li>
+                <li>{t("Mendorong penciptaan tenaga kerja terampil yang dapat diandalkan bagi perusahaan, masyarakat dan negara")}.</li>
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="commitment-title" className="commitment-section reveal reveal-dark">
-        <div className="commitment-wrapper">
-          <h2 id="commitment-title" className="commitment__title">{t("KOMITMEN PSU")}</h2>
-          
-          <p className="commitment__desc">
-            {lang === "en" ? (
-              <>PT Penilai Standar Uji is committed to providing services that prioritize <strong className="highlight-text">quality, competence, integrity, impartiality, accuracy, and customer satisfaction</strong> through consistent application of standards and continuous improvement.</>
-            ) : (
-              <>PT Penilai Standar Uji berkomitmen untuk memberikan layanan yang mengutamakan <strong className="highlight-text">mutu, kompetensi, integritas, ketidakberpihakan, ketepatan, dan kepuasan pelanggan</strong> melalui penerapan standar yang konsisten serta peningkatan berkelanjutan.</>
-            )}
-          </p>
-          
-          <p className="commitment__desc">
-            {lang === "en" ? (
-              "We believe that appropriately applied standards, supported by competence and technology, are an essential foundation for building trust, improving quality, and strengthening the competitiveness of Indonesian industry."
-            ) : (
-              "Kami percaya bahwa standar yang diterapkan secara tepat, didukung oleh kompetensi dan teknologi, merupakan fondasi penting dalam membangun kepercayaan, meningkatkan kualitas, dan memperkuat daya saing industri Indonesia."
-            )}
-          </p>
         </div>
       </section>
     </main>

@@ -115,6 +115,7 @@
     padding: 0 0 56px;
   }
 }
+<<<<<<< HEAD
 
 .kimia-cards {
   display: flex;
@@ -122,6 +123,54 @@
   gap: 32px;
   margin-top: 56px;
   width: 100%;
+}
+
+.kimia-cards__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.kimia-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 48px;
+}
+
+.kimia-pagination__btn {
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1.5px solid var(--psu-line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--psu-navy);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.kimia-pagination__btn:hover:not(:disabled):not(.kimia-pagination__btn--active) {
+  border-color: var(--psu-navy);
+  background: #f2f5fb;
+  transform: translateY(-2px);
+}
+
+.kimia-pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.kimia-pagination__btn--active {
+  background: var(--psu-navy);
+  border-color: var(--psu-navy);
+  color: #fff;
+  box-shadow: 0 3px 0 var(--psu-gold);
+  cursor: default;
 }
 
 .kimia-card-row {
@@ -254,3 +303,5 @@
     transition: none;
   }
 }
+=======
+>>>>>>> 1b1dc834e99716f849af79d5930baed1c93c42c7
