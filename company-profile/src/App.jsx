@@ -39,13 +39,10 @@ import ManagementClientRights from './pages/layanan/sertifikasi-sistem-manajemen
 import ManagementFees from './pages/layanan/sertifikasi-sistem-manajemen/Biaya_penawaran_sertif_sistem';
 import GeneralTraining from './pages/layanan/pelatihan/General_training';
 import InhouseTraining from './pages/layanan/pelatihan/Inhouse_training';
-import ExhouseTraining from './pages/layanan/pelatihan/Exhouse_training';
 import Pertanian from './pages/sectors/Pertanian';
 import Tanaman from './pages/sectors/Tanaman';
 import Pangan from './pages/sectors/Pangan';
 import Kimia from './pages/sectors/Kimia';
-import JasaLainnya from './pages/sectors/JasaLainnya';
-
 
 function App() {
   return (
@@ -59,10 +56,8 @@ function App() {
           <Route path="/pertanian" element={<Pertanian />} />
           <Route path="/tanaman" element={<Tanaman />} />
           <Route path="/pangan" element={<Pangan />} />
-           <Route path="/kimia" element={<Kimia />} />
-          <Route path="/jasa-lainnya" element={<JasaLainnya />} />
-
-           <Route path="/about/profile" element={<Profile />} />
+          <Route path="/kimia" element={<Kimia />} />
+          <Route path="/about/profile" element={<Profile />} />
           <Route path="/about/struktur-organisasi" element={<Struktur />} />
           <Route path="/client" element={<Client />} />
           <Route path="/client/sertifikasi-produk" element={<ClientProductCertification />} />
@@ -96,7 +91,6 @@ function App() {
           <Route path="/layanan/sertif-manajemen/biaya-sertif" element={<ManagementFees />} />
           <Route path="/layanan/pelatihan/general-training" element={<GeneralTraining />} />
           <Route path="/layanan/pelatihan/inhouse-training" element={<InhouseTraining />} />
-          <Route path="/layanan/pelatihan/exhouse-training" element={<ExhouseTraining />} />
         </Routes>
       </main>
       <WaFloat />

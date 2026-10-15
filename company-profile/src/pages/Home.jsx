@@ -4,17 +4,17 @@ import { useLanguage } from "../context/useLanguage";
 import "./Home.css";
 
 const BANNERS = [
-  "/Logo_PSU_banner1.webp",
-  "/Logo_PSU_banner2.webp",
-  "/Logo_PSU_banner3.webp",
-  "/Logo_PSU_banner4.webp",
-  "/Logo_PSU_banner5.webp",
-  "/Logo_PSU_banner6.webp",
+  "/Logo_PSU_banner1.jpeg",
+  "/Logo_PSU_banner2.jpeg",
+  "/Logo_PSU_banner3.jpeg",
+  "/Logo_PSU_banner4.jpeg",
+  "/Logo_PSU_banner5.jpeg",
+  "/Logo_PSU_banner6.jpeg",
 ];
 
 const SECTORS = [
   {
-    file: "1.pertanian.webp",
+    file: "1.pertanian.jpg",
     id: "Pertanian dan Perkebunan",
     en: "Agriculture and Plantation",
     descId: "Pengujian dan sertifikasi komoditas hasil bumi untuk memastikan kualitas, keamanan, dan pemenuhan standar regulasi.",
@@ -22,7 +22,7 @@ const SECTORS = [
     link: "/pertanian",
   },
   {
-    file: "2.tanaman.webp",
+    file: "2.tanaman.jpg",
     id: "Produk Tanaman",
     en: "Plant Products and Derivatives",
     descId: "Layanan penilaian kesesuaian untuk berbagai produk olahan nabati dan turunannya guna menjaga standar mutu.",
@@ -30,7 +30,7 @@ const SECTORS = [
     link: "/tanaman",
   },
   {
-    file: "3.pangan.webp",
+    file: "3.pangan.jpg",
     id: "Produk Pangan",
     en: "Other Food Products",
     descId: "Analisis mutu fisik, kimia, dan cemaran pada produk makanan dan minuman untuk menjamin keamanan pangan.",
@@ -38,20 +38,12 @@ const SECTORS = [
     link: "/pangan",
   },
   {
-    file: "4.kimia.webp",
+    file: "4.kimia.jpg",
     id: "Bahan dan Produk Kimia",
     en: "Chemical Materials and Products",
     descId: "Pengujian parameter dan komposisi kimia pada bahan baku industri maupun produk akhir sesuai standar yang berlaku.",
     descEn: "Testing of parameters and chemical composition in industrial raw materials and final products according to applicable standards.",
     link: "/kimia",
-  },
-  {
-    file: "Jasa_Lainnya.webp", 
-    id: "Jasa Lainnya",
-    en: "Other Services",
-    descId: "Layanan sertifikasi berbagai sektor jasa untuk meningkatkan kualitas pelayanan, kepercayaan masyarakat, dan daya saing usaha melalui penerapan standar nasional serta pengembangan ruang lingkup sertifikasi secara berkelanjutan.",
-    descEn: "Certification services across various service sectors to improve service quality, public trust, and business competitiveness through the implementation of national standards and the continuous development of certification scopes.",
-    link: "/jasa-lainnya",
   },
 ];
 
@@ -61,41 +53,41 @@ const MAIN_SERVICES = [
     en: "Product Certification Body (LSPro)",
     descId: "Penilaian kesesuaian dan sertifikasi produk berdasarkan standar serta skema sertifikasi yang berlaku.",
     descEn: "Conformity assessment and product certification based on applicable standards and certification schemes.",
-    file: "LSPro.webp",
+    file: "LSPro.png",
   },
   {
     id: "Laboratorium Pengujian",
     en: "Testing Laboratory",
     descId: "Pelaksanaan pengujian untuk mendukung evaluasi karakteristik, mutu, keamanan, dan kesesuaian produk terhadap persyaratan teknis.",
     descEn: "Conducting tests to support the evaluation of characteristics, quality, safety, and product conformity to technical requirements.",
-    file: "lab_pengujian.webp",
+    file: "lab_pengujian.png",
   },
   {
     id: "Laboratorium Kalibrasi",
     en: "Calibration Laboratory",
     descId: "Layanan kalibrasi peralatan ukur untuk mendukung akurasi pengukuran dan ketertelusuran metrologi.",
     descEn: "Calibration services for measuring instruments to support measurement accuracy and metrological traceability.",
-    file: "lab_kalibrasi.webp",
+    file: "lab_kalibrasi.png",
   },
   {
     id: "Lembaga Pelatihan",
     en: "Training Institution",
     descId: "Pelatihan teknis, sistem manajemen, standar, audit, dan peningkatan kompetensi personel sesuai kebutuhan organisasi.",
     descEn: "Technical training, management systems, standards, audits, and personnel competency enhancement according to organizational needs.",
-    file: "_pelatihan.webp",
+    file: "_pelatihan.png",
   },
   {
     id: "Sistem Manajemen Mutu",
     en: "Quality Management System",
     descId: "Layanan pelatihan dan pendampingan penerapan, evaluasi, serta peningkatan sistem manajemen mutu organisasi.",
     descEn: "Training services and assistance in the implementation, evaluation, and improvement of organizational quality management systems.",
-    file: "sistem_manajemen_mutu.webp",
+    file: "sistem_manajemen_mutu.png",
   },
 ];
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
-  const { lang, t } = useLanguage();
+  const { lang } = useLanguage();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -269,7 +261,7 @@ export default function Home() {
             rel="noopener noreferrer" 
             className="tracking-banner__btn"
           >
-            {t("Klik Disini!")}
+            Klik Disini!
           </a>
         </div>
       </section>

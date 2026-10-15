@@ -1,5 +1,5 @@
-import LocalizedText from "../components/LocalizedText";
+import { Navigate } from "react-router-dom";
 
 export default function Client() {
-  return <section><LocalizedText as="h1">Client</LocalizedText></section>;
+  return <Navigate to="/client/sertifikasi-produk" replace />;
 }

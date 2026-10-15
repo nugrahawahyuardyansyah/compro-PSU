@@ -1,171 +1,48 @@
-
-.ruang-lingkup {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #4b5563;
-}
-
-.ruang-lingkup__header {
-  width: 100%;
-  min-height: 32px;
-  padding: 8px 16px;
-  box-sizing: border-box;
-  background-color: #0b2a5b;
-  color: #ffffff;
-  text-align: center;
-}
-
-.ruang-lingkup__header h1 {
-  margin: 0;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.ruang-lingkup__content {
-  width: 100%;
-  padding: 20px 16px;
-  box-sizing: border-box;
-}
-
-.ruang-lingkup__table-wrapper {
-  width: 100%;
-  max-width: 780px;
+.service-detail--ruang-lingkup-sertif {
+  --service-navy: #0b2a5b;
+  --service-text: #1d2733;
+  width: calc(100% - 2 * clamp(20px, 5vw, 96px));
+  max-width: 1180px;
   margin: 0 auto;
-  overflow-x: auto;
-  border: 1px solid #d1d5db;
+  padding: 48px 0 88px;
+  color: var(--service-text);
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-.ruang-lingkup__table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  font-size: 11px;
-  line-height: 1.5;
-  color: #64748b;
+.service-detail--ruang-lingkup-sertif h1 {
+  margin: 0 0 24px;
+  color: var(--service-navy);
+  font-size: 2rem;
+  line-height: 1.25;
 }
 
-.ruang-lingkup__table th,
-.ruang-lingkup__table td {
-  border: 1px solid #d1d5db;
-  padding: 10px 8px;
-  text-align: left;
-  vertical-align: middle;
-  overflow-wrap: break-word;
+.service-detail--ruang-lingkup-sertif p,
+.service-detail--ruang-lingkup-sertif li {
+  max-width: 80ch;
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
-.ruang-lingkup__table th {
-  background-color: #ffffff;
-  color: #475569;
-  font-weight: 600;
+.service-detail--ruang-lingkup-sertif p {
+  margin: 0 0 20px;
 }
 
-.ruang-lingkup__table tbody tr {
-  background-color: #ffffff;
-  transition: background-color 0.2s ease;
+.service-detail--ruang-lingkup-sertif ul,
+.service-detail--ruang-lingkup-sertif ol {
+  max-width: 80ch;
+  padding-left: 22px;
 }
 
-.ruang-lingkup__table tbody tr:hover {
-  background-color: #f8fafc;
+.service-detail--ruang-lingkup-sertif li + li {
+  margin-top: 8px;
 }
 
-.ruang-lingkup__table th:nth-child(1),
-.ruang-lingkup__table td:nth-child(1) {
-  width: 8%;
-  text-align: center;
-}
-
-.ruang-lingkup__table th:nth-child(2),
-.ruang-lingkup__table td:nth-child(2) {
-  width: 34%;
-}
-
-.ruang-lingkup__table th:nth-child(3),
-.ruang-lingkup__table td:nth-child(3) {
-  width: 36%;
-}
-
-.ruang-lingkup__table th:nth-child(4),
-.ruang-lingkup__table td:nth-child(4) {
-  width: 22%;
-}
-
-.ruang-lingkup__no {
-  color: #64748b;
-  text-align: center;
-}
-
-.ruang-lingkup__sni {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.ruang-lingkup__sni span {
-  flex: 1;
-  min-width: 0;
-}
-
-.ruang-lingkup__download {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  color: #ffffff;
-  background-color: #80a0ff;
-  border-radius: 4px;
-  text-decoration: none;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.ruang-lingkup__download:hover {
-  background-color: #5279e8;
-  transform: translateY(-1px);
-}
-
-.ruang-lingkup__download svg {
-  width: 12px;
-  height: 12px;
-}
-
-@media (max-width: 768px) {
-  .ruang-lingkup__content {
-    padding: 16px 12px;
+@media (max-width: 720px) {
+  .service-detail--ruang-lingkup-sertif {
+    padding: 32px 0 56px;
   }
 
-  .ruang-lingkup__table-wrapper {
-    max-width: 100%;
-  }
-
-  .ruang-lingkup__table {
-    min-width: 600px;
-    font-size: 12px;
-  }
-
-  .ruang-lingkup__table th,
-  .ruang-lingkup__table td {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .ruang-lingkup__header h1 {
-    font-size: 12px;
-  }
-
-  .ruang-lingkup__content {
-    padding: 12px 8px;
-  }
-
-  .ruang-lingkup__table {
-    min-width: 600px;
-    font-size: 11px;
+  .service-detail--ruang-lingkup-sertif h1 {
+    font-size: 1.5rem;
   }
 }
