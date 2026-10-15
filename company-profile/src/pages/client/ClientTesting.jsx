@@ -106,7 +106,7 @@ export default function ClientTesting() {
       <PageHeader
         title="Lembaga Pengujian"
         breadcrumbs={[
-          { label: "Client", href: "/client/pengujian" },
+          { label: "Client" },
           { label: "Lembaga Pengujian", href: "/client/pengujian" },
         ]}
       />

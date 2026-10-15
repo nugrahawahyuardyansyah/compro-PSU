@@ -8,9 +8,9 @@ export default function Keluhanbandingsertif() {
       <PageHeader
         title="Keluhan dan Banding"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertif-produk" },
-          { label: "Keluhan dan Banding", href: "/layanan/sertif-produk/keluhan-banding" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Keluhan dan Banding", href: "/layanan/sertif-produk/keluhan-banding" },
         ]}
       />
       <section><LocalizedText as="h1">Keluhan dan Banding</LocalizedText></section>

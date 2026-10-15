@@ -55,7 +55,12 @@ export default function Pertanian() {
 
   return (
     <section className="sector-detail-page">
-      <PageHeader title="Pertanian dan Perkebunan" breadcrumbs={[{ label: "Pertanian dan Perkebunan", href: "/pertanian" }]} />
+      <PageHeader
+        title="Pertanian dan Perkebunan"
+        breadcrumbs={[
+          { label: "Pertanian dan Perkebunan", href: "/pertanian" },
+        ]}
+      />
       <div className="pertanian-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="pertanian-card" key={index}>
@@ -71,9 +76,6 @@ export default function Pertanian() {
               <h3 className="pertanian-card__title">
                 {lang === "en" ? item.en : item.id}
               </h3>
-              <p className="pertanian-card__desc">
-                {lang === "en" ? item.descEn : item.descId}
-              </p>
             </div>
           </div>
         ))}

@@ -8,9 +8,9 @@ export default function Generaltraining() {
       <PageHeader
         title="General Training"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pelatihan", href: "/layanan/pelatihan" },
-          { label: "General Training", href: "/layanan/pelatihan/general-training" }
+          { label: "Layanan" },
+          { label: "Lembaga Pelatihan" },
+          { label: "General Training", href: "/layanan/pelatihan/general-training" },
         ]}
       />
       <section><LocalizedText as="h1">General Training</LocalizedText></section>

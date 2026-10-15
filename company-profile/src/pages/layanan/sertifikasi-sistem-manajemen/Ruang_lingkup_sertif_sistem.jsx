@@ -8,9 +8,9 @@ export default function Ruanglingkupsertifsistem() {
       <PageHeader
         title="Ruang Lingkup"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/layanan/sertif-manajemen" },
-          { label: "Ruang Lingkup", href: "/layanan/sertif-manajemen/ruang-lingkup" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Sistem Manajemen" },
+          { label: "Ruang Lingkup", href: "/layanan/sertif-manajemen/ruang-lingkup" },
         ]}
       />
       <section><LocalizedText as="h1">Ruang Lingkup</LocalizedText></section>

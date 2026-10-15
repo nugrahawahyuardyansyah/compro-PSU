@@ -6,7 +6,9 @@ export default function Artikel() {
     <>
       <PageHeader
         title="Artikel"
-        breadcrumbs={[{ label: "Artikel", href: "/artikel" }]}
+        breadcrumbs={[
+          { label: "Artikel", href: "/artikel" },
+        ]}
       />
       <section style={{ maxWidth: "1180px", margin: "0 auto", padding: "48px 24px" }}>
         <LocalizedText as="h2">Artikel</LocalizedText>

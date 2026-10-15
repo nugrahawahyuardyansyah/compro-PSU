@@ -106,7 +106,7 @@ export default function ClientManagementSystemCertification() {
       <PageHeader
         title="Lembaga Sertifikasi Sistem Manajemen"
         breadcrumbs={[
-          { label: "Client", href: "/client/sertifikasi-sistem-manajemen" },
+          { label: "Client" },
           { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/client/sertifikasi-sistem-manajemen" },
         ]}
       />

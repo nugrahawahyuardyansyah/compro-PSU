@@ -8,9 +8,9 @@ export default function Hakkewajibankliensertif() {
       <PageHeader
         title="Hak dan Kewajiban Klien"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertif-produk" },
-          { label: "Hak dan Kewajiban Klien", href: "/layanan/sertif-produk/hak-kewajiban-klien" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Hak dan Kewajiban Klien", href: "/layanan/sertif-produk/hak-kewajiban-klien" },
         ]}
       />
       <section><LocalizedText as="h1">Hak dan Kewajiban Klien</LocalizedText></section>

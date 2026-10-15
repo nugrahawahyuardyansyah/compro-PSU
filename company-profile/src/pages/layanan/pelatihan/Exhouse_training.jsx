@@ -8,9 +8,9 @@ export default function ExhouseTraining() {
       <PageHeader
         title="Exhouse Training"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pelatihan", href: "/layanan/pelatihan" },
-          { label: "Exhouse Training", href: "/layanan/pelatihan/exhouse-training" }
+          { label: "Layanan" },
+          { label: "Lembaga Pelatihan" },
+          { label: "Exhouse Training", href: "/layanan/pelatihan/exhouse-training" },
         ]}
       />
       <section className="exhouse-training">

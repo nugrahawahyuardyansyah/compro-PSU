@@ -9,9 +9,9 @@ export default function Legalitassertifsistem() {
       <PageHeader
         title="Legalitas"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/layanan/sertif-manajemen" },
-          { label: "Legalitas", href: "/layanan/sertif-manajemen/legalitas" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Sistem Manajemen" },
+          { label: "Legalitas", href: "/layanan/sertif-manajemen/legalitas" },
         ]}
       />
       <section className="service-detail--legalitas-sertif-sistem">

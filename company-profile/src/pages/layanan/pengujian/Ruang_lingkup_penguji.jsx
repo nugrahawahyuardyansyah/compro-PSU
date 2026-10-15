@@ -8,9 +8,9 @@ export default function Ruanglingkuppenguji() {
       <PageHeader
         title="Ruang Lingkup Pengujian"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pengujian", href: "/layanan/penguji" },
-          { label: "Ruang Lingkup", href: "/layanan/penguji/ruang-lingkup" }
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Ruang Lingkup", href: "/layanan/penguji/ruang-lingkup" },
         ]}
       />
       <section><LocalizedText as="h1">Ruang Lingkup Pengujian</LocalizedText></section>

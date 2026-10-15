@@ -8,9 +8,9 @@ export default function Inhousetraining() {
       <PageHeader
         title="Inhouse Training"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pelatihan", href: "/layanan/pelatihan" },
-          { label: "Inhouse Training", href: "/layanan/pelatihan/inhouse-training" }
+          { label: "Layanan" },
+          { label: "Lembaga Pelatihan" },
+          { label: "Inhouse Training", href: "/layanan/pelatihan/inhouse-training" },
         ]}
       />
       <section><LocalizedText as="h1">Inhouse Training</LocalizedText></section>

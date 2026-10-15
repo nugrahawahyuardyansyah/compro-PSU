@@ -8,9 +8,9 @@ export default function Permohonansertifikasi() {
       <PageHeader
         title="Permohonan Sertifikasi"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertif-produk" },
-          { label: "Permohonan Sertifikasi", href: "/layanan/sertif-produk/permohonan-sertifikasi" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Permohonan Sertifikasi", href: "/layanan/sertif-produk/permohonan-sertifikasi" },
         ]}
       />
       <section><LocalizedText as="h1">Permohonan Sertifikasi</LocalizedText></section>

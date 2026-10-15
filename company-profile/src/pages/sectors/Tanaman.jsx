@@ -119,7 +119,12 @@ export default function Tanaman() {
 
   return (
     <section className="sector-detail-page">
-      <PageHeader title="Produk Tanaman" breadcrumbs={[{ label: "Produk Tanaman", href: "/tanaman" }]} />
+      <PageHeader
+        title="Produk Tanaman"
+        breadcrumbs={[
+          { label: "Produk Tanaman", href: "/tanaman" },
+        ]}
+      />
       <div className="tanaman-cards" ref={rowsRef}>
         {Array.from(
           { length: Math.ceil(COMMODITIES.length / cardsPerRow) },
@@ -146,9 +151,6 @@ export default function Tanaman() {
                       <h3 className="tanaman-card__title">
                         {lang === "en" ? item.en : item.id}
                       </h3>
-                      <p className="tanaman-card__desc">
-                        {lang === "en" ? item.descEn : item.descId}
-                      </p>
                     </div>
                   </article>
                 ))}

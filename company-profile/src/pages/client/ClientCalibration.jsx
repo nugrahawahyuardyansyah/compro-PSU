@@ -106,7 +106,7 @@ export default function ClientCalibration() {
       <PageHeader
         title="Lembaga Kalibrasi"
         breadcrumbs={[
-          { label: "Client", href: "/client/kalibrasi" },
+          { label: "Client" },
           { label: "Lembaga Kalibrasi", href: "/client/kalibrasi" },
         ]}
       />

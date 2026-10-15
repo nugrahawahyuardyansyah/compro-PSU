@@ -9,9 +9,9 @@ export default function Legalitaspenguji() {
       <PageHeader
         title="Legalitas"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pengujian", href: "/layanan/penguji" },
-          { label: "Legalitas", href: "/layanan/penguji/legalitas" }
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Legalitas", href: "/layanan/penguji/legalitas" },
         ]}
       />
       <section className="service-detail--legalitas-penguji">

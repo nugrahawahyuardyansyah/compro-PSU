@@ -8,9 +8,9 @@ export default function KetentuanpenggunaanSNI() {
       <PageHeader
         title="Ketentuan dan Tata Cara Penggunaan SNI"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Produk", href: "/layanan/sertif-produk" },
-          { label: "Ketentuan dan Tata Cara Penggunaan SNI", href: "/layanan/sertif-produk/penggunaan-sni" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Ketentuan dan Tata Cara Penggunaan SNI", href: "/layanan/sertif-produk/penggunaan-sni" },
         ]}
       />
       <section><LocalizedText as="h1">Ketentuan dan Tata Cara Penggunaan SNI</LocalizedText></section>

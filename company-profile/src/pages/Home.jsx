@@ -45,6 +45,22 @@ const SECTORS = [
     descEn: "Testing of parameters and chemical composition in industrial raw materials and final products according to applicable standards.",
     link: "/kimia",
   },
+  {
+    file: "Stainless.webp",
+    id: "Logam dan Produk Logam",
+    en: "Metal and Metal Products",
+    descId: "PT Penilai Standar Uji (PSU) menyediakan layanan pengujian dan sertifikasi produk logam untuk memastikan kualitas, keamanan, ketahanan, serta kesesuaiannya terhadap persyaratan Standar Nasional Indonesia (SNI).",
+    descEn: "PT Penilai Standar Uji (PSU) provides testing and certification services for metal products to ensure quality, safety, durability, and compliance with the requirements of the Indonesian National Standard (SNI).",
+    link: "/logam",
+  },
+  {
+    file: "Jasa_Lainnya.webp", 
+    id: "Jasa Lainnya",
+    en: "Other Services",
+    descId: "Layanan sertifikasi berbagai sektor jasa untuk meningkatkan kualitas pelayanan, kepercayaan masyarakat, dan daya saing usaha melalui penerapan standar nasional serta pengembangan ruang lingkup sertifikasi secara berkelanjutan.",
+    descEn: "Certification services across various service sectors to improve service quality, public trust, and business competitiveness through the implementation of national standards and the continuous development of certification scopes.",
+    link: "/jasa-lainnya",
+  },
 ];
 
 const MAIN_SERVICES = [
@@ -215,33 +231,47 @@ export default function Home() {
         </h2>
 
         <div className="sectors__container">
-          {SECTORS.map((sector) => {
-            const label = lang === "en" ? sector.en : sector.id;
-            const desc = lang === "en" ? sector.descEn : sector.descId;
+          {Array.from(
+            { length: Math.ceil(SECTORS.length / 3) },
+            (_, rowIndex) => {
+              const rowSectors = SECTORS.slice(
+                rowIndex * 3,
+                rowIndex * 3 + 3
+              );
 
-            return (
-              <div 
-                className="expanding-card reveal" 
-                key={sector.file}
-                style={{ backgroundImage: `url(/${sector.file})` }}
-                tabIndex="0"
-              >
-                <div className="expanding-card__content">
-                  <h3 className="expanding-card__title">{label}</h3>
-                  
-                  <span className="expanding-card__more">
-                    {lang === "en" ? "Learn more \u2192" : "Selengkapnya \u2192"}
-                  </span>
-                  
-                  <p className="expanding-card__desc">{desc}</p>
-                  
-                  <Link to={sector.link} className="expanding-card__btn">
-                    {lang === "en" ? "See Details" : "Lihat Detail"}
-                  </Link>
+              return (
+                <div className="sectors__row" key={rowIndex}>
+                  {rowSectors.map((sector) => {
+                    const label = lang === "en" ? sector.en : sector.id;
+                    const desc = lang === "en" ? sector.descEn : sector.descId;
+
+                    return (
+                      <div
+                        className="expanding-card reveal"
+                        key={sector.file}
+                        style={{ backgroundImage: `url(/${sector.file})` }}
+                        tabIndex="0"
+                      >
+                        <div className="expanding-card__content">
+                          <h3 className="expanding-card__title">{label}</h3>
+
+                          <span className="expanding-card__more">
+                            {lang === "en" ? "Learn more \u2192" : "Selengkapnya \u2192"}
+                          </span>
+
+                          <p className="expanding-card__desc">{desc}</p>
+
+                          <Link to={sector.link} className="expanding-card__btn">
+                            {lang === "en" ? "See Details" : "Lihat Detail"}
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
-              </div>
-            );
-          })}
+              );
+            }
+          )}
         </div>
       </section>
 

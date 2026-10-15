@@ -78,7 +78,9 @@ export default function Kontak() {
     <>
       <PageHeader
         title="Kontak"
-        breadcrumbs={[{ label: "Kontak", href: "/kontak" }]}
+        breadcrumbs={[
+          { label: "Kontak", href: "/kontak" },
+        ]}
       />
       <section className="contact-section">
       <div className="contact-container">

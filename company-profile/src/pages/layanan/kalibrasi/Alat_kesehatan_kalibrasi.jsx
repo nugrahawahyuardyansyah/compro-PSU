@@ -8,10 +8,10 @@ export default function Alatkesehatankalibrasi() {
       <PageHeader
         title="Alat Kesehatan"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Kalibrasi", href: "/layanan/kalibrasi" },
-          { label: "Ruang Lingkup", href: "/layanan/kalibrasi/ruang-lingkup" },
-          { label: "Alat Kesehatan", href: "/layanan/kalibrasi/ruang-lingkup/alat-kesehatan" }
+          { label: "Layanan" },
+          { label: "Lembaga Kalibrasi" },
+          { label: "Ruang Lingkup" },
+          { label: "Alat Kesehatan", href: "/layanan/kalibrasi/ruang-lingkup/alat-kesehatan" },
         ]}
       />
       <section><LocalizedText as="h1">Alat Kesehatan</LocalizedText></section>

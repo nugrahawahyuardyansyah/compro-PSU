@@ -8,9 +8,9 @@ export default function Biayapenawarankalibrasi() {
       <PageHeader
         title="Biaya dan Penawaran Kalibrasi"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Kalibrasi", href: "/layanan/kalibrasi" },
-          { label: "Biaya dan Penawaran Kalibrasi", href: "/layanan/kalibrasi/biaya-sertif" }
+          { label: "Layanan" },
+          { label: "Lembaga Kalibrasi" },
+          { label: "Biaya dan Penawaran Kalibrasi", href: "/layanan/kalibrasi/biaya-sertif" },
         ]}
       />
       <section><LocalizedText as="h1">Biaya dan Penawaran Kalibrasi</LocalizedText></section>

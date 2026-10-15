@@ -8,9 +8,9 @@ export default function Prosessertifsistem() {
       <PageHeader
         title="Proses Sertifikasi"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/layanan/sertif-manajemen" },
-          { label: "Proses Sertifikasi", href: "/layanan/sertif-manajemen/proses-sertifikasi" }
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Sistem Manajemen" },
+          { label: "Proses Sertifikasi", href: "/layanan/sertif-manajemen/proses-sertifikasi" },
         ]}
       />
       <section><LocalizedText as="h1">Proses Sertifikasi</LocalizedText></section>

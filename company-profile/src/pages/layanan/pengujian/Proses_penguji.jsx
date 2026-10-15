@@ -8,9 +8,9 @@ export default function Prosespenguji() {
       <PageHeader
         title="Proses Pengujian"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pengujian", href: "/layanan/penguji" },
-          { label: "Proses Pengujian", href: "/layanan/penguji/proses-pengujian" }
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Proses Pengujian", href: "/layanan/penguji/proses-pengujian" },
         ]}
       />
       <section><LocalizedText as="h1">Proses Pengujian</LocalizedText></section>

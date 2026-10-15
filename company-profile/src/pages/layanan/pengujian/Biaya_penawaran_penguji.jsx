@@ -8,9 +8,9 @@ export default function Biayapenawaranpenguji() {
       <PageHeader
         title="Biaya dan Penawaran Pengujian"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Pengujian", href: "/layanan/penguji" },
-          { label: "Biaya dan Penawaran Pengujian", href: "/layanan/penguji/biaya-sertif" }
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Biaya dan Penawaran Pengujian", href: "/layanan/penguji/biaya-sertif" },
         ]}
       />
       <section><LocalizedText as="h1">Biaya dan Penawaran Pengujian</LocalizedText></section>

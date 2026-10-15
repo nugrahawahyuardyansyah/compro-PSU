@@ -121,7 +121,7 @@ export default function Profile() {
       <PageHeader
         title="Tentang Kami"
         breadcrumbs={[
-          { label: "Tentang Kami", href: "/about/profile" },
+          { label: "Tentang Kami" },
           { label: "Profile", href: "/about/profile" },
         ]}
       />

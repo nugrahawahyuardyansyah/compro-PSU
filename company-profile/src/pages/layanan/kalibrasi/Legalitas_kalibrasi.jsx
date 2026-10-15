@@ -9,9 +9,9 @@ export default function Legalitaskalibrasi() {
       <PageHeader
         title="Legalitas"
         breadcrumbs={[
-          { label: "Layanan", href: "/layanan" },
-          { label: "Lembaga Kalibrasi", href: "/layanan/kalibrasi" },
-          { label: "Legalitas", href: "/layanan/kalibrasi/legalitas" }
+          { label: "Layanan" },
+          { label: "Lembaga Kalibrasi" },
+          { label: "Legalitas", href: "/layanan/kalibrasi/legalitas" },
         ]}
       />
       <section className="service-detail--legalitas-kalibrasi">

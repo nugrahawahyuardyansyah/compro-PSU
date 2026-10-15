@@ -106,7 +106,7 @@ export default function ClientProductCertification() {
       <PageHeader
         title="Lembaga Sertifikasi Produk"
         breadcrumbs={[
-          { label: "Client", href: "/client/sertifikasi-produk" },
+          { label: "Client" },
           { label: "Lembaga Sertifikasi Produk", href: "/client/sertifikasi-produk" },
         ]}
       />

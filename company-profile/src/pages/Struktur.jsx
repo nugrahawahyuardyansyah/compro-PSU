@@ -83,7 +83,7 @@ export default function Struktur() {
       <PageHeader
         title="Struktur Organisasi"
         breadcrumbs={[
-          { label: "Tentang Kami", href: "/about/profile" },
+          { label: "Tentang Kami" },
           { label: "Struktur Organisasi", href: "/about/struktur-organisasi" },
         ]}
       />
