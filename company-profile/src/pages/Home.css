@@ -449,12 +449,12 @@
   filter: blur(0);
 }
 
-
 .expanding-card.reveal {
   opacity: 0;
-  transform: translateX(-150px); 
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease-out, flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
 }
 
+<<<<<<< HEAD
 .expanding-card.reveal:nth-child(1) { transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, opacity 0.9s ease-out 0.1s, flex 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0s, box-shadow 0.4s ease 0s; }
 .expanding-card.reveal:nth-child(2) { transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s, opacity 0.9s ease-out 0.3s, flex 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0s, box-shadow 0.4s ease 0s; }
 .expanding-card.reveal:nth-child(3) { transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s, opacity 0.9s ease-out 0.5s, flex 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0s, box-shadow 0.4s ease 0s; }
@@ -487,6 +487,27 @@
   .expanding-card:hover .expanding-card__desc,
   .expanding-card:focus-within .expanding-card__desc {
     max-height: 180px;
+=======
+@media (min-width: 861px) {
+  .expanding-card.reveal:nth-child(1),
+  .expanding-card.reveal:nth-child(2) {
+    transform: translateX(-150px);
+  }
+  
+  .expanding-card.reveal:nth-child(3),
+  .expanding-card.reveal:nth-child(4) {
+    transform: translateX(150px);
+  }
+}
+
+@media (max-width: 860px) {
+  .expanding-card.reveal:nth-child(odd) {
+    transform: translateX(-100px);
+  }
+  
+  .expanding-card.reveal:nth-child(even) {
+    transform: translateX(100px);
+>>>>>>> 1b1dc834e99716f849af79d5930baed1c93c42c7
   }
 }
 
@@ -494,6 +515,7 @@
   transform: translateX(0);
   opacity: 1;
 }
+
 .tracking-banner {
   position: relative;
   width: 100vw;
