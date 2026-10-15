@@ -45,7 +45,6 @@ const SECTORS = [
     descEn: "Testing of parameters and chemical composition in industrial raw materials and final products according to applicable standards.",
     link: "/kimia",
   },
-<<<<<<< HEAD
   {
     file: "Stainless.webp",
     id: "Logam dan Produk Logam",
@@ -62,8 +61,6 @@ const SECTORS = [
     descEn: "Certification services across various service sectors to improve service quality, public trust, and business competitiveness through the implementation of national standards and the continuous development of certification scopes.",
     link: "/jasa-lainnya",
   },
-=======
->>>>>>> 1b1dc834e99716f849af79d5930baed1c93c42c7
 ];
 
 const MAIN_SERVICES = [
