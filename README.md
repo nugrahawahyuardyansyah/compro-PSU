@@ -1,4 +1,5 @@
 //Notes of changes
+
 To start the project on your computer, please import the database to your local DMBS (XAMPP/WorkBench)
 You can find the database on folder : ../backend/database/psu_sertifikat.sql
 
