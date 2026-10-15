@@ -1,3 +1,4 @@
+import PageHeader from "../components/PageHeader";
 import "./Kontak.css";
 import { useLanguage } from "../context/useLanguage";
 
@@ -74,7 +75,12 @@ export default function Kontak() {
   const { t } = useLanguage();
 
   return (
-    <section className="contact-section">
+    <>
+      <PageHeader
+        title="Kontak"
+        breadcrumbs={[{ label: "Kontak", href: "/kontak" }]}
+      />
+      <section className="contact-section">
       <div className="contact-container">
         <div className="contact-header">
           <h2>{t("Hubungi Kami")}</h2>
@@ -167,6 +173,7 @@ export default function Kontak() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

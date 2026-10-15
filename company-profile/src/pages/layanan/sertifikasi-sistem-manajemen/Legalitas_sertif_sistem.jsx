@@ -1,12 +1,23 @@
+import PageHeader from "../../../components/PageHeader";
 import "./Legalitas_sertif_sistem.css";
 import LocalizedText from "../../../components/LocalizedText";
 import LegalitasButtons from "../../../components/LegalitasButtons";
 
 export default function Legalitassertifsistem() {
   return (
-    <section className="service-detail--legalitas-sertif-sistem">
+    <>
+      <PageHeader
+        title="Legalitas"
+        breadcrumbs={[
+          { label: "Layanan", href: "/layanan" },
+          { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/layanan/sertif-manajemen" },
+          { label: "Legalitas", href: "/layanan/sertif-manajemen/legalitas" }
+        ]}
+      />
+      <section className="service-detail--legalitas-sertif-sistem">
       <LocalizedText as="h1">Legalitas</LocalizedText>
       <LegalitasButtons />
-    </section>
+      </section>
+    </>
   );
 }

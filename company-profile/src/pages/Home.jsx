@@ -4,17 +4,17 @@ import { useLanguage } from "../context/useLanguage";
 import "./Home.css";
 
 const BANNERS = [
-  "/Logo_PSU_banner1.jpeg",
-  "/Logo_PSU_banner2.jpeg",
-  "/Logo_PSU_banner3.jpeg",
-  "/Logo_PSU_banner4.jpeg",
-  "/Logo_PSU_banner5.jpeg",
-  "/Logo_PSU_banner6.jpeg",
+  "/Logo_PSU_banner1.webp",
+  "/Logo_PSU_banner2.webp",
+  "/Logo_PSU_banner3.webp",
+  "/Logo_PSU_banner4.webp",
+  "/Logo_PSU_banner5.webp",
+  "/Logo_PSU_banner6.webp",
 ];
 
 const SECTORS = [
   {
-    file: "1.pertanian.jpg",
+    file: "1.pertanian.webp",
     id: "Pertanian dan Perkebunan",
     en: "Agriculture and Plantation",
     descId: "Pengujian dan sertifikasi komoditas hasil bumi untuk memastikan kualitas, keamanan, dan pemenuhan standar regulasi.",
@@ -22,7 +22,7 @@ const SECTORS = [
     link: "/pertanian",
   },
   {
-    file: "2.tanaman.jpg",
+    file: "2.tanaman.webp",
     id: "Produk Tanaman",
     en: "Plant Products and Derivatives",
     descId: "Layanan penilaian kesesuaian untuk berbagai produk olahan nabati dan turunannya guna menjaga standar mutu.",
@@ -30,7 +30,7 @@ const SECTORS = [
     link: "/tanaman",
   },
   {
-    file: "3.pangan.jpg",
+    file: "3.pangan.webp",
     id: "Produk Pangan",
     en: "Other Food Products",
     descId: "Analisis mutu fisik, kimia, dan cemaran pada produk makanan dan minuman untuk menjamin keamanan pangan.",
@@ -38,7 +38,7 @@ const SECTORS = [
     link: "/pangan",
   },
   {
-    file: "4.kimia.jpg",
+    file: "4.kimia.webp",
     id: "Bahan dan Produk Kimia",
     en: "Chemical Materials and Products",
     descId: "Pengujian parameter dan komposisi kimia pada bahan baku industri maupun produk akhir sesuai standar yang berlaku.",
@@ -53,35 +53,35 @@ const MAIN_SERVICES = [
     en: "Product Certification Body (LSPro)",
     descId: "Penilaian kesesuaian dan sertifikasi produk berdasarkan standar serta skema sertifikasi yang berlaku.",
     descEn: "Conformity assessment and product certification based on applicable standards and certification schemes.",
-    file: "LSPro.png",
+    file: "LSPro.webp",
   },
   {
     id: "Laboratorium Pengujian",
     en: "Testing Laboratory",
     descId: "Pelaksanaan pengujian untuk mendukung evaluasi karakteristik, mutu, keamanan, dan kesesuaian produk terhadap persyaratan teknis.",
     descEn: "Conducting tests to support the evaluation of characteristics, quality, safety, and product conformity to technical requirements.",
-    file: "lab_pengujian.png",
+    file: "lab_pengujian.webp",
   },
   {
     id: "Laboratorium Kalibrasi",
     en: "Calibration Laboratory",
     descId: "Layanan kalibrasi peralatan ukur untuk mendukung akurasi pengukuran dan ketertelusuran metrologi.",
     descEn: "Calibration services for measuring instruments to support measurement accuracy and metrological traceability.",
-    file: "lab_kalibrasi.png",
+    file: "lab_kalibrasi.webp",
   },
   {
     id: "Lembaga Pelatihan",
     en: "Training Institution",
     descId: "Pelatihan teknis, sistem manajemen, standar, audit, dan peningkatan kompetensi personel sesuai kebutuhan organisasi.",
     descEn: "Technical training, management systems, standards, audits, and personnel competency enhancement according to organizational needs.",
-    file: "_pelatihan.png",
+    file: "_pelatihan.webp",
   },
   {
     id: "Sistem Manajemen Mutu",
     en: "Quality Management System",
     descId: "Layanan pelatihan dan pendampingan penerapan, evaluasi, serta peningkatan sistem manajemen mutu organisasi.",
     descEn: "Training services and assistance in the implementation, evaluation, and improvement of organizational quality management systems.",
-    file: "sistem_manajemen_mutu.png",
+    file: "sistem_manajemen_mutu.webp",
   },
 ];
 

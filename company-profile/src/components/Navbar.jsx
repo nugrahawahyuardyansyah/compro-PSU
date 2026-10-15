@@ -541,7 +541,7 @@ export default function Navbar() {
           </div>
 
           <Link to="/" className="navbar__brand" onClick={closeAll}>
-            <img src="/Logo_PSU1.png" alt="Logo" className="navbar__logo" />
+            <img src="/Logo_PSU1.webp" alt="Logo" className="navbar__logo" />
           </Link>
 
           <button

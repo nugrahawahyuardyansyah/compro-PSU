@@ -1,3 +1,4 @@
+import PageHeader from "../../components/PageHeader";
 import { useState } from "react";
 import LocalizedText from "../../components/LocalizedText";
 import { useLanguage } from "../../context/useLanguage";
@@ -101,7 +102,15 @@ export default function ClientManagementSystemCertification() {
   };
 
   return (
-    <section className="cert-tracker">
+    <>
+      <PageHeader
+        title="Lembaga Sertifikasi Sistem Manajemen"
+        breadcrumbs={[
+          { label: "Client", href: "/client/sertifikasi-sistem-manajemen" },
+          { label: "Lembaga Sertifikasi Sistem Manajemen", href: "/client/sertifikasi-sistem-manajemen" },
+        ]}
+      />
+      <section className="cert-tracker">
       <div className="cert-tracker__container">
         <header className="cert-tracker__header">
           <span className="cert-tracker__eyebrow">
@@ -232,6 +241,7 @@ export default function ClientManagementSystemCertification() {
           )}
         </div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

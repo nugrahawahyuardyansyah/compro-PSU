@@ -1,3 +1,4 @@
+import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
@@ -47,16 +48,7 @@ export default function JasaLainnya() {
 
   return (
     <section className="sector-detail-page">
-      <div className="sector-detail-page__hero">
-        <img
-          className="sector-detail-page__image"
-          src="/Banner_Jasa.webp"
-          alt={title}
-        />
-        <div className="sector-detail-page__hero-text">
-          <h1 className="sector-detail-page__title">{title}</h1>
-        </div>
-      </div>
+      <PageHeader title="Jasa Lainnya" breadcrumbs={[{ label: "Jasa Lainnya", href: "/jasa-lainnya" }]} />
       <div className="pangan-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="pangan-card" key={index}>

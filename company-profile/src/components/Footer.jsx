@@ -159,7 +159,7 @@ export default function Footer() {
               aria-label={t("Kembali ke beranda")}
               style={logoLinkStyle}
             >
-              <img src="/Logo_PSU.png" alt="Logo" className="footer__logo" />
+              <img src="/Logo_PSU.webp" alt="Logo" className="footer__logo" />
             </Link>
 
             <div className="footer__brand-text" style={brandTextStyle}>
