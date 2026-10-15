@@ -154,9 +154,6 @@ export default function Tanaman() {
                       <h3 className="tanaman-card__title">
                         {lang === "en" ? item.en : item.id}
                       </h3>
-                      <p className="tanaman-card__desc">
-                        {lang === "en" ? item.descEn : item.descId}
-                      </p>
                     </div>
                   </article>
                 ))}

@@ -30,6 +30,10 @@ export default function Kimia() {
   const [cardsPerRow, setCardsPerRow] = useState(() =>
     window.matchMedia("(max-width: 992px)").matches ? 2 : 3
   );
+  const ITEMS_PER_PAGE = 6;
+  const totalPages = Math.ceil(FERTILIZERS.length / ITEMS_PER_PAGE);
+  const [page, setPage] = useState(1);
+  const cardsRef = useRef(null);
   const title =
     lang === "en"
       ? "Chemical Materials and Products"
@@ -44,6 +48,10 @@ export default function Kimia() {
     mediaQuery.addEventListener("change", updateCardsPerRow);
     return () => mediaQuery.removeEventListener("change", updateCardsPerRow);
   }, []);
+
+  useEffect(() => {
+    setPage(1);
+  }, [cardsPerRow]);
 
   useEffect(() => {
     const rows = rowsRef.current?.querySelectorAll(".kimia-card-row");
@@ -64,6 +72,16 @@ export default function Kimia() {
     return () => observer.disconnect();
   }, [cardsPerRow]);
 
+  const handlePageChange = (newPage) => {
+    setPage(newPage);
+    cardsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  const pageItems = FERTILIZERS.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  );
+
   return (
     <section className="sector-detail-page">
       <div className="sector-detail-page__hero">
@@ -76,11 +94,12 @@ export default function Kimia() {
           <h1 className="sector-detail-page__title">{title}</h1>
         </div>
       </div>
-      <div className="kimia-cards" ref={rowsRef}>
+      <div className="kimia-cards" ref={cardsRef}>
+        <div ref={rowsRef} className="kimia-cards__inner">
         {Array.from(
-          { length: Math.ceil(FERTILIZERS.length / cardsPerRow) },
+          { length: Math.ceil(pageItems.length / cardsPerRow) },
           (_, rowIndex) => {
-            const rowItems = FERTILIZERS.slice(
+            const rowItems = pageItems.slice(
               rowIndex * cardsPerRow,
               rowIndex * cardsPerRow + cardsPerRow
             );
@@ -108,6 +127,40 @@ export default function Kimia() {
               </div>
             );
           }
+        )}
+        </div>
+        {totalPages > 1 && (
+          <nav className="kimia-pagination" aria-label="Pagination">
+            <button
+              type="button"
+              className="kimia-pagination__btn"
+              disabled={page === 1}
+              onClick={() => handlePageChange(page - 1)}
+              aria-label="Previous page"
+            >
+              &lsaquo;
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+              <button
+                type="button"
+                key={p}
+                className={`kimia-pagination__btn${p === page ? " kimia-pagination__btn--active" : ""}`}
+                onClick={() => handlePageChange(p)}
+                aria-current={p === page ? "page" : undefined}
+              >
+                {p}
+              </button>
+            ))}
+            <button
+              type="button"
+              className="kimia-pagination__btn"
+              disabled={page === totalPages}
+              onClick={() => handlePageChange(page + 1)}
+              aria-label="Next page"
+            >
+              &rsaquo;
+            </button>
+          </nav>
         )}
       </div>
       <Link className="sector-detail-page__back" to="/">

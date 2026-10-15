@@ -44,6 +44,7 @@ import Pertanian from './pages/sectors/Pertanian';
 import Tanaman from './pages/sectors/Tanaman';
 import Pangan from './pages/sectors/Pangan';
 import Kimia from './pages/sectors/Kimia';
+import Logam from './pages/sectors/Logam';
 import JasaLainnya from './pages/sectors/JasaLainnya';
 
 
@@ -60,7 +61,8 @@ function App() {
           <Route path="/tanaman" element={<Tanaman />} />
           <Route path="/pangan" element={<Pangan />} />
            <Route path="/kimia" element={<Kimia />} />
-          <Route path="/jasa-lainnya" element={<JasaLainnya />} />
+           <Route path="/logam" element={<Logam />} />
+           <Route path="/jasa-lainnya" element={<JasaLainnya />} />
 
            <Route path="/about/profile" element={<Profile />} />
           <Route path="/about/struktur-organisasi" element={<Struktur />} />

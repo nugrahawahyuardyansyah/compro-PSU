@@ -79,9 +79,6 @@ export default function Pertanian() {
               <h3 className="pertanian-card__title">
                 {lang === "en" ? item.en : item.id}
               </h3>
-              <p className="pertanian-card__desc">
-                {lang === "en" ? item.descEn : item.descId}
-              </p>
             </div>
           </div>
         ))}
