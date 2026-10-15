@@ -18,13 +18,16 @@
 
 .service-detail--biaya-penawaran-penguji p,
 .service-detail--biaya-penawaran-penguji li {
-  max-width: 80ch;
   font-size: 1.0625rem;
   line-height: 1.7;
 }
 
 .service-detail--biaya-penawaran-penguji p {
-  margin: 0 0 20px;
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 0 16px;
+  text-align: justify;
 }
 
 .service-detail--biaya-penawaran-penguji ul,

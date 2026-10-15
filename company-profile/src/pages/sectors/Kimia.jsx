@@ -135,9 +135,9 @@ export default function Kimia() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title="Bahan dan Produk Kimia"
+        title={title}
         breadcrumbs={[
-          { label: "Bahan dan Produk Kimia", href: "/kimia" },
+          { label: title, href: "/kimia" },
         ]}
       />
       <div className="kimia-cards" ref={cardsRef}>

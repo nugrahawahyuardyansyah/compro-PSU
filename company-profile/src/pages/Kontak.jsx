@@ -57,6 +57,21 @@ const ClockIcon = () => (
   </svg>
 );
 
+const QualityIcon = () => (
+  <svg {...iconProps}>
+    <path d="M12 3.5 19 6v5.2c0 4.3-2.8 7.4-7 9.3-4.2-1.9-7-5-7-9.3V6l7-2.5z" />
+    <path d="m9 12 2 2 4-4" />
+  </svg>
+);
+
+const SupportIcon = () => (
+  <svg {...iconProps}>
+    <path d="M4 13v-1a8 8 0 0 1 16 0v1" />
+    <path d="M4 13h3v6H6a2 2 0 0 1-2-2v-4zm16 0h-3v6h1a2 2 0 0 0 2-2v-4z" />
+    <path d="M17 19c-.8 1.2-2.4 2-5 2" />
+  </svg>
+);
+
 function ContactItem({ icon, label, children }) {
   const { t } = useLanguage();
 
@@ -70,6 +85,24 @@ function ContactItem({ icon, label, children }) {
     </li>
   );
 }
+
+const contactHighlights = [
+  {
+    icon: <ClockIcon />,
+    title: "Respons Terarah",
+    description: "Kami siap membantu kebutuhan Anda",
+  },
+  {
+    icon: <QualityIcon />,
+    title: "Tim Kompeten",
+    description: "Dukungan profesional dan informatif",
+  },
+  {
+    icon: <SupportIcon />,
+    title: "Informasi Terjaga",
+    description: "Komunikasi ditangani dengan baik",
+  },
+];
 
 export default function Kontak() {
   const { t } = useLanguage();
@@ -85,8 +118,28 @@ export default function Kontak() {
       <section className="contact-section">
       <div className="contact-container">
         <div className="contact-header">
-          <h2>{t("Hubungi Kami")}</h2>
-          <p>{t("Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.")}</p>
+          <div className="contact-header__content">
+            <span className="contact-header__eyebrow">
+              {t("PT Penilai Standar Uji")}
+            </span>
+            <h2>{t("Mari Terhubung dengan PSU")}</h2>
+            <p>
+              {t(
+                "Tim kami siap membantu kebutuhan pengujian, sertifikasi, dan informasi layanan Anda."
+              )}
+            </p>
+          </div>
+          <ul className="contact-header__highlights">
+            {contactHighlights.map(({ icon, title, description }) => (
+              <li key={title}>
+                <span className="contact-header__highlight-icon">{icon}</span>
+                <span className="contact-header__highlight-copy">
+                  <strong>{t(title)}</strong>
+                  <small>{t(description)}</small>
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="contact-card">

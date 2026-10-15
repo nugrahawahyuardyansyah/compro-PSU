@@ -56,9 +56,9 @@ export default function Pertanian() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title="Pertanian dan Perkebunan"
+        title={title}
         breadcrumbs={[
-          { label: "Pertanian dan Perkebunan", href: "/pertanian" },
+          { label: title, href: "/pertanian" },
         ]}
       />
       <div className="pertanian-cards" ref={cardsRef}>
