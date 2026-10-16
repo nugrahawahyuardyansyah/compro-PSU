@@ -296,7 +296,7 @@ export default function Home() {
       <section className="main-services reveal" aria-labelledby="main-services-title">
         <div className="main-services__bg"></div>
 
-        <div className="main-services__header">
+        <div className="main-services__header"> 
           <h2 id="main-services-title" className="sectors__heading main-services__heading">
             {lang === "en" ? "OUR MAIN SERVICES" : "LAYANAN UTAMA KAMI"}
           </h2>
