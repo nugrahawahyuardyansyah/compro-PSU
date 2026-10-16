@@ -1,5 +1,6 @@
 import "./Kontak.css";
 import { useLanguage } from "../context/useLanguage";
+import PageHeader from "../components/PageHeader";
 
 const MAPS_LINK =
   "https://maps.app.goo.gl/KAX2Pn4DxSPA5aiG6";
