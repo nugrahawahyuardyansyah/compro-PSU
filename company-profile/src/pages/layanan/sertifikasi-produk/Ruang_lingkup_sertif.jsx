@@ -489,14 +489,14 @@ export default function Ruanglingkuppenguji() {
           <table className="ruang-lingkup__table">
             <thead>
               <tr>
-                <th>No</th>
-                <th>Skema</th>
-                <th>Kategori</th>
-                <th>Sub Kategori</th>
-                <th>Jenis Produk/Proses/Jasa</th>
-                <th>Nomor Acuan Standar</th>
-                <th>Judul Acuan Standar</th>
-                <th>Skema Sertifikasi</th>
+                <th>{t("No")}</th>
+                <th>{t("Skema")}</th>
+                <th>{t("Kategori")}</th>
+                <th>{t("Sub Kategori")}</th>
+                <th>{t("Jenis Produk/Proses/Jasa")}</th>
+                <th>{t("Nomor Acuan Standar")}</th>
+                <th>{t("Judul Acuan Standar")}</th>
+                <th>{t("Skema Sertifikasi")}</th>
               </tr>
             </thead>
 
@@ -512,15 +512,15 @@ export default function Ruanglingkuppenguji() {
                         >
                           {item.no}.
                         </td>
-                        <td rowSpan={item.standar.length}>{item.skema}</td>
-                        <td rowSpan={item.standar.length}>{item.kategori}</td>
-                        <td rowSpan={item.standar.length}>{item.subKategori}</td>
-                        <td rowSpan={item.standar.length}>{item.jenis}</td>
+                        <td rowSpan={item.standar.length}>{t(item.skema)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.kategori)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.subKategori)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.jenis)}</td>
                       </>
                     )}
 
                     <td>{standar.nomor}</td>
-                    <td>{standar.judul}</td>
+                    <td>{t(standar.judul)}</td>
 
                     {index === 0 && (
                       <td

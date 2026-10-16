@@ -18,41 +18,56 @@ const originalAttrs = new WeakMap();
 let isApplying = false;
 let currentLangRef = { current: "id" };
 
+function translateNodeText(text, lang) {
+  if (lang !== "en" || !text.trim()) return text;
+
+  const leadingWhitespace = text.match(/^\s*/)?.[0] ?? "";
+  const trailingWhitespace = text.match(/\s*$/)?.[0] ?? "";
+  const normalized = text.trim().replace(/\s+/g, " ");
+  const translated = translateText(normalized, lang);
+
+  return translated === normalized
+    ? text
+    : `${leadingWhitespace}${translated}${trailingWhitespace}`;
+}
+
 function resolveOriginal(node) {
   const current = node.nodeValue;
   const prevOriginal = originalNodeText.get(node);
 
   if (prevOriginal == null) return current;
   if (current === prevOriginal) return prevOriginal;
-  // Node masih menampilkan hasil terjemahan dari teks asli sebelumnya
-  if (translateText(prevOriginal, "en") === current) return prevOriginal;
-  // React mengganti isi node dengan teks baru → anggap teks baru sebagai asal
+  // Keep the source only when this node still contains its dictionary translation.
+  if (translateNodeText(prevOriginal, "en") === current) return prevOriginal;
   return current;
 }
 
 function translateAttributes(root, lang) {
   if (!root.querySelectorAll) return;
-  root.querySelectorAll("[placeholder],[title],[aria-label]").forEach((el) => {
-    for (const attr of ["placeholder", "title", "aria-label"]) {
-      const value = el.getAttribute(attr);
-      if (!value) continue;
+  root
+    .querySelectorAll("[placeholder],[title],[aria-label],[alt]")
+    .forEach((el) => {
+      for (const attr of ["placeholder", "title", "aria-label", "alt"]) {
+        const value = el.getAttribute(attr);
+        if (!value) continue;
 
-      const store = originalAttrs.get(el) || {};
-      const prevOriginal = store[attr];
-      let original;
+        const store = originalAttrs.get(el) || {};
+        const prevOriginal = store[attr];
+        let original;
 
-      if (prevOriginal == null) original = value;
-      else if (value === prevOriginal) original = prevOriginal;
-      else if (translateText(prevOriginal, "en") === value) original = prevOriginal;
-      else original = value;
+        if (prevOriginal == null) original = value;
+        else if (value === prevOriginal) original = prevOriginal;
+        else if (translateNodeText(prevOriginal, "en") === value) {
+          original = prevOriginal;
+        } else original = value;
 
-      store[attr] = original;
-      originalAttrs.set(el, store);
+        store[attr] = original;
+        originalAttrs.set(el, store);
 
-      const target = lang === "en" ? translateText(original, "en") : original;
-      if (target !== value) el.setAttribute(attr, target);
-    }
-  });
+        const target = translateNodeText(original, lang);
+        if (target !== value) el.setAttribute(attr, target);
+      }
+    });
 }
 
 function applyLanguageToDom(root, lang) {
@@ -72,7 +87,7 @@ function applyLanguageToDom(root, lang) {
     const original = resolveOriginal(node);
     originalNodeText.set(node, original);
 
-    const target = lang === "en" ? translateText(original, "en") : original;
+    const target = translateNodeText(original, lang);
     if (target !== node.nodeValue) node.nodeValue = target;
   }
 
@@ -92,6 +107,7 @@ export function LanguageProvider({ children }) {
 
   useEffect(() => {
     window.localStorage.setItem("psu-lang", lang);
+    document.documentElement.lang = lang;
   }, [lang]);
 
   // Terapkan bahasa ke seluruh teks halaman + pantau perubahan DOM
