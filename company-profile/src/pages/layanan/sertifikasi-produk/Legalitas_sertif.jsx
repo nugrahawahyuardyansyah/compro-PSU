@@ -7,20 +7,9 @@ const accreditationScope = (
   <figure className="legalitas-document legalitas-document--pdf">
     <iframe
       className="legalitas-document__pdf"
-      src={`${import.meta.env.BASE_URL}Lampiran-Akreditasi-LSPro.pdf`}
+      src={`${import.meta.env.BASE_URL}Lampiran-Akreditasi-LSPro.pdf#toolbar=0&navpanes=0`}
       title="Lampiran ruang lingkup akreditasi LSPr-051-IDN"
     />
-    <figcaption className="legalitas-document__caption">
-      Halaman sertifikat utama telah dihapus.{" "}
-      <a
-        className="legalitas-document__download"
-        href={`${import.meta.env.BASE_URL}Lampiran-Akreditasi-LSPro.pdf`}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Buka atau unduh lampiran ruang lingkup
-      </a>
-    </figcaption>
   </figure>
 );
 
@@ -78,6 +67,16 @@ export default function Legalitassertif() {
         ]}
       />
       <section className="service-detail--legalitas-sertif">
+<<<<<<< HEAD
+        <LocalizedText as="h1">Legalitas</LocalizedText>
+        <LegalitasButtons
+          documentContent={{
+            "Sertifikasi Akreditasi": accreditationCertificate,
+            "Lampiran Ruang Lingkup": accreditationScope,
+            NIB: businessLicense,
+          }}
+        />
+=======
       <LocalizedText as="h1">Legalitas</LocalizedText>
       <LegalitasButtons
         documentContent={{
@@ -86,6 +85,7 @@ export default function Legalitassertif() {
           NIB: businessLicense,
         }}
       />
+>>>>>>> ac303850326a99d5a425b69f26742b269be934ff
       </section>
     </>
   );

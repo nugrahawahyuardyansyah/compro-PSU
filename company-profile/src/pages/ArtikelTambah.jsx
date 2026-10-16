@@ -29,7 +29,7 @@ export default function ArtikelTambah() {
   const [imageUrl, setImageUrl] = useState("/Logo_PSU_banner1.webp");
   const [tagsInput, setTagsInput] = useState("News, PT Penilai Standar Uji, SNI, LSPro PSU");
   const [excerptId, setExcerptId] = useState("");
-  const [excerptEn, setExcerptEn] = useState("");
+  const [excerptEn] = useState("");
   const [contentId, setContentId] = useState("");
   const [contentEn, setContentEn] = useState("");
 
