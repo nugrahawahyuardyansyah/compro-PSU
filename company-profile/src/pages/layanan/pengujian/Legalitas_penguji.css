@@ -37,6 +37,78 @@
   margin-top: 8px;
 }
 
+.testing-scope {
+  display: grid;
+  gap: 32px;
+}
+
+.testing-scope__heading {
+  margin: 32px 0 16px;
+  color: var(--service-navy);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.testing-scope__section {
+  min-width: 0;
+  display: grid;
+  gap: 0;
+}
+
+.testing-scope__title {
+  margin: 0 0 16px;
+  color: var(--service-navy);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.testing-scope__section--no-heading .testing-scope__title {
+  margin-bottom: 32px;
+}
+
+.testing-scope__table-wrap {
+  overflow: auto;
+  border: 1px solid #7b8491;
+  overscroll-behavior-x: contain;
+}
+
+.testing-scope__table-wrap:focus-visible {
+  outline: 2px solid var(--service-navy);
+  outline-offset: 3px;
+}
+
+.testing-scope__table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+  color: #111827;
+  font-family: Arial, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.testing-scope__table th,
+.testing-scope__table td {
+  padding: 10px;
+  border: 1px solid #9aa3af;
+  text-align: left;
+  vertical-align: top;
+}
+
+.testing-scope__table th {
+  background: #eef1f5;
+  color: #0b2a5b;
+  font-weight: 700;
+  text-align: center;
+}
+
+.testing-scope__table tbody tr:nth-child(even) {
+  background: #f8f9fb;
+}
+
 @media (max-width: 720px) {
   .service-detail--legalitas-penguji {
     padding: 32px 0 56px;
@@ -44,5 +116,9 @@
 
   .service-detail--legalitas-penguji h1 {
     font-size: 1.5rem;
+  }
+
+  .testing-scope__table {
+    min-width: 950px;
   }
 }

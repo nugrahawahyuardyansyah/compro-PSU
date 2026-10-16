@@ -117,18 +117,23 @@ export default function Profile() {
         {t("Sejarah PT PENILAI STANDAR UJI (PSU)")}
       </h2>
 
-      <p className="profile-page__intro reveal reveal-dark">
-        {lang === "en"
-          ? "PT PENILAI STANDAR UJI (formerly operating as PT Penilai Standar Nasional / PSN) was established to provide conformity assessment, standardization, and product testing services in Indonesia. The company operates a Product Certification Body (LSPro-PSU) and a Testing Laboratory responsible for issuing SNI Mark Product Certificates (SPPT-SNI) in accordance with Law No. 20 of 2014 on Standardization and Conformity Assessment."
-          : <>PT PENILAI STANDAR UJI (sebelumnya beroperasi dengan nama{" "}
-            <strong>PT Penilai Standar Nasional / PSN</strong>) didirikan untuk
-            bergerak di bidang penilaian kesesuaian, standarisasi, serta pengujian
-            produk di Indonesia. Perusahaan ini mengoperasikan Lembaga Sertifikasi
-            Produk (LSPro-PSU) dan Laboratorium Pengujian yang bertugas menerbitkan
-            Sertifikat Produk Penggunaan Tanda Standar Nasional Indonesia (SPPT-SNI)
-            sesuai acuan Undang-Undang No. 20 Tahun 2014 tentang Standardisasi dan
-            Penilaian Kesesuaian.</>}
-      </p>
+      <div className="profile-page__intro reveal reveal-dark">
+        {lang === "en" ? (
+          <>
+            <p>PT Penilai Standar Uji (PSU), formerly known as PT Penilai Standar Nasional (PSN), is a company operating in conformity assessment, product certification, and laboratory testing in Indonesia.</p>
+            <p>The company's journey began with the development of product certification services, committed to supporting the implementation of Indonesian National Standards (SNI), improving product quality, protecting consumers, and strengthening the competitiveness of national industry.</p>
+            <p>As industry needs evolved and demand for quality assurance grew, the company continued to enhance its competence, expand its service scope, and strengthen the implementation of national and international standards.</p>
+            <p>In 2026, the company entered a new chapter through its name change from PT Penilai Standar Nasional (PSN) to PT Penilai Standar Uji (PSU). This transformation is part of the company's commitment to strengthening its identity, improving service quality, and sustainably developing conformity assessment services.</p>
+          </>
+        ) : (
+          <>
+            <p>PT Penilai Standar Uji (PSU), yang sebelumnya dikenal sebagai PT Penilai Standar Nasional (PSN), merupakan perusahaan yang bergerak di bidang penilaian kesesuaian, sertifikasi produk, serta pengujian laboratorium di Indonesia.</p>
+            <p>Perjalanan perusahaan dimulai dengan pengembangan layanan sertifikasi produk yang berkomitmen mendukung penerapan Standar Nasional Indonesia (SNI), peningkatan mutu produk, perlindungan konsumen, serta daya saing industri nasional.</p>
+            <p>Seiring perkembangan kebutuhan industri dan tuntutan terhadap jaminan mutu, perusahaan terus meningkatkan kompetensi, memperluas ruang lingkup layanan, serta memperkuat penerapan standar nasional dan internasional.</p>
+            <p>Pada tahun 2026, perusahaan memasuki babak baru melalui perubahan nama dari PT Penilai Standar Nasional (PSN) menjadi PT Penilai Standar Uji (PSU). Transformasi ini menjadi bagian dari komitmen perusahaan untuk memperkuat identitas, meningkatkan kualitas pelayanan, serta mengembangkan layanan penilaian kesesuaian secara berkelanjutan.</p>
+          </>
+        )}
+      </div>
 
       <h3 className="profile-page__subtitle reveal reveal-dark">
         {t("Masa Perkembangan dan Milestones Utama")}
@@ -212,17 +217,17 @@ export default function Profile() {
           
           <p className="commitment__desc">
             {lang === "en" ? (
-              <>PT Penilai Standar Uji is committed to providing services that prioritize <strong className="highlight-text">quality, competence, integrity, impartiality, accuracy, and customer satisfaction</strong> through consistent application of standards and continuous improvement.</>
+              <>PT Penilai Standar Uji is committed to providing services that prioritize <strong className="highlight-text">quality, competence, integrity, impartiality, confidentiality, and customer satisfaction</strong> through consistent application of standards, innovation, and continuous improvement.</>
             ) : (
-              <>PT Penilai Standar Uji berkomitmen untuk memberikan layanan yang mengutamakan <strong className="highlight-text">mutu, kompetensi, integritas, ketidakberpihakan, ketepatan, dan kepuasan pelanggan</strong> melalui penerapan standar yang konsisten serta peningkatan berkelanjutan.</>
+              <>PT Penilai Standar Uji berkomitmen memberikan layanan yang mengutamakan <strong className="highlight-text">mutu, kompetensi, integritas, ketidakberpihakan, kerahasiaan, dan kepuasan pelanggan</strong> melalui penerapan standar yang konsisten, inovasi, serta peningkatan berkelanjutan.</>
             )}
           </p>
           
           <p className="commitment__desc">
             {lang === "en" ? (
-              "We believe that appropriately applied standards, supported by competence and technology, are an essential foundation for building trust, improving quality, and strengthening the competitiveness of Indonesian industry."
+              "Building Trust through Competence, Integrity, and Quality."
             ) : (
-              "Kami percaya bahwa standar yang diterapkan secara tepat, didukung oleh kompetensi dan teknologi, merupakan fondasi penting dalam membangun kepercayaan, meningkatkan kualitas, dan memperkuat daya saing industri Indonesia."
+              '"Membangun Kepercayaan melalui Kompetensi, Integritas, dan Mutu."'
             )}
           </p>
         </div>
