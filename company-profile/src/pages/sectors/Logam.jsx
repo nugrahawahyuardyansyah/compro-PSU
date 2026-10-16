@@ -50,9 +50,9 @@ export default function Logam() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title="Logam dan Produk Logam"
+        title={title}
         breadcrumbs={[
-          { label: "Logam dan Produk Logam", href: "/logam" },
+          { label: title, href: "/logam" },
         ]}
       />
       <div className="logam-cards" ref={cardsRef}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
+import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Home.css";
 
 const BANNERS = [
@@ -63,7 +64,6 @@ const SECTORS = [
   },
 ];
 
-
 const MAIN_SERVICES = [
   {
     id: "Lembaga Sertifikasi Produk (LSPro)",
@@ -104,7 +104,37 @@ const MAIN_SERVICES = [
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const [latestNews, setLatestNews] = useState(() => FALLBACK_ARTICLES.slice(0, 6));
   const { lang } = useLanguage();
+
+  useEffect(() => {
+    let active = true;
+    async function fetchLatestNews() {
+      const endpoints = [
+        "http://127.0.0.1:5000/api/artikel?limit=6",
+        "http://localhost:5000/api/artikel?limit=6",
+        "/api/artikel?limit=6",
+      ];
+      for (const url of endpoints) {
+        try {
+          const res = await fetch(url);
+          const ct = res.headers.get("content-type") || "";
+          if (!res.ok || !ct.includes("application/json")) continue;
+          const json = await res.json();
+          if (active && json.success && Array.isArray(json.data) && json.data.length > 0) {
+            setLatestNews(json.data.slice(0, 6));
+            return;
+          }
+        } catch {
+          // Gunakan data fallback jika server belum merespons
+        }
+      }
+    }
+    fetchLatestNews();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -273,6 +303,78 @@ export default function Home() {
               );
             }
           )}
+        </div>
+      </section>
+
+      <section className="home-news reveal" aria-labelledby="home-news-title">
+        <div className="home-news__container">
+          <div className="home-news__header">
+            <div className="home-news__header-left">
+              <div className="home-news__eyebrow">
+                <span className="home-news__eyebrow-line" aria-hidden="true" />
+                <span>{lang === "en" ? "NEWS & ARTICLES" : "BERITA & ARTIKEL"}</span>
+              </div>
+              <h2 id="home-news-title" className="home-news__title">
+                {lang === "en"
+                  ? "Latest News & Articles Updates"
+                  : "Update Berita & Artikel Terbaru"}
+              </h2>
+            </div>
+
+            <p className="home-news__desc">
+              {lang === "en"
+                ? "Stay informed with the latest industry trends, expert insights, and company updates. Explore our blog for valuable knowledge and best practices."
+                : "Ikuti perkembangan tren industri terkini, wawasan para ahli, dan informasi terbaru perusahaan. Jelajahi artikel kami untuk pengetahuan dan praktik terbaik."}
+            </p>
+          </div>
+
+          <div className="home-news__grid">
+            {latestNews.map((item) => {
+              const title = lang === "en" ? item.title_en : item.title_id;
+              const excerpt = lang === "en" ? item.excerpt_en : item.excerpt_id;
+              const tags = Array.isArray(item.tags) ? item.tags : [];
+              const extraTags = Math.max(0, tags.length - 1);
+
+              return (
+                <article className="home-news__card" key={item.slug}>
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__img-link"
+                  >
+                    <img
+                      src={item.image_url}
+                      alt={title}
+                      className="home-news__img"
+                      loading="lazy"
+                    />
+                  </Link>
+
+                  <div className="home-news__badges">
+                    <span className="home-news__badge">
+                      {item.category || "Article"}
+                    </span>
+                    {extraTags > 0 && (
+                      <span className="home-news__badge">{extraTags}+</span>
+                    )}
+                  </div>
+
+                  <h3 className="home-news__card-title">
+                    <Link to={`/artikel/${item.slug}`}>{title}</Link>
+                  </h3>
+
+                  <p className="home-news__card-excerpt">{excerpt}</p>
+
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__learn-more"
+                  >
+                    <span>{lang === "en" ? "Learn more" : "Selengkapnya"}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
