@@ -1,4 +1,3 @@
-import PageHeader from "../components/PageHeader";
 import "./Kontak.css";
 import { useLanguage } from "../context/useLanguage";
 

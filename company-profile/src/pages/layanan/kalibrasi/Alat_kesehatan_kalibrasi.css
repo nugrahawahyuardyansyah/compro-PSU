@@ -19,7 +19,7 @@
 }
 
 .calibration-products__intro {
-  max-width: 680px;
+  max-width: 100%;
   margin-bottom: 36px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .calibration-products__description {
-  max-width: 590px;
+  max-width: 100%;
   margin: 0;
   color: var(--service-muted);
   font-size: 1.05rem;
