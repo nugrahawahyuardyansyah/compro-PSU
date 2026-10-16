@@ -32,6 +32,7 @@ export default function JasaLainnya() {
     <section className="sector-detail-page">
       <PageHeader
         title={title}
+        fullWidth
         breadcrumbs={[
           { label: title, href: "/jasa-lainnya" },
         ]}

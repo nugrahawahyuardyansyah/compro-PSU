@@ -121,6 +121,7 @@ export default function Tanaman() {
     <section className="sector-detail-page">
       <PageHeader
         title={title}
+        fullWidth
         breadcrumbs={[
           { label: title, href: "/tanaman" },
         ]}
