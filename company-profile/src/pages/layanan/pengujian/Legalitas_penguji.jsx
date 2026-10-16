@@ -25,7 +25,6 @@ export default function Legalitaspenguji() {
         ]}
       />
       <section className="service-detail--legalitas-penguji">
-<<<<<<< HEAD
         <LocalizedText as="h1">Legalitas</LocalizedText>
         <LegalitasButtons
           documentContent={{
@@ -53,35 +52,6 @@ export default function Legalitaspenguji() {
           }}
         />
       </section>
-=======
-      <LocalizedText as="h1">Legalitas</LocalizedText>
-      <LegalitasButtons
-        documentContent={{
-          "Sertifikasi Akreditasi": (
-            <figure className="legalitas-document">
-              <a
-                className="legalitas-document__link"
-                href={`${import.meta.env.BASE_URL}Akreditas%20Pengujian.jpeg`}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Buka sertifikat akreditasi laboratorium penguji ukuran penuh di tab baru"
-              >
-                <img
-                  className="legalitas-document__image"
-                  src={`${import.meta.env.BASE_URL}Akreditas%20Pengujian.jpeg`}
-                  alt="Sertifikat akreditasi Laboratorium Penguji LP-1554-IDN"
-                />
-              </a>
-              <figcaption className="legalitas-document__caption">
-                Klik gambar untuk membuka dokumen asli di tab baru.
-              </figcaption>
-            </figure>
-          ),
-          "Lampiran Ruang Lingkup": testingScopeContent,
-        }}
-      />
-    </section>
->>>>>>> ac303850326a99d5a425b69f26742b269be934ff
     </>
   );
 }
