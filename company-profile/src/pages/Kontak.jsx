@@ -1,4 +1,3 @@
-import PageHeader from "../components/PageHeader";
 import "./Kontak.css";
 import { useLanguage } from "../context/useLanguage";
 
@@ -75,14 +74,7 @@ export default function Kontak() {
   const { t } = useLanguage();
 
   return (
-    <>
-      <PageHeader
-        title="Kontak"
-        breadcrumbs={[
-          { label: "Kontak", href: "/kontak" },
-        ]}
-      />
-      <section className="contact-section">
+    <section className="contact-section">
       <div className="contact-container">
         <div className="contact-header">
           <h2>{t("Hubungi Kami")}</h2>
@@ -100,8 +92,9 @@ export default function Kontak() {
               <ul className="contact-list">
                 <ContactItem icon={<PinIcon />} label="Alamat">
                   <p>
-                    Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok
-                    Bambu, Kec. Duren Sawit, Jakarta Timur – 13430
+                    {t(
+                      "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur – 13430"
+                    )}
                   </p>
                 </ContactItem>
 
@@ -134,11 +127,11 @@ export default function Kontak() {
                 <ContactItem icon={<InstagramIcon />} label="Instagram">
                   <p>
                     <a
-                      href="https://www.instagram.com/penilaistandar.nasional"
+                      href="https://instagram.com/penilaistandaruji"
                       target="_blank"
                       rel="noreferrer"
                     >
-                      @penilaistandarnasional
+                      @penilaistandaruji
                     </a>
                   </p>
                 </ContactItem>
@@ -147,7 +140,7 @@ export default function Kontak() {
                   <p>
                     {t("Senin – Jumat")}
                     <br />
-                    08.00 – 16.00 WIB
+                    09.00 – 17.00 WIB
                   </p>
                 </ContactItem>
               </ul>
@@ -174,8 +167,23 @@ export default function Kontak() {
             </div>
           </div>
         </div>
+
+        <div className="contact-cta-card">
+          <div className="contact-cta-card__text">
+            <h3>{t("Ingin Mengetahui Lebih Lanjut Tentang Layanan Kami?")}</h3>
+            <h2>{t("Silahkan Hubungi Kami")}</h2>
+          </div>
+          <a
+            href="https://wa.me/6281908344114"
+            target="_blank"
+            rel="noreferrer"
+            className="contact-cta-card__button"
+          >
+            <WhatsAppIcon />
+            <span>WhatsApp</span>
+          </a>
+        </div>
       </div>
-      </section>
-    </>
+    </section>
   );
 }
