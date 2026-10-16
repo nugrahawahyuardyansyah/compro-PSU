@@ -13,8 +13,10 @@ import ClientTesting from "./pages/client/ClientTesting";
 import ClientCalibration from "./pages/client/ClientCalibration";
 import ClientManagementSystemCertification from "./pages/client/ClientManagementSystemCertification";
 import Artikel from "./pages/Artikel";
+import ArtikelDetail from "./pages/ArtikelDetail";
+import ArtikelTambah from "./pages/ArtikelTambah";
+import ArtikelEdit from "./pages/ArtikelEdit";
 import Kontak from "./pages/Kontak";
-import Login from "./pages/Login";
 import KalibrasiAlatKesehatan from "./pages/layanan/kalibrasi/Alat_kesehatan_kalibrasi";
 import ProductLegalitas from "./pages/layanan/sertifikasi-produk/Legalitas_sertif";
 import ProductScope from "./pages/layanan/sertifikasi-produk/Ruang_lingkup_sertif";
@@ -76,8 +78,11 @@ function App() {
               element={<ClientManagementSystemCertification />}
             />
             <Route path="/artikel" element={<Artikel />} />
+            <Route path="/artikel/tambah" element={<ArtikelTambah />} />
+            <Route path="/artikel/edit" element={<ArtikelEdit />} />
+            <Route path="/artikel/edit/:slug" element={<ArtikelEdit />} />
+            <Route path="/artikel/:slug" element={<ArtikelDetail />} />
             <Route path="/kontak" element={<Kontak />} />
-            <Route path="/login" element={<Login />} />
             <Route
               path="/layanan/sertif-produk/legalitas"
               element={<ProductLegalitas />}

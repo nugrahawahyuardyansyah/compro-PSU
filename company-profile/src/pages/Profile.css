@@ -54,6 +54,10 @@
   line-height: 1.7;
 }
 
+.profile-page__intro p + p {
+  margin-top: 1em;
+}
+
 .profile-page strong {
   color: var(--psu-navy);
   font-weight: 650;

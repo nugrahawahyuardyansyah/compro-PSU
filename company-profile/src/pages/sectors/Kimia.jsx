@@ -136,6 +136,7 @@ export default function Kimia() {
     <section className="sector-detail-page">
       <PageHeader
         title={title}
+        fullWidth
         breadcrumbs={[
           { label: title, href: "/kimia" },
         ]}

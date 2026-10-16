@@ -32,6 +32,8 @@ const english = {
   "Client": "Clients",
   "Artikel": "Articles",
   "Kontak": "Contact",
+  "Lacak": "Track",
+  "Klik Disini!": "Click here!",
   "Login": "Login",
   "Home": "Home",
   "Beranda": "Home",

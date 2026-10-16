@@ -490,14 +490,9 @@
 }
 
 @media (min-width: 861px) {
-  .expanding-card.reveal:nth-child(1),
-  .expanding-card.reveal:nth-child(2) {
+  /* Semua card muncul dari kiri; delay per card (0.1s, 0.3s, 0.5s) bikin urutannya kiri ke kanan */
+  .expanding-card.reveal {
     transform: translateX(-150px);
-  }
-  
-  .expanding-card.reveal:nth-child(3),
-  .expanding-card.reveal:nth-child(4) {
-    transform: translateX(150px);
   }
 }
 
@@ -664,8 +659,26 @@
 
 .main-services__marquee {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.main-services__marquee::-webkit-scrollbar {
+  display: none;
+}
+
+.main-services__marquee.is-dragging {
+  cursor: grabbing;
+}
+
+.main-services__card {
+  -webkit-user-drag: none;
 }
 
 .main-services__track {
@@ -751,21 +764,7 @@
   }
 }
 
-@media (min-width: 861px) {
-  .main-services.is-visible .main-services__track {
-    animation: marqueeScroll 40s linear infinite;
-    animation-delay: 2.8s;
-  }
-
-  .main-services__track:hover {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes marqueeScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+/* Desktop: auto-scroll dijalankan via JS (Home.jsx), berhenti saat hover, bisa digeser/drag manual */
 
 @media (max-width: 860px) {
   .main-services {
@@ -777,33 +776,231 @@
     margin-bottom: 32px;
   }
 
+  /* Mobile: 5 card, swipe horizontal manual (tanpa auto-scroll) */
   .main-services__marquee {
-    width: 100%;
-    overflow: visible;
+    width: calc(100% + (var(--psu-gutter) * 2));
+    margin-left: calc(var(--psu-gutter) * -1);
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: auto;
+    user-select: auto;
+    -webkit-user-select: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    padding: 0 var(--psu-gutter);
+    box-sizing: border-box;
+    scroll-padding: 0 var(--psu-gutter);
   }
-  
+
   .main-services__track {
-    flex-direction: column; 
-    align-items: center;
-    width: 100%;
+    flex-direction: row;
+    width: max-content;
     animation: none !important;
   }
 
   .main-services__group {
-    flex-direction: column;
-    width: 100%;
-    gap: 24px;
-    padding-right: 0;
-    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+    padding-right: 16px;
   }
-  
+
   .main-services__group--duplicate {
     display: none;
   }
 
   .main-services__card {
-    width: 100%;
-    max-width: 400px;
+    flex: 0 0 auto;
+    width: min(80vw, 320px);
     height: 380px;
+    scroll-snap-align: center;
+  }
+}
+
+/* ==========================================================================
+   Seksi Latest News & Articles Updates di Beranda (Gambar ke-3)
+   ========================================================================== */
+.home-news {
+  width: 100%;
+  background: #f8fafc;
+  padding: 76px clamp(20px, 5vw, 72px) 84px;
+  box-sizing: border-box;
+  text-align: left;
+  font-family: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+.home-news__container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.home-news__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px 48px;
+  margin-bottom: 44px;
+}
+
+.home-news__header-left {
+  flex: 1 1 420px;
+}
+
+.home-news__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #0284c7;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.home-news__eyebrow-line {
+  width: 34px;
+  height: 2px;
+  background: #0284c7;
+  display: inline-block;
+}
+
+.home-news__title {
+  margin: 0 !important;
+  color: #1e293b !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.55rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.home-news__desc {
+  flex: 1 1 360px;
+  max-width: 440px;
+  margin: 8px 0 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.home-news__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px 28px;
+}
+
+.home-news__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-news__img-link {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.home-news__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.home-news__card:hover .home-news__img {
+  transform: scale(1.04);
+}
+
+.home-news__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.home-news__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-news__card-title {
+  margin: 0 0 8px !important;
+  font-size: 1.05rem !important;
+  font-weight: 600 !important;
+  line-height: 1.42 !important;
+  color: #1e293b !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-news__card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.home-news__card-title a:hover {
+  color: #0284c7;
+}
+
+.home-news__card-excerpt {
+  margin: 0 0 14px;
+  color: #64748b;
+  font-size: 0.84rem;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-news__learn-more {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0284c7;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+
+.home-news__learn-more:hover {
+  color: #0369a1;
+  gap: 10px;
+}
+
+@media (max-width: 992px) {
+  .home-news__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .home-news {
+    padding: 52px 18px 60px;
+  }
+
+  .home-news__grid {
+    grid-template-columns: 1fr;
   }
 }

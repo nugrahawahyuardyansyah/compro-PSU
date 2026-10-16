@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
+import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Home.css";
 
 const BANNERS = [
@@ -63,7 +64,6 @@ const SECTORS = [
   },
 ];
 
-
 const MAIN_SERVICES = [
   {
     id: "Lembaga Sertifikasi Produk (LSPro)",
@@ -104,7 +104,117 @@ const MAIN_SERVICES = [
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const [latestNews, setLatestNews] = useState(() => FALLBACK_ARTICLES.slice(0, 6));
   const { lang } = useLanguage();
+  const marqueeRef = useRef(null);
+  const groupRef = useRef(null);
+  const marqueeCtl = useRef({ hover: false, drag: false, startX: 0, startScroll: 0, pauseUntil: 0 });
+
+  useEffect(() => {
+    let active = true;
+    async function fetchLatestNews() {
+      const endpoints = [
+        "http://127.0.0.1:5000/api/artikel?limit=6",
+        "http://localhost:5000/api/artikel?limit=6",
+        "/api/artikel?limit=6",
+      ];
+      for (const url of endpoints) {
+        try {
+          const res = await fetch(url);
+          const ct = res.headers.get("content-type") || "";
+          if (!res.ok || !ct.includes("application/json")) continue;
+          const json = await res.json();
+          if (active && json.success && Array.isArray(json.data) && json.data.length > 0) {
+            setLatestNews(json.data.slice(0, 6));
+            return;
+          }
+        } catch {
+          // Gunakan data fallback jika server belum merespons
+        }
+      }
+    }
+    fetchLatestNews();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  // Auto-scroll "Layanan Utama Kami" (desktop saja): berhenti saat cursor di atasnya, bisa digeser manual
+  useEffect(() => {
+    const el = marqueeRef.current;
+    const group = groupRef.current;
+    if (!el || !group) return undefined;
+
+    const mq = window.matchMedia("(min-width: 861px)");
+    const ctl = marqueeCtl.current;
+    let raf = 0;
+    let last = 0;
+    let pos = 0;
+    let started = false;
+    const startTimer = setTimeout(() => {
+      started = true;
+    }, 2800);
+
+    const step = (ts) => {
+      const dt = last ? ts - last : 0;
+      last = ts;
+      const loop = group.offsetWidth;
+      const paused = ctl.hover || ctl.drag || ts < ctl.pauseUntil;
+
+      if (!mq.matches || !started || paused || !loop) {
+        pos = el.scrollLeft;
+      } else {
+        pos += ((loop / 40) * dt) / 1000; // 40 detik per putaran
+        if (pos >= loop) pos -= loop;
+        el.scrollLeft = pos;
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+
+    return () => {
+      clearTimeout(startTimer);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  const handleMarqueeScroll = () => {
+    const el = marqueeRef.current;
+    const group = groupRef.current;
+    if (!el || !group || !window.matchMedia("(min-width: 861px)").matches) return;
+    const loop = group.offsetWidth;
+    if (loop && el.scrollLeft >= loop) {
+      el.scrollLeft -= loop;
+      marqueeCtl.current.startScroll -= loop;
+    }
+  };
+
+  const handleMarqueePointerDown = (e) => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    const ctl = marqueeCtl.current;
+    ctl.drag = true;
+    ctl.startX = e.clientX;
+    ctl.startScroll = marqueeRef.current.scrollLeft;
+    e.currentTarget.setPointerCapture(e.pointerId);
+    e.currentTarget.classList.add("is-dragging");
+  };
+
+  const handleMarqueePointerMove = (e) => {
+    const ctl = marqueeCtl.current;
+    if (!ctl.drag) return;
+    marqueeRef.current.scrollLeft = ctl.startScroll - (e.clientX - ctl.startX);
+  };
+
+  const endMarqueeDrag = (e) => {
+    const ctl = marqueeCtl.current;
+    if (!ctl.drag) return;
+    ctl.drag = false;
+    e.currentTarget.classList.remove("is-dragging");
+  };
+
+  const pauseMarqueeBriefly = () => {
+    marqueeCtl.current.pauseUntil = performance.now() + 2000;
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -186,15 +296,28 @@ export default function Home() {
       <section className="main-services reveal" aria-labelledby="main-services-title">
         <div className="main-services__bg"></div>
 
-        <div className="main-services__header">
+        <div className="main-services__header"> 
           <h2 id="main-services-title" className="sectors__heading main-services__heading">
             {lang === "en" ? "OUR MAIN SERVICES" : "LAYANAN UTAMA KAMI"}
           </h2>
         </div>
 
-        <div className="main-services__marquee">
+        <div
+          className="main-services__marquee"
+          ref={marqueeRef}
+          onScroll={handleMarqueeScroll}
+          onMouseEnter={() => { marqueeCtl.current.hover = true; }}
+          onMouseLeave={() => { marqueeCtl.current.hover = false; }}
+          onPointerDown={handleMarqueePointerDown}
+          onPointerMove={handleMarqueePointerMove}
+          onPointerUp={endMarqueeDrag}
+          onPointerCancel={endMarqueeDrag}
+          onWheel={pauseMarqueeBriefly}
+          onTouchStart={pauseMarqueeBriefly}
+          onTouchMove={pauseMarqueeBriefly}
+        >
           <div className="main-services__track">
-            <div className="main-services__group">
+            <div className="main-services__group" ref={groupRef}>
               {MAIN_SERVICES.map((service, index) => (
                 <div 
                   className="main-services__card" 
@@ -273,6 +396,78 @@ export default function Home() {
               );
             }
           )}
+        </div>
+      </section>
+
+      <section className="home-news reveal" aria-labelledby="home-news-title">
+        <div className="home-news__container">
+          <div className="home-news__header">
+            <div className="home-news__header-left">
+              <div className="home-news__eyebrow">
+                <span className="home-news__eyebrow-line" aria-hidden="true" />
+                <span>{lang === "en" ? "NEWS & ARTICLES" : "BERITA & ARTIKEL"}</span>
+              </div>
+              <h2 id="home-news-title" className="home-news__title">
+                {lang === "en"
+                  ? "Latest News & Articles Updates"
+                  : "Update Berita & Artikel Terbaru"}
+              </h2>
+            </div>
+
+            <p className="home-news__desc">
+              {lang === "en"
+                ? "Stay informed with the latest industry trends, expert insights, and company updates. Explore our blog for valuable knowledge and best practices."
+                : "Ikuti perkembangan tren industri terkini, wawasan para ahli, dan informasi terbaru perusahaan. Jelajahi artikel kami untuk pengetahuan dan praktik terbaik."}
+            </p>
+          </div>
+
+          <div className="home-news__grid">
+            {latestNews.map((item) => {
+              const title = lang === "en" ? item.title_en : item.title_id;
+              const excerpt = lang === "en" ? item.excerpt_en : item.excerpt_id;
+              const tags = Array.isArray(item.tags) ? item.tags : [];
+              const extraTags = Math.max(0, tags.length - 1);
+
+              return (
+                <article className="home-news__card" key={item.slug}>
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__img-link"
+                  >
+                    <img
+                      src={item.image_url}
+                      alt={title}
+                      className="home-news__img"
+                      loading="lazy"
+                    />
+                  </Link>
+
+                  <div className="home-news__badges">
+                    <span className="home-news__badge">
+                      {item.category || "Article"}
+                    </span>
+                    {extraTags > 0 && (
+                      <span className="home-news__badge">{extraTags}+</span>
+                    )}
+                  </div>
+
+                  <h3 className="home-news__card-title">
+                    <Link to={`/artikel/${item.slug}`}>{title}</Link>
+                  </h3>
+
+                  <p className="home-news__card-excerpt">{excerpt}</p>
+
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__learn-more"
+                  >
+                    <span>{lang === "en" ? "Learn more" : "Selengkapnya"}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 

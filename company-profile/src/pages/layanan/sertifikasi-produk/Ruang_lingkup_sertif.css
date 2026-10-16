@@ -64,10 +64,16 @@
 
 .service-detail--ruang-lingkup-sertif .ruang-lingkup__certification {
   display: flex;
+  width: max-content;
+  margin-inline: auto;
+  min-height: 34px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-width: 190px;
+  justify-content: center;
+}
+
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table {
+  text-align: center;
+  vertical-align: middle;
 }
 
 .service-detail--ruang-lingkup-sertif .ruang-lingkup__download {
@@ -75,24 +81,51 @@
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   color: #fff;
-  background: var(--service-navy);
-  border-radius: 6px;
+  background: #4bcda7;
+  border: 0;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background-color 160ms ease, transform 160ms ease;
+  font-size: 0.95rem;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .service-detail--ruang-lingkup-sertif .ruang-lingkup__download:hover {
-  background: #16428a;
+  background: #30b991;
+  box-shadow: 0 4px 10px rgb(48 185 145 / 28%);
   transform: translateY(-1px);
 }
 
 .service-detail--ruang-lingkup-sertif .ruang-lingkup__download:focus-visible {
-  outline: 3px solid #8bb8ff;
+  outline: 3px solid #a4efda;
   outline-offset: 2px;
 }
+
+
+
+
+.ruang-lingkup__certification-cell {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.ruang-lingkup__certification {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+}
+
+.ruang-lingkup__download {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 @media (max-width: 720px) {
   .service-detail--ruang-lingkup-sertif {
