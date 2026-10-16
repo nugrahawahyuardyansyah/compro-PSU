@@ -1,3 +1,4 @@
+import PageHeader from "../../../components/PageHeader";
 import "./Legalitas_sertif.css";
 import LocalizedText from "../../../components/LocalizedText";
 import LegalitasButtons from "../../../components/LegalitasButtons";
@@ -67,8 +68,18 @@ const businessLicense = (
 
 export default function Legalitassertif() {
   return (
-    <section className="service-detail--legalitas-sertif">
+    <>
+      <PageHeader
+        title="Legalitas"
+        breadcrumbs={[
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Legalitas", href: "/layanan/sertif-produk/legalitas" },
+        ]}
+      />
+      <section className="service-detail--legalitas-sertif">
       <LocalizedText as="h1">Legalitas</LocalizedText>
+<<<<<<< HEAD
       <LegalitasButtons
         documentContent={{
           "Sertifikasi Akreditasi": accreditationCertificate,
@@ -77,5 +88,10 @@ export default function Legalitassertif() {
         }}
       />
     </section>
+=======
+      <LegalitasButtons />
+      </section>
+    </>
+>>>>>>> 95c60f8348182c20096ca0edbffd0408c40a40fc
   );
 }

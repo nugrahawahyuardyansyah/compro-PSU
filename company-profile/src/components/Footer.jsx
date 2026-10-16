@@ -174,10 +174,10 @@ export default function Footer() {
 
           <div className="footer__col" style={alamatStyle}>
             <h2 className="footer__title" style={responsiveTitleStyle}>
-              {t("Alamat Kantor")}
+              {t("Alamat Kantor dan Laboratorium")}
             </h2>
             <address className="footer__list" style={addressStyle}>
-              <p>{t(kontak.alamat)}</p>
+              <p>{kontak.alamat}</p>
             </address>
           </div>
 

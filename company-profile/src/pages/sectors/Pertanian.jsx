@@ -1,3 +1,4 @@
+import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
@@ -54,16 +55,12 @@ export default function Pertanian() {
 
   return (
     <section className="sector-detail-page">
-      <div className="sector-detail-page__hero">
-        <img
-          className="sector-detail-page__image"
-          src="/1.pertanian.webp"
-          alt={title}
-        />
-        <div className="sector-detail-page__hero-text">
-          <h1 className="sector-detail-page__title">{title}</h1>
-        </div>
-      </div>
+      <PageHeader
+        title={title}
+        breadcrumbs={[
+          { label: title, href: "/pertanian" },
+        ]}
+      />
       <div className="pertanian-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="pertanian-card" key={index}>
@@ -79,9 +76,6 @@ export default function Pertanian() {
               <h3 className="pertanian-card__title">
                 {lang === "en" ? item.en : item.id}
               </h3>
-              <p className="pertanian-card__desc">
-                {lang === "en" ? item.descEn : item.descId}
-              </p>
             </div>
           </div>
         ))}

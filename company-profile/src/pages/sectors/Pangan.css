@@ -139,11 +139,19 @@
     box-shadow 0.4s ease;
 }
 
-.pangan-card:nth-child(1) {
+.pangan-cards > .pangan-card:nth-child(4n + 1) {
   transform: translateX(-80px);
 }
 
-.pangan-card:nth-child(2) {
+.pangan-cards > .pangan-card:nth-child(4n + 2) {
+  transform: translateX(80px);
+}
+
+.pangan-cards > .pangan-card:nth-child(4n + 3) {
+  transform: translateX(-80px);
+}
+
+.pangan-cards > .pangan-card:nth-child(4n + 4) {
   transform: translateX(80px);
 }
 
@@ -232,8 +240,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .pangan-card,
-  .pangan-card:nth-child(1),
-  .pangan-card:nth-child(2) {
+  .pangan-cards > .pangan-card {
     opacity: 1;
     transform: none;
     transition: none;

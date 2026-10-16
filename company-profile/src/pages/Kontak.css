@@ -5,7 +5,7 @@
   --contact-line: #dfe4ec;
   --contact-text: #4a5565;
 
-  padding: 60px 20px;
+  padding: 48px 20px 60px;
   background-color: #ffffff;
 }
 
@@ -14,23 +14,69 @@
   margin: 0 auto;
 }
 
-.contact-header {
-  text-align: left;
-  margin-bottom: 40px;
+.contact-benefits-title {
+  margin: 0 auto 32px;
+  color: #172b4d;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  text-align: center;
 }
 
-.contact-header h2 {
-  text-align: center;
-  font-size: 32px;
-  margin-bottom: 8px;
-  color: #222;
+.contact-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 36px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--contact-line);
+  list-style: none;
 }
 
-.contact-header p {
-  text-align: center;
-  color: #666;
-  font-size: 15px;
-  margin: 0;
+.contact-benefit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding: 10px 20px;
+}
+
+.contact-benefit + .contact-benefit {
+  border-left: 1px solid #dce4f0;
+}
+
+.contact-benefit__icon {
+  display: grid;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  color: #1769aa;
+}
+
+.contact-benefit__icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+.contact-benefit__copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.contact-benefit__copy strong {
+  color: #0b2a5b;
+  font-size: 0.94rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contact-benefit__copy small {
+  color: var(--contact-text);
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 .contact-card {
@@ -261,19 +307,35 @@
 
 @media (max-width: 768px) {
   .contact-section {
-    padding: 45px 20px;
+    padding: 32px 20px 45px;
   }
 
-  .contact-header {
-    margin-bottom: 25px;
+  .contact-benefits-intro {
+    margin-bottom: 14px;
   }
 
-  .contact-header h2 {
-    font-size: 24px;
+  .contact-benefits-intro p {
+    font-size: 0.88rem;
   }
 
-  .contact-header p {
-    font-size: 14px;
+  .contact-benefits {
+    margin-bottom: 26px;
+  }
+
+  .contact-benefits-title {
+    margin-bottom: 26px;
+  }
+  .contact-benefit {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .contact-benefit__copy strong {
+    font-size: 0.88rem;
+  }
+
+  .contact-benefit__copy small {
+    font-size: 0.78rem;
   }
 
   .contact-card__title {
@@ -332,5 +394,29 @@
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-benefits {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .contact-benefit {
+    padding: 14px 4px;
+  }
+
+  .contact-benefit + .contact-benefit {
+    border-left: 0;
+    border-top: 1px solid #dce4f0;
+  }
+
+  .contact-benefit__copy strong {
+    font-size: 0.92rem;
+  }
+
+  .contact-benefit__copy small {
+    font-size: 0.8rem;
   }
 }

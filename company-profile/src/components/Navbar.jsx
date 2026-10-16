@@ -170,10 +170,6 @@ const menuLayanan = [
         label: "Inhouse Training",
         href: "/layanan/pelatihan/inhouse-training",
       },
-      {
-        label: "Exhouse Training",
-        href: "/layanan/pelatihan/exhouse-training",
-      },
     ],
   },
 ];

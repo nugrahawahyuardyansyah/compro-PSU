@@ -1,3 +1,4 @@
+import PageHeader from "../../../components/PageHeader";
 import "./Legalitas_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
 import LegalitasButtons from "../../../components/LegalitasButtons";
@@ -275,8 +276,18 @@ const testingScopeContent = (
 
 export default function Legalitaspenguji() {
   return (
-    <section className="service-detail--legalitas-penguji">
+    <>
+      <PageHeader
+        title="Legalitas"
+        breadcrumbs={[
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Legalitas", href: "/layanan/penguji/legalitas" },
+        ]}
+      />
+      <section className="service-detail--legalitas-penguji">
       <LocalizedText as="h1">Legalitas</LocalizedText>
+<<<<<<< HEAD
       <LegalitasButtons
         documentContent={{
           "Sertifikasi Akreditasi": (
@@ -303,5 +314,10 @@ export default function Legalitaspenguji() {
         }}
       />
     </section>
+=======
+      <LegalitasButtons />
+      </section>
+    </>
+>>>>>>> 95c60f8348182c20096ca0edbffd0408c40a40fc
   );
 }

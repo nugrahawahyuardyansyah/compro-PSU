@@ -38,7 +38,9 @@
 
 .service-detail--biaya-penawaran-sertif p,
 .service-detail--biaya-penawaran-sertif li {
-  max-width: 80ch;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
   font-size: 1rem;
   line-height: 1.7;
 }

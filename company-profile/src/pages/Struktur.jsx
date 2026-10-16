@@ -1,3 +1,4 @@
+import PageHeader from "../components/PageHeader";
 import { useEffect, useRef, useState } from "react";
 import arief from "../assets/arief.jpg";
 import amanda from "../assets/amanda.jpg";
@@ -78,7 +79,15 @@ export default function Struktur() {
   };
 
   return (
-    <main className="org">
+    <>
+      <PageHeader
+        title="Struktur Organisasi"
+        breadcrumbs={[
+          { label: "Tentang Kami" },
+          { label: "Struktur Organisasi", href: "/about/struktur-organisasi" },
+        ]}
+      />
+      <main className="org">
       <h1 className="org__title">
         {lang === "en" ? "Leadership Structure" : "Struktur Kepemimpinan"}{" "}
         <br /> PT PENILAI STANDAR UJI
@@ -155,6 +164,7 @@ export default function Struktur() {
           );
         })}
       </ul>
-    </main>
+      </main>
+    </>
   );
 }

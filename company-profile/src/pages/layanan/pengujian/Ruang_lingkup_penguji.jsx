@@ -1,4 +1,3 @@
-
 import "../pengujian/Ruang_lingkup_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
 import { useLanguage } from "../../../context/useLanguage";

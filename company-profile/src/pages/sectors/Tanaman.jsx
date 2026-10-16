@@ -1,3 +1,4 @@
+import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
@@ -118,16 +119,12 @@ export default function Tanaman() {
 
   return (
     <section className="sector-detail-page">
-      <div className="sector-detail-page__hero">
-        <img
-          className="sector-detail-page__image"
-          src="/2.tanaman.webp"
-          alt={title}
-        />
-        <div className="sector-detail-page__hero-text">
-          <h1 className="sector-detail-page__title">{title}</h1>
-        </div>
-      </div>
+      <PageHeader
+        title={title}
+        breadcrumbs={[
+          { label: title, href: "/tanaman" },
+        ]}
+      />
       <div className="tanaman-cards" ref={rowsRef}>
         {Array.from(
           { length: Math.ceil(COMMODITIES.length / cardsPerRow) },
@@ -154,9 +151,6 @@ export default function Tanaman() {
                       <h3 className="tanaman-card__title">
                         {lang === "en" ? item.en : item.id}
                       </h3>
-                      <p className="tanaman-card__desc">
-                        {lang === "en" ? item.descEn : item.descId}
-                      </p>
                     </div>
                   </article>
                 ))}

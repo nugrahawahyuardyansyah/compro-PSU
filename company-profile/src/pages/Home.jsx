@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
+import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Home.css";
 
 const BANNERS = [
@@ -44,6 +45,14 @@ const SECTORS = [
     descId: "Pengujian parameter dan komposisi kimia pada bahan baku industri maupun produk akhir sesuai standar yang berlaku.",
     descEn: "Testing of parameters and chemical composition in industrial raw materials and final products according to applicable standards.",
     link: "/kimia",
+  },
+  {
+    file: "Stainless.webp",
+    id: "Logam dan Produk Logam",
+    en: "Metal and Metal Products",
+    descId: "PT Penilai Standar Uji (PSU) menyediakan layanan pengujian dan sertifikasi produk logam untuk memastikan kualitas, keamanan, ketahanan, serta kesesuaiannya terhadap persyaratan Standar Nasional Indonesia (SNI).",
+    descEn: "PT Penilai Standar Uji (PSU) provides testing and certification services for metal products to ensure quality, safety, durability, and compliance with the requirements of the Indonesian National Standard (SNI).",
+    link: "/logam",
   },
   {
     file: "Jasa_Lainnya.webp", 
@@ -95,7 +104,37 @@ const MAIN_SERVICES = [
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
-  const { lang, t } = useLanguage();
+  const [latestNews, setLatestNews] = useState(() => FALLBACK_ARTICLES.slice(0, 6));
+  const { lang } = useLanguage();
+
+  useEffect(() => {
+    let active = true;
+    async function fetchLatestNews() {
+      const endpoints = [
+        "http://127.0.0.1:5000/api/artikel?limit=6",
+        "http://localhost:5000/api/artikel?limit=6",
+        "/api/artikel?limit=6",
+      ];
+      for (const url of endpoints) {
+        try {
+          const res = await fetch(url);
+          const ct = res.headers.get("content-type") || "";
+          if (!res.ok || !ct.includes("application/json")) continue;
+          const json = await res.json();
+          if (active && json.success && Array.isArray(json.data) && json.data.length > 0) {
+            setLatestNews(json.data.slice(0, 6));
+            return;
+          }
+        } catch {
+          // Gunakan data fallback jika server belum merespons
+        }
+      }
+    }
+    fetchLatestNews();
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -223,33 +262,119 @@ export default function Home() {
         </h2>
 
         <div className="sectors__container">
-          {SECTORS.map((sector) => {
-            const label = lang === "en" ? sector.en : sector.id;
-            const desc = lang === "en" ? sector.descEn : sector.descId;
+          {Array.from(
+            { length: Math.ceil(SECTORS.length / 3) },
+            (_, rowIndex) => {
+              const rowSectors = SECTORS.slice(
+                rowIndex * 3,
+                rowIndex * 3 + 3
+              );
 
-            return (
-              <div 
-                className="expanding-card reveal" 
-                key={sector.file}
-                style={{ backgroundImage: `url(/${sector.file})` }}
-                tabIndex="0"
-              >
-                <div className="expanding-card__content">
-                  <h3 className="expanding-card__title">{label}</h3>
-                  
-                  <span className="expanding-card__more">
-                    {lang === "en" ? "Learn more \u2192" : "Selengkapnya \u2192"}
-                  </span>
-                  
-                  <p className="expanding-card__desc">{desc}</p>
-                  
-                  <Link to={sector.link} className="expanding-card__btn">
-                    {lang === "en" ? "See Details" : "Lihat Detail"}
-                  </Link>
+              return (
+                <div className="sectors__row" key={rowIndex}>
+                  {rowSectors.map((sector) => {
+                    const label = lang === "en" ? sector.en : sector.id;
+                    const desc = lang === "en" ? sector.descEn : sector.descId;
+
+                    return (
+                      <div
+                        className="expanding-card reveal"
+                        key={sector.file}
+                        style={{ backgroundImage: `url(/${sector.file})` }}
+                        tabIndex="0"
+                      >
+                        <div className="expanding-card__content">
+                          <h3 className="expanding-card__title">{label}</h3>
+
+                          <span className="expanding-card__more">
+                            {lang === "en" ? "Learn more \u2192" : "Selengkapnya \u2192"}
+                          </span>
+
+                          <p className="expanding-card__desc">{desc}</p>
+
+                          <Link to={sector.link} className="expanding-card__btn">
+                            {lang === "en" ? "See Details" : "Lihat Detail"}
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
+              );
+            }
+          )}
+        </div>
+      </section>
+
+      <section className="home-news reveal" aria-labelledby="home-news-title">
+        <div className="home-news__container">
+          <div className="home-news__header">
+            <div className="home-news__header-left">
+              <div className="home-news__eyebrow">
+                <span className="home-news__eyebrow-line" aria-hidden="true" />
+                <span>{lang === "en" ? "NEWS & ARTICLES" : "BERITA & ARTIKEL"}</span>
               </div>
-            );
-          })}
+              <h2 id="home-news-title" className="home-news__title">
+                {lang === "en"
+                  ? "Latest News & Articles Updates"
+                  : "Update Berita & Artikel Terbaru"}
+              </h2>
+            </div>
+
+            <p className="home-news__desc">
+              {lang === "en"
+                ? "Stay informed with the latest industry trends, expert insights, and company updates. Explore our blog for valuable knowledge and best practices."
+                : "Ikuti perkembangan tren industri terkini, wawasan para ahli, dan informasi terbaru perusahaan. Jelajahi artikel kami untuk pengetahuan dan praktik terbaik."}
+            </p>
+          </div>
+
+          <div className="home-news__grid">
+            {latestNews.map((item) => {
+              const title = lang === "en" ? item.title_en : item.title_id;
+              const excerpt = lang === "en" ? item.excerpt_en : item.excerpt_id;
+              const tags = Array.isArray(item.tags) ? item.tags : [];
+              const extraTags = Math.max(0, tags.length - 1);
+
+              return (
+                <article className="home-news__card" key={item.slug}>
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__img-link"
+                  >
+                    <img
+                      src={item.image_url}
+                      alt={title}
+                      className="home-news__img"
+                      loading="lazy"
+                    />
+                  </Link>
+
+                  <div className="home-news__badges">
+                    <span className="home-news__badge">
+                      {item.category || "Article"}
+                    </span>
+                    {extraTags > 0 && (
+                      <span className="home-news__badge">{extraTags}+</span>
+                    )}
+                  </div>
+
+                  <h3 className="home-news__card-title">
+                    <Link to={`/artikel/${item.slug}`}>{title}</Link>
+                  </h3>
+
+                  <p className="home-news__card-excerpt">{excerpt}</p>
+
+                  <Link
+                    to={`/artikel/${item.slug}`}
+                    className="home-news__learn-more"
+                  >
+                    <span>{lang === "en" ? "Learn more" : "Selengkapnya"}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -269,7 +394,7 @@ export default function Home() {
             rel="noopener noreferrer" 
             className="tracking-banner__btn"
           >
-            {t("Klik Disini!")}
+            Klik Disini!
           </a>
         </div>
       </section>
