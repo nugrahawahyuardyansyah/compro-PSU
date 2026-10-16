@@ -49,6 +49,15 @@ const english = {
   "Tutup": "Close",
   "Alamat Kantor": "Office Address",
   "Hubungi Kami": "Contact Us",
+  "Dukungan Responsif": "Responsive Support",
+  "Kami bantu tindak lanjuti kebutuhan Anda":
+    "We will help follow up on your needs",
+  "Pendampingan Kompeten": "Expert Guidance",
+  "Informasi dari tim yang memahami layanan":
+    "Guidance from a team that understands our services",
+  "Kerahasiaan Terjaga": "Confidentiality Assured",
+  "Informasi ditangani secara bertanggung jawab":
+    "Your information is handled responsibly",
   "Alamat": "Address",
   "Telepon": "Phone",
   "Jam Kerja": "Working Hours",
