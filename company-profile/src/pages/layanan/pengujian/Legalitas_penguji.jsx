@@ -287,7 +287,6 @@ export default function Legalitaspenguji() {
       />
       <section className="service-detail--legalitas-penguji">
       <LocalizedText as="h1">Legalitas</LocalizedText>
-<<<<<<< HEAD
       <LegalitasButtons
         documentContent={{
           "Sertifikasi Akreditasi": (
@@ -314,10 +313,6 @@ export default function Legalitaspenguji() {
         }}
       />
     </section>
-=======
-      <LegalitasButtons />
-      </section>
     </>
->>>>>>> 95c60f8348182c20096ca0edbffd0408c40a40fc
   );
 }

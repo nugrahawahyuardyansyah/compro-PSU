@@ -73,6 +73,20 @@
   min-width: 265px;
 }
 
+/* Ukuran teks option dropdown dibuat seragam */
+.news-filter-select option {
+  font-size: 0.92rem;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tag dengan teks panjang ditampilkan sedikit lebih kecil agar tidak numpuk */
+.news-filter-select option[data-long="true"] {
+  font-size: 0.8rem;
+}
+
 .news-filter-select:focus {
   outline: none;
   border-color: #0284c7;
