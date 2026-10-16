@@ -367,6 +367,77 @@
   font-weight: bold;
 }
 
+
+.commitment-section {
+  margin-top: 100px;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.commitment-wrapper {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+}
+
+.commitment-wrapper::before {
+  content: '\201C'; 
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8rem;
+  color: rgba(176, 155, 0, 0.12);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.commitment__title {
+  font-size: 2.2rem;
+  color: var(--psu-navy);
+  margin: 0 0 40px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.commitment__title::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--psu-gold);
+  border-radius: 2px;
+}
+
+.commitment__desc {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--psu-text);
+  margin: 0 0 28px;
+  text-align: justify;
+}
+
+.commitment__desc:last-child {
+  margin-bottom: 0;
+}
+
+.highlight-text {
+  color: var(--psu-navy);
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 65%, rgba(176, 155, 0, 0.35) 65%);
+  padding: 0 2px;
+}
+
+
 .reveal {
   opacity: 0;
   transition:
@@ -413,6 +484,11 @@
   .row-right .line-out-h { right: 70px; left: 70px; }
   .timeline-content-wrapper { padding: 0 24px; }
   .timeline-year { font-size: 0.95rem; padding: 8px 16px; }
+
+  .commitment-section { margin-top: 80px; padding: 40px 0; }
+  .commitment-wrapper::before { font-size: 6rem; top: -45px; }
+  .commitment__title { font-size: 1.8rem; margin-bottom: 32px; }
+  .commitment__desc { font-size: 1.05rem; }
 }
 
 @media (max-width: 720px) {
@@ -441,6 +517,7 @@
   .about-showcase__overlay-text strong { font-size: clamp(0.72rem, 3vw, 0.78rem); margin-bottom: 4px; }
   .about-showcase__landscape { min-width: 0; margin-left: -32px; padding: 20px 12px 20px 46px; }
   .about-showcase__text-content p { font-size: 0.7rem; line-height: 1.45; margin-bottom: 7px; }
+  
   .vision-mission-showcase { gap: 12px; }
   .vision-mission__image-side { width: 38%; }
   .vision-mission__photo { min-height: 360px; }
@@ -449,4 +526,9 @@
   .vision-mission__header-box h3 { font-size: 0.75rem; }
   .vision-mission__label { font-size: 1.2rem; margin-bottom: 8px; }
   .vision-mission__desc, .vision-mission__list { font-size: 0.72rem; line-height: 1.5; }
+
+  .commitment-section { margin-top: 60px; padding: 20px 0; }
+  .commitment-wrapper::before { font-size: 5rem; top: -35px; }
+  .commitment__title { font-size: 1.5rem; margin-bottom: 24px; }
+  .commitment__desc { font-size: 0.95rem; line-height: 1.6; }
 }

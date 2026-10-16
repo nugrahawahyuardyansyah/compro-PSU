@@ -31,9 +31,9 @@ export default function JasaLainnya() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title="Jasa Lainnya"
+        title={title}
         breadcrumbs={[
-          { label: "Jasa Lainnya", href: "/jasa-lainnya" },
+          { label: title, href: "/jasa-lainnya" },
         ]}
       />
       <div className="jasa-cards">
