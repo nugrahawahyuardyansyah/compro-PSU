@@ -16,6 +16,11 @@
   overflow: hidden;
 }
 
+.page-header--full-width {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 .page-header__overlay {
   position: absolute;
   inset: 0;

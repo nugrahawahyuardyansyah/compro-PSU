@@ -57,6 +57,7 @@ export default function Pertanian() {
     <section className="sector-detail-page">
       <PageHeader
         title={title}
+        fullWidth
         breadcrumbs={[
           { label: title, href: "/pertanian" },
         ]}
