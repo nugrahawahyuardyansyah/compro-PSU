@@ -1,4 +1,4 @@
-import PageHeader from "../../../components/PageHeader";
+
 import "./Ruang_lingkup_sertif.css";
 import LocalizedText from "../../../components/LocalizedText";
 import { useLanguage } from "../../../context/useLanguage";
@@ -62,7 +62,7 @@ const dataSertifikasi = [
   {
     no: 5,
     skema: "Produk",
-    kategori: "Produk Tanaman dan Turunannya (15)",
+    kategori: "Produk Tanaman dan Turunanya (15)",
     subKategori: "Gula, produkgula, pati(Sugar, sugarproducts,starch) (15.03)",
     jenis: "Gula kristal putih",
     standar: [
@@ -137,7 +137,7 @@ const dataSertifikasi = [
   {
     no: 11,
     skema: "Produk",
-    kategori: "Produk Tanaman dan Turunannya (15)",
+    kategori: "ProdukTanaman dan Turunannya (15)",
     subKategori: "Kopi, teh,kakao, cokelat(Coffee, tea,cocoa) (15.06)",
     jenis: "Kakao Bubuk",
     standar: [
@@ -149,7 +149,7 @@ const dataSertifikasi = [
   {
     no: 12,
     skema: "Produk",
-    kategori: "Produk Tanaman dan Turunannya (15)",
+    kategori: "ProdukTanaman dan Turunannya (15)",
     subKategori: "Minyak nabati,lemak, minyakbiji-bijian(Edible oils,fats, oilseeds)(15.07)",
     jenis: "Minyak goreng sawit",
     standar: [
@@ -161,8 +161,8 @@ const dataSertifikasi = [
   {
     no: 13,
     skema: "Produk",
-    kategori: "Produk Tanaman dan Turunannya (15)",
-    subKategori: "Minyak nabati,lemak, minyak biji-bijian(Edible oils,fats, oilseeds)(15.07)",
+    kategori: "ProdukTanaman dan Turunannya (15)",
+    subKategori: "Minyak nabati,lemak, minyakbiji-bijian(Edible oils,fats, oilseeds)(15.07)",
     jenis: "Minyak goreng",
     standar: [
       { nomor: "SNI 3741:2013", judul: "Minyak goreng" },
@@ -473,25 +473,18 @@ const dataSertifikasi = [
   // Tabel end
 ];
 
-export default function Ruanglingkupsertif() {
+export default function Ruanglingkuppenguji() {
   const { t } = useLanguage();
 
   return (
-    <>
-      <PageHeader
-        title="Ruang Lingkup"
-        breadcrumbs={[
-          { label: "Layanan" },
-          { label: "Lembaga Sertifikasi Produk" },
-          {
-            label: "Ruang Lingkup",
-            href: "/layanan/sertif-produk/ruang-lingkup",
-          },
-        ]}
-      />
-      <section className="service-detail--ruang-lingkup-sertif">
-        <LocalizedText as="h1">Ruang Lingkup Sertifikasi Produk</LocalizedText>
+    <section className="ruang-lingkup">
+      <div className="ruang-lingkup__header">
+        <LocalizedText as="h1">
+          Ruang Lingkup Sertifikasi Produk
+        </LocalizedText>
+      </div>
 
+      <div className="ruang-lingkup__content">
         <div className="ruang-lingkup__table-wrapper">
           <table className="ruang-lingkup__table">
             <thead>
@@ -530,9 +523,11 @@ export default function Ruanglingkupsertif() {
                     <td>{standar.judul}</td>
 
                     {index === 0 && (
-                      <td rowSpan={item.standar.length}>
+                      <td
+                        className="ruang-lingkup__certification-cell"
+                        rowSpan={item.standar.length}
+                      >
                         <div className="ruang-lingkup__certification">
-                          <span>{item.skemaSertifikasi}</span>
                           <a
                             href={item.link}
                             target="_blank"
@@ -552,7 +547,7 @@ export default function Ruanglingkupsertif() {
             </tbody>
           </table>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

@@ -35,14 +35,17 @@ function renderParagraphWithLead(paragraph, idx) {
 export default function ArtikelDetail() {
   const { slug } = useParams();
   const { lang } = useLanguage();
-  const [article, setArticle] = useState(
-    () => FALLBACK_ARTICLES.find((a) => a.slug === slug) || null
-  );
+  const [loadedArticle, setLoadedArticle] = useState(() => ({
+    slug,
+    article: FALLBACK_ARTICLES.find((a) => a.slug === slug) || null,
+  }));
+  const article =
+    loadedArticle.slug === slug
+      ? loadedArticle.article
+      : FALLBACK_ARTICLES.find((a) => a.slug === slug) || null;
 
   useEffect(() => {
     let active = true;
-    const localMatch = FALLBACK_ARTICLES.find((a) => a.slug === slug) || null;
-    setArticle(localMatch);
 
     async function fetchDetail() {
       const endpoints = [
@@ -57,7 +60,7 @@ export default function ArtikelDetail() {
           if (!res.ok || !ct.includes("application/json")) continue;
           const json = await res.json();
           if (active && json.success && json.data) {
-            setArticle(json.data);
+            setLoadedArticle({ slug, article: json.data });
             return;
           }
         } catch {
