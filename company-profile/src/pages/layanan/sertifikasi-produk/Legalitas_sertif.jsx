@@ -67,7 +67,6 @@ export default function Legalitassertif() {
         ]}
       />
       <section className="service-detail--legalitas-sertif">
-<<<<<<< HEAD
         <LocalizedText as="h1">Legalitas</LocalizedText>
         <LegalitasButtons
           documentContent={{
@@ -76,16 +75,6 @@ export default function Legalitassertif() {
             NIB: businessLicense,
           }}
         />
-=======
-      <LocalizedText as="h1">Legalitas</LocalizedText>
-      <LegalitasButtons
-        documentContent={{
-          "Sertifikasi Akreditasi": accreditationCertificate,
-          "Lampiran Ruang Lingkup": accreditationScope,
-          NIB: businessLicense,
-        }}
-      />
->>>>>>> ac303850326a99d5a425b69f26742b269be934ff
       </section>
     </>
   );
