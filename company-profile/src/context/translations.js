@@ -30,6 +30,7 @@ const english = {
   "General Training": "General Training",
   "Inhouse Training": "In-house Training",
   "Client": "Clients",
+  "Klien": "Clients",
   "Artikel": "Articles",
   "Kontak": "Contact",
   "Lacak": "Track",
@@ -40,17 +41,21 @@ const english = {
   "Logam dan Produk Logam": "Metal and Metal Products",
   "Pertanian dan Perkebunan": "Agriculture and Plantation",
   "Produk Tanaman": "Plant Products and Derivatives",
-  "Produk Pangan": "Other Food Products",
+  "Produk Pangan": "Food Products",
   "Bahan dan Produk Kimia": "Chemical Materials and Products",
   "Jasa Lainnya": "Other Services",
   "Exhouse Training": "Ex-house Training",
+  "exhouse Training": "Ex-house Training",
   "Menu": "Menu",
   "Buka menu": "Open menu",
   "Tutup menu": "Close menu",
   "Buka": "Open",
   "Tutup": "Close",
   "Alamat Kantor": "Office Address",
+  "Alamat Kantor dan Laboratorium": "Office and Laboratory Address",
   "Hubungi Kami": "Contact Us",
+  "Kembali ke Beranda": "Back to Home",
+  "Sen - Jum 09.00 - 17.00 WIB": "Mon - Fri, 9:00 AM - 5:00 PM (WIB)",
   "Dukungan Responsif": "Responsive Support",
   "Kami bantu tindak lanjuti kebutuhan Anda":
     "We will help follow up on your needs",
@@ -93,8 +98,124 @@ const english = {
   "Sertifikasi Akreditasi": "Accreditation Certification",
   "Lampiran Ruang Lingkup": "Scope Attachment",
   "NIB": "Business Identification Number",
+  "Klik gambar untuk membuka dokumen asli di tab baru.":
+    "Click an image to open the original document in a new tab.",
   "Profile": "Profile",
   "Sertifikasi Awal": "Initial Certification",
+  "No": "No.",
+  "Skema": "Scheme",
+  "Kategori": "Category",
+  "Sub Kategori": "Subcategory",
+  "Jenis Produk/Proses/Jasa": "Product/Process/Service Type",
+  "Nomor Acuan Standar": "Reference Standard Number",
+  "Judul Acuan Standar": "Reference Standard Title",
+  "Skema Sertifikasi": "Certification Scheme",
+  "Bidang Pengujian": "Testing Field",
+  "Bahan atau Produk yang Diuji": "Materials or Products Tested",
+  "Dokumen": "Documents",
+  "Buka dokumen Google Drive untuk": "Open Google Drive document for",
+  "Buka Google Drive": "Open Google Drive",
+  "Fisika/Kimia": "Physical/Chemical",
+  "Kimia/Fisika": "Chemical/Physical",
+  "Kimia": "Chemical",
+  "Pertanian dan Perkebunan (12:02)": "Agriculture and Plantation (12:02)",
+  "Pertanian dan Perkebunan (12)": "Agriculture and Plantation (12)",
+  "Produk pertanian dan perkebunan (12.02)": "Agricultural and Plantation Products (12.02)",
+  "Hasil pertanian dan perkebunan (biji kopi, beras) (12.02)":
+    "Agricultural and plantation products (coffee beans, rice) (12.02)",
+  "hasil pertanian dan perkebunan (biji kopi, beras) (12.02)":
+    "Agricultural and plantation products (coffee beans, rice) (12.02)",
+  "Produk Tanaman dan Turunannya (15)": "Plant Products and Derivatives (15)",
+  "Produk Tanaman dan Turunanya (15)": "Plant Products and Derivatives (15)",
+  "ProdukTanaman dan Turunannya (15)": "Plant Products and Derivatives (15)",
+  "Serealia,umbi-umbiandan produkturunannya(15.01)":
+    "Cereals, tubers, and their products (15.01)",
+  "Gula, produkgula, pati(Sugar, sugarproducts,starch) (15.03)":
+    "Sugar, sugar products, and starch (15.03)",
+  "Kopi, teh,kakao, cokelat(Coffee, tea,cocoa) (15.06)":
+    "Coffee, tea, cocoa, and chocolate (15.06)",
+  "Minyak nabati,lemak, minyakbiji-bijian(Edible oils,fats, oilseeds)(15.07)":
+    "Vegetable oils, fats, and oilseeds (15.07)",
+  "Produk Pangan Lainnya (17)": "Other Food Products (17)",
+  "Minuman(Beverages,sirup, limun)(17.01)":
+    "Beverages, syrups, and lemonades (17.01)",
+  "Minuman(Beverages,sirup,limun) (17.01)":
+    "Beverages, syrups, and lemonades (17.01)",
+  "Bahan danProduk Kimia(18)": "Chemical Materials and Products (18)",
+  "Bahan dan Produk Kimia(18)": "Chemical Materials and Products (18)",
+  "Bahan dan Produk Kimia (18)": "Chemical Materials and Products (18)",
+  "ServicesCertification (27)": "Service Certification (27)",
+  "Pupuk (18.07)": "Fertilizers (18.07)",
+  "Beras": "Rice",
+  "Biji Kakao": "Cocoa Beans",
+  "Biji kakao": "Cocoa beans",
+  "Biji kakao / Bijikakao -AMANDEMEN 1":
+    "Cocoa beans / Cocoa beans - AMENDMENT 1",
+  "Biji kopi": "Coffee beans",
+  "Biji Kopi": "Coffee Beans",
+  "Biskuit": "Biscuits",
+  "Gula kristal putih": "White crystal sugar",
+  "Gula kristalrafinasi": "Refined crystal sugar",
+  "Gula kristal - Bagian2: Rafinasi": "Crystal sugar - Part 2: Refined sugar",
+  "Gula kristal mentah": "Raw crystal sugar",
+  "Kopi instan": "Instant coffee",
+  "Kopi Instan": "Instant Coffee",
+  "Kopi Sangrai dan Kopi Bubuk": "Roasted and Ground Coffee",
+  "Kopi gula krimer dalam kemasan": "Packaged coffee, sugar, and creamer",
+  "Kakao Bubuk": "Cocoa Powder",
+  "Minyak goreng sawit": "Palm cooking oil",
+  "Minyak goreng": "Cooking oil",
+  "Air mineral": "Mineral water",
+  "Air demineral": "Demineralized water",
+  "Air mineral alami": "Natural mineral water",
+  "Air minum embun": "Dew drinking water",
+  "Pupuk super fosfat SP - 36": "Superphosphate SP-36 fertilizer",
+  "Pupuk SP-36": "SP-36 fertilizer",
+  "Pupuk fosfat alam untuk pertanian": "Natural phosphate fertilizer for agriculture",
+  "Pupuk kalium klorida": "Potassium chloride fertilizer",
+  "Pupuk tripel super fosfat /TSP": "Triple superphosphate (TSP) fertilizer",
+  "Pupuk NPK padat": "Solid NPK fertilizer",
+  "Pupuk amonium sulfat (ZA)": "Ammonium sulfate (ZA) fertilizer",
+  "PPupuk amonium sulfat": "Ammonium sulfate fertilizer",
+  "Pupuk urea": "Urea fertilizer",
+  "Pupuk mono amonium fosfat (MAP)": "Monoammonium phosphate (MAP) fertilizer",
+  "Pupuk monoamonium fosfat": "Monoammonium phosphate fertilizer",
+  "Pupuk diamonium fosfat": "Diammonium phosphate fertilizer",
+  "Pupuk urea amonium fosfat": "Urea ammonium phosphate fertilizer",
+  "Pupuk tripel Super fosfat plus-Zn": "Triple superphosphate plus-Zn fertilizer",
+  "Pupuk tripel super fosfat plus-Zn (TSP-36 Plus Zn)":
+    "Triple superphosphate plus-Zn fertilizer (TSP-36 Plus Zn)",
+  "Pupuk super fosfat plus-Zn": "Superphosphate plus-Zn fertilizer",
+  "Pupuk super fosfat plus-Zn (SP-36 Plus-Zn)":
+    "Superphosphate plus-Zn fertilizer (SP-36 Plus-Zn)",
+  "Pupuk super fosfat tunggal": "Single superphosphate fertilizer",
+  "Pupuk super fosfat tunggal (SP-18)": "Single superphosphate fertilizer (SP-18)",
+  "Pupuk dolomit": "Dolomite fertilizer",
+  "Pupuk borat": "Borate fertilizer",
+  "Pupuk": "Fertilizer",
+  "Pupuk amonium klorida": "Ammonium chloride fertilizer",
+  "Pupuk kiseret": "Kieserite fertilizer",
+  "Pupuk kalium sulfat": "Potassium sulfate fertilizer",
+  "Pupuk cair hasil samping proses asam amino (Haspramin)":
+    "Amino acid process by-product liquid fertilizer (Haspramin)",
+  "Pasar rakyat": "People's market",
+  "PBSN No.4 Tahun 2021 Lampiran XVII":
+    "PBSN Regulation No. 4 of 2021, Annex XVII",
+  "PBSN No. 4 Tahun 2021 Lampiran XIII":
+    "PBSN Regulation No. 4 of 2021, Annex XIII",
+  "Peraturan BSN No. 7Tahun 2024": "BSN Regulation No. 7 of 2024",
+  "Peralatan masak (Cookware) dari logam": "Metal cookware",
+  "Peralatan makan dan perlengkapan masak dari baja tahan karat (stainless steel flatware)":
+    "Stainless steel tableware and cooking utensils",
+  "Pupuk SP 36": "SP-36 fertilizer",
+  "Pupuk Fosfat Alam Untuk Pertanian":
+    "Natural phosphate fertilizer for agriculture",
+  "Pupuk Kalium Klorida": "Potassium chloride fertilizer",
+  "Pupuk Triple Super Fosfat / TSP":
+    "Triple superphosphate (TSP) fertilizer",
+  "Pupuk NPK Padat": "Solid NPK fertilizer",
+  "Pupuk Amonium Sulfat / ZA": "Ammonium sulfate (ZA) fertilizer",
+  "Pupuk Urea": "Urea fertilizer",
   "Surveilan": "Surveillance",
   "Perubahan Ruang Lingkup": "Scope Change",
   "Alur Penambahan Ruang Lingkup Produk atau Merek":
@@ -813,6 +934,252 @@ const certificationRightsEnglish = {
  "Timbangan badan mekanik": "Mechanical body scale",
  "Timbangan bayi": "Baby scale",
  "Timbangan kursi roda": "Wheelchair scale",
+"RUANG LINGKUP KALIBRASI": "CALIBRATION SCOPE",
+"Kenali berbagai alat standar yang mendukung layanan kalibrasi alat kesehatan kami.":
+  "Explore the standard equipment that supports our medical device calibration services.",
+"DAFTAR ALAT KALIBRATOR PSU": "PSU CALIBRATION EQUIPMENT",
+"Kontrol slider produk": "Product slider controls",
+"Geser produk ke kiri": "Scroll products left",
+"Geser produk ke kanan": "Scroll products right",
+"Lihat foto": "View photo",
+"Tutup foto produk": "Close product photo",
+"Alat kesehatan kalibrasi": "Medical device calibration equipment",
+"Anak Timbang F1": "F1 Calibration Weight",
+"Anak Timbang M2 (20 Kg)": "M2 Calibration Weight (20 kg)",
+"Anak Timbang M2 (10 Kg)": "M2 Calibration Weight (10 kg)",
+"Anak Timbang M2 (2 Kg)": "M2 Calibration Weight (2 kg)",
+"TAHAPAN": "STEPS",
+"Alur proses analisa laboratorium": "Laboratory analysis process flow",
+"Pilih gambar untuk melihat infografik dalam ukuran penuh.":
+  "Select the image to view the infographic at full size.",
+"Buka gambar untuk melihat ukuran penuh di tab baru":
+  "Open the image at full size in a new tab",
+"Buka sertifikat akreditasi ukuran penuh di tab baru":
+  "Open the accreditation certificate at full size in a new tab",
+"Buka sertifikat akreditasi laboratorium penguji ukuran penuh di tab baru":
+  "Open the testing laboratory accreditation certificate at full size in a new tab",
+"Buka gambar NIB ukuran penuh di tab baru":
+  "Open the business identification number document at full size in a new tab",
+"Lampiran ruang lingkup akreditasi LSPr-051-IDN":
+  "LSPr-051-IDN accreditation scope attachment",
+"Lampiran ruang lingkup akreditasi Laboratorium Pengujian LP-1554-IDN":
+  "LP-1554-IDN testing laboratory accreditation scope attachment",
+"Sertifikat akreditasi LSPr-051-IDN dari Komite Akreditasi Nasional":
+  "LSPr-051-IDN accreditation certificate issued by the National Accreditation Committee",
+"Sertifikat akreditasi Laboratorium Penguji LP-1554-IDN":
+  "LP-1554-IDN testing laboratory accreditation certificate",
+"Dokumen Nomor Induk Berusaha PT PENILAI STANDAR UJI":
+  "Business Identification Number document for PT PENILAI STANDAR UJI",
+"Klik gambar untuk membuka dokumen asli di tab baru.":
+  "Click the image to open the original document in a new tab.",
+"Bersihkan input": "Clear input",
+"Perhatian": "Attention",
+"Nomor sertifikat": "Certificate number",
+"tidak ditemukan pada database": "was not found in the database",
+"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0001)":
+  "Enter certificate number (e.g. PSU-SPPT-2026-0001)",
+"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0101)":
+  "Enter certificate number (e.g. PSU-SPPT-2026-0101)",
+"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0201)":
+  "Enter certificate number (e.g. PSU-SPPT-2026-0201)",
+"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0301)":
+  "Enter certificate number (e.g. PSU-SPPT-2026-0301)",
+"Tidak dapat terhubung ke server API MySQL.":
+  "Unable to connect to the MySQL API server.",
+"Terjadi kesalahan saat memeriksa sertifikat.":
+  "An error occurred while checking the certificate.",
+"Gagal terhubung ke server backend (port 5000). Pastikan Anda sudah menjalankan 'npm start' di dalam folder backend dan MySQL di XAMPP sudah Start.":
+  "Could not connect to the backend server (port 5000). Make sure you have run 'npm start' in the backend folder and started MySQL in XAMPP.",
+"Preview Artikel": "Article preview",
+"Form Tambah Berita & Artikel Baru": "New News & Article Form",
+"Menyelenggarakan Layanan Penilaian Kesesuaian yang Profesional dan Terpercaya":
+  "Delivering professional and trusted conformity assessment services",
+"Menjamin Mutu, Akurasi, dan Keandalan Layanan":
+  "Ensuring service quality, accuracy, and reliability",
+"Mengembangkan Kompetensi dan Profesionalisme Sumber Daya Manusia":
+  "Developing the competence and professionalism of our people",
+"Mendorong Inovasi dan Transformasi Digital":
+  "Advancing innovation and digital transformation",
+"Memperkuat Kemitraan dan Daya Saing Industri Nasional":
+  "Strengthening partnerships and the competitiveness of national industries",
+"Ingin Mengetahui Lebih Lanjut Tentang Layanan Kami?":
+  "Would You Like to Learn More About Our Services?",
+"Silahkan Hubungi Kami": "Please Contact Us",
+"Ruang Lingkup Sertifikasi Produk": "Product Certification Scope",
+"Sertifikasi Awal (Sukarela)": "Initial Certification (Voluntary)",
+"Sertifikasi Awal (SIINAS)": "Initial Certification (SIINAS)",
+"Contoh produk diambil dan diuji sesuai persyaratan skema sertifikasi.":
+  "Product samples are collected and tested in accordance with the certification scheme requirements.",
+"Biaya dan Penawaran Sertifikasi Produk":
+  "Product Certification Fees and Quotation",
+"Wujudkan Kepercayaan dan Tingkatkan Daya Saing Produk Anda melalui Sertifikasi Produk.":
+  "Build Trust and Strengthen Your Product's Competitiveness through Product Certification.",
+"LSPro PT Penilai Standar Uji (PSU) menyediakan layanan sertifikasi produk sesuai dengan ruang lingkup sertifikasi yang berlaku, dengan proses yang profesional, independen, transparan, dan mengacu pada persyaratan standar serta ketentuan yang berlaku.":
+  "The Product Certification Body (LSPro) of PT Penilai Standar Uji (PSU) provides product certification services within its approved scope. Our process is professional, independent, transparent, and follows applicable standards and requirements.",
+"Biaya sertifikasi disesuaikan dengan jenis produk, ruang lingkup sertifikasi, skema sertifikasi, kebutuhan pengujian, serta tahapan evaluasi kesesuaian yang diperlukan.":
+  "Certification fees depend on the product type, certification scope and scheme, testing requirements, and conformity assessment stages required.",
+"Untuk memperoleh informasi lebih lanjut mengenai rincian biaya, persyaratan, dan penawaran sertifikasi produk, silakan menghubungi tim layanan pelanggan LSPro PSU.":
+  "For information about fees, requirements, and product certification quotations, please contact the PSU LSPro customer service team.",
+"Konsultasikan Kebutuhan Sertifikasi Produk Anda":
+  "Discuss Your Product Certification Needs",
+"Tim kami siap membantu memberikan informasi layanan dan penawaran sesuai kebutuhan sertifikasi produk Anda.":
+  "Our team is ready to provide service information and a quotation tailored to your product certification needs.",
+"Ajukan Permintaan Penawaran": "Request a Quotation",
+"Biaya dan Penawaran Layanan Pengujian":
+  "Testing Service Fees and Quotation",
+"Solusi Pengujian Produk yang Akurat, Andal, dan Profesional.":
+  "Accurate, Reliable, and Professional Product Testing Solutions.",
+"Laboratorium PT Penilai Standar Uji (PSU) menyediakan layanan pengujian produk berdasarkan metode pengujian, standar acuan, serta ruang lingkup kemampuan laboratorium yang berlaku.":
+  "The PT Penilai Standar Uji (PSU) laboratory provides product testing services using applicable test methods and reference standards within the laboratory's approved capabilities.",
+"Kami berkomitmen memberikan layanan pengujian yang profesional, objektif, dan terpercaya untuk mendukung pemenuhan persyaratan mutu, keamanan, serta kesesuaian produk terhadap standar yang ditetapkan.":
+  "We are committed to providing professional, objective, and trusted testing services to help products meet established quality, safety, and conformity requirements.",
+"Biaya pengujian ditentukan berdasarkan jenis produk atau sampel, parameter pengujian, metode atau standar yang digunakan, jumlah sampel, serta kebutuhan teknis pengujian.":
+  "Testing fees depend on the product or sample type, test parameters, methods or standards used, sample quantity, and technical testing requirements.",
+"Untuk mendapatkan informasi mengenai tarif pengujian, parameter yang tersedia, estimasi waktu penyelesaian, dan penawaran harga, silakan menghubungi tim layanan pelanggan Laboratorium PSU.":
+  "For information about testing rates, available parameters, estimated turnaround times, and quotations, please contact the PSU Laboratory customer service team.",
+"Dapatkan Penawaran Pengujian Sesuai Kebutuhan Anda":
+  "Get a Testing Quotation Tailored to Your Needs",
+"Sampaikan jenis produk dan parameter pengujian yang dibutuhkan. Tim kami siap membantu memberikan informasi teknis dan penawaran biaya pengujian.":
+  "Tell us the product type and test parameters you need. Our team can provide technical information and a testing quotation.",
+"Minta Penawaran Pengujian": "Request a Testing Quotation",
+"Untuk memenuhi kebutuhan sertifikasi sistem manajemen yang beragam, PT Penilai Standar Uji (PSU) menjalin kerja sama dengan lembaga sertifikasi yang telah terakreditasi, baik di dalam maupun luar negeri.":
+  "To address a range of management system certification needs, PT Penilai Standar Uji (PSU) works with accredited certification bodies in Indonesia and abroad.",
+"Untuk memenuhi kebutuhan sertifikasi sistem manajemen yang beragam,":
+  "To address a range of management system certification needs,",
+"PT Penilai Standar Uji (PSU) menjalin kerja sama dengan lembaga sertifikasi yang telah terakreditasi, baik di dalam maupun luar negeri.":
+  "PT Penilai Standar Uji (PSU) works with accredited certification bodies in Indonesia and abroad.",
+"Melalui kerja sama ini, PSU membantu perusahaan dan organisasi memperoleh akses terhadap layanan sertifikasi sistem manajemen sesuai standar nasional maupun internasional, kebutuhan operasional, dan ruang lingkup kegiatan usaha.":
+  "Through these partnerships, PSU helps companies and organizations access management system certification services suited to national and international standards, operational needs, and business scopes.",
+"Dengan dukungan mitra sertifikasi yang kompeten dan terakreditasi, PSU berkomitmen memberikan solusi sertifikasi yang profesional, terpercaya, dan sesuai kebutuhan perusahaan Anda.":
+  "With competent, accredited certification partners, PSU is committed to delivering professional, trusted certification solutions tailored to your organization's needs.",
+"Tingkatkan Kredibilitas, Kinerja, dan Kepercayaan terhadap Organisasi Anda melalui Sertifikasi Sistem Manajemen.":
+  "Strengthen Your Organization's Credibility, Performance, and Trust through Management System Certification.",
+"Konsultasikan Kebutuhan Sertifikasi Sistem Manajemen Anda":
+  "Discuss Your Management System Certification Needs",
+"Lembaga Sertifikasi Sistem Manajemen (LSSM) PT Penilai Standar Uji (PSU) menyediakan layanan sertifikasi sistem manajemen untuk mendukung organisasi dalam meningkatkan efektivitas pengelolaan, konsistensi penerapan standar, serta daya saing di tingkat nasional maupun internasional.":
+  "The Management System Certification Body (LSSM) of PT Penilai Standar Uji (PSU) provides certification services that help organizations improve management effectiveness, consistent implementation of standards, and competitiveness nationally and internationally.",
+"Dengan mengutamakan prinsip kompetensi, ketidakberpihakan, independensi, dan profesionalisme, LSSM PSU berkomitmen memberikan layanan sertifikasi yang objektif, transparan, dan sesuai dengan persyaratan standar serta ketentuan yang berlaku.":
+  "Guided by competence, impartiality, independence, and professionalism, LSSM PSU is committed to providing objective, transparent certification services that meet applicable standards and requirements.",
+"Biaya sertifikasi sistem manajemen ditentukan berdasarkan jenis standar sertifikasi, ruang lingkup kegiatan organisasi, jumlah personel efektif, jumlah lokasi operasional, kompleksitas proses, serta kebutuhan waktu audit sesuai dengan ketentuan skema sertifikasi yang berlaku.":
+  "Management system certification fees depend on the certification standard, organizational scope, number of effective personnel and operating locations, process complexity, and audit time required under the applicable certification scheme.",
+"Biaya dan Penawaran Sertifikasi Sistem Manajemen":
+  "Management System Certification Fees and Quotation",
+"Biaya sertifikasi sistem manajemen":
+  "Management system certification fees",
+"ditentukan berdasarkan jenis standar sertifikasi, ruang lingkup kegiatan organisasi, jumlah personel efektif, jumlah lokasi operasional, kompleksitas proses, serta kebutuhan waktu audit sesuai dengan ketentuan skema sertifikasi yang berlaku.":
+  "are determined by the certification standard, organizational scope, number of effective personnel and operating locations, process complexity, and audit time required under the applicable certification scheme.",
+"Untuk memperoleh informasi mengenai persyaratan sertifikasi, tahapan audit, estimasi biaya, dan penawaran resmi, silakan menghubungi tim layanan pelanggan LSSM PSU.":
+  "For information about certification requirements, audit stages, estimated fees, and official quotations, please contact the LSSM PSU customer service team.",
+"Tim kami siap membantu memberikan informasi dan penawaran sertifikasi yang disesuaikan dengan kebutuhan, karakteristik, dan ruang lingkup kegiatan organisasi Anda.":
+  "Our team is ready to provide certification information and a quotation tailored to your organization's needs, characteristics, and scope of activities.",
+"TAMBAH ARTIKEL": "ADD ARTICLE",
+"Tambah Artikel": "Add Article",
+"← Kembali ke Artikel": "← Back to Articles",
+"EDIT ARTIKEL": "EDIT ARTICLE",
+"Edit Artikel": "Edit Article",
+"Jasa Sertifikasi": "Certification Services",
+"Sertifikasi Jasa": "Service Certification",
+"Sertifikasi Produk": "Product Certification",
+"Pengujian Produk": "Product Testing",
+"Produk Logam": "Metal Products",
+"Kinerja Perusahaan": "Company Performance",
+"Sertifikasi": "Certification",
+"Kalibrasi": "Calibration",
+"Judul Berita / Artikel (Bahasa Inggris)":
+  "News / Article Title (English)",
+"Perubahan berita/artikel berhasil disimpan!":
+  "The news article changes were saved successfully!",
+"Divisi Sertifikasi Produk (LSPro)": "Product Certification Division (LSPro)",
+"Divisi Laboratorium Pengujian & Kalibrasi":
+  "Testing & Calibration Laboratory Division",
+"Tim Redaksi & Humas PSU": "PSU Editorial & Public Relations Team",
+"Isi formulir di bawah ini untuk mempublikasikan berita atau artikel baru ke halaman Beranda dan halaman Artikel.":
+  "Complete the form below to publish a new story or article on the Home and Articles pages.",
+"Kembali ke Artikel": "Back to Articles",
+"Judul Berita / Artikel (Bahasa Indonesia)": "News / Article Title (Indonesian)",
+"Judul Berita / Artikel (Bahasa Inggris - Opsional)":
+  "News / Article Title (English - Optional)",
+"Author / Penulis": "Author",
+"Kategori Utama": "Main Category",
+"Tanggal Publikasi": "Publication Date",
+"Status Publikasi": "Publication Status",
+"Published (Tampil di Website)": "Published (Visible on Website)",
+"Draft (Simpan sebagai Konsep)": "Draft (Save as Draft)",
+"Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)":
+  "Article Cover Image (Automatically Cropped to a 16:9 Ratio)",
+"Upload file gambar dari komputer Anda:": "Upload an image from your computer:",
+"Ganti gambar dari komputer Anda:": "Replace the image from your computer:",
+"Atau pilih gambar sampul yang tersedia:":
+  "Or choose an available cover image:",
+"-- Pilih Gambar Sampul --": "-- Select a Cover Image --",
+"Mengunggah gambar...": "Uploading image...",
+"Pratinjau Gambar (Rasio Seragam 16:9):":
+  "Image Preview (16:9 Ratio):",
+"Pratinjau Gambar Saat Ini (Rasio Seragam 16:9):":
+  "Current Image Preview (16:9 Ratio):",
+"Banner Kantor PSU 1": "PSU Office Banner 1",
+"Banner Kantor PSU 2": "PSU Office Banner 2",
+"Banner Kantor PSU 3": "PSU Office Banner 3",
+"Banner Kantor PSU 4": "PSU Office Banner 4",
+"Layanan LSPro": "Product Certification Body Services",
+"Laboratorium Pengujian": "Testing Laboratory",
+"Laboratorium Kalibrasi": "Calibration Laboratory",
+"Lembaga Pelatihan": "Training Institution",
+"Sistem Manajemen Mutu": "Quality Management System",
+"Daftar Tag / Tagline (Pisahkan dengan tanda koma)":
+  "Tags / Tagline (Separate with commas)",
+"Ringkasan Singkat / Excerpt (Tampil di Kartu Beranda)":
+  "Short Summary / Excerpt (Shown on the Home Card)",
+"Ringkasan Singkat / Excerpt": "Short Summary / Excerpt",
+"Ringkasan singkat 1-2 kalimat (jika dikosongkan akan diambil otomatis dari paragraf pertama)...":
+  "A 1–2 sentence summary (if left blank, it will be generated from the first paragraph)...",
+"Isi Lengkap Berita / Artikel (Bahasa Indonesia)":
+  "Full News / Article Content (Indonesian)",
+"Isi Lengkap Berita / Artikel (Bahasa Inggris - Opsional)":
+  "Full News / Article Content (English - Optional)",
+"Isi Lengkap Berita / Artikel (Bahasa Inggris)":
+  "Full News / Article Content (English)",
+"Gunakan baris kosong (Enter 2x) untuk memisahkan antar paragraf.":
+  "Use a blank line (press Enter twice) to separate paragraphs.",
+"Masukkan judul berita/artikel...": "Enter a news/article title...",
+"Kosongkan jika ingin disamakan dengan judul Bahasa Indonesia...":
+  "Leave blank to use the Indonesian title...",
+"Contoh: Press Release, Sertifikasi Produk, SNI, LSPro PSU, Kalibrasi":
+  "Example: Press Release, Product Certification, SNI, PSU LSPro, Calibration",
+"Jakarta — Tuliskan isi berita atau artikel lengkap di sini...":
+  "Jakarta — Write the full news story or article here...",
+"Kosongkan jika ingin menggunakan teks yang sama dengan Bahasa Indonesia...":
+  "Leave blank to use the same text as the Indonesian version...",
+"Menyimpan...": "Saving...",
+"Simpan & Publikasikan Artikel": "Save & Publish Article",
+"Simpan Perubahan": "Save Changes",
+"Batal": "Cancel",
+"Edit atau Hapus Berita & Artikel": "Edit or Delete News & Articles",
+"Pilih berita/artikel yang ingin diperbarui atau dihapus dari database.":
+  "Select the news article you want to update or delete from the database.",
+"Pilih Berita / Artikel yang Akan Diedit:":
+  "Select a News / Article to Edit:",
+"Hapus Berita / Artikel": "Delete News / Article",
+"Peringatan Hapus Artikel": "Delete Article Warning",
+"Apakah Anda yakin ingin menghapus artikel":
+  "Are you sure you want to delete the article",
+"? Data yang dihapus tidak dapat dikembalikan lagi.":
+  "? Deleted data cannot be recovered.",
+"Ya, Hapus Artikel": "Yes, Delete Article",
+"Menghapus...": "Deleting...",
+"Judul berita/artikel wajib diisi.": "News/article title is required.",
+"Isi berita/artikel wajib diisi.": "News/article content is required.",
+"Silakan pilih artikel yang akan diedit terlebih dahulu.":
+  "Please select an article to edit first.",
+"Gagal menyimpan artikel.": "Failed to save the article.",
+"Gagal memperbarui artikel.": "Failed to update the article.",
+"Gagal menghapus artikel.": "Failed to delete the article.",
+"Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan.":
+  "Could not connect to the MySQL server (port 5000). Make sure 'npm start' is running and MySQL is started in XAMPP.",
+"Berita/artikel baru berhasil disimpan dan dipublikasikan!":
+  "The new news article was saved and published successfully!",
+"Berita/artikel berhasil dihapus secara permanen.":
+  "The news article was permanently deleted.",
 };
 
 export function translateText(text, lang) {

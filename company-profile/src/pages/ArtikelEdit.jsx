@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import { useLanguage } from "../context/useLanguage";
 import { AUTHOR_OPTIONS, FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Artikel.css";
 
@@ -19,6 +20,7 @@ const PRESET_IMAGES = [
 export default function ArtikelEdit() {
   const { slug: routeSlug } = useParams();
   const navigate = useNavigate();
+  const { lang, t } = useLanguage();
 
   const [articlesList, setArticlesList] = useState(FALLBACK_ARTICLES);
   const [selectedSlug, setSelectedSlug] = useState(
@@ -351,7 +353,9 @@ export default function ArtikelEdit() {
               >
                 {articlesList.map((item) => (
                   <option key={item.slug} value={item.slug}>
-                    [{item.published_at}] {item.title_id} ({item.author || "Corporate Secretary PSU"})
+                    [{item.published_at}]{" "}
+                    {lang === "en" ? item.title_en || t(item.title_id) : item.title_id} (
+                    {t(item.author || "Corporate Secretary PSU")})
                   </option>
                 ))}
               </select>
@@ -398,7 +402,7 @@ export default function ArtikelEdit() {
                   >
                     {AUTHOR_OPTIONS.map((name) => (
                       <option key={name} value={name}>
-                        {name}
+                        {t(name)}
                       </option>
                     ))}
                   </select>

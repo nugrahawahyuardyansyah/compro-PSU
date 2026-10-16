@@ -1,6 +1,7 @@
 
 import "../pengujian/Ruang_lingkup_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
+import { useLanguage } from "../../../context/useLanguage";
 import { FaDownload } from "react-icons/fa";
 
 const dataPengujian = [
@@ -78,6 +79,8 @@ const dataPengujian = [
 ];
 
 export default function Ruanglingkuppenguji() {
+  const { t } = useLanguage();
+
   return (
     <section className="ruang-lingkup">
       <div className="ruang-lingkup__header">
@@ -91,9 +94,9 @@ export default function Ruanglingkuppenguji() {
           <table className="ruang-lingkup__table">
             <thead>
               <tr>
-                <th>Bidang Pengujian</th>
-                <th>Bahan atau Produk yang Diuji</th>
-                <th>Dokumen</th>
+                <th>{t("Bidang Pengujian")}</th>
+                <th>{t("Bahan atau Produk yang Diuji")}</th>
+                <th>{t("Dokumen")}</th>
               </tr>
             </thead>
 
@@ -106,12 +109,12 @@ export default function Ruanglingkuppenguji() {
                         rowSpan={kelompok.items.length}
                         className="ruang-lingkup__bidang"
                       >
-                        {kelompok.bidang}
+                        {t(kelompok.bidang)}
                       </td>
                     )}
 
                     <td className="ruang-lingkup__produk">
-                      {item.jenis}
+                      {t(item.jenis)}
                     </td>
 
                     <td className="ruang-lingkup__buku">
@@ -123,8 +126,8 @@ export default function Ruanglingkuppenguji() {
                             className="ruang-lingkup__download"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`Buka dokumen Google Drive untuk ${item.jenis}`}
-                            title="Buka Google Drive"
+                            aria-label={`${t("Buka dokumen Google Drive untuk")} ${t(item.jenis)}`}
+                            title={t("Buka Google Drive")}
                           >
                             <FaDownload aria-hidden="true" />
                           </a>

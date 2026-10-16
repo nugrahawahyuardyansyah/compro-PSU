@@ -78,7 +78,7 @@ export default function ClientTesting() {
         setResults([]);
       } else if (status >= 400 || !payload.success) {
         setResults([]);
-        setErrorMsg(payload.message || "Terjadi kesalahan saat memeriksa sertifikat.");
+        setErrorMsg(payload.message || t("Terjadi kesalahan saat memeriksa sertifikat."));
       } else {
         setResults(Array.isArray(payload.data) ? payload.data : []);
       }
@@ -86,7 +86,7 @@ export default function ClientTesting() {
       setHasSearched(true);
       setResults([]);
       setErrorMsg(
-        "Gagal terhubung ke server backend (port 5000). Pastikan Anda sudah menjalankan 'npm start' di dalam folder backend dan MySQL di XAMPP sudah Start."
+        t("Gagal terhubung ke server backend (port 5000). Pastikan Anda sudah menjalankan 'npm start' di dalam folder backend dan MySQL di XAMPP sudah Start.")
       );
     } finally {
       setLoading(false);
@@ -137,7 +137,7 @@ export default function ClientTesting() {
                 <input
                   type="text"
                   className="cert-tracker__input"
-                  placeholder={`Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0101)`}
+                  placeholder={t("Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0101)")}
                   value={noSertifikat}
                   onChange={(e) => setNoSertifikat(e.target.value)}
                   aria-label={t("No. sertifikat")}
@@ -147,7 +147,7 @@ export default function ClientTesting() {
                     type="button"
                     className="cert-tracker__clear"
                     onClick={handleClear}
-                    aria-label="Bersihkan input"
+                    aria-label={t("Bersihkan input")}
                   >
                     ×
                   </button>
@@ -175,7 +175,7 @@ export default function ClientTesting() {
 
           {errorMsg && (
             <div className="cert-tracker__state cert-tracker__state--error" role="alert">
-              <p className="cert-tracker__state-title">Perhatian</p>
+              <p className="cert-tracker__state-title">{t("Perhatian")}</p>
               <p>{errorMsg}</p>
             </div>
           )}
@@ -186,7 +186,7 @@ export default function ClientTesting() {
                 <LocalizedText>Data Sertifikat Tidak Ditemukan</LocalizedText>
               </p>
               <p>
-                Nomor sertifikat <strong>{searchedQuery}</strong> tidak ditemukan pada database{" "}
+                {t("Nomor sertifikat")} <strong>{searchedQuery}</strong> {t("tidak ditemukan pada database")}{" "}
                 <strong>Lembaga Pengujian</strong>.
               </p>
             </div>
