@@ -852,7 +852,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  color: #0284c7;
+  color: #b09b00;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -862,7 +862,7 @@
 .home-news__eyebrow-line {
   width: 34px;
   height: 2px;
-  background: #0284c7;
+  background: #b09b00;
   display: inline-block;
 }
 
