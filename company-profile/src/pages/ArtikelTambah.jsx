@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import { useLanguage } from "../context/useLanguage";
 import { AUTHOR_OPTIONS } from "../data/articlesFallback";
 import "./Artikel.css";
 
@@ -18,6 +19,7 @@ const PRESET_IMAGES = [
 
 export default function ArtikelTambah() {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const today = new Date().toISOString().slice(0, 10);
 
   const [titleId, setTitleId] = useState("");
@@ -29,7 +31,7 @@ export default function ArtikelTambah() {
   const [imageUrl, setImageUrl] = useState("/Logo_PSU_banner1.webp");
   const [tagsInput, setTagsInput] = useState("News, PT Penilai Standar Uji, SNI, LSPro PSU");
   const [excerptId, setExcerptId] = useState("");
-  const [excerptEn, setExcerptEn] = useState("");
+  const [excerptEn] = useState("");
   const [contentId, setContentId] = useState("");
   const [contentEn, setContentEn] = useState("");
 
@@ -251,7 +253,7 @@ export default function ArtikelTambah() {
                   >
                     {AUTHOR_OPTIONS.map((name) => (
                       <option key={name} value={name}>
-                        {name}
+                        {t(name)}
                       </option>
                     ))}
                   </select>

@@ -561,7 +561,7 @@ export default function Navbar() {
 
           <ul className={`navbar__links ${menuOpen ? "is-open" : ""}`}>
             <li className="navbar__home-link">
-              <Link {...linkProps("/")}>{t("Home")}</Link>
+              <Link {...linkProps("/")}>{t("Beranda")}</Link>
             </li>
             <li className="navbar__menu-label" aria-hidden="true">
               {t("Menu")}
@@ -582,7 +582,7 @@ export default function Navbar() {
 
             {renderDropdown({
               id: "client",
-              label: "Client",
+              label: "Klien",
               items: menuClient,
               active: pathname.startsWith("/client"),
             })}

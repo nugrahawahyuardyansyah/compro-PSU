@@ -88,15 +88,19 @@
   min-width: 260px;
 }
 
-.ruang-lingkup .ruang-lingkup__buku {
+.ruang-lingkup .ruang-lingkup__table td.ruang-lingkup__buku {
   min-width: 150px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .ruang-lingkup .ruang-lingkup__sni {
   display: flex;
+  width: 100%;
+  min-height: 34px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  justify-content: center;
+  gap: 8px;
 }
 
 .ruang-lingkup .ruang-lingkup__download {
@@ -104,22 +108,25 @@
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   color: #fff;
-  background: var(--service-navy);
-  border-radius: 6px;
+  background: #4bcda7;
+  border: 0;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background-color 160ms ease, transform 160ms ease;
+  font-size: 0.95rem;
+  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .ruang-lingkup .ruang-lingkup__download:hover {
-  background: #16428a;
+  background: #30b991;
+  box-shadow: 0 4px 10px rgb(48 185 145 / 28%);
   transform: translateY(-1px);
 }
 
 .ruang-lingkup .ruang-lingkup__download:focus-visible {
-  outline: 3px solid #8bb8ff;
+  outline: 3px solid #a4efda;
   outline-offset: 2px;
 }
 

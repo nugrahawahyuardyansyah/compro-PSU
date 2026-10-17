@@ -85,13 +85,6 @@
   line-height: 1.5;
 }
 
-.service-detail--legalitas-sertif .legalitas-document__download {
-  display: inline-block;
-  margin-top: 6px;
-  color: var(--service-navy);
-  font-weight: 600;
-}
-
 @media (max-width: 720px) {
   .service-detail--legalitas-sertif {
     padding: 32px 0 56px;
