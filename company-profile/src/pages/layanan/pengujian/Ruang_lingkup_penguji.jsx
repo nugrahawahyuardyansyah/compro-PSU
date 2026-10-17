@@ -1,4 +1,3 @@
-
 import "../pengujian/Ruang_lingkup_penguji.css";
 import LocalizedText from "../../../components/LocalizedText";
 import { useLanguage } from "../../../context/useLanguage";
@@ -10,70 +9,38 @@ const dataPengujian = [
     items: [
       {
         jenis: "Peralatan masak (Cookware) dari logam",
-        hrefs: [
-          "https://drive.google.com/file/d/1b9_6v_BGv0G24BIxGd-cEHXFyIssZAMi/view?usp=drive_link",
-        ],
       },
-      {
-        jenis:
-          "Peralatan makan dan perlengkapan masak dari baja tahan karat (stainless steel flatware)",
-        hrefs: [
-          "https://drive.google.com/file/d/1q7VeZeBzw8wpMBKN8zyq54NURmqdoGl9/view?usp=drive_link",
-        ],
+       {
+      jenis: "Peralatan makan dan perlengkapan masak dari baja tahan karat ",
       },
     ],
   },
   {
-    bidang: "Kimia/Fisika",
+    bidang:
+      "Pertanian, perkebunan, peternakan dan perikanan",
+    items: [
+     
+      {
+        jenis: "Pupuk kalsium nitrat",
+      
+      },
+    ],
+  },
+    {
+    bidang: "Fisika/Kimia",
     items: [
       {
         jenis: "Pupuk SP 36",
-        hrefs: [
-          "https://drive.google.com/file/d/1c-gbC5RTXtwiXX4kSCMfG1fDXdz6ttz2/view?usp=drive_link",
-        ],
+      },
+       {
+      jenis: "Pupuk Fosfat Alam Untuk Pertanian ",
       },
       {
-        jenis: "Pupuk Fosfat Alam Untuk Pertanian",
-        hrefs: [
-          "https://drive.google.com/file/d/1Z3KUpg5nlIoLm2tItBOlwIQFnhJMIv1r/view?usp=drive_link",
-        ],
+        jenis:"Pupuk Kalium Klorida",
       },
       {
-        jenis: "Pupuk Kalium Klorida",
-        hrefs: [
-          "https://drive.google.com/file/d/1lN52_79scsfZOatD0_IS-hKrDNnCqETJ/view?usp=drive_link",
-        ],
-      },
-      {
-        jenis: "Pupuk Triple Super Fosfat / TSP",
-        hrefs: [
-          "https://drive.google.com/file/d/1J3tbnXVYoG8zZdhUUUS6SzNh1TZed-4l/view?usp=drive_link",
-        ],
-      },
-    ],
-  },
-  {
-    bidang: "Kimia",
-    items: [
-      {
-        jenis: "Pupuk NPK Padat",
-        hrefs: [
-          "https://drive.google.com/file/d/1kHJbWZeP8gQ45M6kq1E7eqL4ESP8IjEu/view?usp=drive_link",
-        ],
-      },
-      {
-        jenis: "Pupuk Amonium Sulfat / ZA",
-        hrefs: [
-          "https://drive.google.com/file/d/1Rej8iVntCbUsnZAqfIGdwlhm6vk8QYJH/view?usp=drive_link",
-        ],
-      },
-      {
-        jenis: "Pupuk Urea",
-        hrefs: [
-          "https://drive.google.com/file/d/10OHiulnI8xvrrB_0g_ZEdJb84Yn5YTFx/view?usp=drive_link",
-          // "https://drive.google.com/file/d/10OHiulnI8xvrrB_0g_ZEdJb84Yn5YTFx/view?usp=drive_link",
-        ],
-      },
+        jeni:"Pupuk Tripel Super Fosfat / (TSP)",
+      }
     ],
   },
 ];
@@ -96,7 +63,7 @@ export default function Ruanglingkuppenguji() {
               <tr>
                 <th>{t("Bidang Pengujian")}</th>
                 <th>{t("Bahan atau Produk yang Diuji")}</th>
-                <th>{t("Dokumen")}</th>
+                <th>{t("Buku SNI")}</th>
               </tr>
             </thead>
 
@@ -119,19 +86,17 @@ export default function Ruanglingkuppenguji() {
 
                     <td className="ruang-lingkup__buku">
                       <div className="ruang-lingkup__sni">
-                        {item.hrefs.map((href) => (
-                          <a
-                            key={href}
-                            href={href}
-                            className="ruang-lingkup__download"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${t("Buka dokumen Google Drive untuk")} ${t(item.jenis)}`}
-                            title={t("Buka Google Drive")}
-                          >
-                            <FaDownload aria-hidden="true" />
-                          </a>
-                        ))}
+                        <span>{item.sni}</span>
+
+                        <a
+                          href="#"
+                          className="ruang-lingkup__download"
+                          aria-label={`${t("Download dokumen")} ${item.sni}`}
+                          title={`Download ${item.sni}`}
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <FaDownload />
+                        </a>
                       </div>
                     </td>
                   </tr>
