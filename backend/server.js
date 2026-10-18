@@ -9,7 +9,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 5000;
 
 app.use(cors());
-app.use(express.json({ limit: "25mb" }));
+app.use(express.json({ limit: "15mb" }));
 
 const dbConfig = {
   host: process.env.DB_HOST || "127.0.0.1",
@@ -27,13 +27,13 @@ const TABLE_MAP = {
 };
 
 const AUTHOR_OPTIONS = [
-  "Arief Prihardono Darmawan",
-  "Amanda Putri",
-  "Winda Arliny",
   "Corporate Secretary PSU",
-  "Tim Redaksi & Humas PSU",
+  "Tim Redaksi PSU",
   "Divisi Sertifikasi Produk (LSPro)",
-  "Divisi Laboratorium Pengujian & Kalibrasi"
+  "Divisi Laboratorium Pengujian",
+  "Divisi Laboratorium Kalibrasi",
+  "Divisi Sertifikasi Sistem Manajemen",
+  "Humas & Komunikasi Korporat PSU",
 ];
 
 const INITIAL_ARTICLES = [
@@ -46,6 +46,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Upaya peningkatan kualitas dan keselamatan produk industri nasional terus diperkuat melalui kolaborasi bersama lembaga penilaian kesesuaian yang terakreditasi. Langkah ini dilakukan melalui berbagai program strategis yang bertujuan memperkuat pengawasan mutu, meningkatkan keselamatan konsumen, dan menerapkan tata kelola operasional yang terintegrasi.\n\nDalam pelaksanaannya, berbagai pemangku kepentingan berkolaborasi dengan lembaga teknis independen seperti PT Penilai Standar Uji (PSU), khususnya dalam penyediaan pendampingan teknis, pengujian laboratorium, serta penguatan kepatuhan terhadap Standar Nasional Indonesia (SNI).\n\nKeterlibatan ini tercermin dalam berbagai program strategis, termasuk sertifikasi produk industri strategis, pengujian parameter keselamatan di laboratorium terakreditasi, serta kalibrasi instrumen ukur presisi tinggi. Selain itu, kontribusi nyata juga diberikan dalam mengevaluasi dan memastikan konsistensi mutu melalui program surveilan berkala.\n\nMelalui kolaborasi ini, pemerintah dan pelaku industri bertujuan memastikan bahwa produk yang beredar di masyarakat semakin aman, andal, dan berdaya saing tinggi. Penguatan sistem pemantauan mutu juga diharapkan mampu menekan risiko ketidaksesuaian spesifikasi teknis di pasar.\n\nDi sisi lain, dukungan profesional dalam pendampingan sertifikasi membantu pelaku industri lokal merancang serta mengelola sistem manajemen mutu yang lebih efisien dan berorientasi pada kepuasan pelanggan.\n\nKeterlibatan PT Penilai Standar Uji (PSU) di sektor pengujian, inspeksi, sertifikasi, dan pelatihan terus berkembang melalui kerja sama dengan berbagai instansi nasional maupun pelaku industri manufaktur, agroindustri, pangan, kimia, hingga peralatan logam.\n\nKontribusi tersebut mencakup dukungan kesiapan operasional fasilitas pengujian, peningkatan standar keselamatan produk, serta pengembangan layanan penilaian kesesuaian yang ramah lingkungan dan berkelanjutan.\n\nKe depan, PT Penilai Standar Uji bersama para mitra strategis akan terus memperkuat layanan penjaminan mutu nasional melalui peningkatan kapabilitas infrastruktur laboratorium, pemanfaatan teknologi pengujian modern, dan penguatan kepatuhan regulasi.",
     "content_en": "Jakarta — Efforts to enhance the quality and safety of national industrial products continue to be strengthened through collaboration with accredited conformity assessment bodies. These efforts are carried out through various strategic programs aimed at strengthening quality supervision, improving consumer safety, and implementing more integrated operational governance.\n\nIn its implementation, stakeholders collaborate with independent technical institutions such as PT Penilai Standar Uji (PSU), particularly in providing technical assistance, laboratory testing, and strengthening compliance with Indonesian National Standards (SNI).\n\nThis involvement is reflected in several strategic programs, including product certification across strategic industries, safety parameter testing in accredited laboratories, and high-precision instrument calibration. Additionally, contributions are made to evaluating and recognizing consistent product quality through periodic surveillance programs.\n\nThrough this collaboration, regulators and industry players aim to ensure that products circulating in the market become safer, more reliable, and highly competitive. Strengthening quality monitoring systems is also expected to reduce technical non-conformities and product safety risks.\n\nOn the other hand, professional support in certification assistance helps domestic manufacturers design and manage more efficient and customer-driven quality management systems.\n\nPT Penilai Standar Uji's involvement in the Testing, Inspection, Certification, and Training ecosystem continues to expand through collaborations with national agencies and manufacturers across agriculture, food, chemical, and metal sectors.\n\nThese contributions include support for operational readiness of testing facilities, enhancement of safety standards, and the development of sustainable conformity assessment services.\n\nMoving forward, PT Penilai Standar Uji, together with professional partners, will continue strengthening national quality assurance services through laboratory infrastructure improvements, technology utilization, and enhanced safety and compliance.",
     "image_url": "/Logo_PSU_banner1.webp",
+    "author": "Corporate Secretary PSU",
     "category": "Press Release",
     "tags": [
       "Press Release",
@@ -63,8 +64,7 @@ const INITIAL_ARTICLES = [
       "Kalibrasi"
     ],
     "published_at": "2026-04-18",
-    "status": "Published",
-    "author": "Corporate Secretary PSU"
+    "status": "Published"
   },
   {
     "slug": "psu-perkuat-kinerja-pengujian-dan-sertifikasi-di-tengah-dinamika-industri",
@@ -75,6 +75,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — PT Penilai Standar Uji (PSU) terus mencatatkan penguatan kinerja operasional pada kuartal pertama tahun 2026 melalui optimalisasi layanan Sertifikasi Produk (LSPro), Laboratorium Pengujian, dan Laboratorium Kalibrasi. Langkah strategis ini diambil untuk merespons meningkatnya kebutuhan industri terhadap jaminan mutu yang cepat, akurat, dan transparan.\n\nMelalui sistem pelacakan sertifikat digital (SILAPP) dan perluasan ruang lingkup akreditasi KAN, klien kini dapat memantau proses pengajuan sertifikasi maupun status keaktifan sertifikat secara real-time. Transformasi digital ini memangkas waktu tunggu administrasi sekaligus menjaga ketertelusuran dokumen teknis secara akuntabel.\n\nSelain penguatan infrastruktur digital, PSU juga secara konsisten meningkatkan kapasitas sumber daya manusia melalui program pelatihan berkelanjutan bagi para auditor, petugas pengambil contoh (PPC), dan analis laboratorium agar selalu selaras dengan pembaruan regulasi SNI wajib maupun sukarela.",
     "content_en": "Jakarta — PT Penilai Standar Uji (PSU) continues to record strong operational performance in the first quarter of 2026 by optimizing its Product Certification (LSPro), Testing Laboratory, and Calibration Laboratory services. This strategic step responds to the growing industrial demand for fast, accurate, and transparent quality assurance.\n\nThrough its digital certificate tracking system (SILAPP) and expanded KAN accreditation scope, clients can now monitor their certification application progress and certificate validity status in real time. This digital transformation reduces administrative turnaround times while maintaining full technical document traceability.\n\nBeyond digital infrastructure, PSU consistently invests in human capital through continuous training programs for auditors, sampling officers (PPC), and laboratory analysts to stay aligned with the latest mandatory and voluntary SNI regulations.",
     "image_url": "/Logo_PSU_banner2.webp",
+    "author": "Divisi Sekretaris Perusahaan PSU",
     "category": "News",
     "tags": [
       "News",
@@ -87,8 +88,7 @@ const INITIAL_ARTICLES = [
       "Mutu Industri"
     ],
     "published_at": "2026-04-16",
-    "status": "Published",
-    "author": "Arief Prihardono Darmawan"
+    "status": "Published"
   },
   {
     "slug": "kolaborasi-psu-dan-perguruan-tinggi-perkuat-riset-pengujian-pangan-dan-lingkungan",
@@ -99,6 +99,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — PT Penilai Standar Uji (PSU) bersama mitra perguruan tinggi nasional resmi meluncurkan program kolaborasi riset terapan di bidang pengujian mutu pangan, pertanian, dan lingkungan. Sinergi ini bertujuan menjembatani kebutuhan pengujian standar industri dengan inovasi akademik terkini.\n\nDalam program tersebut, para peneliti dan praktisi laboratorium PSU melakukan validasi metode uji mikrobiologi, cemaran logam berat, serta parameter kimia pada komoditas strategis seperti beras, kopi, kakao, minyak goreng sawit, dan air minum dalam kemasan.\n\nKerja sama ini juga membuka kesempatan bagi mahasiswa dan akademisi untuk mengenal lebih dekat penerapan standar SNI ISO/IEC 17025:2017 di laboratorium pengujian modern, sehingga turut mencetak talenta muda yang siap terjun ke dunia penjaminan mutu industri.",
     "content_en": "Jakarta — PT Penilai Standar Uji (PSU) and partner national universities have officially launched an applied research collaboration focusing on food, agricultural, and environmental quality testing. This synergy bridges industrial standard testing needs with the latest academic innovations.\n\nUnder this program, researchers and PSU laboratory practitioners conduct method validation for microbiological testing, heavy metal contamination, and chemical parameters across strategic commodities such as rice, coffee, cocoa, palm cooking oil, and bottled drinking water.\n\nThe partnership also provides students and academics with hands-on exposure to SNI ISO/IEC 17025:2017 implementation in modern testing laboratories, nurturing future talent for Indonesia's quality assurance sector.",
     "image_url": "/Logo_PSU_banner3.webp",
+    "author": "Humas & Kemitraan PSU",
     "category": "Article",
     "tags": [
       "Article",
@@ -112,8 +113,7 @@ const INITIAL_ARTICLES = [
       "Inovasi Mutu"
     ],
     "published_at": "2026-04-12",
-    "status": "Published",
-    "author": "Tim Redaksi & Humas PSU"
+    "status": "Published"
   },
   {
     "slug": "psu-dan-lembaga-pengembangan-sdm-dorong-peningkatan-kompetensi-personel-mutu",
@@ -124,6 +124,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Peningkatan kompetensi sumber daya manusia merupakan kunci utama keberhasilan penerapan sistem manajemen mutu di setiap organisasi. Melalui unit Lembaga Pelatihan, PT Penilai Standar Uji (PSU) menghadirkan rangkaian program General Training dan Inhouse Training yang dirancang khusus sesuai kebutuhan industri.\n\nMateri pelatihan mencakup pemahaman dan implementasi SNI ISO 9001:2015, SNI ISO 14001:2015, SNI ISO 22000:2018, SNI ISO/IEC 17025:2017, teknik audit internal, hingga ketidakpastian pengukuran dan kalibrasi alat ukur laboratorium.\n\nDengan dibimbing oleh instruktur praktisi yang berpengalaman langsung di bidang pengujian dan sertifikasi, peserta pelatihan memperoleh wawasan aplikatif dan studi kasus nyata untuk diterapkan langsung di lingkungan kerja masing-masing.",
     "content_en": "Jakarta — Enhancing human resource competency is the cornerstone of successful quality management system implementation in any organization. Through its Training Institution unit, PT Penilai Standar Uji (PSU) delivers comprehensive General Training and In-house Training programs tailored to industrial needs.\n\nTraining modules cover the understanding and implementation of SNI ISO 9001:2015, SNI ISO 14001:2015, SNI ISO 22000:2018, SNI ISO/IEC 17025:2017, internal auditing techniques, measurement uncertainty, and laboratory equipment calibration.\n\nGuided by practitioner instructors with extensive field experience in testing and certification, participants gain practical insights and real-world case studies ready for immediate application in their workplaces.",
     "image_url": "/Logo_PSU_banner4.webp",
+    "author": "Divisi Pelatihan PSU",
     "category": "Press Release",
     "tags": [
       "Press Release",
@@ -142,8 +143,7 @@ const INITIAL_ARTICLES = [
       "LPK"
     ],
     "published_at": "2026-04-10",
-    "status": "Published",
-    "author": "Amanda Putri"
+    "status": "Published"
   },
   {
     "slug": "pentingnya-kredibilitas-data-pengujian-dan-kalibrasi-untuk-akses-pasar-global",
@@ -154,6 +154,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Dalam lanskap perdagangan modern yang semakin kompetitif, kredibilitas data hasil pengujian dan kalibrasi menjadi syarat mutlak bagi pelaku industri untuk memperoleh kepercayaan pasar. Produk yang telah melalui proses pengujian di laboratorium terakreditasi KAN memiliki pengakuan internasional melalui skema ILAC MRA.\n\nPT Penilai Standar Uji (PSU) memastikan seluruh proses pengujian fisika, kimia, dan mikrobiologi didukung oleh peralatan yang terkalibrasi secara berkala serta metode uji standar yang tervalidasi. Hal ini menjamin setiap sertifikat hasil uji dan sertifikat kalibrasi yang diterbitkan memiliki akurasi dan ketertelusuran metrologi yang dapat dipertanggungjawabkan.\n\nSelain peralatan industri, layanan kalibrasi PSU juga mencakup kalibrasi alat kesehatan pada fasilitas layanan kesehatan guna menjamin keselamatan pasien dan keandalan diagnosis medis.",
     "content_en": "Jakarta — In an increasingly competitive modern trade landscape, the credibility of testing and calibration data is an essential requirement for manufacturers seeking market trust. Products tested in KAN-accredited laboratories carry international recognition under the ILAC MRA framework.\n\nPT Penilai Standar Uji (PSU) ensures that all physical, chemical, and microbiological testing processes are supported by regularly calibrated instruments and validated standard test methods. This guarantees that every test report and calibration certificate issued maintains verifiable accuracy and metrological traceability.\n\nIn addition to industrial instruments, PSU's calibration services cover medical device calibration for healthcare facilities to safeguard patient safety and diagnostic reliability.",
     "image_url": "/Logo_PSU_banner5.webp",
+    "author": "Laboratorium Kalibrasi & Pengujian PSU",
     "category": "News",
     "tags": [
       "News",
@@ -169,8 +170,7 @@ const INITIAL_ARTICLES = [
       "Industri"
     ],
     "published_at": "2026-04-08",
-    "status": "Published",
-    "author": "Divisi Laboratorium Pengujian & Kalibrasi"
+    "status": "Published"
   },
   {
     "slug": "perluasan-ruang-lingkup-sertifikasi-produk-logam-cookware-flatware-dan-foodtray",
@@ -181,6 +181,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Keamanan peralatan makan dan masak yang bersentuhan langsung dengan pangan menjadi perhatian utama masyarakat dan regulator. PT Penilai Standar Uji (PSU) menyediakan layanan pengujian laboratorium dan sertifikasi produk untuk komoditas logam, mencakup peralatan masak (Cookware), peralatan makan baja tahan karat (Stainless Steel Flatware), serta wadah bersekat (Foodtray) dari baja tahan karat untuk makanan.\n\nPengujian dilakukan secara menyeluruh meliputi uji komposisi kimia material logam, ketahanan korosi, kekuatan mekanis, hingga uji migrasi logam berat guna memastikan wadah makanan benar-benar aman digunakan untuk program pemenuhan gizi maupun kebutuhan rumah tangga dan komersial.\n\nDengan dukungan fasilitas laboratorium yang lengkap dan tim auditor berpengalaman, PSU siap mendampingi produsen dalam negeri dalam memperoleh SPPT-SNI secara tepat waktu.",
     "content_en": "Jakarta — The safety of cutlery and cookware that come into direct contact with food is a top priority for consumers and regulators alike. PT Penilai Standar Uji (PSU) provides laboratory testing and product certification services for metal commodities, covering corrosion-resistant cookware, stainless steel flatware, and compartmented stainless steel food containers (Foodtray).\n\nComprehensive testing includes chemical composition analysis of metal alloys, corrosion resistance, mechanical durability, and heavy metal migration testing to ensure food containers are completely safe for public nutrition programs as well as household and commercial use.\n\nSupported by complete laboratory facilities and experienced auditors, PSU is ready to assist domestic manufacturers in obtaining SPPT-SNI certification efficiently.",
     "image_url": "/Logo_PSU_banner6.webp",
+    "author": "Divisi Sertifikasi Produk PSU",
     "category": "Press Release",
     "tags": [
       "Press Release",
@@ -199,8 +200,7 @@ const INITIAL_ARTICLES = [
       "Standarisasi"
     ],
     "published_at": "2026-03-25",
-    "status": "Published",
-    "author": "Divisi Sertifikasi Produk (LSPro)"
+    "status": "Published"
   },
   {
     "slug": "sertifikasi-pasar-rakyat-wujudkan-pasar-tradisional-bersih-aman-dan-berdaya-saing",
@@ -211,6 +211,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Pasar Rakyat memiliki peran vital sebagai penggerak ekonomi kerakyatan dan distribusi bahan pangan pokok. Untuk meningkatkan kualitas pelayanan dan kenyamanan masyarakat saat berbelanja, penerapan Standar Nasional Indonesia (SNI) Pasar Rakyat menjadi instrumen penting bagi pemerintah daerah dan pengelola pasar.\n\nPT Penilai Standar Uji (PSU) melaksanakan penilaian kesesuaian Pasar Rakyat secara komprehensif, meliputi evaluasi persyaratan umum, ketersediaan fasilitas dan infrastruktur ruang dagang, sanitasi dan kebersihan lingkungan, sistem keamanan, hingga tata kelola manajemen pasar.\n\nMelalui sertifikasi SNI Pasar Rakyat, pasar tradisional dapat bertransformasi menjadi pusat perbelanjaan rakyat yang modern, sehat, tertib, dan mampu bersaing di era ritel modern.",
     "content_en": "Jakarta — People's Markets play a vital role as drivers of the grassroots economy and primary food distribution networks. To improve service quality and shopper comfort, implementing the Indonesian National Standard (SNI) for People's Markets serves as an essential benchmark for local governments and market managers.\n\nPT Penilai Standar Uji (PSU) conducts comprehensive conformity assessments for People's Markets, evaluating general requirements, trading space facilities and infrastructure, environmental sanitation and hygiene, safety systems, and market management governance.\n\nThrough SNI People's Market certification, traditional markets transform into clean, orderly, healthy, and competitive community shopping hubs.",
     "image_url": "/LSPro.webp",
+    "author": "Corporate Secretary PSU",
     "category": "Article",
     "tags": [
       "Article",
@@ -224,8 +225,7 @@ const INITIAL_ARTICLES = [
       "Standar Pelayanan"
     ],
     "published_at": "2026-03-17",
-    "status": "Published",
-    "author": "Corporate Secretary PSU"
+    "status": "Published"
   },
   {
     "slug": "pengawasan-mutu-pupuk-pertanian-melalui-pengujian-laboratorium-terakreditasi",
@@ -236,6 +236,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Produktivitas sektor pertanian nasional sangat bergantung pada ketersediaan sarana produksi pertanian, khususnya pupuk yang memenuhi standar mutu. PT Penilai Standar Uji (PSU) mendukung penuh program ketahanan pangan nasional melalui layanan pengujian laboratorium dan sertifikasi SNI untuk 18 jenis komoditas pupuk dan bahan kimia pertanian.\n\nRuang lingkup pengujian mencakup Pupuk Super Fosfat (SP-36), Pupuk Fosfat Alam, Pupuk Kalium Klorida (KCl), Pupuk Tripel Super Fosfat (TSP), Pupuk NPK Padat, Pupuk Amonium Sulfat (ZA), Pupuk Urea, MAP, DAP, Dolomit, Borat, Kiseret, hingga Pupuk Cair Haspramin.\n\nMelalui analisis kadar unsur hara yang presisi dan uji cemaran logam berat di laboratorium PSU, produsen dan distributor pupuk dapat memastikan produknya memenuhi spesifikasi teknis Kementan dan Kemenperin sebelum didistribusikan kepada petani.",
     "content_en": "Jakarta — National agricultural productivity relies heavily on the availability of high-quality agricultural inputs, particularly fertilizers that meet quality standards. PT Penilai Standar Uji (PSU) actively supports national food security through laboratory testing and SNI certification across 18 fertilizer and agricultural chemical commodities.\n\nThe testing scope covers Super Phosphate (SP-36), Natural Phosphate, Potassium Chloride (KCl), Triple Super Phosphate (TSP), Solid NPK, Ammonium Sulfate (ZA), Urea, MAP, DAP, Dolomite, Borate, Kieserite, and Haspramin liquid fertilizer.\n\nThrough precise nutrient content analysis and heavy metal contamination testing at PSU's laboratories, fertilizer producers and distributors ensure their products meet Ministry of Agriculture and Ministry of Industry technical specifications before reaching farmers.",
     "image_url": "/lab_pengujian.webp",
+    "author": "Laboratorium Kimia & Pertanian PSU",
     "category": "News",
     "tags": [
       "News",
@@ -252,8 +253,7 @@ const INITIAL_ARTICLES = [
       "LSPro PSU"
     ],
     "published_at": "2026-02-27",
-    "status": "Published",
-    "author": "Divisi Laboratorium Pengujian & Kalibrasi"
+    "status": "Published"
   },
   {
     "slug": "panduan-skema-sertifikasi-produk-tipe-1b-dan-tipe-5-untuk-pelaku-industri",
@@ -264,6 +264,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Dalam mengajukan Sertifikat Produk Penggunaan Tanda SNI (SPPT-SNI), pemahaman mengenai skema sertifikasi yang tepat sangat membantu pelaku usaha dalam mempersiapkan dokumen dan fasilitas produksinya. Secara umum, terdapat dua skema utama yang paling banyak diterapkan, yakni Skema Tipe 1B dan Skema Tipe 5.\n\nSkema Sertifikasi Tipe 1B dilakukan berdasarkan pengujian dan pemeriksaan terhadap satu kelompok produksi (batch/lot) tertentu. Sertifikat yang diterbitkan pada skema ini berlaku khusus untuk jumlah produk pada batch yang diajukan dan telah dinyatakan lulus uji.\n\nSementara itu, Skema Sertifikasi Tipe 5 mencakup asesmen terhadap proses produksi dan penerapan Sistem Manajemen Mutu (seperti ISO 9001 atau HACCP/ISO 22000) di pabrik, pengambilan contoh produk untuk pengujian laboratorium, serta pelaksanaan surveilan berkala guna memastikan konsistensi mutu produk selama masa berlaku sertifikat.",
     "content_en": "Jakarta — When applying for an SNI Mark Product Certificate (SPPT-SNI), selecting the appropriate certification scheme helps manufacturers prepare their documentation and production facilities effectively. Two primary schemes are most widely applied: Type 1B and Type 5.\n\nThe Type 1B Certification Scheme is based on sampling, testing, and inspection of a specific production batch or lot. The resulting certificate applies specifically to the product batch inspected and verified as compliant.\n\nMeanwhile, the Type 5 Certification Scheme encompasses a full audit of the factory's production process and Quality Management System (such as ISO 9001 or HACCP/ISO 22000), product sampling for laboratory testing, and periodic surveillance evaluations to ensure ongoing quality consistency throughout the certificate's validity period.",
     "image_url": "/lab_kalibrasi.webp",
+    "author": "Divisi Sertifikasi Produk PSU",
     "category": "Article",
     "tags": [
       "Article",
@@ -276,8 +277,7 @@ const INITIAL_ARTICLES = [
       "LSPro PSU"
     ],
     "published_at": "2026-02-10",
-    "status": "Published",
-    "author": "Divisi Sertifikasi Produk (LSPro)"
+    "status": "Published"
   },
   {
     "slug": "perpanjangan-akreditasi-kan-lspro-psu-hingga-2030-dan-perluasan-komoditas-pangan",
@@ -288,6 +288,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Komite Akreditasi Nasional (KAN) secara resmi memperpanjang masa berlaku akreditasi Lembaga Sertifikasi Produk PT Penilai Standar Uji (LSPr-051-IDN) untuk periode 30 Juni 2025 hingga 29 Mei 2030 berbasis standar internasional SNI ISO/IEC 17065:2012 yang diakui secara global melalui IAF MLA.\n\nCapaian ini sekaligus menandai perluasan ruang lingkup layanan sertifikasi komoditas pertanian, perkebunan, dan olahan pangan, meliputi Beras, Biji Kopi, Biji Kakao, Biskuit, Gula Kristal, Kopi Instan, hingga Minyak Goreng Sawit.\n\nKepercayaan yang diberikan oleh KAN menjadi motivasi bagi seluruh jajaran PT Penilai Standar Uji untuk terus menjaga independensi, integritas, dan profesionalisme dalam melayani industri nasional.",
     "content_en": "Jakarta — The National Accreditation Committee (KAN) has officially extended the accreditation of PT Penilai Standar Uji's Product Certification Body (LSPr-051-IDN) for the period of June 30, 2025 through May 29, 2030 under SNI ISO/IEC 17065:2012, globally recognized via the IAF MLA.\n\nThis milestone also marks the expansion of PSU's certification scope across agricultural, plantation, and processed food commodities, including Rice, Coffee Beans, Cocoa Beans, Biscuits, Crystal Sugar, Instant Coffee, and Palm Cooking Oil.\n\nThis renewed trust from KAN reinforces PT Penilai Standar Uji's commitment to upholding independence, integrity, and professionalism in serving national industries.",
     "image_url": "/_pelatihan.webp",
+    "author": "Corporate Secretary PSU",
     "category": "Press Release",
     "tags": [
       "Press Release",
@@ -301,8 +302,7 @@ const INITIAL_ARTICLES = [
       "Milestone PSU"
     ],
     "published_at": "2025-07-05",
-    "status": "Published",
-    "author": "Arief Prihardono Darmawan"
+    "status": "Published"
   },
   {
     "slug": "pentingnya-sertifikasi-sistem-manajemen-iso-9001-14001-dan-22000-bagi-daya-saing-perusahaan",
@@ -313,6 +313,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Penerapan sistem manajemen berstandar internasional kini bukan lagi sekadar pemenuhan regulasi, melainkan investasi strategis bagi keberlanjutan bisnis. Lembaga Sertifikasi Sistem Manajemen (LSSM) PT Penilai Standar Uji hadir mendampingi organisasi dalam mengimplementasikan dan memperoleh sertifikasi SNI ISO 9001:2015 (Manajemen Mutu), SNI ISO 14001:2015 (Manajemen Lingkungan), serta SNI ISO 22000:2018 (Manajemen Keamanan Pangan).\n\nProses audit dilaksanakan secara objektif dan bernilai tambah oleh auditor teregistrasi, membantu perusahaan mengidentifikasi peluang perbaikan berkelanjutan di setiap lini operasional.",
     "content_en": "Jakarta — Implementing international management system standards is no longer merely a regulatory requirement, but a strategic investment in business sustainability. PT Penilai Standar Uji's Management System Certification Body (LSSM) supports organizations in achieving SNI ISO 9001:2015 (Quality Management), SNI ISO 14001:2015 (Environmental Management), and SNI ISO 22000:2018 (Food Safety Management) certifications.\n\nAudits are conducted objectively by registered auditors with a value-added approach, helping organizations identify opportunities for continual improvement across all operational lines.",
     "image_url": "/sistem_manajemen_mutu.webp",
+    "author": "Divisi LSSM PSU",
     "category": "Article",
     "tags": [
       "Article",
@@ -325,8 +326,7 @@ const INITIAL_ARTICLES = [
       "Manajemen Lingkungan"
     ],
     "published_at": "2025-03-19",
-    "status": "Published",
-    "author": "Winda Arliny"
+    "status": "Published"
   },
   {
     "slug": "transformasi-identitas-pt-penilai-standar-nasional-menjadi-pt-penilai-standar-uji",
@@ -337,6 +337,7 @@ const INITIAL_ARTICLES = [
     "content_id": "Jakarta — Berdasarkan Akta Perubahan No. 12 tanggal 19 November 2024, perusahaan secara resmi melakukan transformasi identitas korporasi dan mengubah nama dari PT Penilai Standar Nasional (PSN) menjadi PT PENILAI STANDAR UJI (PSU).\n\nTransformasi ini menegaskan komitmen perusahaan untuk memperluas portofolio layanan penilaian kesesuaian yang terintegrasi melalui 5 pilar utama: Testing (Pengujian Laboratorium), Certification (Sertifikasi Produk & Sistem Manajemen), Calibration (Kalibrasi Alat Ukur & Alat Kesehatan), Training (Pelatihan Personel), serta Consulting (Konsultasi Teknis & Kepatuhan).",
     "content_en": "Jakarta — Pursuant to Deed of Amendment No. 12 dated November 19, 2024, the company officially completed its corporate identity transformation, changing its name from PT Penilai Standar Nasional (PSN) to PT PENILAI STANDAR UJI (PSU).\n\nThis transformation underscores the company's commitment to expanding its integrated conformity assessment portfolio across 5 core pillars: Testing, Certification, Calibration, Training, and Consulting.",
     "image_url": "/vision-mission-team.webp",
+    "author": "Corporate Secretary PSU",
     "category": "Press Release",
     "tags": [
       "Press Release",
@@ -351,21 +352,37 @@ const INITIAL_ARTICLES = [
       "LPK"
     ],
     "published_at": "2024-11-19",
-    "status": "Published",
-    "author": "Corporate Secretary PSU"
+    "status": "Published"
   }
 ];
 
+
 let pool;
 
-function slugifyTitle(text) {
-  return String(text || "")
+function slugifyTitle(title) {
+  return String(title || "")
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, "")
     .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
-    .slice(0, 200);
+    .replace(/^-|-$/g, "");
+}
+
+function parseTags(rawTags) {
+  if (Array.isArray(rawTags)) return rawTags;
+  if (typeof rawTags === "string") {
+    try {
+      const parsed = JSON.parse(rawTags);
+      if (Array.isArray(parsed)) return parsed;
+    } catch {
+      return rawTags
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+    }
+  }
+  return [];
 }
 
 async function initDatabase() {
@@ -389,50 +406,73 @@ async function initDatabase() {
       queueLimit: 0,
     });
 
+    // Migrasi otomatis ke struktur 7 kolom (termasuk `berlaku_sd`) & 3 jenis status ('Aktif', 'Ditangguhkan', 'Dicabut')
+    try {
+      const [colsSumber] = await pool.query("SHOW COLUMNS FROM sertifikat_produk LIKE 'sumber'");
+      const [colsAlamat] = await pool.query("SHOW COLUMNS FROM sertifikat_produk LIKE 'alamat'");
+      const [colsBerlaku] = await pool.query("SHOW COLUMNS FROM sertifikat_produk LIKE 'berlaku_sd'");
+      const [colsStatus] = await pool.query("SHOW COLUMNS FROM sertifikat_produk LIKE 'status'");
+      const statusType = String(colsStatus[0]?.Type || "");
+      const [sampleCheck] = await pool.query(
+        "SELECT id FROM sertifikat_produk WHERE no_sertifikat = 'PSU-SPPT-2026-GAHA' LIMIT 1"
+      );
+
+      if (
+        colsSumber.length > 0 ||
+        colsAlamat.length > 0 ||
+        colsBerlaku.length === 0 ||
+        !statusType.includes("Ditangguhkan") ||
+        !statusType.includes("Dicabut") ||
+        sampleCheck.length === 0
+      ) {
+        await pool.query(
+          "DROP TABLE IF EXISTS sertifikat_produk, sertifikat_pengujian, sertifikat_kalibrasi, sertifikat_sistem_manajemen"
+        );
+      }
+    } catch {
+      // Tabel belum ada, lanjutkan pembuatan tabel baru
+    }
+
     const createTableQueries = [
       `CREATE TABLE IF NOT EXISTS sertifikat_produk (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nama_pabrik VARCHAR(255) NOT NULL,
-        alamat TEXT NOT NULL,
         produk VARCHAR(255) NOT NULL,
         no_sni VARCHAR(100) NOT NULL,
         no_sertifikat VARCHAR(100) NOT NULL UNIQUE,
         terbit VARCHAR(50) NOT NULL,
-        status ENUM('Aktif', 'Tidak Aktif') NOT NULL DEFAULT 'Aktif',
-        sumber VARCHAR(150) NOT NULL
+        berlaku_sd VARCHAR(50) NOT NULL,
+        status ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS sertifikat_pengujian (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nama_pabrik VARCHAR(255) NOT NULL,
-        alamat TEXT NOT NULL,
         produk VARCHAR(255) NOT NULL,
         no_sni VARCHAR(100) NOT NULL,
         no_sertifikat VARCHAR(100) NOT NULL UNIQUE,
         terbit VARCHAR(50) NOT NULL,
-        status ENUM('Aktif', 'Tidak Aktif') NOT NULL DEFAULT 'Aktif',
-        sumber VARCHAR(150) NOT NULL
+        berlaku_sd VARCHAR(50) NOT NULL,
+        status ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS sertifikat_kalibrasi (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nama_pabrik VARCHAR(255) NOT NULL,
-        alamat TEXT NOT NULL,
         produk VARCHAR(255) NOT NULL,
         no_sni VARCHAR(100) NOT NULL,
         no_sertifikat VARCHAR(100) NOT NULL UNIQUE,
         terbit VARCHAR(50) NOT NULL,
-        status ENUM('Aktif', 'Tidak Aktif') NOT NULL DEFAULT 'Aktif',
-        sumber VARCHAR(150) NOT NULL
+        berlaku_sd VARCHAR(50) NOT NULL,
+        status ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS sertifikat_sistem_manajemen (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nama_pabrik VARCHAR(255) NOT NULL,
-        alamat TEXT NOT NULL,
         produk VARCHAR(255) NOT NULL,
         no_sni VARCHAR(100) NOT NULL,
         no_sertifikat VARCHAR(100) NOT NULL UNIQUE,
         terbit VARCHAR(50) NOT NULL,
-        status ENUM('Aktif', 'Tidak Aktif') NOT NULL DEFAULT 'Aktif',
-        sumber VARCHAR(150) NOT NULL
+        berlaku_sd VARCHAR(50) NOT NULL,
+        status ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci`,
       `CREATE TABLE IF NOT EXISTS artikel (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -443,7 +483,7 @@ async function initDatabase() {
         excerpt_en TEXT NOT NULL,
         content_id LONGTEXT NOT NULL,
         content_en LONGTEXT NOT NULL,
-        image_url VARCHAR(255) NOT NULL,
+        image_url LONGTEXT NOT NULL,
         author VARCHAR(150) NOT NULL DEFAULT 'Corporate Secretary PSU',
         category ENUM('News', 'Article', 'Press Release') NOT NULL DEFAULT 'News',
         tags JSON NOT NULL,
@@ -456,7 +496,6 @@ async function initDatabase() {
       await pool.query(q);
     }
 
-    // Pastikan kolom `author` ada jika tabel `artikel` sudah terlanjur dibuat sebelumnya
     try {
       await pool.query(
         "ALTER TABLE artikel ADD COLUMN author VARCHAR(150) NOT NULL DEFAULT 'Corporate Secretary PSU' AFTER image_url"
@@ -466,32 +505,36 @@ async function initDatabase() {
     }
 
     await pool.query(`
-      INSERT IGNORE INTO sertifikat_produk (nama_pabrik, alamat, produk, no_sni, no_sertifikat, terbit, status, sumber) VALUES
-      ('PT Sinar Contoh Abadi - Pabrik Cikarang', 'Kab. Bekasi, Jawa Barat', 'Minyak goreng sawit', 'SNI 7709:2019', 'PSU-SPPT-2026-0001', '08 Okt 2026', 'Aktif', 'SILAPP | PSU-SP-2608-0003'),
-      ('PT Contoh Pangan Lestari', 'Kab. Bekasi, Jawa Barat', 'Biskuit', 'SNI 2973:2011', 'PSU-SPPT-2023-0012', '14 Mar 2023', 'Aktif', 'Sebelum SILAPP'),
-      ('CV Kopi Nusantara Contoh', 'Kab. Temanggung, Jawa Tengah', 'Kopi instan', 'SNI 2983:2014', 'PSU-SPPT-2022-0031', '02 Agu 2022', 'Aktif', 'Sebelum SILAPP'),
-      ('PT Gula Manis Contoh', 'Kab. Lampung Tengah, Lampung', 'Gula kristal putih', 'SNI 3140.3:2020', 'PSU-SPPT-2021-0007', '19 Mei 2021', 'Tidak Aktif', 'Sebelum SILAPP')
+      INSERT IGNORE INTO sertifikat_produk (nama_pabrik, produk, no_sni, no_sertifikat, terbit, berlaku_sd, status) VALUES
+      ('PT. Simaju | Bekasi', 'Kakao Bubuk', 'SNI 3747:2009', 'PSU-SPPT-2026-GAHA', '14 Okt 2026', '13 Okt 2030', 'Aktif'),
+      ('Pasar ABC | Jakarta', 'Pasar Rakyat', 'SNI 8152:2021', 'PSU-2026-PPWIQADA', '14 Okt 2026', '13 Okt 2030', 'Aktif'),
+      ('PT. Sinar Abadi | Bekasi', 'Minyak Goreng Sawit', 'SNI 7709:2019', 'PSU-SPPT-2026-0001', '08 Okt 2026', '07 Okt 2030', 'Aktif'),
+      ('PT. Pangan Lestari | Tangerang', 'Biskuit', 'SNI 2973:2022', 'PSU-SPPT-2025-0012', '14 Mar 2025', '13 Mar 2029', 'Ditangguhkan'),
+      ('PT. Gula Manis Nusantara | Lampung', 'Gula Kristal Putih', 'SNI 3140.3:2020', 'PSU-SPPT-2024-0007', '19 Mei 2024', '18 Mei 2028', 'Dicabut')
     `);
 
     await pool.query(`
-      INSERT IGNORE INTO sertifikat_pengujian (nama_pabrik, alamat, produk, no_sni, no_sertifikat, terbit, status, sumber) VALUES
-      ('PT Tirta Murni Sejahtera', 'Kota Bogor, Jawa Barat', 'Air mineral kemasan', 'SNI 3553:2015', 'PSU-SPPT-2026-0101', '12 Sep 2026', 'Aktif', 'SILAPP | PSU-LP-2609-0014'),
-      ('PT Agro Pupuk Mandiri', 'Kab. Gresik, Jawa Timur', 'Pupuk NPK padat', 'SNI 2803:2012', 'PSU-SPPT-2025-0102', '20 Nov 2025', 'Aktif', 'SILAPP | PSU-LP-2511-0008'),
-      ('CV Pangan Makmur Jaya', 'Kota Semarang, Jawa Tengah', 'Tepung terigu', 'SNI 3751:2018', 'PSU-SPPT-2024-0103', '05 Mei 2024', 'Tidak Aktif', 'Sebelum SILAPP')
+      INSERT IGNORE INTO sertifikat_pengujian (nama_pabrik, produk, no_sni, no_sertifikat, terbit, berlaku_sd, status) VALUES
+      ('PT. Tirta Murni Sejahtera | Bogor', 'Air Mineral', 'SNI 3553:2015', 'PSU-LP-2026-BKLN', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
+      ('PT. Agro Pupuk Mandiri | Gresik', 'Pupuk NPK Padat', 'SNI 2803:2012', 'PSU-LP-2026-MNPQ', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
+      ('PT. Baja Mas Utama | Surabaya', 'Foodtray Baja Tahan Karat', 'SNI 9369:2025', 'PSU-SPPT-2026-0101', '12 Sep 2026', '11 Sep 2029', 'Ditangguhkan'),
+      ('CV. Pangan Makmur Jaya | Semarang', 'Tepung Terigu', 'SNI 3751:2018', 'PSU-LP-2024-RTYU', '05 Mei 2024', '04 Mei 2027', 'Dicabut')
     `);
 
     await pool.query(`
-      INSERT IGNORE INTO sertifikat_kalibrasi (nama_pabrik, alamat, produk, no_sni, no_sertifikat, terbit, status, sumber) VALUES
-      ('RS Harapan Sehat Sentosa', 'Jakarta Timur, DKI Jakarta', 'Tensimeter Digital (Sphygmomanometer)', 'SNI IEC 80601-2-30', 'PSU-SPPT-2026-0201', '18 Okt 2026', 'Aktif', 'SILAPP | PSU-LK-2610-0021'),
-      ('PT Medika Alat Utama', 'Kota Bandung, Jawa Barat', 'Inkubator Bayi (Infant Incubator)', 'SNI IEC 60601-2-19', 'PSU-SPPT-2025-0202', '11 Jul 2025', 'Aktif', 'SILAPP | PSU-LK-2507-0009'),
-      ('Klinik Utama Permata', 'Kota Bekasi, Jawa Barat', 'Timbangan Pasien Elektronik', 'OIML R76-1', 'PSU-SPPT-2023-0203', '22 Agu 2023', 'Tidak Aktif', 'Sebelum SILAPP')
+      INSERT IGNORE INTO sertifikat_kalibrasi (nama_pabrik, produk, no_sni, no_sertifikat, terbit, berlaku_sd, status) VALUES
+      ('RS. Harapan Sehat Sentosa | Jakarta', 'Tensimeter Digital', 'SNI IEC 80601-2-30', 'PSU-LK-2026-KLMN', '14 Okt 2026', '13 Okt 2027', 'Aktif'),
+      ('PT. Medika Alat Utama | Bandung', 'Inkubator Bayi', 'SNI IEC 60601-2-19', 'PSU-LK-2026-PQRS', '14 Okt 2026', '13 Okt 2027', 'Aktif'),
+      ('PT. Presisi Industri Teknika | Cikarang', 'Neraca Analitik Digital', 'SNI ISO/IEC 17025:2017', 'PSU-SPPT-2026-0201', '18 Okt 2026', '17 Okt 2027', 'Ditangguhkan'),
+      ('Klinik Utama Permata | Bekasi', 'Timbangan Pasien Elektronik', 'SNI OIML R76-1', 'PSU-LK-2024-WXYZ', '22 Agu 2024', '21 Agu 2025', 'Dicabut')
     `);
 
     await pool.query(`
-      INSERT IGNORE INTO sertifikat_sistem_manajemen (nama_pabrik, alamat, produk, no_sni, no_sertifikat, terbit, status, sumber) VALUES
-      ('PT Konstruksi Karya Nusantara', 'Jakarta Selatan, DKI Jakarta', 'Sistem Manajemen Mutu Konstruksi', 'SNI ISO 9001:2015', 'PSU-SPPT-2026-0301', '01 Okt 2026', 'Aktif', 'SILAPP | PSU-LSSM-2610-0005'),
-      ('PT Hijau Lestari Industri', 'Kab. Karawang, Jawa Barat', 'Sistem Manajemen Lingkungan', 'SNI ISO 14001:2015', 'PSU-SPPT-2025-0302', '15 Jun 2025', 'Aktif', 'SILAPP | PSU-LSSM-2506-0011'),
-      ('PT Pangan Aman Sentosa', 'Kab. Sidoarjo, Jawa Timur', 'Sistem Manajemen Keamanan Pangan', 'SNI ISO 22000:2018', 'PSU-SPPT-2024-0303', '09 Feb 2024', 'Tidak Aktif', 'Sebelum SILAPP')
+      INSERT IGNORE INTO sertifikat_sistem_manajemen (nama_pabrik, produk, no_sni, no_sertifikat, terbit, berlaku_sd, status) VALUES
+      ('PT. Konstruksi Karya Nusantara | Jakarta', 'Sistem Manajemen Mutu', 'SNI ISO 9001:2015', 'PSU-LSSM-2026-ABCD', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
+      ('PT. Hijau Lestari Industri | Karawang', 'Sistem Manajemen Lingkungan', 'SNI ISO 14001:2015', 'PSU-LSSM-2026-EFGH', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
+      ('PT. Pangan Aman Sentosa | Sidoarjo', 'Sistem Manajemen Keamanan Pangan', 'SNI ISO 22000:2018', 'PSU-SPPT-2026-0301', '01 Okt 2026', '30 Sep 2029', 'Ditangguhkan'),
+      ('PT. Mitra Logistik Terpadu | Surabaya', 'Sistem Manajemen Mutu', 'SNI ISO 9001:2015', 'PSU-LSSM-2024-IJKL', '09 Feb 2024', '08 Feb 2027', 'Dicabut')
     `);
 
     const insertArticleSql = `
@@ -524,7 +567,7 @@ async function initDatabase() {
       console.log(`- Submenu [${sub}] -> Tabel [${tbl}]: ${cnt[0].total} data sertifikat`);
     }
     const [artCnt] = await pool.query("SELECT COUNT(*) AS total FROM artikel");
-    console.log(`- Tabel [artikel]: ${artCnt[0].total} artikel tersimpan`);
+    console.log(`- Tabel [artikel]: ${artCnt[0].total} artikel terpublikasi`);
     console.log("==========================================");
   } catch (err) {
     console.error("==========================================");
@@ -541,22 +584,6 @@ async function initDatabase() {
   }
 }
 
-function parseTags(rawTags) {
-  if (Array.isArray(rawTags)) return rawTags;
-  if (typeof rawTags === "string") {
-    try {
-      const parsed = JSON.parse(rawTags);
-      return Array.isArray(parsed) ? parsed : [];
-    } catch {
-      return rawTags
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean);
-    }
-  }
-  return [];
-}
-
 app.get("/", (req, res) => {
   res.json({
     status: "OK",
@@ -564,16 +591,20 @@ app.get("/", (req, res) => {
   });
 });
 
-/**
- * Endpoint Upload Gambar Artikel ke company-profile/public/news/
- */
+app.get("/api/authors", (req, res) => {
+  res.json({
+    success: true,
+    data: AUTHOR_OPTIONS,
+  });
+});
+
 app.post("/api/upload-gambar", (req, res) => {
   try {
     const { filename, dataUrl } = req.body || {};
-    if (!dataUrl || typeof dataUrl !== "string") {
+    if (!dataUrl || typeof dataUrl !== "string" || !dataUrl.startsWith("data:image/")) {
       return res.status(400).json({
         success: false,
-        message: "Data gambar tidak valid.",
+        message: "Format gambar tidak valid.",
       });
     }
 
@@ -581,60 +612,45 @@ app.post("/api/upload-gambar", (req, res) => {
     if (!matches) {
       return res.status(400).json({
         success: false,
-        message: "Format Base64 gambar tidak valid.",
+        message: "Data base64 gambar tidak valid.",
       });
     }
 
-    const extFromMime = matches[1] === "jpeg" ? "jpg" : matches[1];
+    let ext = matches[1].toLowerCase();
+    if (ext === "jpeg") ext = "jpg";
     const base64Data = matches[2];
-    const safeBase = String(filename || "artikel")
-      .replace(/\.[^/.]+$/, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9_-]/g, "-")
-      .replace(/-+/g, "-")
-      .slice(0, 60);
-    const finalName = `${safeBase || "artikel"}-${Date.now()}.${extFromMime}`;
+    const safeBase = slugifyTitle(
+      path.basename(filename || "berita", path.extname(filename || ""))
+    ) || "berita";
+    const finalName = `${safeBase}-${Date.now()}.${ext}`;
 
     const newsDir = path.join(__dirname, "..", "company-profile", "public", "news");
     fs.mkdirSync(newsDir, { recursive: true });
-    const filePath = path.join(newsDir, finalName);
-    fs.writeFileSync(filePath, Buffer.from(base64Data, "base64"));
+    fs.writeFileSync(path.join(newsDir, finalName), Buffer.from(base64Data, "base64"));
 
     return res.json({
       success: true,
       image_url: `/news/${finalName}`,
     });
-  } catch (err) {
-    console.error("Upload gambar error:", err.message);
+  } catch (error) {
+    console.error("Upload gambar error:", error.message);
     return res.status(500).json({
       success: false,
-      message: "Gagal menyimpan file gambar: " + err.message,
+      message: "Gagal menyimpan file gambar.",
+      error: error.message,
     });
   }
 });
 
-/**
- * Endpoint Daftar Author
- */
-app.get("/api/authors", (_req, res) => {
-  res.json({
-    success: true,
-    data: AUTHOR_OPTIONS,
-  });
-});
-
-/**
- * Endpoint Daftar News & Artikel (GET /api/artikel)
- */
 app.get("/api/artikel", async (req, res) => {
   const year = (req.query.year || "All").trim();
   const tag = (req.query.tag || "All").trim();
-  const includeDraft = req.query.all === "1" || req.query.all === "true";
+  const includeAll = req.query.all === "1";
   const page = Math.max(1, parseInt(req.query.page, 10) || 1);
   const limit = Math.max(1, parseInt(req.query.limit, 10) || 9);
 
   try {
-    const whereClause = includeDraft ? "" : "WHERE status = 'Published'";
+    const whereClause = includeAll ? "" : "WHERE status = 'Published'";
     const [rows] = await pool.query(
       `SELECT id, slug, title_id, title_en, excerpt_id, excerpt_en, content_id, content_en,
               image_url, author, category, tags,
@@ -652,22 +668,20 @@ app.get("/api/artikel", async (req, res) => {
 
     const yearsSet = new Set();
     const tagsSet = new Set(["News", "Article", "Press Release"]);
-    for (const item of normalized) {
+
+    normalized.forEach((item) => {
       if (item.published_at) {
-        yearsSet.add(item.published_at.slice(0, 4));
+        yearsSet.add(String(item.published_at).slice(0, 4));
       }
       if (item.category) tagsSet.add(item.category);
-      for (const t of item.tags) {
-        tagsSet.add(t);
-      }
-    }
+      item.tags.forEach((t) => tagsSet.add(t));
+    });
 
     const filtered = normalized.filter((item) => {
-      const itemYear = item.published_at ? item.published_at.slice(0, 4) : "";
-      const matchYear = year === "All" || !year || itemYear === String(year);
+      const itemYear = item.published_at ? String(item.published_at).slice(0, 4) : "";
+      const matchYear = year === "All" || itemYear === year;
       const matchTag =
         tag === "All" ||
-        !tag ||
         item.category.toLowerCase() === tag.toLowerCase() ||
         item.tags.some((t) => t.toLowerCase() === tag.toLowerCase());
       return matchYear && matchTag;
@@ -675,19 +689,20 @@ app.get("/api/artikel", async (req, res) => {
 
     const total = filtered.length;
     const totalPages = Math.max(1, Math.ceil(total / limit));
-    const startIndex = (page - 1) * limit;
-    const paginated = filtered.slice(startIndex, startIndex + limit);
+    const offset = (page - 1) * limit;
+    const paginated = filtered.slice(offset, offset + limit);
 
     return res.json({
       success: true,
       data: paginated,
-      total,
-      page,
-      limit,
-      totalPages,
-      availableYears: Array.from(yearsSet).sort((a, b) => b.localeCompare(a)),
-      availableTags: Array.from(tagsSet),
-      authors: AUTHOR_OPTIONS,
+      meta: {
+        total,
+        page,
+        limit,
+        totalPages,
+        years: Array.from(yearsSet).sort((a, b) => b.localeCompare(a)),
+        tags: Array.from(tagsSet),
+      },
     });
   } catch (error) {
     console.error("Database artikel error:", error.message);
@@ -699,9 +714,6 @@ app.get("/api/artikel", async (req, res) => {
   }
 });
 
-/**
- * Endpoint Detail Artikel berdasarkan Slug atau ID (GET /api/artikel/:slug)
- */
 app.get("/api/artikel/:slug", async (req, res) => {
   const { slug } = req.params;
   try {
@@ -712,7 +724,7 @@ app.get("/api/artikel/:slug", async (req, res) => {
        FROM artikel
        WHERE slug = ? OR id = ?
        LIMIT 1`,
-      [slug, Number(slug) || 0]
+      [slug, Number.isNaN(Number(slug)) ? -1 : Number(slug)]
     );
 
     if (rows.length === 0) {
@@ -744,9 +756,6 @@ app.get("/api/artikel/:slug", async (req, res) => {
   }
 });
 
-/**
- * Endpoint Tambah Berita / Artikel Baru (POST /api/artikel)
- */
 app.post("/api/artikel", async (req, res) => {
   try {
     const {
@@ -764,120 +773,90 @@ app.post("/api/artikel", async (req, res) => {
       status,
     } = req.body || {};
 
-    const finalTitleId = String(title_id || "").trim();
-    if (!finalTitleId) {
+    if (!title_id || !content_id) {
       return res.status(400).json({
         success: false,
-        message: "Judul berita/artikel wajib diisi.",
+        message: "Judul dan isi artikel wajib diisi.",
       });
     }
 
-    const finalTitleEn = String(title_en || finalTitleId).trim();
-    const finalContentId = String(content_id || "").trim();
-    if (!finalContentId) {
-      return res.status(400).json({
-        success: false,
-        message: "Isi berita/artikel wajib diisi.",
-      });
+    let baseSlug = slugifyTitle(title_id) || `artikel-${Date.now()}`;
+    let slug = baseSlug;
+    const [existing] = await pool.execute("SELECT id FROM artikel WHERE slug = ? LIMIT 1", [slug]);
+    if (existing.length > 0) {
+      slug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
     }
 
-    const finalContentEn = String(content_en || finalContentId).trim();
-    const autoExcerptId =
-      String(excerpt_id || "").trim() ||
-      finalContentId.replace(/\s+/g, " ").slice(0, 200) + "...";
-    const autoExcerptEn =
-      String(excerpt_en || "").trim() ||
-      finalContentEn.replace(/\s+/g, " ").slice(0, 200) + "...";
-
-    const finalAuthor = AUTHOR_OPTIONS.includes(author)
-      ? author
-      : AUTHOR_OPTIONS[0];
-    const finalCategory = ["News", "Article", "Press Release"].includes(category)
+    const cleanCategory = ["News", "Article", "Press Release"].includes(category)
       ? category
       : "News";
-    const finalImage = String(image_url || "/Logo_PSU_banner1.webp").trim();
-    const finalDate =
-      String(published_at || "").trim() ||
-      new Date().toISOString().slice(0, 10);
-    const finalStatus = status === "Draft" ? "Draft" : "Published";
-
-    const parsedTags = parseTags(tags);
-    if (parsedTags.length === 0) {
-      parsedTags.push(finalCategory, "PT Penilai Standar Uji", "SNI");
-    }
-
-    let baseSlug = slugifyTitle(req.body.slug || finalTitleId);
-    if (!baseSlug) baseSlug = `artikel-${Date.now()}`;
-
-    // Pastikan slug unik
-    let candidateSlug = baseSlug;
-    const [existing] = await pool.execute(
-      "SELECT id FROM artikel WHERE slug = ? LIMIT 1",
-      [candidateSlug]
-    );
-    if (existing.length > 0) {
-      candidateSlug = `${baseSlug}-${Date.now().toString().slice(-4)}`;
-    }
+    const cleanStatus = status === "Draft" ? "Draft" : "Published";
+    const cleanAuthor = author || AUTHOR_OPTIONS[0];
+    const cleanDate = published_at || new Date().toISOString().slice(0, 10);
+    const cleanImage = image_url || "/Logo_PSU_banner1.webp";
+    const cleanTags = Array.isArray(tags) && tags.length > 0 ? tags : [cleanCategory, "PT Penilai Standar Uji"];
+    const cleanExcerptId =
+      excerpt_id || String(content_id).replace(/\s+/g, " ").trim().slice(0, 190) + "...";
+    const cleanExcerptEn =
+      excerpt_en || cleanExcerptId;
 
     const [result] = await pool.execute(
       `INSERT INTO artikel
        (slug, title_id, title_en, excerpt_id, excerpt_en, content_id, content_en, image_url, author, category, tags, published_at, status)
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
-        candidateSlug,
-        finalTitleId,
-        finalTitleEn,
-        autoExcerptId,
-        autoExcerptEn,
-        finalContentId,
-        finalContentEn,
-        finalImage,
-        finalAuthor,
-        finalCategory,
-        JSON.stringify(parsedTags),
-        finalDate,
-        finalStatus,
+        slug,
+        title_id,
+        title_en || title_id,
+        cleanExcerptId,
+        cleanExcerptEn,
+        content_id,
+        content_en || content_id,
+        cleanImage,
+        cleanAuthor,
+        cleanCategory,
+        JSON.stringify(cleanTags),
+        cleanDate,
+        cleanStatus,
       ]
     );
 
     return res.status(201).json({
       success: true,
-      message: "Berita/artikel berhasil ditambahkan.",
+      message: "Artikel berhasil ditambahkan.",
       data: {
         id: result.insertId,
-        slug: candidateSlug,
-        title_id: finalTitleId,
-        title_en: finalTitleEn,
-        excerpt_id: autoExcerptId,
-        excerpt_en: autoExcerptEn,
-        content_id: finalContentId,
-        content_en: finalContentEn,
-        image_url: finalImage,
-        author: finalAuthor,
-        category: finalCategory,
-        tags: parsedTags,
-        published_at: finalDate,
-        status: finalStatus,
+        slug,
+        title_id,
+        title_en: title_en || title_id,
+        excerpt_id: cleanExcerptId,
+        excerpt_en: cleanExcerptEn,
+        content_id,
+        content_en: content_en || content_id,
+        image_url: cleanImage,
+        author: cleanAuthor,
+        category: cleanCategory,
+        tags: cleanTags,
+        published_at: cleanDate,
+        status: cleanStatus,
       },
     });
   } catch (error) {
-    console.error("Create artikel error:", error.message);
+    console.error("Tambah artikel error:", error.message);
     return res.status(500).json({
       success: false,
-      message: "Gagal menyimpan berita/artikel baru ke MySQL: " + error.message,
+      message: "Gagal menyimpan artikel baru ke database MySQL.",
+      error: error.message,
     });
   }
 });
 
-/**
- * Endpoint Edit / Update Berita / Artikel (PUT /api/artikel/:idOrSlug)
- */
-app.put("/api/artikel/:idOrSlug", async (req, res) => {
-  const { idOrSlug } = req.params;
+app.put("/api/artikel/:identifier", async (req, res) => {
+  const { identifier } = req.params;
   try {
     const [existingRows] = await pool.execute(
       "SELECT * FROM artikel WHERE id = ? OR slug = ? LIMIT 1",
-      [Number(idOrSlug) || 0, idOrSlug]
+      [Number.isNaN(Number(identifier)) ? -1 : Number(identifier), identifier]
     );
 
     if (existingRows.length === 0) {
@@ -888,33 +867,42 @@ app.put("/api/artikel/:idOrSlug", async (req, res) => {
     }
 
     const current = existingRows[0];
-    const finalTitleId = String(req.body.title_id ?? current.title_id).trim();
-    const finalTitleEn = String(req.body.title_en ?? finalTitleId).trim();
-    const finalContentId = String(req.body.content_id ?? current.content_id).trim();
-    const finalContentEn = String(req.body.content_en ?? finalContentId).trim();
+    const {
+      title_id,
+      title_en,
+      excerpt_id,
+      excerpt_en,
+      content_id,
+      content_en,
+      image_url,
+      author,
+      category,
+      tags,
+      published_at,
+      status,
+    } = req.body || {};
+
+    const finalTitleId = title_id || current.title_id;
+    const finalTitleEn = title_en || finalTitleId;
+    const finalContentId = content_id || current.content_id;
+    const finalContentEn = content_en || finalContentId;
     const finalExcerptId =
-      String(req.body.excerpt_id ?? current.excerpt_id).trim() ||
-      finalContentId.replace(/\s+/g, " ").slice(0, 200) + "...";
-    const finalExcerptEn =
-      String(req.body.excerpt_en ?? finalExcerptId).trim();
-    const finalImage = String(req.body.image_url ?? current.image_url).trim();
-    const finalAuthor = AUTHOR_OPTIONS.includes(req.body.author)
-      ? req.body.author
-      : current.author || AUTHOR_OPTIONS[0];
-    const finalCategory = ["News", "Article", "Press Release"].includes(
-      req.body.category
-    )
-      ? req.body.category
+      excerpt_id ||
+      String(finalContentId).replace(/\s+/g, " ").trim().slice(0, 190) + "...";
+    const finalExcerptEn = excerpt_en || finalExcerptId;
+    const finalImage = image_url || current.image_url;
+    const finalAuthor = author || current.author || AUTHOR_OPTIONS[0];
+    const finalCategory = ["News", "Article", "Press Release"].includes(category)
+      ? category
       : current.category;
-    const parsedTags =
-      req.body.tags !== undefined
-        ? parseTags(req.body.tags)
-        : parseTags(current.tags);
+    const finalStatus = status === "Draft" ? "Draft" : "Published";
     const finalDate =
-      String(req.body.published_at || "").trim() ||
-      new Date(current.published_at).toISOString().slice(0, 10);
-    const finalStatus =
-      req.body.status === "Draft" ? "Draft" : "Published";
+      published_at ||
+      (current.published_at instanceof Date
+        ? current.published_at.toISOString().slice(0, 10)
+        : String(current.published_at).slice(0, 10));
+    const finalTags =
+      Array.isArray(tags) && tags.length > 0 ? tags : parseTags(current.tags);
 
     await pool.execute(
       `UPDATE artikel
@@ -932,7 +920,7 @@ app.put("/api/artikel/:idOrSlug", async (req, res) => {
         finalImage,
         finalAuthor,
         finalCategory,
-        JSON.stringify(parsedTags),
+        JSON.stringify(finalTags),
         finalDate,
         finalStatus,
         current.id,
@@ -941,7 +929,7 @@ app.put("/api/artikel/:idOrSlug", async (req, res) => {
 
     return res.json({
       success: true,
-      message: "Berita/artikel berhasil diperbarui.",
+      message: "Artikel berhasil diperbarui.",
       data: {
         id: current.id,
         slug: current.slug,
@@ -954,7 +942,7 @@ app.put("/api/artikel/:idOrSlug", async (req, res) => {
         image_url: finalImage,
         author: finalAuthor,
         category: finalCategory,
-        tags: parsedTags,
+        tags: finalTags,
         published_at: finalDate,
         status: finalStatus,
       },
@@ -963,20 +951,18 @@ app.put("/api/artikel/:idOrSlug", async (req, res) => {
     console.error("Update artikel error:", error.message);
     return res.status(500).json({
       success: false,
-      message: "Gagal memperbarui berita/artikel: " + error.message,
+      message: "Gagal memperbarui artikel di database MySQL.",
+      error: error.message,
     });
   }
 });
 
-/**
- * Endpoint Hapus Berita / Artikel (DELETE /api/artikel/:idOrSlug)
- */
-app.delete("/api/artikel/:idOrSlug", async (req, res) => {
-  const { idOrSlug } = req.params;
+app.delete("/api/artikel/:identifier", async (req, res) => {
+  const { identifier } = req.params;
   try {
     const [result] = await pool.execute(
       "DELETE FROM artikel WHERE id = ? OR slug = ?",
-      [Number(idOrSlug) || 0, idOrSlug]
+      [Number.isNaN(Number(identifier)) ? -1 : Number(identifier), identifier]
     );
 
     if (result.affectedRows === 0) {
@@ -988,13 +974,14 @@ app.delete("/api/artikel/:idOrSlug", async (req, res) => {
 
     return res.json({
       success: true,
-      message: "Berita/artikel berhasil dihapus secara permanen.",
+      message: "Artikel berhasil dihapus.",
     });
   } catch (error) {
-    console.error("Delete artikel error:", error.message);
+    console.error("Hapus artikel error:", error.message);
     return res.status(500).json({
       success: false,
-      message: "Gagal menghapus berita/artikel: " + error.message,
+      message: "Gagal menghapus artikel dari database MySQL.",
+      error: error.message,
     });
   }
 });
@@ -1023,13 +1010,12 @@ app.get("/api/sertifikat/:submenu", async (req, res) => {
       SELECT
         id,
         nama_pabrik,
-        alamat,
         produk,
         no_sni,
         no_sertifikat,
         terbit,
-        status,
-        sumber
+        berlaku_sd,
+        status
       FROM \`${tableName}\`
       WHERE REPLACE(REPLACE(UPPER(TRIM(no_sertifikat)), ' ', ''), '–', '-') = REPLACE(REPLACE(UPPER(TRIM(?)), ' ', ''), '–', '-')
       LIMIT 1
