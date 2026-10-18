@@ -78,22 +78,25 @@ export default function Kontak() {
     <>
       <PageHeader
         title="Kontak"
-        breadcrumbs={[
-          { label: "Kontak", href: "/kontak" },
-        ]}
+        breadcrumbs={[{ label: "Kontak", href: "/kontak" }]}
+        className="page-header--contact"
       />
       <section className="contact-section">
-      <div className="contact-container">
-        <div className="contact-header">
-          <h2>{t("Hubungi Kami")}</h2>
-          <p>{t("Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.")}</p>
-        </div>
-
-        <div className="contact-card">
-          <div className="contact-card__title">
-            <PinIcon />
-            <span>{t("PT PENILAI STANDAR UJI | Lembaga Penilaian Kesesuaian (LPK)")}</span>
+        <div className="contact-container">
+          <div className="contact-header">
+            <h2>{t("Hubungi Kami")}</h2>
+            <p>
+              {t("Silakan hubungi kami untuk mendapatkan informasi lebih lanjut.")}
+            </p>
           </div>
+
+          <div className="contact-card">
+            <div className="contact-card__title">
+              <PinIcon />
+              <span>
+                {t("PT PENILAI STANDAR UJI | Lembaga Penilaian Kesesuaian (LPK)")}
+              </span>
+            </div>
 
           <div className="contact-content">
             <div className="contact-info">
@@ -174,7 +177,7 @@ export default function Kontak() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
       </section>
     </>
   );

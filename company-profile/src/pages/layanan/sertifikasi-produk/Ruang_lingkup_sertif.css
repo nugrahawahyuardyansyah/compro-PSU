@@ -37,6 +37,35 @@
   margin-top: 8px;
 }
 
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #dfe4ec;
+  border-radius: 10px;
+}
+
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table th,
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #dfe4ec;
+  vertical-align: top;
+}
+
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table th {
+  background: #0b2a5b;
+  color: #fff;
+}
+
+.service-detail--ruang-lingkup-sertif .ruang-lingkup__table tr:last-child td {
+  border-bottom: 0;
+}
+
 @media (max-width: 720px) {
   .service-detail--ruang-lingkup-sertif {
     padding: 32px 0 56px;
