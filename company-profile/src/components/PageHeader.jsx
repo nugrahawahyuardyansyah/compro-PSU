@@ -56,7 +56,12 @@ const VALID_PAGE_ROUTES = new Set([
   "/layanan/pelatihan/exhouse-training",
 ]);
 
-export default function PageHeader({ title, breadcrumbs = [], fullWidth = false }) {
+export default function PageHeader({
+  title,
+  breadcrumbs = [],
+  fullWidth = false,
+  className = "",
+}) {
   const { t } = useLanguage();
   const { pathname } = useLocation();
 
@@ -69,7 +74,9 @@ export default function PageHeader({ title, breadcrumbs = [], fullWidth = false 
 
   return (
     <header
-      className={`page-header${fullWidth ? " page-header--full-width" : ""}`}
+      className={`page-header${fullWidth ? " page-header--full-width" : ""}${
+        className ? ` ${className}` : ""
+      }`}
     >
       <div className="page-header__overlay" aria-hidden="true" />
       <div className="page-header__inner">

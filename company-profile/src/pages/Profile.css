@@ -257,31 +257,21 @@
 }
 
 .vision-mission__image-side {
+  position: relative;
   width: 40%;
   flex-shrink: 0;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(11, 42, 91, 0.15);
-  align-self: stretch;
 }
 
 .vision-mission__photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  min-height: 0;
   object-fit: cover;
   display: block;
-}
-
-@media (min-width: 961px) {
-  .vision-mission__image-side {
-    position: relative;
-  }
-
-  .vision-mission__photo {
-    position: absolute;
-    inset: 0;
-  }
 }
 
 .vision-mission__text-side {
@@ -453,9 +443,8 @@
 }
 
 @media (max-width: 960px) {
-  .vision-mission-showcase { align-items: stretch; gap: 24px; }
+  .vision-mission-showcase { gap: 24px; }
   .vision-mission__image-side { width: 42%; }
-  .vision-mission__photo { min-height: clamp(360px, 48vw, 480px); }
 }
 
 @media (max-width: 860px) {
@@ -502,6 +491,16 @@
   .timeline-year { font-size: 0.7rem; padding: 6px 8px; white-space: nowrap; }
   .sejarah__timeline-content h4 { font-size: 0.9rem; }
   .sejarah__timeline-content p { font-size: 0.78rem; line-height: 1.55; }
+
+  .vision-mission-showcase {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  .vision-mission__image-side {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 @media (max-width: 480px) {
@@ -512,9 +511,6 @@
   .about-showcase__landscape { min-width: 0; margin-left: -32px; padding: 20px 12px 20px 46px; }
   .about-showcase__text-content p { font-size: 0.7rem; line-height: 1.45; margin-bottom: 7px; }
   
-  .vision-mission-showcase { gap: 12px; }
-  .vision-mission__image-side { width: 38%; }
-  .vision-mission__photo { min-height: 360px; }
   .vision-mission__header-box { padding: 14px 12px; margin-bottom: 20px; }
   .vision-mission__header-box h2 { font-size: 1.15rem; }
   .vision-mission__header-box h3 { font-size: 0.75rem; }
