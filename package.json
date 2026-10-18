@@ -7,34 +7,23 @@
     "start": "node start_all.js",
     "dev": "node start_all.js",
     "backend": "node backend/server.js",
-<<<<<<< HEAD
-    "frontend": "npm --prefix company-profile run dev"
-=======
     "frontend": "npm --prefix company-profile run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> ac303850326a99d5a425b69f26742b269be934ff
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nugrahawahyuardyansyah/compro-PSU.git"
   },
-<<<<<<< HEAD
   "keywords": [],
-=======
-  "homepage": "https://github.com/nugrahawahyuardyansyah/compro-PSU#readme",
-  "license": "ISC",
->>>>>>> ac303850326a99d5a425b69f26742b269be934ff
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-<<<<<<< HEAD
   "homepage": "https://github.com/nugrahawahyuardyansyah/compro-PSU#readme",
   "bugs": {
     "url": "https://github.com/nugrahawahyuardyansyah/compro-PSU/issues"
-=======
+  },
   "dependencies": {
     "init": "^0.1.2",
     "react-icons": "^5.7.0"
->>>>>>> ac303850326a99d5a425b69f26742b269be934ff
   }
 }
