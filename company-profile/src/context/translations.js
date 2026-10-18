@@ -533,6 +533,18 @@ const english = {
   "Mendorong penciptaan tenaga kerja terampil yang dapat diandalkan bagi perusahaan, masyarakat dan negara":
     "Foster a skilled and reliable workforce that contributes to the company, society, and the nation",
   "Tracking Status Sertifikat": "Certificate Status Tracking",
+  "Informasi kalibrasi": "Calibration information",
+  "Informasi Layanan": "Service Information",
+  "Layanan Kalibrasi": "Calibration Services",
+  "Pemeriksaan yang Terpublikasi": "Published Checks",
+  "Periksa status sertifikat kalibrasi yang telah terdaftar melalui pencarian nomor sertifikat.":
+    "Check the status of registered calibration certificates by searching for a certificate number.",
+  "Informasi Terpelihara": "Well-Maintained Information",
+  "Informasi sertifikat disajikan secara terstruktur, termasuk nomor, masa berlaku, dan statusnya.":
+    "Certificate information is presented in a structured format, including its number, validity period, and status.",
+  "Ketersediaan": "Availability",
+  "Gunakan layanan ini kapan saja dengan menyiapkan nomor sertifikat yang ingin diperiksa.":
+    "Use this service whenever you need it by preparing the certificate number you want to check.",
   "Data sertifikat": "Certificate data",
   "Masukkan nomor sertifikat untuk mengecek status dan informasi sertifikat yang terdaftar pada layanan ini. Pencarian hanya menampilkan sertifikat yang sesuai dengan nomor yang diinputkan.":
     "Enter the certificate number to check the status and details of certificates registered under this service. Search results only display the certificate matching the entered number.",
