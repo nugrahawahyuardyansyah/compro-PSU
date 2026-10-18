@@ -413,12 +413,6 @@ export default function Home() {
                   : "Update Berita & Artikel Terbaru"}
               </h2>
             </div>
-
-            <p className="home-news__desc">
-              {lang === "en"
-                ? "Stay informed with the latest industry trends, expert insights, and company updates. Explore our blog for valuable knowledge and best practices."
-                : "Ikuti perkembangan tren industri terkini, wawasan para ahli, dan informasi terbaru perusahaan. Jelajahi artikel kami untuk pengetahuan dan praktik terbaik."}
-            </p>
           </div>
 
           <div className="home-news__grid">

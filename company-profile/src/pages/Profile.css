@@ -21,15 +21,6 @@
     sans-serif;
 }
 
-.profile-page__center-title {
-  margin: 0 0 32px;
-  color: var(--psu-navy);
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-}
-
 .profile-page__section-title {
   margin: 64px 0 24px;
   padding-top: 40px;
@@ -497,7 +488,6 @@
 
 @media (max-width: 720px) {
   .profile-page { padding: 32px 0 56px; }
-  .profile-page__center-title { font-size: 1.875rem; }
   .profile-page__section-title { font-size: 1.375rem; }
 }
 

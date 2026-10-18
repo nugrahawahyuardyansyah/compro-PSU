@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "compro-psu",
   "version": "1.0.0",
   "description": "Website Company Profile & Tracking Sertifikat PT PENILAI STANDAR UJI",
@@ -17,7 +17,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "homepage": "https://github.com/nugrahawahyuardyansyah/compro-PSU#readme",
   "bugs": {
     "url": "https://github.com/nugrahawahyuardyansyah/compro-PSU/issues"

@@ -1,5 +1,6 @@
 import "./Profile.css";
 import { useEffect } from "react";
+import PageHeader from "../components/PageHeader";
 import { useLanguage } from "../context/useLanguage";
 
 const ABOUT_IMAGE = "/Logo_PSU_banner1.webp";
@@ -66,12 +67,13 @@ export default function Profile() {
   ];
 
   return (
-    <main className="profile-page">
-      <section aria-labelledby="about-title">
-        <h1 id="about-title" className="profile-page__center-title reveal reveal-dark">
-          {t("Tentang Kami")}
-        </h1>
-
+    <>
+      <PageHeader
+        title="Tentang Kami"
+        breadcrumbs={[{ label: "Tentang Kami", href: "/about/profile" }]}
+      />
+      <main className="profile-page">
+        <section aria-label={t("Tentang Kami")}>
         <div className="about-showcase">
           <div className="about-showcase__portrait reveal reveal-left">
             <div className="about-showcase__img-wrapper">
@@ -233,7 +235,8 @@ export default function Profile() {
             )}
           </p>
         </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 }
