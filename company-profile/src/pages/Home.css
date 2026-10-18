@@ -490,9 +490,14 @@
 }
 
 @media (min-width: 861px) {
-  /* Semua card muncul dari kiri; delay per card (0.1s, 0.3s, 0.5s) bikin urutannya kiri ke kanan */
-  .expanding-card.reveal {
+  .expanding-card.reveal:nth-child(1),
+  .expanding-card.reveal:nth-child(2) {
     transform: translateX(-150px);
+  }
+  
+  .expanding-card.reveal:nth-child(3),
+  .expanding-card.reveal:nth-child(4) {
+    transform: translateX(150px);
   }
 }
 
@@ -659,26 +664,8 @@
 
 .main-services__marquee {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.main-services__marquee::-webkit-scrollbar {
-  display: none;
-}
-
-.main-services__marquee.is-dragging {
-  cursor: grabbing;
-}
-
-.main-services__card {
-  -webkit-user-drag: none;
 }
 
 .main-services__track {
@@ -764,7 +751,21 @@
   }
 }
 
-/* Desktop: auto-scroll dijalankan via JS (Home.jsx), berhenti saat hover, bisa digeser/drag manual */
+@media (min-width: 861px) {
+  .main-services.is-visible .main-services__track {
+    animation: marqueeScroll 40s linear infinite;
+    animation-delay: 2.8s;
+  }
+
+  .main-services__track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
 @media (max-width: 860px) {
   .main-services {
@@ -776,44 +777,34 @@
     margin-bottom: 32px;
   }
 
-  /* Mobile: 5 card, swipe horizontal manual (tanpa auto-scroll) */
   .main-services__marquee {
-    width: calc(100% + (var(--psu-gutter) * 2));
-    margin-left: calc(var(--psu-gutter) * -1);
-    overflow-x: auto;
-    overflow-y: hidden;
-    cursor: auto;
-    user-select: auto;
-    -webkit-user-select: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    padding: 0 var(--psu-gutter);
-    box-sizing: border-box;
-    scroll-padding: 0 var(--psu-gutter);
+    width: 100%;
+    overflow: visible;
   }
-
+  
   .main-services__track {
-    flex-direction: row;
-    width: max-content;
+    flex-direction: column; 
+    align-items: center;
+    width: 100%;
     animation: none !important;
   }
 
   .main-services__group {
-    flex-direction: row;
-    gap: 16px;
-    padding-right: 16px;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+    padding-right: 0;
+    align-items: center;
   }
-
+  
   .main-services__group--duplicate {
     display: none;
   }
 
   .main-services__card {
-    flex: 0 0 auto;
-    width: min(80vw, 320px);
+    width: 100%;
+    max-width: 400px;
     height: 380px;
-    scroll-snap-align: center;
   }
 }
 
@@ -852,7 +843,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  color: #b09b00;
+  color: #0284c7;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -862,7 +853,7 @@
 .home-news__eyebrow-line {
   width: 34px;
   height: 2px;
-  background: #b09b00;
+  background: #0284c7;
   display: inline-block;
 }
 

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
@@ -106,9 +106,6 @@ export default function Home() {
   const [current, setCurrent] = useState(0);
   const [latestNews, setLatestNews] = useState(() => FALLBACK_ARTICLES.slice(0, 6));
   const { lang } = useLanguage();
-  const marqueeRef = useRef(null);
-  const groupRef = useRef(null);
-  const marqueeCtl = useRef({ hover: false, drag: false, startX: 0, startScroll: 0, pauseUntil: 0 });
 
   useEffect(() => {
     let active = true;
@@ -138,83 +135,6 @@ export default function Home() {
       active = false;
     };
   }, []);
-
-  // Auto-scroll "Layanan Utama Kami" (desktop saja): berhenti saat cursor di atasnya, bisa digeser manual
-  useEffect(() => {
-    const el = marqueeRef.current;
-    const group = groupRef.current;
-    if (!el || !group) return undefined;
-
-    const mq = window.matchMedia("(min-width: 861px)");
-    const ctl = marqueeCtl.current;
-    let raf = 0;
-    let last = 0;
-    let pos = 0;
-    let started = false;
-    const startTimer = setTimeout(() => {
-      started = true;
-    }, 2800);
-
-    const step = (ts) => {
-      const dt = last ? ts - last : 0;
-      last = ts;
-      const loop = group.offsetWidth;
-      const paused = ctl.hover || ctl.drag || ts < ctl.pauseUntil;
-
-      if (!mq.matches || !started || paused || !loop) {
-        pos = el.scrollLeft;
-      } else {
-        pos += ((loop / 40) * dt) / 1000; // 40 detik per putaran
-        if (pos >= loop) pos -= loop;
-        el.scrollLeft = pos;
-      }
-      raf = requestAnimationFrame(step);
-    };
-    raf = requestAnimationFrame(step);
-
-    return () => {
-      clearTimeout(startTimer);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
-  const handleMarqueeScroll = () => {
-    const el = marqueeRef.current;
-    const group = groupRef.current;
-    if (!el || !group || !window.matchMedia("(min-width: 861px)").matches) return;
-    const loop = group.offsetWidth;
-    if (loop && el.scrollLeft >= loop) {
-      el.scrollLeft -= loop;
-      marqueeCtl.current.startScroll -= loop;
-    }
-  };
-
-  const handleMarqueePointerDown = (e) => {
-    if (e.pointerType !== "mouse" || e.button !== 0) return;
-    const ctl = marqueeCtl.current;
-    ctl.drag = true;
-    ctl.startX = e.clientX;
-    ctl.startScroll = marqueeRef.current.scrollLeft;
-    e.currentTarget.setPointerCapture(e.pointerId);
-    e.currentTarget.classList.add("is-dragging");
-  };
-
-  const handleMarqueePointerMove = (e) => {
-    const ctl = marqueeCtl.current;
-    if (!ctl.drag) return;
-    marqueeRef.current.scrollLeft = ctl.startScroll - (e.clientX - ctl.startX);
-  };
-
-  const endMarqueeDrag = (e) => {
-    const ctl = marqueeCtl.current;
-    if (!ctl.drag) return;
-    ctl.drag = false;
-    e.currentTarget.classList.remove("is-dragging");
-  };
-
-  const pauseMarqueeBriefly = () => {
-    marqueeCtl.current.pauseUntil = performance.now() + 2000;
-  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -296,28 +216,15 @@ export default function Home() {
       <section className="main-services reveal" aria-labelledby="main-services-title">
         <div className="main-services__bg"></div>
 
-        <div className="main-services__header"> 
+        <div className="main-services__header">
           <h2 id="main-services-title" className="sectors__heading main-services__heading">
             {lang === "en" ? "OUR MAIN SERVICES" : "LAYANAN UTAMA KAMI"}
           </h2>
         </div>
 
-        <div
-          className="main-services__marquee"
-          ref={marqueeRef}
-          onScroll={handleMarqueeScroll}
-          onMouseEnter={() => { marqueeCtl.current.hover = true; }}
-          onMouseLeave={() => { marqueeCtl.current.hover = false; }}
-          onPointerDown={handleMarqueePointerDown}
-          onPointerMove={handleMarqueePointerMove}
-          onPointerUp={endMarqueeDrag}
-          onPointerCancel={endMarqueeDrag}
-          onWheel={pauseMarqueeBriefly}
-          onTouchStart={pauseMarqueeBriefly}
-          onTouchMove={pauseMarqueeBriefly}
-        >
+        <div className="main-services__marquee">
           <div className="main-services__track">
-            <div className="main-services__group" ref={groupRef}>
+            <div className="main-services__group">
               {MAIN_SERVICES.map((service, index) => (
                 <div 
                   className="main-services__card" 
@@ -413,6 +320,12 @@ export default function Home() {
                   : "Update Berita & Artikel Terbaru"}
               </h2>
             </div>
+
+            <p className="home-news__desc">
+              {lang === "en"
+                ? "Stay informed with the latest industry trends, expert insights, and company updates. Explore our blog for valuable knowledge and best practices."
+                : "Ikuti perkembangan tren industri terkini, wawasan para ahli, dan informasi terbaru perusahaan. Jelajahi artikel kami untuk pengetahuan dan praktik terbaik."}
+            </p>
           </div>
 
           <div className="home-news__grid">
