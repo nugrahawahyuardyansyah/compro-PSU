@@ -68,57 +68,61 @@ export default function PageHeader({ title, breadcrumbs = [], fullWidth = false 
         : [];
 
   return (
-    <header
-      className={`page-header${fullWidth ? " page-header--full-width" : ""}`}
+    <div
+      className={`page-header-shell${
+        fullWidth ? " page-header-shell--full-width" : ""
+      }`}
     >
-      <div className="page-header__overlay" aria-hidden="true" />
-      <div className="page-header__inner">
-        <h1 className="page-header__title">{t(title)}</h1>
+      <header className="page-header">
+        <div className="page-header__overlay" aria-hidden="true" />
+        <div className="page-header__inner">
+          <h1 className="page-header__title">{t(title)}</h1>
+        </div>
+      </header>
 
-        <nav className="page-header__breadcrumb-box" aria-label="Breadcrumb">
-          <ol className="page-header__breadcrumb-list">
-            <li className="page-header__breadcrumb-item">
-              <Link to="/" className="page-header__crumb-link">
-                {t("Beranda")}
-              </Link>
-            </li>
+      <nav className="page-header__breadcrumb-box" aria-label="Breadcrumb">
+        <ol className="page-header__breadcrumb-list">
+          <li className="page-header__breadcrumb-item">
+            <Link to="/" className="page-header__crumb-link">
+              {t("Beranda")}
+            </Link>
+          </li>
 
-            {trail.map((item, index) => {
-              const isLast = index === trail.length - 1;
-              const hasOwnPageFile =
-                Boolean(item.href) &&
-                item.clickable !== false &&
-                VALID_PAGE_ROUTES.has(item.href);
+          {trail.map((item, index) => {
+            const isLast = index === trail.length - 1;
+            const hasOwnPageFile =
+              Boolean(item.href) &&
+              item.clickable !== false &&
+              VALID_PAGE_ROUTES.has(item.href);
 
-              return (
-                <li
-                  key={`${item.label}-${index}`}
-                  className="page-header__breadcrumb-item"
-                >
-                  <span className="page-header__crumb-sep" aria-hidden="true">
-                    &gt;
+            return (
+              <li
+                key={`${item.label}-${index}`}
+                className="page-header__breadcrumb-item"
+              >
+                <span className="page-header__crumb-sep" aria-hidden="true">
+                  &gt;
+                </span>
+                {hasOwnPageFile ? (
+                  <Link
+                    to={item.href}
+                    className={`page-header__crumb-link${
+                      isLast ? " page-header__crumb-link--current" : ""
+                    }`}
+                    aria-current={isLast ? "page" : undefined}
+                  >
+                    {t(item.label)}
+                  </Link>
+                ) : (
+                  <span className="page-header__crumb-text">
+                    {t(item.label)}
                   </span>
-                  {hasOwnPageFile ? (
-                    <Link
-                      to={item.href}
-                      className={`page-header__crumb-link${
-                        isLast ? " page-header__crumb-link--current" : ""
-                      }`}
-                      aria-current={isLast ? "page" : undefined}
-                    >
-                      {t(item.label)}
-                    </Link>
-                  ) : (
-                    <span className="page-header__crumb-text">
-                      {t(item.label)}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-          </ol>
-        </nav>
-      </div>
-    </header>
+                )}
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+    </div>
   );
 }

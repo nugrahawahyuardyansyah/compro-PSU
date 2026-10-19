@@ -179,18 +179,11 @@
   }
 
   .org__list {
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(260px, 82%);
-    grid-template-columns: none;
-    justify-content: start;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: minmax(0, 1fr);
     gap: 16px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .leader {
-    scroll-snap-align: start;
+    overflow-x: visible;
   }
 
   .leader.is-visible {

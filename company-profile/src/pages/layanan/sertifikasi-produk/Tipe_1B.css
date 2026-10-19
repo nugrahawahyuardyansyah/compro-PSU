@@ -540,6 +540,7 @@
 
   .tipe-1b__content {
     gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
     margin-top: 24px;
   }
 

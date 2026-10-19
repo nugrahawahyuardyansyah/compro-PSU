@@ -1,5 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap");
 
+.page-header-shell {
+  width: 100%;
+}
+
+.page-header-shell--full-width {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 .page-header {
   position: relative;
   width: 100%;
@@ -14,11 +23,6 @@
   box-sizing: border-box;
   font-family: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
   overflow: hidden;
-}
-
-.page-header--full-width {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
 }
 
 .page-header__overlay {
@@ -46,9 +50,7 @@
   max-width: 1240px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 28px;
+  align-items: flex-end;
   text-align: left;
 }
 
@@ -65,15 +67,29 @@
 }
 
 .page-header__breadcrumb-box {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   width: 100%;
-  background: rgba(112, 95, 42, 0.68);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 10px;
-  padding: 15px 26px;
+  padding: 15px clamp(20px, 5vw, 72px);
   box-sizing: border-box;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.page-header__breadcrumb-box::before {
+  position: absolute;
+  z-index: -1;
+  inset: -10px;
+  background-image: url("/bg_header.jpg");
+  background-position: center 80%;
+  background-size: cover;
+  content: "";
+  filter: brightness(0.55) blur(10px);
+}
+
+.page-header__breadcrumb-list {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .page-header__breadcrumb-list {
@@ -129,11 +145,7 @@
 @media (max-width: 768px) {
   .page-header {
     min-height: 250px;
-    padding: 44px 18px 20px;
-  }
-
-  .page-header__inner {
-    gap: 18px;
+    padding: 44px 18px 28px;
   }
 
   .page-header__breadcrumb-box {

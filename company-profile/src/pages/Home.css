@@ -655,6 +655,7 @@
 
 .sectors__heading.main-services__heading {
   color: #ffffff;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 0, 0, 0.45);
 }
 
 .main-services__marquee {
@@ -710,7 +711,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.12) 100%);
 }
 
 .main-services__card-content {
@@ -728,6 +729,7 @@
   margin: 0 0 12px 0;
   color: var(--psu-gold);
   line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
 }
 
 .main-services__card-content p {
@@ -735,6 +737,7 @@
   line-height: 1.5;
   margin: 0;
   color: rgba(255,255,255,0.95);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.95), 0 0 12px rgba(0, 0, 0, 0.8);
 }
 
 .main-services.is-visible .main-services__card {
