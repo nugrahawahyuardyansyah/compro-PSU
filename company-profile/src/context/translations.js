@@ -32,7 +32,7 @@ const english = {
   "Client": "Clients",
   "Artikel": "Articles",
   "Kontak": "Contact",
-  "Login": "Login",
+  "Lacak": "Track",
   "Home": "Home",
   "Beranda": "Home",
   "Logam dan Produk Logam": "Metal and Metal Products",
@@ -52,7 +52,7 @@ const english = {
   "Alamat": "Address",
   "Telepon": "Phone",
   "Jam Kerja": "Working Hours",
-  "Sen - Jum 08.00 - 16.00 WIB": "Mon - Fri, 8:00 AM - 4:00 PM (WIB)",
+  "Sen - Jum 09.00 - 17.00 WIB": "Mon - Fri, 9:00 AM - 5:00 PM (WIB)",
   "Senin – Jumat": "Monday – Friday",
   "Buka di Google Maps": "Open in Google Maps",
   "Lokasi PT PENILAI STANDAR UJI": "PT PENILAI STANDAR UJI location",
@@ -84,6 +84,120 @@ const english = {
   "Komisaris": "Commissioner",
   "Tahapan sertifikasi": "Certification stages",
   "Dokumen legalitas": "Legality documents",
+  "No": "No.",
+  "Skema": "Scheme",
+  "Kategori": "Category",
+  "Sub Kategori": "Subcategory",
+  "Jenis Produk/Proses/Jasa": "Product/Process/Service Type",
+  "Nomor Acuan Standar": "Reference Standard Number",
+  "Judul Acuan Standar": "Reference Standard Title",
+  "Skema Sertifikasi": "Certification Scheme",
+  "Bidang Pengujian": "Testing Field",
+  "Bahan atau Produk yang Diuji": "Materials or Products Tested",
+  "Dokumen": "Documents",
+  "Buka dokumen Google Drive untuk": "Open the Google Drive document for",
+  "Buka Google Drive": "Open Google Drive",
+  "Pertanian dan Perkebunan (12)": "Agriculture and Plantation (12)",
+  "Produk pertanian dan perkebunan  (12)": "Agricultural and plantation products (12)",
+  "Produk Tanaman dan Turunannya (15)": "Plant Products and Derivatives (15)",
+  "Produk Tanaman dan Turunanya (15)": "Plant Products and Derivatives (15)",
+  "Produk Pangan Lainnya (17)": "Other Food Products (17)",
+  "Bahan danProduk Kimia(18)": "Chemical Materials and Products (18)",
+  "Bahan dan Produk Kimia(18)": "Chemical Materials and Products (18)",
+  "Bahan dan Produk Kimia (18)": "Chemical Materials and Products (18)",
+  "ServicesCertification (27)": "Services Certification (27)",
+  "Hasil pertanian dan perkebunan (biji kopi, beras) (12.02)":
+    "Agricultural and plantation products (coffee beans, rice) (12.02)",
+  "hasil pertanian dan perkebunan (biji kopi, beras) (12.02)  ":
+    "Agricultural and plantation products (coffee beans, rice) (12.02)",
+  "Serealia,umbi-umbiandan produkturunannya(15.01)":
+    "Cereals, tubers, and their products (15.01)",
+  "Gula, produkgula, pati(Sugar, sugarproducts,starch) (15.03)":
+    "Sugar, sugar products, and starch (15.03)",
+  "Kopi, teh,kakao, cokelat(Coffee, tea,cocoa) (15.06)":
+    "Coffee, tea, cocoa, and chocolate (15.06)",
+  "Minyak nabati,lemak, minyakbiji-bijian(Edible oils,fats, oilseeds)(15.07)":
+    "Vegetable oils, fats, and oilseeds (15.07)",
+  "Minyak nabati,lemak, minyak biji-bijian(Edible oils,fats, oilseeds)(15.07)":
+    "Vegetable oils, fats, and oilseeds (15.07)",
+  "Minuman(Beverages,sirup, limun)(17.01)":
+    "Beverages, syrups, and soft drinks (17.01)",
+  "Minuman(Beverages,sirup,limun) (17.01)":
+    "Beverages, syrups, and soft drinks (17.01)",
+  "Pupuk (18.07)": "Fertilizers (18.07)",
+  "Beras": "Rice",
+  "Biji Kakao": "Cocoa Beans",
+  "Biji kakao": "Cocoa Beans",
+  "Biji kakao / Bijikakao -AMANDEMEN 1": "Cocoa Beans / Cocoa Beans - AMENDMENT 1",
+  "Biji kopi": "Coffee Beans",
+  "Biskuit": "Biscuits",
+  "Gula kristal putih": "White Crystal Sugar",
+  "Gula kristalrafinasi": "Refined Crystal Sugar",
+  "Gula kristal - Bagian 3: Putih": "Crystal Sugar - Part 3: White",
+  "Gula kristal - Bagian2: Rafinasi": "Crystal Sugar - Part 2: Refined",
+  "Gula kristal mentah": "Raw Crystal Sugar",
+  "Kopi instan": "Instant Coffee",
+  "Kopi Instan": "Instant Coffee",
+  "Kopi Sangrai dan Kopi Bubuk": "Roasted and Ground Coffee",
+  "Kopi gula krimer dalam kemasan": "Packaged Coffee with Sugar and Creamer",
+  "Kakao Bubuk": "Cocoa Powder",
+  "Minyak goreng sawit": "Palm Cooking Oil",
+  "Minyak goreng": "Cooking Oil",
+  "Air mineral": "Mineral Water",
+  "Air demineral": "Demineralized Water",
+  "Air mineral alami": "Natural Mineral Water",
+  "Air minum embun": "Dew Drinking Water",
+  "Pupuk super fosfat SP - 36": "Superphosphate Fertilizer SP-36",
+  "Pupuk fosfat alam untuk pertanian": "Natural Phosphate Fertilizer for Agriculture",
+  "Pupuk kalium klorida": "Potassium Chloride Fertilizer",
+  "Pupuk tripel super fosfat /TSP": "Triple Superphosphate Fertilizer (TSP)",
+  "Pupuk NPK padat": "Solid NPK Fertilizer",
+  "Pupuk amonium sulfat (ZA)": "Ammonium Sulfate Fertilizer (ZA)",
+  "PPupuk amonium sulfat": "Ammonium Sulfate Fertilizer",
+  "Pupuk urea": "Urea Fertilizer",
+  "Pupuk mono amonium fosfat (MAP)": "Monoammonium Phosphate Fertilizer (MAP)",
+  "Pupuk diamonium fosfat": "Diammonium Phosphate Fertilizer",
+  "Pupuk urea amonium fosfat": "Urea Ammonium Phosphate Fertilizer",
+  "Pupuk tripel Super fosfat plus-Zn": "Triple Superphosphate Plus-Zn Fertilizer",
+  "Pupuk super fosfat plus-Zn": "Superphosphate Plus-Zn Fertilizer",
+  "Pupuk super fosfat tunggal": "Single Superphosphate Fertilizer",
+  "Pupuk dolomit": "Dolomite Fertilizer",
+  "Pupuk borat": "Borate Fertilizer",
+  "Pupuk": "Fertilizer",
+  "Pupuk amonium klorida": "Ammonium Chloride Fertilizer",
+  "Pupuk kiseret": "Kieserite Fertilizer",
+  "Pupuk kalium sulfat": "Potassium Sulfate Fertilizer",
+  "Pasar rakyat": "Traditional Market",
+  "Pupuk SP-36": "SP-36 Fertilizer",
+  "Pupuk monoamonium fosfat": "Monoammonium Phosphate Fertilizer",
+  "Pupuk tripel super fosfat plus-Zn (TSP-36 Plus Zn)":
+    "Triple Superphosphate Plus-Zn Fertilizer (TSP-36 Plus Zn)",
+  "Pupuk super fosfat plus-Zn (SP-36 Plus-Zn)":
+    "Superphosphate Plus-Zn Fertilizer (SP-36 Plus-Zn)",
+  "Pupuk super fosfat tunggal (SP-18)":
+    "Single Superphosphate Fertilizer (SP-18)",
+  "Pupuk cair hasil samping proses asam amino (Haspramin)":
+    "Liquid fertilizer derived from amino acid processing (Haspramin)",
+  "Fisika/Kimia": "Physical/Chemical",
+  "Kimia/Fisika": "Chemical/Physical",
+  "Kimia": "Chemical",
+  "Peralatan masak (Cookware) dari logam": "Metal cookware",
+  "Peralatan makan dan perlengkapan masak dari baja tahan karat (stainless steel flatware)":
+    "Stainless-steel flatware and cooking utensils",
+  "Pupuk SP 36": "SP-36 Fertilizer",
+  "Pupuk Fosfat Alam Untuk Pertanian": "Natural Phosphate Fertilizer for Agriculture",
+  "Pupuk Kalium Klorida": "Potassium Chloride Fertilizer",
+  "Pupuk Triple Super Fosfat / TSP": "Triple Superphosphate Fertilizer (TSP)",
+  "Pupuk NPK Padat": "Solid NPK Fertilizer",
+  "Pupuk Amonium Sulfat / ZA": "Ammonium Sulfate Fertilizer (ZA)",
+  "Pupuk Urea": "Urea Fertilizer",
+  "PBSN No.4 Tahun 2021 Lampiran XVII":
+    "BSN Regulation No. 4 of 2021, Annex XVII",
+  "PBSN No. 4 Tahun 2021 Lampiran XIII":
+    "BSN Regulation No. 4 of 2021, Annex XIII",
+  "Peraturan BSN No. 7Tahun 2024":
+    "BSN Regulation No. 7 of 2024",
+  "Dokumen untuk bagian ini belum tersedia.": "The document for this section is not available yet.",
   "Sertifikasi Akreditasi": "Accreditation Certification",
   "Lampiran Ruang Lingkup": "Scope Attachment",
   "NIB": "Business Identification Number",
@@ -1118,11 +1232,56 @@ const certificationRightsEnglish = {
   "The new news article was saved and published successfully!",
 "Berita/artikel berhasil dihapus secara permanen.":
   "The news article was permanently deleted.",
+"Klik Disini!": "Click Here!",
+"Download dokumen": "Download document",
+"Download": "Download",
+"Kantor PT PENILAI STANDAR UJI": "PT PENILAI STANDAR UJI Office",
+"KOMITMEN PSU": "PSU COMMITMENT",
+"PT Penilai Standar Uji (PSU)": "PT Penilai Standar Uji (PSU)",
+"Email": "Email",
+"Instagram": "Instagram",
+"Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur – 13430":
+  "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Pondok Bambu, Duren Sawit, East Jakarta – 13430",
+"Data yang dihapus tidak dapat dikembalikan lagi.":
+  "Deleted data cannot be recovered.",
+"English translation not available yet.":
+  "English translation not available yet.",
+"English summary not available yet.":
+  "English summary not available yet.",
+"This article is not available in English yet.":
+  "This article is not available in English yet.",
 };
 
 Object.assign(english, additionalEnglish, certificationRightsEnglish);
 
+const articleLabelsIndonesian = {
+  News: "Berita",
+  Article: "Artikel",
+  "Press Release": "Siaran Pers",
+  "Corporate Action": "Aksi Korporasi",
+  "The Guardian Of Assurance": "The Guardian Of Assurance",
+  "Corporate Update": "Pembaruan Korporasi",
+  "Corporate Secretary": "Sekretaris Perusahaan",
+  Compliance: "Kepatuhan",
+  "Testing Inspection Certification": "Pengujian, Inspeksi, dan Sertifikasi",
+  Cookware: "Peralatan Masak",
+  Flatware: "Peralatan Makan",
+  Foodtray: "Food Tray",
+  Testing: "Pengujian",
+  Certification: "Sertifikasi",
+  Calibration: "Kalibrasi",
+  Training: "Pelatihan",
+  Consulting: "Konsultasi",
+};
+
 export function translateText(text, lang) {
   if (lang !== "en" || typeof text !== "string") return text;
   return english[text] ?? text;
+}
+
+export function translateArticleLabel(text, lang) {
+  if (typeof text !== "string") return text;
+  return lang === "en"
+    ? translateText(text, lang)
+    : articleLabelsIndonesian[text] ?? text;
 }

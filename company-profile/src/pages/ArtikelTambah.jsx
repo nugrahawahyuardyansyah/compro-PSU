@@ -19,7 +19,7 @@ const PRESET_IMAGES = [
 
 export default function ArtikelTambah() {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const today = new Date().toISOString().slice(0, 10);
 
   const [titleId, setTitleId] = useState("");
@@ -96,11 +96,11 @@ export default function ArtikelTambah() {
     setSuccessMsg("");
 
     if (!titleId.trim()) {
-      setErrorMsg("Judul berita/artikel wajib diisi.");
+      setErrorMsg(t("Judul berita/artikel wajib diisi."));
       return;
     }
     if (!contentId.trim()) {
-      setErrorMsg("Isi berita/artikel wajib diisi.");
+      setErrorMsg(t("Isi berita/artikel wajib diisi."));
       return;
     }
 
@@ -147,7 +147,7 @@ export default function ArtikelTambah() {
             savedData = json.data;
             break;
           } else {
-            lastMessage = json.message || "Gagal menyimpan artikel.";
+            lastMessage = json.message || t("Gagal menyimpan artikel.");
           }
         } catch (err) {
           lastMessage = err.message;
@@ -157,16 +157,16 @@ export default function ArtikelTambah() {
       if (!savedData) {
         throw new Error(
           lastMessage ||
-            "Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan."
+            t("Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan.")
         );
       }
 
-      setSuccessMsg("Berita/artikel baru berhasil disimpan dan dipublikasikan!");
+      setSuccessMsg(t("Berita/artikel baru berhasil disimpan dan dipublikasikan!"));
       setTimeout(() => {
         navigate(`/artikel/${savedData.slug}`);
       }, 900);
     } catch (err) {
-      setErrorMsg(err.message);
+      setErrorMsg(t(err.message));
     } finally {
       setSubmitting(false);
     }
@@ -187,14 +187,11 @@ export default function ArtikelTambah() {
           <div className="news-form-card">
             <div className="news-form-header">
               <div>
-                <h2>Form Tambah Berita & Artikel Baru</h2>
-                <p>
-                  Isi formulir di bawah ini untuk mempublikasikan berita atau artikel
-                  baru ke halaman Beranda dan halaman Artikel.
-                </p>
+                <h2>{t("Form Tambah Berita & Artikel Baru")}</h2>
+                <p>{t("Isi formulir di bawah ini untuk mempublikasikan berita atau artikel baru ke halaman Beranda dan halaman Artikel.")}</p>
               </div>
               <Link to="/artikel" className="news-btn news-btn--secondary">
-                &larr; Kembali ke Artikel
+                &larr; {t("Kembali ke Artikel")}
               </Link>
             </div>
 
@@ -214,13 +211,13 @@ export default function ArtikelTambah() {
               <div className="news-form-grid">
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="title_id">
-                    Judul Berita / Artikel (Bahasa Indonesia)<span>*</span>
+                    {t("Judul Berita / Artikel (Bahasa Indonesia)")}<span>*</span>
                   </label>
                   <input
                     id="title_id"
                     type="text"
                     className="news-form-input"
-                    placeholder="Masukkan judul berita/artikel..."
+                    placeholder={t("Masukkan judul berita/artikel...")}
                     value={titleId}
                     onChange={(e) => setTitleId(e.target.value)}
                     required
@@ -229,13 +226,13 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="title_en">
-                    Judul Berita / Artikel (Bahasa Inggris - Opsional)
+                    {t("Judul Berita / Artikel (Bahasa Inggris - Opsional)")}
                   </label>
                   <input
                     id="title_en"
                     type="text"
                     className="news-form-input"
-                    placeholder="Kosongkan jika ingin disamakan dengan judul Bahasa Indonesia..."
+                    placeholder={t("Kosongkan jika ingin disamakan dengan judul Bahasa Indonesia...")}
                     value={titleEn}
                     onChange={(e) => setTitleEn(e.target.value)}
                   />
@@ -243,7 +240,7 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="author">
-                    Author / Penulis<span>*</span>
+                    {t("Author / Penulis")}<span>*</span>
                   </label>
                   <select
                     id="author"
@@ -261,7 +258,7 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="category">
-                    Kategori Utama<span>*</span>
+                    {t("Kategori Utama")}<span>*</span>
                   </label>
                   <select
                     id="category"
@@ -269,15 +266,15 @@ export default function ArtikelTambah() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="News">News</option>
-                    <option value="Article">Article</option>
-                    <option value="Press Release">Press Release</option>
+                    <option value="News">{lang === "en" ? "News" : "Berita"}</option>
+                    <option value="Article">{lang === "en" ? "Article" : "Artikel"}</option>
+                    <option value="Press Release">{lang === "en" ? "Press Release" : "Siaran Pers"}</option>
                   </select>
                 </div>
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="published_at">
-                    Tanggal Publikasi<span>*</span>
+                    {t("Tanggal Publikasi")}<span>*</span>
                   </label>
                   <input
                     id="published_at"
@@ -291,7 +288,7 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="status">
-                    Status Publikasi
+                    {t("Status Publikasi")}
                   </label>
                   <select
                     id="status"
@@ -299,20 +296,20 @@ export default function ArtikelTambah() {
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <option value="Published">Published (Tampil di Website)</option>
-                    <option value="Draft">Draft (Simpan sebagai Konsep)</option>
+                    <option value="Published">{t("Published (Tampil di Website)")}</option>
+                    <option value="Draft">{t("Draft (Simpan sebagai Konsep)")}</option>
                   </select>
                 </div>
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label">
-                    Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)<span>*</span>
+                    {t("Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)")}<span>*</span>
                   </label>
                   <div className="news-form-image-box">
                     <div className="news-form-grid">
                       <div>
                         <span className="news-form-hint">
-                          Upload file gambar dari komputer Anda:
+                          {t("Upload file gambar dari komputer Anda:")}
                         </span>
                         <input
                           type="file"
@@ -324,7 +321,7 @@ export default function ArtikelTambah() {
                       </div>
                       <div>
                         <span className="news-form-hint">
-                          Atau pilih gambar sampul yang tersedia:
+                          {t("Atau pilih gambar sampul yang tersedia:")}
                         </span>
                         <select
                           className="news-form-select"
@@ -338,10 +335,10 @@ export default function ArtikelTambah() {
                           }}
                           style={{ marginTop: "6px" }}
                         >
-                          <option value="">-- Pilih Gambar Sampul --</option>
+                          <option value="">{t("-- Pilih Gambar Sampul --")}</option>
                           {PRESET_IMAGES.map((img) => (
                             <option key={img.value} value={img.value}>
-                              {img.label}
+                              {t(img.label)}
                             </option>
                           ))}
                         </select>
@@ -349,13 +346,13 @@ export default function ArtikelTambah() {
                     </div>
 
                     {uploadingImage && (
-                      <span className="news-form-hint">Mengunggah gambar...</span>
+                      <span className="news-form-hint">{t("Mengunggah gambar...")}</span>
                     )}
 
                     {imageUrl && (
                       <div>
                         <span className="news-form-hint">
-                          Pratinjau Gambar (Rasio Seragam 16:9):
+                          {t("Pratinjau Gambar (Rasio Seragam 16:9):")}
                         </span>
                         <div
                           className="news-form-image-preview-wrap"
@@ -374,13 +371,13 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="tags">
-                    Daftar Tag / Tagline (Pisahkan dengan tanda koma)
+                    {t("Daftar Tag / Tagline (Pisahkan dengan tanda koma)")}
                   </label>
                   <input
                     id="tags"
                     type="text"
                     className="news-form-input"
-                    placeholder="Contoh: Press Release, Sertifikasi Produk, SNI, LSPro PSU, Kalibrasi"
+                    placeholder={t("Contoh: Press Release, Sertifikasi Produk, SNI, LSPro PSU, Kalibrasi")}
                     value={tagsInput}
                     onChange={(e) => setTagsInput(e.target.value)}
                   />
@@ -397,12 +394,12 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="excerpt_id">
-                    Ringkasan Singkat / Excerpt (Tampil di Kartu Beranda)
+                    {t("Ringkasan Singkat / Excerpt (Tampil di Kartu Beranda)")}
                   </label>
                   <textarea
                     id="excerpt_id"
                     className="news-form-textarea"
-                    placeholder="Ringkasan singkat 1-2 kalimat (jika dikosongkan akan diambil otomatis dari paragraf pertama)..."
+                    placeholder={t("Ringkasan singkat 1-2 kalimat (jika dikosongkan akan diambil otomatis dari paragraf pertama)...")}
                     value={excerptId}
                     onChange={(e) => setExcerptId(e.target.value)}
                   />
@@ -410,15 +407,15 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="content_id">
-                    Isi Lengkap Berita / Artikel (Bahasa Indonesia)<span>*</span>
+                    {t("Isi Lengkap Berita / Artikel (Bahasa Indonesia)")}<span>*</span>
                   </label>
                   <span className="news-form-hint">
-                    Gunakan baris kosong (Enter 2x) untuk memisahkan antar paragraf.
+                    {t("Gunakan baris kosong (Enter 2x) untuk memisahkan antar paragraf.")}
                   </span>
                   <textarea
                     id="content_id"
                     className="news-form-textarea news-form-textarea--large"
-                    placeholder="Jakarta — Tuliskan isi berita atau artikel lengkap di sini..."
+                    placeholder={t("Jakarta — Tuliskan isi berita atau artikel lengkap di sini...")}
                     value={contentId}
                     onChange={(e) => setContentId(e.target.value)}
                     required
@@ -427,12 +424,12 @@ export default function ArtikelTambah() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="content_en">
-                    Isi Lengkap Berita / Artikel (Bahasa Inggris - Opsional)
+                    {t("Isi Lengkap Berita / Artikel (Bahasa Inggris - Opsional)")}
                   </label>
                   <textarea
                     id="content_en"
                     className="news-form-textarea news-form-textarea--large"
-                    placeholder="Kosongkan jika ingin menggunakan teks yang sama dengan Bahasa Indonesia..."
+                    placeholder={t("Kosongkan jika ingin menggunakan teks yang sama dengan Bahasa Indonesia...")}
                     value={contentEn}
                     onChange={(e) => setContentEn(e.target.value)}
                   />
@@ -441,7 +438,7 @@ export default function ArtikelTambah() {
 
               <div className="news-form-actions">
                 <Link to="/artikel" className="news-btn news-btn--secondary">
-                  Batal
+                  {t("Batal")}
                 </Link>
                 <div className="news-form-actions__right">
                   <button
@@ -449,7 +446,7 @@ export default function ArtikelTambah() {
                     className="news-btn news-btn--primary"
                     disabled={submitting || uploadingImage}
                   >
-                    {submitting ? "Menyimpan..." : "Simpan & Publikasikan Artikel"}
+                    {submitting ? t("Menyimpan...") : t("Simpan & Publikasikan Artikel")}
                   </button>
                 </div>
               </div>

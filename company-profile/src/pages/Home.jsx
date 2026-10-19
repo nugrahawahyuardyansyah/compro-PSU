@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/useLanguage";
+import { translateArticleLabel } from "../context/translations";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Home.css";
 
@@ -417,8 +418,14 @@ export default function Home() {
 
           <div className="home-news__grid">
             {latestNews.map((item) => {
-              const title = lang === "en" ? item.title_en : item.title_id;
-              const excerpt = lang === "en" ? item.excerpt_en : item.excerpt_id;
+              const title =
+                lang === "en"
+                  ? item.title_en || ("English translation not available yet.")
+                  : item.title_id;
+              const excerpt =
+                lang === "en"
+                  ? item.excerpt_en || ("English summary not available yet.")
+                  : item.excerpt_id;
               const tags = Array.isArray(item.tags) ? item.tags : [];
               const extraTags = Math.max(0, tags.length - 1);
 
@@ -438,7 +445,7 @@ export default function Home() {
 
                   <div className="home-news__badges">
                     <span className="home-news__badge">
-                      {item.category || "Article"}
+                      {translateArticleLabel(item.category || "Article", lang)}
                     </span>
                     {extraTags > 0 && (
                       <span className="home-news__badge">{extraTags}+</span>
@@ -481,7 +488,7 @@ export default function Home() {
             rel="noopener noreferrer" 
             className="tracking-banner__btn"
           >
-            Klik Disini!
+            {("Klik Disini!")}
           </a>
         </div>
       </section>

@@ -4,7 +4,7 @@ import { useLanguage } from "../context/useLanguage";
 import HeaderTop from "./HeaderTop";
 import LangToggle from "./LangToggle";
 import "./Navbar.css";
-import "./NavbarLogin.css";
+import "./NavbarTrack.css";
 
 function useIsMobile(breakpoint) {
   const query = `(max-width: ${breakpoint}px)`;
@@ -170,6 +170,10 @@ const menuLayanan = [
         label: "Inhouse Training",
         href: "/layanan/pelatihan/inhouse-training",
       },
+      {
+        label: "Exhouse Training",
+        href: "/layanan/pelatihan/exhouse-training",
+      },
     ],
   },
 ];
@@ -196,7 +200,13 @@ const menuClient = [
 const menuLinks = [
   { label: "Artikel", href: "/artikel" },
   { label: "Kontak", href: "/kontak" },
-  { label: "Login", href: "/login", cta: true, extraClass: "navbar__login" },
+  {
+    label: "Lacak",
+    href: "https://nwyan.com",
+    external: true,
+    cta: true,
+    extraClass: "navbar__track",
+  },
 ];
 
 const SUBMENU_GAP = 10;
@@ -585,20 +595,34 @@ export default function Navbar() {
 
             {menuLinks.map((item) => (
               <li key={item.href}>
-                <Link
-                  {...linkProps(item.href)}
-                  className={
-                    [
-                      isActive(item.href) && "is-active",
-                      item.cta && "navbar__cta",
-                      item.extraClass,
-                    ]
-                      .filter(Boolean)
-                      .join(" ") || undefined
-                  }
-                >
-                  {t(item.label)}
-                </Link>
+                {item.external ? (
+                  <a
+                    href={item.href}
+                    onClick={closeAll}
+                    className={
+                      [item.cta && "navbar__cta", item.extraClass]
+                        .filter(Boolean)
+                        .join(" ") || undefined
+                    }
+                  >
+                    {t(item.label)}
+                  </a>
+                ) : (
+                  <Link
+                    {...linkProps(item.href)}
+                    className={
+                      [
+                        isActive(item.href) && "is-active",
+                        item.cta && "navbar__cta",
+                        item.extraClass,
+                      ]
+                        .filter(Boolean)
+                        .join(" ") || undefined
+                    }
+                  >
+                    {t(item.label)}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

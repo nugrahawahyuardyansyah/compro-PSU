@@ -1,6 +1,7 @@
 import "../pengujian/Ruang_lingkup_penguji.css";
-import PageHeader from "../../../components/PageHeader";
+import LocalizedText from "../../../components/LocalizedText";
 import { FaDownload } from "react-icons/fa";
+import { useLanguage } from "../../../context/useLanguage";
 
 const dataPengujian = [
   {
@@ -77,24 +78,24 @@ const dataPengujian = [
 ];
 
 export default function Ruanglingkuppenguji() {
+  const { t } = useLanguage();
+
   return (
-    <>
-      <PageHeader
-        title="Ruang Lingkup Pengujian"
-        breadcrumbs={[
-          { label: "Layanan" },
-          { label: "Lembaga Pengujian" },
-          { label: "Ruang Lingkup", href: "/layanan/penguji/ruang-lingkup" },
-        ]}
-      />
-      <main className="service-detail--ruang-lingkup-penguji">
+    <section className="ruang-lingkup">
+      <div className="ruang-lingkup__header">
+        <LocalizedText as="h2">
+          Ruang Lingkup Pengujian
+        </LocalizedText>
+      </div>
+
+      <div className="ruang-lingkup__content">
         <div className="ruang-lingkup__table-wrapper">
           <table className="ruang-lingkup__table">
             <thead>
               <tr>
-                <th>Bidang Pengujian</th>
-                <th>Bahan atau Produk yang Diuji</th>
-                <th>Dokumen</th>
+                <th><LocalizedText>Bidang Pengujian</LocalizedText></th>
+                <th><LocalizedText>Bahan atau Produk yang Diuji</LocalizedText></th>
+                <th><LocalizedText>Dokumen</LocalizedText></th>
               </tr>
             </thead>
 
@@ -107,12 +108,12 @@ export default function Ruanglingkuppenguji() {
                         rowSpan={kelompok.items.length}
                         className="ruang-lingkup__bidang"
                       >
-                        {kelompok.bidang}
+                        {t(kelompok.bidang)}
                       </td>
                     )}
 
                     <td className="ruang-lingkup__produk">
-                      {item.jenis}
+                      {t(item.jenis)}
                     </td>
 
                     <td className="ruang-lingkup__buku">
@@ -124,8 +125,8 @@ export default function Ruanglingkuppenguji() {
                             className="ruang-lingkup__download"
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label={`Buka dokumen Google Drive untuk ${item.jenis}`}
-                            title="Buka Google Drive"
+                            aria-label={`${t("Buka dokumen Google Drive untuk")} ${t(item.jenis)}`}
+                            title={t("Buka Google Drive")}
                           >
                             <FaDownload aria-hidden="true" />
                           </a>
@@ -138,7 +139,7 @@ export default function Ruanglingkuppenguji() {
             </tbody>
           </table>
         </div>
-      </main>
-    </>
+      </div>
+    </section>
   );
 }

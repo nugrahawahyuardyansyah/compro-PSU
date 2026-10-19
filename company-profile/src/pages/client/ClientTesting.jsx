@@ -168,7 +168,7 @@ export default function ClientTesting() {
                       type="button"
                       className="cert-tracker__clear"
                       onClick={handleClear}
-                      aria-label="Bersihkan input"
+                      aria-label={t("Bersihkan input")}
                     >
                       ×
                     </button>
@@ -196,7 +196,7 @@ export default function ClientTesting() {
 
             {errorMsg && (
               <div className="cert-tracker__state cert-tracker__state--error" role="alert">
-                <p className="cert-tracker__state-title">Perhatian</p>
+                <p className="cert-tracker__state-title">{t("Perhatian")}</p>
                 <p>{errorMsg}</p>
               </div>
             )}
@@ -207,8 +207,9 @@ export default function ClientTesting() {
                   <LocalizedText>Data Sertifikat Tidak Ditemukan</LocalizedText>
                 </p>
                 <p>
-                  Nomor sertifikat <strong>{searchedQuery}</strong> tidak ditemukan pada database{" "}
-                  <strong>Lembaga Pengujian</strong>.
+                  {t("Nomor sertifikat")} <strong>{searchedQuery}</strong>{" "}
+                  {t("tidak ditemukan pada database")}{" "}
+                  <strong>{t("Lembaga Pengujian")}</strong>.
                 </p>
               </div>
             )}

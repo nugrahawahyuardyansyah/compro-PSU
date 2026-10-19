@@ -1,6 +1,7 @@
 .service-detail--permohonan-sertifikasi {
   --service-navy: #0b2a5b;
   --service-text: #1d2733;
+  --service-muted: #5b6878;
   width: calc(100% - 2 * clamp(20px, 5vw, 96px));
   max-width: 1180px;
   margin: 0 auto;
@@ -9,32 +10,87 @@
   font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
-.service-detail--permohonan-sertifikasi h1 {
-  margin: 0 0 24px;
+.permohonan-sertifikasi__header {
+  margin-bottom: 34px;
+}
+
+.permohonan-sertifikasi__eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #8a6827;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.permohonan-sertifikasi__header h1 {
+  margin: 0;
   color: var(--service-navy);
-  font-size: 2rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   line-height: 1.25;
 }
 
-.service-detail--permohonan-sertifikasi p,
-.service-detail--permohonan-sertifikasi li {
-  max-width: 80ch;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+.permohonan-sertifikasi__organization {
+  margin: 10px 0 0;
+  color: var(--service-muted);
+  font-size: 1.05rem;
+  font-weight: 600;
 }
 
-.service-detail--permohonan-sertifikasi p {
-  margin: 0 0 20px;
+.permohonan-sertifikasi__content {
+  display: grid;
+  gap: 28px;
 }
 
-.service-detail--permohonan-sertifikasi ul,
-.service-detail--permohonan-sertifikasi ol {
-  max-width: 80ch;
-  padding-left: 22px;
+.permohonan-sertifikasi__intro {
+  margin: 0;
+  color: var(--service-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
-.service-detail--permohonan-sertifikasi li + li {
-  margin-top: 8px;
+.permohonan-sertifikasi__steps {
+  display: grid;
+  gap: 0;
+}
+
+.permohonan-sertifikasi__step {
+  padding: 20px 0;
+  border-bottom: 1px solid #e3e9f0;
+}
+
+.permohonan-sertifikasi__step:first-child {
+  padding-top: 0;
+}
+
+.permohonan-sertifikasi__step:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.permohonan-sertifikasi__step h2 {
+  margin: 0 0 10px;
+  color: var(--service-navy);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.permohonan-sertifikasi__step p {
+  margin: 0;
+  color: var(--service-text);
+  font-size: 1rem;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.permohonan-sertifikasi__step p + p {
+  margin-top: 10px;
 }
 
 @media (max-width: 720px) {
@@ -42,7 +98,12 @@
     padding: 32px 0 56px;
   }
 
-  .service-detail--permohonan-sertifikasi h1 {
-    font-size: 1.5rem;
+  .permohonan-sertifikasi__header {
+    margin-bottom: 24px;
   }
+
+  .permohonan-sertifikasi__step h2 {
+    font-size: 1.18rem;
+  }
+
 }

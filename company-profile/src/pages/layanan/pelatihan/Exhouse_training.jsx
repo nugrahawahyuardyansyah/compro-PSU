@@ -13,8 +13,8 @@ export default function ExhouseTraining() {
           { label: "Exhouse Training", href: "/layanan/pelatihan/exhouse-training" },
         ]}
       />
-      <section className="exhouse-training">
-      <LocalizedText as="h1">Exhouse Training</LocalizedText>
+      <section className="service-detail--exhouse-training">
+        <LocalizedText as="h1">Exhouse Training</LocalizedText>
       </section>
     </>
   );

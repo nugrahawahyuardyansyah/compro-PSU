@@ -8,23 +8,61 @@ const legalitasDocuments = [
   "NIB",
 ];
 
-export default function LegalitasButtons() {
+const nibContent = (t) => (
+  <figure className="legalitas-document">
+    <a
+      className="legalitas-document__link"
+      href={`${import.meta.env.BASE_URL}NIB.jpeg`}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={t("Buka gambar NIB ukuran penuh di tab baru")}
+    >
+      <img
+        className="legalitas-document__image"
+        src={`${import.meta.env.BASE_URL}NIB.jpeg`}
+        alt={t("Dokumen Nomor Induk Berusaha PT PENILAI STANDAR UJI")}
+      />
+    </a>
+    <figcaption className="legalitas-document__caption">
+      {t("Klik gambar untuk membuka dokumen asli di tab baru.")}
+    </figcaption>
+  </figure>
+);
+
+export default function LegalitasButtons({ documentContent = {} }) {
   const { t } = useLanguage();
-  const [activeDocument, setActiveDocument] = useState(legalitasDocuments[0]);
+  const availableDocuments = legalitasDocuments;
+  const [activeDocument, setActiveDocument] = useState(
+    () => availableDocuments[0],
+  );
+  const selectedDocument = availableDocuments.includes(activeDocument)
+    ? activeDocument
+    : availableDocuments[0];
+  const activeContent =
+    selectedDocument === "NIB"
+      ? nibContent(t)
+      : documentContent[selectedDocument] ?? (
+          <p className="legalitas-document__unavailable">
+            {t("Dokumen untuk bagian ini belum tersedia.")}
+          </p>
+        );
 
   return (
-    <div className="legalitas-buttons" aria-label={t("Dokumen legalitas")}>
-      {legalitasDocuments.map((document) => (
-        <button
-          key={document}
-          type="button"
-          className="legalitas-button"
-          aria-pressed={document === activeDocument}
-          onClick={() => setActiveDocument(document)}
-        >
-          {t(document)}
-        </button>
-      ))}
-    </div>
+    <>
+      <div className="legalitas-buttons" aria-label={t("Dokumen legalitas")}>
+        {availableDocuments.map((document) => (
+          <button
+            key={document}
+            type="button"
+            className="legalitas-button"
+            aria-pressed={document === selectedDocument}
+            onClick={() => setActiveDocument(document)}
+          >
+            {t(document)}
+          </button>
+        ))}
+      </div>
+      <div className="legalitas-document-content">{activeContent}</div>
+    </>
   );
 }

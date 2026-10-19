@@ -1,13 +1,14 @@
-import PageHeader from "../../../components/PageHeader";
 import "./Ruang_lingkup_sertif.css";
+import LocalizedText from "../../../components/LocalizedText";
 import { useLanguage } from "../../../context/useLanguage";
+import { FaDownload } from "react-icons/fa";
 
 // Tabel start
 const dataSertifikasi = [
   {
     no: 1,
     skema: "Produk",
-    kategori: "Pertanian dan Perkebunan (12:02)",
+    kategori: "Pertanian dan Perkebunan (12)",
     subKategori: "Hasil pertanian dan perkebunan (biji kopi, beras) (12.02)",
     jenis: "Beras",
     standar: [{ nomor: "SNI 6128:2020", judul: "Beras" }],
@@ -17,7 +18,7 @@ const dataSertifikasi = [
   {
     no: 2,
     skema: "Produk",
-    kategori: "Produk pertanian dan perkebunan  (12.02)",
+    kategori: "Produk pertanian dan perkebunan  (12)",
     subKategori: "hasil pertanian dan perkebunan (biji kopi, beras) (12.02)  ",
     jenis: "Biji Kakao",
     standar: [
@@ -64,7 +65,7 @@ const dataSertifikasi = [
     subKategori: "Gula, produkgula, pati(Sugar, sugarproducts,starch) (15.03)",
     jenis: "Gula kristal putih",
     standar: [
-      { nomor: "SNI 3140.3:2020", judul: "Gula kristal putih" },
+      { nomor: "SNI 3140.3:2020", judul: "Gula kristal - Bagian 3: Putih" },
       // {
       //   judul: "Gula kristal putih",
       // },
@@ -471,32 +472,40 @@ const dataSertifikasi = [
   // Tabel end
 ];
 
-export default function Ruanglingkupsertif() {
-  const { t } = useLanguage();
+export default function Ruanglingkuppenguji() {
+  const { lang, t } = useLanguage();
 
   return (
-    <>
-      <PageHeader
-        title="Ruang Lingkup"
-        breadcrumbs={[
-          { label: "Layanan" },
-          { label: "Lembaga Sertifikasi Produk" },
-          { label: "Ruang Lingkup", href: "/layanan/sertif-produk/ruang-lingkup" },
-        ]}
-      />
-      <main className="service-detail--ruang-lingkup-sertif">
+    <section className="ruang-lingkup">
+      <div className="ruang-lingkup__header">
+        <LocalizedText as="h1">
+          Ruang Lingkup Sertifikasi Produk
+        </LocalizedText>
+      </div>
+
+      <div className="ruang-lingkup__content">
         <div className="ruang-lingkup__table-wrapper">
-          <table className="ruang-lingkup__table">
+          <table className="ruang-lingkup__table" lang={lang}>
+            <colgroup>
+              <col style={{ width: "5%" }} />
+              <col style={{ width: "8%" }} />
+              <col style={{ width: "12%" }} />
+              <col style={{ width: "13%" }} />
+              <col style={{ width: "19%" }} />
+              <col style={{ width: "16%" }} />
+              <col style={{ width: "16%" }} />
+              <col style={{ width: "11%" }} />
+            </colgroup>
             <thead>
               <tr>
-                <th>No</th>
-                <th>Skema</th>
-                <th>Kategori</th>
-                <th>Sub Kategori</th>
-                <th>Jenis Produk/Proses/Jasa</th>
-                <th>Nomor Acuan Standar</th>
-                <th>Judul Acuan Standar</th>
-                <th>Skema Sertifikasi</th>
+                <th>{t("No")}</th>
+                <th>{t("Skema")}</th>
+                <th>{t("Kategori")}</th>
+                <th>{t("Sub Kategori")}</th>
+                <th>{t("Jenis Produk/Proses/Jasa")}</th>
+                <th>{t("Nomor Acuan Standar")}</th>
+                <th>{t("Judul Acuan Standar")}</th>
+                <th>{t("Skema Sertifikasi")}</th>
               </tr>
             </thead>
 
@@ -512,15 +521,15 @@ export default function Ruanglingkupsertif() {
                         >
                           {item.no}.
                         </td>
-                        <td rowSpan={item.standar.length}>{item.skema}</td>
-                        <td rowSpan={item.standar.length}>{item.kategori}</td>
-                        <td rowSpan={item.standar.length}>{item.subKategori}</td>
-                        <td rowSpan={item.standar.length}>{item.jenis}</td>
+                        <td rowSpan={item.standar.length}>{t(item.skema)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.kategori)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.subKategori)}</td>
+                        <td rowSpan={item.standar.length}>{t(item.jenis)}</td>
                       </>
                     )}
 
                     <td>{standar.nomor}</td>
-                    <td>{standar.judul}</td>
+                    <td>{t(standar.judul)}</td>
 
                     {index === 0 && (
                       <td rowSpan={item.standar.length}>
@@ -533,7 +542,7 @@ export default function Ruanglingkupsertif() {
                             aria-label={`${t("Download dokumen")} No. ${item.no}`}
                             title={`${t("Download")} No. ${item.no}`}
                           >
-                            <span>{t("Download")}</span>
+                            <FaDownload />
                           </a>
                         </div>
                       </td>
@@ -544,7 +553,7 @@ export default function Ruanglingkupsertif() {
             </tbody>
           </table>
         </div>
-      </main>
-    </>
+      </div>
+    </section>
   );
 }
