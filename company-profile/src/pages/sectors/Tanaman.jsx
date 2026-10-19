@@ -120,10 +120,9 @@ export default function Tanaman() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title={title}
-        fullWidth
+        title="Produk Tanaman"
         breadcrumbs={[
-          { label: title, href: "/tanaman" },
+          { label: "Produk Tanaman", href: "/tanaman" },
         ]}
       />
       <div className="tanaman-cards" ref={rowsRef}>

@@ -1,7 +1,6 @@
+import PageHeader from "../../../components/PageHeader";
 import "./Ruang_lingkup_sertif.css";
-import LocalizedText from "../../../components/LocalizedText";
 import { useLanguage } from "../../../context/useLanguage";
-import { FaDownload } from "react-icons/fa";
 
 // Tabel start
 const dataSertifikasi = [
@@ -472,18 +471,20 @@ const dataSertifikasi = [
   // Tabel end
 ];
 
-export default function Ruanglingkuppenguji() {
+export default function Ruanglingkupsertif() {
   const { t } = useLanguage();
 
   return (
-    <section className="ruang-lingkup">
-      <div className="ruang-lingkup__header">
-        <LocalizedText as="h1">
-          Ruang Lingkup Sertifikasi Produk
-        </LocalizedText>
-      </div>
-
-      <div className="ruang-lingkup__content">
+    <>
+      <PageHeader
+        title="Ruang Lingkup"
+        breadcrumbs={[
+          { label: "Layanan" },
+          { label: "Lembaga Sertifikasi Produk" },
+          { label: "Ruang Lingkup", href: "/layanan/sertif-produk/ruang-lingkup" },
+        ]}
+      />
+      <main className="service-detail--ruang-lingkup-sertif">
         <div className="ruang-lingkup__table-wrapper">
           <table className="ruang-lingkup__table">
             <thead>
@@ -532,7 +533,7 @@ export default function Ruanglingkuppenguji() {
                             aria-label={`${t("Download dokumen")} No. ${item.no}`}
                             title={`${t("Download")} No. ${item.no}`}
                           >
-                            <FaDownload />
+                            <span>{t("Download")}</span>
                           </a>
                         </div>
                       </td>
@@ -543,7 +544,7 @@ export default function Ruanglingkuppenguji() {
             </tbody>
           </table>
         </div>
-      </div>
-    </section>
+      </main>
+    </>
   );
 }

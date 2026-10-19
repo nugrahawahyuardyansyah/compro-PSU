@@ -1,5 +1,5 @@
 import "../pengujian/Ruang_lingkup_penguji.css";
-import LocalizedText from "../../../components/LocalizedText";
+import PageHeader from "../../../components/PageHeader";
 import { FaDownload } from "react-icons/fa";
 
 const dataPengujian = [
@@ -78,14 +78,16 @@ const dataPengujian = [
 
 export default function Ruanglingkuppenguji() {
   return (
-    <section className="ruang-lingkup">
-      <div className="ruang-lingkup__header">
-        <LocalizedText as="h2">
-          Ruang Lingkup Pengujian
-        </LocalizedText>
-      </div>
-
-      <div className="ruang-lingkup__content">
+    <>
+      <PageHeader
+        title="Ruang Lingkup Pengujian"
+        breadcrumbs={[
+          { label: "Layanan" },
+          { label: "Lembaga Pengujian" },
+          { label: "Ruang Lingkup", href: "/layanan/penguji/ruang-lingkup" },
+        ]}
+      />
+      <main className="service-detail--ruang-lingkup-penguji">
         <div className="ruang-lingkup__table-wrapper">
           <table className="ruang-lingkup__table">
             <thead>
@@ -136,7 +138,7 @@ export default function Ruanglingkuppenguji() {
             </tbody>
           </table>
         </div>
-      </div>
-    </section>
+      </main>
+    </>
   );
 }

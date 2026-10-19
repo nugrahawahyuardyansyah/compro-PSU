@@ -25,8 +25,6 @@ const COMMODITIES = [
 export default function Logam() {
   const { lang } = useLanguage();
   const cardsRef = useRef(null);
-  const title =
-    lang === "en" ? "Metal and Metal Products" : "Logam dan Produk Logam";
 
   useEffect(() => {
     const cards = cardsRef.current?.querySelectorAll(".logam-card");
@@ -50,10 +48,9 @@ export default function Logam() {
   return (
     <section className="sector-detail-page">
       <PageHeader
-        title={title}
-        fullWidth
+        title="Logam dan Produk Logam"
         breadcrumbs={[
-          { label: title, href: "/logam" },
+          { label: "Logam dan Produk Logam", href: "/logam" },
         ]}
       />
       <div className="logam-cards" ref={cardsRef}>

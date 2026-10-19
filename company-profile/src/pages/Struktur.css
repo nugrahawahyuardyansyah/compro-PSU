@@ -46,7 +46,7 @@
 
   --enter-delay: 0s;
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(-80px);
   transition:
     transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--enter-delay),
     opacity 0.9s ease-out var(--enter-delay),
@@ -55,10 +55,12 @@
 
 .leader:nth-child(2) {
   --enter-delay: 0.2s;
+  transform: translateX(-120px);
 }
 
 .leader:nth-child(3) {
   --enter-delay: 0.4s;
+  transform: translateX(120px);
 }
 
 .leader.is-visible {

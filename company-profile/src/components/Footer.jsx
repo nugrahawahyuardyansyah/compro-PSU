@@ -4,8 +4,7 @@ import { useLanguage } from "../context/useLanguage";
 import "./footer.css";
 
 const kontak = {
-  alamatId: "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur - 13430",
-  alamatEn: "Jalan Cipinang Muara 1 No. 21, RT 006/RW 03, Pondok Bambu, Duren Sawit, East Jakarta, DKI Jakarta 13430, Indonesia",
+  alamat: "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur - 13430",
   email: "psuindonesia.info@gmail.com",
   telepon: "021 - 8602367",
   whatsapp: "+6281908344114",
@@ -87,7 +86,7 @@ function ContactIcon({ type }) {
 }
 
 export default function Footer() {
-  const { lang, t } = useLanguage();
+  const { t } = useLanguage();
   const isMobile = useIsMobile(BATAS_MOBILE);
 
   const wrapperStyle = {
@@ -175,10 +174,10 @@ export default function Footer() {
 
           <div className="footer__col" style={alamatStyle}>
             <h2 className="footer__title" style={responsiveTitleStyle}>
-              {t("Alamat Kantor dan Laboratorium")}
+              {t("Alamat Kantor")}
             </h2>
             <address className="footer__list" style={addressStyle}>
-              <p>{lang === "en" ? kontak.alamatEn : kontak.alamatId}</p>
+              <p>{kontak.alamat}</p>
             </address>
           </div>
 

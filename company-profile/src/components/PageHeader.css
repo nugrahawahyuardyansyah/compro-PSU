@@ -161,3 +161,28 @@
     gap: 8px;
   }
 }
+
+.page-header.page-header--contact {
+  min-height: 0;
+  aspect-ratio: 3 / 1;
+  padding: 0;
+  background-image: url("/banner-contact.png");
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.page-header--contact .page-header__overlay {
+  display: none;
+}
+
+.page-header--contact .page-header__inner {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -51,45 +51,6 @@
   box-shadow: 0 1px 0 var(--service-gold);
 }
 
-.legalitas-document-content {
-  margin-top: 28px;
-}
-
-.legalitas-document {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 16px;
-  border: 1px solid #dfe4ec;
-  border-radius: 6px;
-  background: #f7f9fc;
-  text-align: center;
-}
-
-.legalitas-document__link {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  cursor: zoom-in;
-}
-
-.legalitas-document__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 82vh;
-  object-fit: contain;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(29, 39, 51, 0.12);
-}
-
-.legalitas-document__caption {
-  margin-top: 12px;
-  color: #5c6878;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
 @media (max-width: 720px) {
   .legalitas-buttons {
     flex-wrap: nowrap;
@@ -107,14 +68,6 @@
 
   .legalitas-button:last-child {
     min-width: 72px;
-  }
-
-  .legalitas-document-content {
-    margin-top: 20px;
-  }
-
-  .legalitas-document {
-    padding: 8px;
   }
 }
 

@@ -1,14 +1,14 @@
-﻿{
+{
   "name": "compro-psu",
   "version": "1.0.0",
   "description": "Website Company Profile & Tracking Sertifikat PT PENILAI STANDAR UJI",
   "main": "start_all.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node start_all.js",
     "dev": "node start_all.js",
     "backend": "node backend/server.js",
-    "frontend": "npm --prefix company-profile run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend": "npm --prefix company-profile run dev"
   },
   "repository": {
     "type": "git",
