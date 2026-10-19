@@ -1,6 +1,5 @@
 import "./Kontak.css";
 import { useLanguage } from "../context/useLanguage";
-import PageHeader from "../components/PageHeader";
 
 const MAPS_LINK =
   "https://maps.app.goo.gl/KAX2Pn4DxSPA5aiG6";
@@ -123,10 +122,9 @@ export default function Kontak() {
 
   return (
     <>
-      <PageHeader
-        title="Kontak"
-        breadcrumbs={[{ label: "Kontak", href: "/kontak" }]}
-      />
+      <div className="contact-banner">
+        <img src="/banner-contact.png" alt="" />
+      </div>
       <section className="contact-section">
         <div className="contact-container">
           <h2 className="contact-benefits-title">{t("Hubungi Kami")}</h2>

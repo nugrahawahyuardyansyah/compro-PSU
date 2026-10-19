@@ -4,7 +4,7 @@ import PageHeader from "../components/PageHeader";
 import { useLanguage } from "../context/useLanguage";
 
 const ABOUT_IMAGE = "/Logo_PSU_banner1.webp";
-const VISIMISI_IMAGE = `${import.meta.env.BASE_URL}vision-mission-team.webp`;
+const VISIMISI_IMAGE = `${import.meta.env.BASE_URL}vis-misi-2026.jpeg`;
 
 export default function Profile() {
   const { lang, t } = useLanguage();
