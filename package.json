@@ -1,25 +1,13 @@
-﻿{
+{
   "name": "compro-psu",
   "version": "1.0.0",
   "description": "Website Company Profile & Tracking Sertifikat PT PENILAI STANDAR UJI",
-  "main": "start_all.js",
+  "main": "start-all.js",
   "scripts": {
     "start": "node start_all.js",
-    "dev": "node start_all.js",
+    "dev": "node start-all.js",
     "backend": "node backend/server.js",
-    "frontend": "npm --prefix company-profile run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "frontend": "npm --prefix company-profile run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nugrahawahyuardyansyah/compro-PSU.git"
-  },
-  "homepage": "https://github.com/nugrahawahyuardyansyah/compro-PSU#readme",
-  "license": "ISC",
-  "author": "",
-  "type": "commonjs",
-  "dependencies": {
-    "init": "^0.1.2",
-    "react-icons": "^5.7.0"
-  }
+  "type": "commonjs"
 }

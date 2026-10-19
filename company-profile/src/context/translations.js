@@ -30,41 +30,25 @@ const english = {
   "General Training": "General Training",
   "Inhouse Training": "In-house Training",
   "Client": "Clients",
-  "Klien": "Clients",
   "Artikel": "Articles",
   "Kontak": "Contact",
-  "Lacak": "Track",
-  "Klik Disini!": "Click here!",
   "Login": "Login",
   "Home": "Home",
   "Beranda": "Home",
   "Logam dan Produk Logam": "Metal and Metal Products",
   "Pertanian dan Perkebunan": "Agriculture and Plantation",
   "Produk Tanaman": "Plant Products and Derivatives",
-  "Produk Pangan": "Food Products",
+  "Produk Pangan": "Other Food Products",
   "Bahan dan Produk Kimia": "Chemical Materials and Products",
   "Jasa Lainnya": "Other Services",
   "Exhouse Training": "Ex-house Training",
-  "exhouse Training": "Ex-house Training",
   "Menu": "Menu",
   "Buka menu": "Open menu",
   "Tutup menu": "Close menu",
   "Buka": "Open",
   "Tutup": "Close",
   "Alamat Kantor": "Office Address",
-  "Alamat Kantor dan Laboratorium": "Office and Laboratory Address",
   "Hubungi Kami": "Contact Us",
-  "Kembali ke Beranda": "Back to Home",
-  "Sen - Jum 09.00 - 17.00 WIB": "Mon - Fri, 9:00 AM - 5:00 PM (WIB)",
-  "Dukungan Responsif": "Responsive Support",
-  "Kami bantu tindak lanjuti kebutuhan Anda":
-    "We will help follow up on your needs",
-  "Pendampingan Kompeten": "Expert Guidance",
-  "Informasi dari tim yang memahami layanan":
-    "Guidance from a team that understands our services",
-  "Kerahasiaan Terjaga": "Confidentiality Assured",
-  "Informasi ditangani secara bertanggung jawab":
-    "Your information is handled responsibly",
   "Alamat": "Address",
   "Telepon": "Phone",
   "Jam Kerja": "Working Hours",
@@ -103,124 +87,8 @@ const english = {
   "Sertifikasi Akreditasi": "Accreditation Certification",
   "Lampiran Ruang Lingkup": "Scope Attachment",
   "NIB": "Business Identification Number",
-  "Klik gambar untuk membuka dokumen asli di tab baru.":
-    "Click an image to open the original document in a new tab.",
   "Profile": "Profile",
   "Sertifikasi Awal": "Initial Certification",
-  "No": "No.",
-  "Skema": "Scheme",
-  "Kategori": "Category",
-  "Sub Kategori": "Subcategory",
-  "Jenis Produk/Proses/Jasa": "Product/Process/Service Type",
-  "Nomor Acuan Standar": "Reference Standard Number",
-  "Judul Acuan Standar": "Reference Standard Title",
-  "Skema Sertifikasi": "Certification Scheme",
-  "Bidang Pengujian": "Testing Field",
-  "Bahan atau Produk yang Diuji": "Materials or Products Tested",
-  "Dokumen": "Documents",
-  "Buka dokumen Google Drive untuk": "Open Google Drive document for",
-  "Buka Google Drive": "Open Google Drive",
-  "Fisika/Kimia": "Physical/Chemical",
-  "Kimia/Fisika": "Chemical/Physical",
-  "Kimia": "Chemical",
-  "Pertanian dan Perkebunan (12:02)": "Agriculture and Plantation (12:02)",
-  "Pertanian dan Perkebunan (12)": "Agriculture and Plantation (12)",
-  "Produk pertanian dan perkebunan (12.02)": "Agricultural and Plantation Products (12.02)",
-  "Hasil pertanian dan perkebunan (biji kopi, beras) (12.02)":
-    "Agricultural and plantation products (coffee beans, rice) (12.02)",
-  "hasil pertanian dan perkebunan (biji kopi, beras) (12.02)":
-    "Agricultural and plantation products (coffee beans, rice) (12.02)",
-  "Produk Tanaman dan Turunannya (15)": "Plant Products and Derivatives (15)",
-  "Produk Tanaman dan Turunanya (15)": "Plant Products and Derivatives (15)",
-  "ProdukTanaman dan Turunannya (15)": "Plant Products and Derivatives (15)",
-  "Serealia,umbi-umbiandan produkturunannya(15.01)":
-    "Cereals, tubers, and their products (15.01)",
-  "Gula, produkgula, pati(Sugar, sugarproducts,starch) (15.03)":
-    "Sugar, sugar products, and starch (15.03)",
-  "Kopi, teh,kakao, cokelat(Coffee, tea,cocoa) (15.06)":
-    "Coffee, tea, cocoa, and chocolate (15.06)",
-  "Minyak nabati,lemak, minyakbiji-bijian(Edible oils,fats, oilseeds)(15.07)":
-    "Vegetable oils, fats, and oilseeds (15.07)",
-  "Produk Pangan Lainnya (17)": "Other Food Products (17)",
-  "Minuman(Beverages,sirup, limun)(17.01)":
-    "Beverages, syrups, and lemonades (17.01)",
-  "Minuman(Beverages,sirup,limun) (17.01)":
-    "Beverages, syrups, and lemonades (17.01)",
-  "Bahan danProduk Kimia(18)": "Chemical Materials and Products (18)",
-  "Bahan dan Produk Kimia(18)": "Chemical Materials and Products (18)",
-  "Bahan dan Produk Kimia (18)": "Chemical Materials and Products (18)",
-  "ServicesCertification (27)": "Service Certification (27)",
-  "Pupuk (18.07)": "Fertilizers (18.07)",
-  "Beras": "Rice",
-  "Biji Kakao": "Cocoa Beans",
-  "Biji kakao": "Cocoa beans",
-  "Biji kakao / Bijikakao -AMANDEMEN 1":
-    "Cocoa beans / Cocoa beans - AMENDMENT 1",
-  "Biji kopi": "Coffee beans",
-  "Biji Kopi": "Coffee Beans",
-  "Biskuit": "Biscuits",
-  "Gula kristal putih": "White crystal sugar",
-  "Gula kristalrafinasi": "Refined crystal sugar",
-  "Gula kristal - Bagian2: Rafinasi": "Crystal sugar - Part 2: Refined sugar",
-  "Gula kristal mentah": "Raw crystal sugar",
-  "Kopi instan": "Instant coffee",
-  "Kopi Instan": "Instant Coffee",
-  "Kopi Sangrai dan Kopi Bubuk": "Roasted and Ground Coffee",
-  "Kopi gula krimer dalam kemasan": "Packaged coffee, sugar, and creamer",
-  "Kakao Bubuk": "Cocoa Powder",
-  "Minyak goreng sawit": "Palm cooking oil",
-  "Minyak goreng": "Cooking oil",
-  "Air mineral": "Mineral water",
-  "Air demineral": "Demineralized water",
-  "Air mineral alami": "Natural mineral water",
-  "Air minum embun": "Dew drinking water",
-  "Pupuk super fosfat SP - 36": "Superphosphate SP-36 fertilizer",
-  "Pupuk SP-36": "SP-36 fertilizer",
-  "Pupuk fosfat alam untuk pertanian": "Natural phosphate fertilizer for agriculture",
-  "Pupuk kalium klorida": "Potassium chloride fertilizer",
-  "Pupuk tripel super fosfat /TSP": "Triple superphosphate (TSP) fertilizer",
-  "Pupuk NPK padat": "Solid NPK fertilizer",
-  "Pupuk amonium sulfat (ZA)": "Ammonium sulfate (ZA) fertilizer",
-  "PPupuk amonium sulfat": "Ammonium sulfate fertilizer",
-  "Pupuk urea": "Urea fertilizer",
-  "Pupuk mono amonium fosfat (MAP)": "Monoammonium phosphate (MAP) fertilizer",
-  "Pupuk monoamonium fosfat": "Monoammonium phosphate fertilizer",
-  "Pupuk diamonium fosfat": "Diammonium phosphate fertilizer",
-  "Pupuk urea amonium fosfat": "Urea ammonium phosphate fertilizer",
-  "Pupuk tripel Super fosfat plus-Zn": "Triple superphosphate plus-Zn fertilizer",
-  "Pupuk tripel super fosfat plus-Zn (TSP-36 Plus Zn)":
-    "Triple superphosphate plus-Zn fertilizer (TSP-36 Plus Zn)",
-  "Pupuk super fosfat plus-Zn": "Superphosphate plus-Zn fertilizer",
-  "Pupuk super fosfat plus-Zn (SP-36 Plus-Zn)":
-    "Superphosphate plus-Zn fertilizer (SP-36 Plus-Zn)",
-  "Pupuk super fosfat tunggal": "Single superphosphate fertilizer",
-  "Pupuk super fosfat tunggal (SP-18)": "Single superphosphate fertilizer (SP-18)",
-  "Pupuk dolomit": "Dolomite fertilizer",
-  "Pupuk borat": "Borate fertilizer",
-  "Pupuk": "Fertilizer",
-  "Pupuk amonium klorida": "Ammonium chloride fertilizer",
-  "Pupuk kiseret": "Kieserite fertilizer",
-  "Pupuk kalium sulfat": "Potassium sulfate fertilizer",
-  "Pupuk cair hasil samping proses asam amino (Haspramin)":
-    "Amino acid process by-product liquid fertilizer (Haspramin)",
-  "Pasar rakyat": "People's market",
-  "PBSN No.4 Tahun 2021 Lampiran XVII":
-    "PBSN Regulation No. 4 of 2021, Annex XVII",
-  "PBSN No. 4 Tahun 2021 Lampiran XIII":
-    "PBSN Regulation No. 4 of 2021, Annex XIII",
-  "Peraturan BSN No. 7Tahun 2024": "BSN Regulation No. 7 of 2024",
-  "Peralatan masak (Cookware) dari logam": "Metal cookware",
-  "Peralatan makan dan perlengkapan masak dari baja tahan karat (stainless steel flatware)":
-    "Stainless steel tableware and cooking utensils",
-  "Pupuk SP 36": "SP-36 fertilizer",
-  "Pupuk Fosfat Alam Untuk Pertanian":
-    "Natural phosphate fertilizer for agriculture",
-  "Pupuk Kalium Klorida": "Potassium chloride fertilizer",
-  "Pupuk Triple Super Fosfat / TSP":
-    "Triple superphosphate (TSP) fertilizer",
-  "Pupuk NPK Padat": "Solid NPK fertilizer",
-  "Pupuk Amonium Sulfat / ZA": "Ammonium sulfate (ZA) fertilizer",
-  "Pupuk Urea": "Urea fertilizer",
   "Surveilan": "Surveillance",
   "Perubahan Ruang Lingkup": "Scope Change",
   "Alur Penambahan Ruang Lingkup Produk atau Merek":
@@ -665,6 +533,18 @@ const english = {
   "Mendorong penciptaan tenaga kerja terampil yang dapat diandalkan bagi perusahaan, masyarakat dan negara":
     "Foster a skilled and reliable workforce that contributes to the company, society, and the nation",
   "Tracking Status Sertifikat": "Certificate Status Tracking",
+  "Informasi kalibrasi": "Calibration information",
+  "Informasi Layanan": "Service Information",
+  "Layanan Kalibrasi": "Calibration Services",
+  "Pemeriksaan yang Terpublikasi": "Published Checks",
+  "Periksa status sertifikat kalibrasi yang telah terdaftar melalui pencarian nomor sertifikat.":
+    "Check the status of registered calibration certificates by searching for a certificate number.",
+  "Informasi Terpelihara": "Well-Maintained Information",
+  "Informasi sertifikat disajikan secara terstruktur, termasuk nomor, masa berlaku, dan statusnya.":
+    "Certificate information is presented in a structured format, including its number, validity period, and status.",
+  "Ketersediaan": "Availability",
+  "Gunakan layanan ini kapan saja dengan menyiapkan nomor sertifikat yang ingin diperiksa.":
+    "Use this service whenever you need it by preparing the certificate number you want to check.",
   "Data sertifikat": "Certificate data",
   "Masukkan nomor sertifikat untuk mengecek status dan informasi sertifikat yang terdaftar pada layanan ini. Pencarian hanya menampilkan sertifikat yang sesuai dengan nomor yang diinputkan.":
     "Enter the certificate number to check the status and details of certificates registered under this service. Search results only display the certificate matching the entered number.",
@@ -675,520 +555,31 @@ const english = {
   "Format Nomor Sertifikat:": "Certificate Number Format:",
   "sertifikat": "certificate",
   "Nama pabrik": "Factory name",
+  "Nama Pabrik": "Factory Name",
+  "Nomor SNI": "SNI Number",
+  "Nomor Sertifikat": "Certificate Number",
+  "Contoh Nomor Sertifikat:": "Sample Certificate Numbers:",
+  "Masukkan Nomor Sertifikat (contoh: PSU-SPPT-2026-GAHA)": "Enter Certificate Number (e.g., PSU-SPPT-2026-GAHA)",
+  "Masukkan Nomor Sertifikat (contoh: PSU-LP-2026-BKLN)": "Enter Certificate Number (e.g., PSU-LP-2026-BKLN)",
+  "Masukkan Nomor Sertifikat (contoh: PSU-LK-2026-KLMN)": "Enter Certificate Number (e.g., PSU-LK-2026-KLMN)",
+  "Masukkan Nomor Sertifikat (contoh: PSU-LSSM-2026-ABCD)": "Enter Certificate Number (e.g., PSU-LSSM-2026-ABCD)",
   "Produk": "Product",
   "No. SNI": "SNI No.",
   "No. sertifikat": "Certificate No.",
   "Terbit": "Issued",
+  "Berlaku s.d.": "Valid Until",
   "Status": "Status",
   "Sumber": "Source",
   "Aktif": "Active",
+  "Ditangguhkan": "Suspended",
+  "Dicabut": "Revoked",
   "Tidak Aktif": "Inactive",
   "Data Sertifikat Tidak Ditemukan": "Certificate Data Not Found",
   "Silakan masukkan nomor sertifikat terlebih dahulu.":
     "Please enter a certificate number first.",
 };
 
-const additionalEnglish = {
-  "LABORATORIUM PENGUJIAN": "TESTING LABORATORY",
-  "Alur Proses Pengujian": "Testing Process Flow",
-  "Dari permohonan hingga hasil diterima, setiap tahap dilakukan secara terencana dan terdokumentasi.":
-    "From application to delivery of results, each stage is planned and documented.",
-  "TAHAPAN": "STAGES",
-  "Alur proses analisa laboratorium": "Laboratory Analysis Process Flow",
-  "Pilih gambar untuk melihat infografik dalam ukuran penuh.":
-    "Select the image to view the full-size infographic.",
-  "Buka infografik alur proses analisa ukuran penuh":
-    "Open the full-size laboratory analysis process infographic",
-  "Infografik alur proses analisa laboratorium dari permohonan pengujian hingga arsip dan rekaman":
-    "Infographic showing the laboratory analysis process, from a testing application through archiving and record keeping",
-  "Mari Terhubung dengan PSU": "Connect with PSU",
-  "Tim kami siap membantu kebutuhan pengujian, sertifikasi, dan informasi layanan Anda.":
-    "Our team is ready to assist with your testing, certification, and service information needs.",
-  "Respons Terarah": "Responsive Assistance",
-  "Kami siap membantu kebutuhan Anda": "We are ready to assist with your needs",
-  "Tim Kompeten": "Qualified Team",
-  "Dukungan profesional dan informatif": "Professional and informative support",
-  "Informasi Terjaga": "Confidential Information",
-  "Komunikasi ditangani dengan baik": "Your communications are handled with care",
-  "Tata Cara Permohonan Sertifikat Produk": "Product Certification Application Procedure",
-  "LSPro PT Penilai Standar Uji memberikan pelayanan sertifikasi produk berdasarkan persyaratan SNI, skema sertifikasi, serta peraturan perundang-undangan yang berlaku dengan mengutamakan kompetensi, ketidakberpihakan, kerahasiaan, dan transparansi.":
-    "The Product Certification Body (LSPro) of PT Penilai Standar Uji provides product certification services in accordance with SNI requirements, certification schemes, and applicable laws and regulations, while upholding competence, impartiality, confidentiality, and transparency.",
-  "1. Permohonan Sertifikasi Produk": "1. Product Certification Application",
-  "Calon klien mengajukan permohonan sertifikasi produk kepada LSPro PT Penilai Standar Uji dengan mengisi formulir permohonan dan melampirkan dokumen persyaratan sesuai jenis produk, standar acuan, serta skema sertifikasi yang diajukan.":
-    "Prospective clients apply for product certification through the LSPro of PT Penilai Standar Uji by completing an application form and submitting the required documents for the product type, reference standard, and certification scheme.",
-  "Untuk produk yang diwajibkan melalui Sistem Informasi Industri Nasional (SIINas), permohonan dilakukan melalui akun SIINas perusahaan sesuai mekanisme yang ditetapkan Kementerian Perindustrian.":
-    "For products required to use the National Industrial Information System (SIINas), applications must be submitted through the company's SIINas account in accordance with the procedures established by the Ministry of Industry.",
-  "2. Kajian Permohonan": "2. Application Review",
-  "LSPro PSU melakukan kajian terhadap permohonan untuk memastikan kelengkapan dokumen, kesesuaian ruang lingkup, ketersediaan personel kompeten, kemampuan pelaksanaan evaluasi, serta persyaratan sertifikasi yang berlaku.":
-    "PSU LSPro reviews the application to verify document completeness, scope suitability, availability of competent personnel, evaluation capability, and applicable certification requirements.",
-  "Apabila permohonan memenuhi persyaratan, proses dapat dilanjutkan ke tahap penawaran dan perjanjian sertifikasi.":
-    "If the application meets the requirements, the process may proceed to the quotation and certification agreement stage.",
-  "3. Penawaran dan Perjanjian Sertifikasi": "3. Certification Quotation and Agreement",
-  "LSPro PSU menyampaikan penawaran biaya berdasarkan jenis produk, skema sertifikasi, kebutuhan audit, pengambilan contoh, pengujian, serta kegiatan evaluasi lainnya.":
-    "PSU LSPro provides a quotation based on the product type, certification scheme, audit requirements, sampling, testing, and other evaluation activities.",
-  "Setelah penawaran disetujui, pemohon dan LSPro PSU melaksanakan perjanjian sertifikasi sesuai ketentuan yang berlaku.":
-    "Once the quotation is accepted, the applicant and PSU LSPro enter into a certification agreement in accordance with applicable requirements.",
-  "4. Evaluasi Proses Produksi dan Sistem Manajemen Mutu":
-    "4. Production Process and Quality Management System Evaluation",
-  "Untuk skema sertifikasi yang mensyaratkan audit, LSPro PSU melaksanakan evaluasi terhadap proses produksi dan/atau sistem manajemen mutu guna memastikan kemampuan produsen menghasilkan produk yang konsisten memenuhi persyaratan standar.":
-    "For certification schemes requiring an audit, PSU LSPro evaluates the production process and/or quality management system to verify the manufacturer's ability to consistently produce products that meet the standard requirements.",
-  "Evaluasi dapat mencakup pemeriksaan dokumen, verifikasi proses produksi, pengendalian mutu, serta pemeriksaan penerapan sistem manajemen di lokasi produksi.":
-    "The evaluation may include document reviews, production process verification, quality control, and assessment of the management system at the production site.",
-  "5. Pengambilan Contoh Produk": "5. Product Sampling",
-  "Pengambilan contoh produk dilaksanakan oleh Petugas Pengambil Contoh (PPC) yang ditugaskan sesuai persyaratan skema sertifikasi.":
-    "Product samples are collected by an appointed Sampling Officer (PPC) in accordance with the certification scheme requirements.",
-  "Contoh produk diidentifikasi, diberi label, dan didokumentasikan dalam Berita Acara Pengambilan Contoh untuk selanjutnya dilakukan pengujian pada laboratorium yang memenuhi persyaratan.":
-    "Product samples are identified, labeled, and documented in a Sampling Report before being tested at a laboratory that meets the applicable requirements.",
-  "6. Pengujian Produk": "6. Product Testing",
-  "Contoh produk diuji berdasarkan parameter dan metode pengujian yang dipersyaratkan dalam standar acuan.":
-    "Product samples are tested against the parameters and using the test methods required by the reference standard.",
-  "Apabila hasil pengujian menunjukkan ketidaksesuaian, tindak lanjut dilakukan sesuai ketentuan skema sertifikasi, termasuk kemungkinan pengujian ulang apabila diperbolehkan.":
-    "If test results indicate nonconformity, follow-up actions are taken in accordance with the certification scheme, including retesting where permitted.",
-  "7. Tinjauan dan Keputusan Sertifikasi": "7. Certification Review and Decision",
-  "LSPro PSU melakukan tinjauan terhadap seluruh hasil evaluasi, termasuk dokumen administrasi, hasil audit atau inspeksi, serta laporan hasil pengujian.":
-    "PSU LSPro reviews all evaluation results, including administrative documents, audit or inspection findings, and test reports.",
-  "Keputusan sertifikasi dilakukan oleh personel yang berwenang dan tidak terlibat dalam kegiatan evaluasi terhadap permohonan tersebut.":
-    "The certification decision is made by authorized personnel who were not involved in evaluating the application.",
-  "8. Penerbitan Sertifikat Produk": "8. Product Certificate Issuance",
-  "Sertifikat produk diterbitkan apabila seluruh persyaratan sertifikasi telah dipenuhi dan keputusan sertifikasi menyatakan bahwa produk memenuhi persyaratan yang ditetapkan.":
-    "A product certificate is issued when all certification requirements have been met and the certification decision confirms that the product complies with the specified requirements.",
-  "Masa berlaku sertifikat ditentukan berdasarkan skema sertifikasi dan ketentuan regulasi yang berlaku.":
-    "The certificate validity period is determined by the certification scheme and applicable regulations.",
-  "9. Perjanjian Lisensi dan Penggunaan Tanda Kesesuaian":
-    "9. License Agreement and Use of the Conformity Mark",
-  "Pemegang sertifikat wajib mematuhi ketentuan penggunaan sertifikat, lisensi, dan tanda kesesuaian.":
-    "Certificate holders must comply with the requirements for using the certificate, license, and conformity mark.",
-  "Penggunaan tanda SNI atau tanda kesesuaian lainnya hanya dapat dilakukan sesuai hak dan ketentuan yang diberikan berdasarkan peraturan yang berlaku.":
-    "The SNI mark or any other conformity mark may only be used within the rights granted and in accordance with applicable regulations.",
-  "10. Surveilans Sertifikasi Produk": "10. Product Certification Surveillance",
-  "Untuk skema sertifikasi yang mensyaratkan surveilans, LSPro PSU melaksanakan pemantauan berkala guna memastikan produk yang telah disertifikasi tetap memenuhi persyaratan.":
-    "For certification schemes requiring surveillance, PSU LSPro conducts periodic monitoring to ensure certified products continue to meet the requirements.",
-  "Surveilans dapat mencakup audit proses produksi, pengambilan contoh, pengujian produk, serta evaluasi tindak lanjut atas ketidaksesuaian.":
-    "Surveillance may include production process audits, sampling, product testing, and review of follow-up actions for nonconformities.",
-  "11. Sertifikasi Ulang": "11. Recertification",
-  "Pemegang sertifikat yang akan melanjutkan sertifikasi setelah berakhirnya masa berlaku sertifikat dapat mengajukan sertifikasi ulang sesuai ketentuan skema yang berlaku.":
-    "Certificate holders wishing to continue certification after their certificate expires may apply for recertification in accordance with the applicable scheme.",
-  "12. Perluasan dan Pengurangan Ruang Lingkup Sertifikasi":
-    "12. Extension and Reduction of Certification Scope",
-  "Pemegang sertifikat dapat mengajukan perubahan ruang lingkup sertifikasi, termasuk penambahan atau pengurangan merek, tipe, jenis, atau produk sesuai ketentuan yang berlaku.":
-    "Certificate holders may request changes to the certification scope, including adding or removing brands, types, categories, or products, in accordance with applicable requirements.",
-  "LSPro PSU melakukan kajian untuk menentukan kegiatan evaluasi tambahan yang diperlukan sebelum menetapkan keputusan perubahan ruang lingkup.":
-    "PSU LSPro reviews the request to determine any additional evaluation required before deciding on a scope change.",
-  "13. Pembekuan, Pencabutan, dan Pengakhiran Sertifikasi":
-    "13. Suspension, Withdrawal, and Termination of Certification",
-  "LSPro PSU dapat melakukan pembekuan, pencabutan, atau pengakhiran sertifikasi apabila pemegang sertifikat tidak memenuhi persyaratan sertifikasi, menyalahgunakan sertifikat atau tanda kesesuaian, maupun berdasarkan alasan lain sesuai ketentuan yang berlaku.":
-    "PSU LSPro may suspend, withdraw, or terminate certification if the certificate holder fails to meet certification requirements, misuses the certificate or conformity mark, or for other reasons permitted by applicable requirements.",
-  "Setiap keputusan disampaikan kepada pemegang sertifikat melalui pemberitahuan resmi.":
-    "All decisions are communicated to the certificate holder through an official notice.",
-  "14. Kerahasiaan Informasi": "14. Confidentiality of Information",
-  "LSPro PSU menjaga kerahasiaan seluruh informasi yang diperoleh selama proses sertifikasi, kecuali informasi yang wajib diungkapkan berdasarkan ketentuan hukum, peraturan, atau persyaratan akreditasi.":
-    "PSU LSPro keeps all information obtained during the certification process confidential, except where disclosure is required by law, regulations, or accreditation requirements.",
-  "15. Keluhan dan Banding": "15. Complaints and Appeals",
-  "Pemohon dan pemegang sertifikat berhak menyampaikan keluhan terhadap pelayanan sertifikasi maupun mengajukan banding atas keputusan sertifikasi.":
-    "Applicants and certificate holders may submit complaints about certification services or appeal certification decisions.",
-  "Setiap keluhan dan banding ditangani secara objektif, tidak berpihak, dan sesuai prosedur yang ditetapkan LSPro PSU.":
-    "All complaints and appeals are handled objectively, impartially, and in accordance with PSU LSPro procedures.",
-  "16. Biaya Sertifikasi": "16. Certification Fees",
-  "Biaya sertifikasi ditentukan berdasarkan ruang lingkup produk, skema sertifikasi, lokasi produksi, kebutuhan audit, pengambilan contoh, pengujian, serta kegiatan sertifikasi lainnya.":
-    "Certification fees are determined by the product scope, certification scheme, production location, audit requirements, sampling, testing, and other certification activities.",
-  "Rincian biaya disampaikan kepada pemohon melalui penawaran resmi LSPro PSU sebelum pelaksanaan kegiatan sertifikasi.":
-    "A detailed quotation is provided to the applicant by PSU LSPro before certification activities begin.",
-};
-
-const certificationRightsEnglish = {
- "LEMBAGA SERTIFIKASI PRODUK (LSPro)": "PRODUCT CERTIFICATION BODY (LSPro)",
- "Hak Klien": "Client Rights",
- "Kewajiban Klien": "Client Obligations",
- "Ketentuan Umum": "General Provisions",
- "Memperoleh layanan sertifikasi produk secara profesional, objektif, tidak diskriminatif, dan tidak berpihak sesuai persyaratan yang berlaku.":
-   "Receive professional, objective, nondiscriminatory, and impartial product certification services in accordance with applicable requirements.",
- "Memperoleh sertifikat produk dan hak penggunaan tanda kesesuaian apabila telah memenuhi seluruh persyaratan sertifikasi dan ketentuan perizinan yang berlaku.":
-   "Receive a product certificate and the right to use the conformity mark after meeting all certification requirements and applicable licensing provisions.",
- "Mendapatkan informasi mengenai prosedur, biaya, persyaratan, perubahan ketentuan sertifikasi, serta masa berlaku sertifikat.":
-   "Receive information about procedures, fees, requirements, changes to certification provisions, and certificate validity periods.",
- "Mengajukan permohonan sertifikasi baru, perluasan, pengurangan, perubahan ruang lingkup, dan sertifikasi ulang sesuai ketentuan yang berlaku.":
-   "Apply for new certification, extensions, reductions, scope changes, and recertification in accordance with applicable requirements.",
- "Mengajukan keluhan, pengaduan, dan banding terhadap proses pelayanan maupun keputusan sertifikasi melalui mekanisme yang ditetapkan LSPro PSU.":
-   "Submit complaints and appeals about services or certification decisions through the procedures established by PSU LSPro.",
- "Memperoleh jaminan kerahasiaan informasi dan perlindungan data yang disampaikan selama proses sertifikasi sesuai ketentuan yang berlaku.":
-   "Have information kept confidential and data protected during the certification process in accordance with applicable requirements.",
- "Menggunakan dan mempublikasikan status sertifikasi secara benar sesuai ruang lingkup sertifikat dan ketentuan penggunaan tanda kesesuaian.":
-   "Accurately use and publish certification status in accordance with the certificate scope and conformity mark requirements.",
- "Memenuhi seluruh persyaratan sertifikasi, standar produk, skema sertifikasi, perjanjian sertifikasi, serta peraturan perundang-undangan yang berlaku, termasuk setiap perubahan persyaratan yang telah dikomunikasikan.":
-   "Meet all certification requirements, product standards, certification schemes, certification agreements, and applicable laws and regulations, including any communicated changes to requirements.",
- "Menjamin produk yang disertifikasi senantiasa memenuhi persyaratan standar dan menjaga konsistensi mutu produk selama masa berlaku sertifikasi.":
-   "Ensure certified products continuously meet the standard requirements and maintain consistent product quality throughout the certification period.",
- "Menyediakan dokumen, rekaman, informasi, fasilitas, personel, serta akses yang diperlukan untuk pelaksanaan evaluasi, audit, pengambilan contoh, pengujian, surveilans, penyelidikan keluhan, dan penyaksian oleh pihak berwenang apabila diperlukan.":
-   "Provide the documents, records, information, facilities, personnel, and access required for evaluations, audits, sampling, testing, surveillance, complaint investigations, and witnessing by authorized parties when necessary.",
- "Menggunakan sertifikat, lisensi, dan tanda kesesuaian hanya untuk produk dalam ruang lingkup sertifikasi serta tidak membuat pernyataan atau publikasi yang menyesatkan.":
-   "Use certificates, licenses, and conformity marks only for products within the certification scope and do not make misleading statements or publications.",
- "Menyelesaikan ketidaksesuaian dan melaksanakan tindakan perbaikan sesuai batas waktu yang ditetapkan LSPro PSU.":
-   "Resolve nonconformities and implement corrective actions within the timeframe set by PSU LSPro.",
- "Memberitahukan setiap perubahan legalitas, organisasi, lokasi produksi, desain produk, proses produksi, sistem manajemen, atau perubahan lainnya yang dapat memengaruhi pemenuhan persyaratan sertifikasi.":
-   "Notify PSU LSPro of changes to legal status, organization, production locations, product design, production processes, management systems, or other matters that could affect compliance with certification requirements.",
- "Memelihara rekaman keluhan pelanggan terkait produk yang disertifikasi, melakukan investigasi dan tindakan perbaikan, serta menyediakan rekaman tersebut apabila diminta LSPro PSU.":
-   "Maintain records of customer complaints about certified products, investigate them, take corrective action, and provide the records to PSU LSPro upon request.",
- "Menghentikan penggunaan sertifikat, tanda kesesuaian, dan seluruh publikasi terkait apabila sertifikasi ditangguhkan, dicabut, diakhiri, atau berakhir masa berlakunya, serta melaksanakan tindakan lain sesuai ketentuan LSPro PSU.":
-   "Stop using the certificate, conformity mark, and related publications if certification is suspended, withdrawn, terminated, or expired, and take any other action required by PSU LSPro.",
- "Memenuhi kewajiban pembayaran biaya sertifikasi dan kegiatan terkait sesuai perjanjian yang disepakati.":
-   "Pay certification fees and related costs in accordance with the agreed contract.",
- "Menjaga keabsahan dokumen sertifikasi, memberikan salinan dokumen secara utuh atau sesuai ketentuan skema, serta menyediakan informasi distribusi produk apabila diperlukan untuk kegiatan sertifikasi atau pengawasan.":
-   "Maintain the validity of certification documents, provide complete copies or copies as required by the scheme, and provide product distribution information when needed for certification or monitoring activities.",
- "Hak dan kewajiban ini berlaku bagi klien LSPro PT Penilai Standar Uji sesuai tahapan dan status sertifikasinya, serta menjadi bagian dari persyaratan dan perjanjian sertifikasi. Ketentuan lebih lanjut mengacu pada skema sertifikasi, prosedur LSPro PSU, dan peraturan perundang-undangan yang berlaku.":
-   "These rights and obligations apply to clients of the PT Penilai Standar Uji LSPro according to their certification stage and status, and form part of the certification requirements and agreement. Further provisions are set out in the certification scheme, PSU LSPro procedures, and applicable laws and regulations.",
- "Keluhan / Pengaduan": "Complaints",
- "Setiap klien maupun pihak berkepentingan berhak menyampaikan keluhan atau pengaduan terkait pelayanan, kompetensi dan perilaku personel, proses sertifikasi, maupun kegiatan sertifikasi produk yang dilaksanakan oleh LSPro PSU.":
-   "Clients and interested parties may submit complaints about services, personnel competence or conduct, the certification process, or product certification activities conducted by PSU LSPro.",
- "Keluhan disampaikan secara tertulis melalui saluran komunikasi resmi LSPro PSU dengan mencantumkan identitas pengadu, uraian permasalahan, serta bukti pendukung apabila tersedia.":
-   "Complaints should be submitted in writing through PSU LSPro's official communication channels and include the complainant's identity, a description of the issue, and supporting evidence where available.",
- "LSPro PSU akan menerima, mencatat, memvalidasi, mengevaluasi, dan menindaklanjuti setiap keluhan secara objektif, tidak berpihak, serta menjaga kerahasiaan informasi pihak terkait.":
-   "PSU LSPro receives, records, validates, evaluates, and follows up on each complaint objectively and impartially, while protecting the confidentiality of the parties involved.",
- "Penanganan keluhan dilakukan oleh personel yang tidak terlibat dalam kegiatan yang menjadi objek keluhan. Hasil penanganan akan disampaikan kepada pihak pengadu sesuai prosedur yang berlaku.":
-   "Complaints are handled by personnel who were not involved in the activities concerned. The outcome is communicated to the complainant in accordance with applicable procedures.",
- "Penyampaian keluhan tidak akan mengakibatkan tindakan diskriminatif terhadap pihak yang mengajukan pengaduan.":
-   "No discriminatory action will be taken against anyone who submits a complaint.",
- "Tanggung Gugat": "Liability",
- "LSPro PSU bertanggung jawab atas pelaksanaan kegiatan sertifikasi produk sesuai ruang lingkup layanan, perjanjian sertifikasi, dan peraturan perundang-undangan yang berlaku.":
-   "PSU LSPro is responsible for conducting product certification activities in accordance with its service scope, certification agreement, and applicable laws and regulations.",
- "LSPro PSU memiliki pengaturan yang memadai untuk memenuhi tanggung gugat yang timbul dari kegiatan operasional sertifikasi, melalui mekanisme keuangan, asuransi, atau bentuk pengaturan lain yang sesuai.":
-   "PSU LSPro maintains adequate arrangements to address liabilities arising from certification operations through financial provisions, insurance, or other appropriate arrangements.",
- "Tanggung jawab atas mutu, keamanan, proses produksi, dan kesesuaian produk yang diedarkan tetap berada pada produsen atau pemegang sertifikat sesuai ketentuan peraturan perundang-undangan.":
-   "Responsibility for the quality, safety, production process, and conformity of products placed on the market remains with the manufacturer or certificate holder, as required by applicable laws and regulations.",
- "Penyelesaian perselisihan atau tuntutan hukum terkait kegiatan sertifikasi dilakukan berdasarkan perjanjian yang berlaku dan ketentuan hukum di Indonesia.":
-   "Disputes or legal claims related to certification activities are resolved under the applicable agreement and the laws of Indonesia.",
- "Banding": "Appeals",
- "Klien berhak mengajukan banding terhadap keputusan sertifikasi LSPro PSU, termasuk penolakan, pengurangan ruang lingkup, penangguhan, atau pencabutan sertifikat produk.":
-   "Clients may appeal PSU LSPro certification decisions, including rejection, scope reduction, suspension, or withdrawal of a product certificate.",
- "Banding diajukan secara tertulis kepada LSPro PSU paling lambat":
-   "Appeals must be submitted in writing to PSU LSPro no later than",
- "30 (tiga puluh) hari kalender": "30 (thirty) calendar days",
- "sejak diterimanya pemberitahuan keputusan sertifikasi, dengan menyertakan alasan serta bukti pendukung yang relevan.":
-   "after receiving notification of the certification decision, together with the reasons for the appeal and relevant supporting evidence.",
- "LSPro PSU akan menerima, mencatat, memvalidasi, dan mengevaluasi setiap permohonan banding sesuai prosedur yang ditetapkan.":
-   "PSU LSPro receives, records, validates, and evaluates each appeal in accordance with its established procedures.",
- "Penanganan dan keputusan banding dilakukan oleh personel atau panel yang kompeten, independen, tidak berpihak, dan tidak terlibat dalam kegiatan evaluasi maupun pengambilan keputusan sertifikasi yang menjadi objek banding.":
-   "Appeals are handled and decided by competent, independent, and impartial personnel or a panel not involved in the evaluation or certification decision being appealed.",
- "LSPro PSU bertanggung jawab atas seluruh keputusan dalam proses penanganan banding dan akan menyampaikan perkembangan serta hasil keputusan secara tertulis kepada pemohon banding.":
-   "PSU LSPro is responsible for all decisions in the appeal process and provides the appellant with written updates and the outcome.",
- "Pengajuan, pemeriksaan, dan keputusan banding tidak boleh mengakibatkan tindakan diskriminatif terhadap pemohon banding.":
-   "The submission, review, and decision of an appeal must not result in discriminatory action against the appellant.",
- "Keputusan banding disampaikan sebagai penyelesaian melalui mekanisme internal LSPro PSU, tanpa menghilangkan hak para pihak untuk menempuh upaya hukum sesuai peraturan perundang-undangan yang berlaku.":
-   "The appeal decision concludes the internal PSU LSPro process without limiting the parties' right to pursue legal remedies under applicable laws and regulations.",
- "Tanggung Gugat, Keluhan dan Banding": "Liability, Complaints and Appeals",
- "Penyampaian Keluhan dan Banding": "Submitting Complaints and Appeals",
- "Keluhan, pengaduan, dan banding dapat disampaikan secara tertulis kepada:":
-   "Complaints and appeals may be submitted in writing to:",
- "LSPro PT Penilai Standar Uji (PSU)":
-   "PT Penilai Standar Uji Product Certification Body (PSU LSPro)",
- "Ditujukan kepada": "Attention",
- "Kepala LSPro / Penanggung Jawab Penanganan Keluhan dan Banding":
-   "Head of LSPro / Complaints and Appeals Officer",
- "Jalan Cipinang Muara 1 No. 21, Kelurahan Pondok Bambu, Kecamatan Duren Sawit, Jakarta Timur, DKI Jakarta":
-   "Jalan Cipinang Muara 1 No. 21, Pondok Bambu, Duren Sawit, East Jakarta, Jakarta Special Capital Region",
- "Setiap keluhan dan banding akan ditangani secara profesional, objektif, transparan, dan menjaga kerahasiaan sesuai prosedur LSPro PSU.":
-   "All complaints and appeals are handled professionally, objectively, transparently, and confidentially in accordance with PSU LSPro procedures.",
- "Informasi ketentuan penggunaan Tanda SNI sesuai peraturan yang berlaku.":
-   "Information on the use of the SNI Mark in accordance with applicable regulations.",
- "Standar Nasional Indonesia (SNI) merupakan standar yang ditetapkan oleh Badan Standardisasi Nasional (BSN) dan berlaku di wilayah Indonesia. Penggunaan Tanda SNI menunjukkan bahwa barang, jasa, proses, sistem, atau personal telah memenuhi persyaratan acuan yang berlaku. Pembubuhan Tanda SNI harus didasarkan pada sertifikat kesesuaian dan persetujuan penggunaan tanda sesuai ketentuan.":
-   "The Indonesian National Standard (SNI) is a standard established by the National Standardization Agency of Indonesia (BSN) and applicable in Indonesia. The SNI Mark indicates that a product, service, process, system, or person meets the applicable reference requirements. The SNI Mark may only be affixed on the basis of a conformity certificate and approval to use the mark, as required.",
- "Pengajuan penggunaan Tanda SNI dilakukan melalui pemenuhan persyaratan standar, penerbitan sertifikat kesesuaian oleh Lembaga Penilaian Kesesuaian (LPK) yang sesuai, serta pengajuan permohonan persetujuan penggunaan tanda. Pemegang persetujuan wajib menjaga kesesuaian terhadap standar dan menggunakan tanda sesuai ketentuan.":
-   "Applications to use the SNI Mark require compliance with the standard, a conformity certificate issued by an appropriate Conformity Assessment Body (LPK), and an application for approval to use the mark. Approval holders must maintain conformity with the standard and use the mark in accordance with applicable requirements.",
- "TATA CARA PENGGUNAAN TANDA SNI DAN TANDA KESESUAIAN BERBASIS SNI":
-   "PROCEDURE FOR USING THE SNI MARK AND SNI-BASED CONFORMITY MARK",
- "PDF · Dokumen ketentuan penggunaan Tanda SNI":
-   "PDF · SNI Mark usage requirements",
- "Ketentuan Penggunaan Tanda SNI": "SNI Mark Usage Requirements",
- "TATA CARA PENGGUNAAN TANDA SNI DAN TANDA KESESUAIAN BERBASIS SNI.pdf":
-   "PROCEDURE FOR USING THE SNI MARK AND SNI-BASED CONFORMITY MARK.pdf",
- "RUANG LINGKUP LAYANAN": "SERVICE SCOPE",
- "Daftar Layanan Kalibrasi dan Pengujian Alat Kesehatan":
-   "Medical Device Calibration and Testing Services",
- "Berikut daftar alat kesehatan yang berpotensi dilayani berdasarkan jenis kalibrator yang dimiliki PSU.":
-   "The following medical devices may be serviced based on the types of calibrators owned by PSU.",
- "Daftar kelompok dan jenis alat kesehatan yang berpotensi dilayani PSU":
-   "List of medical device groups and types that PSU may service",
- "No.": "No.",
- "Kelompok alat": "Equipment group",
- "Jenis alat kesehatan": "Medical device type",
- "Peralatan pernapasan": "Respiratory equipment",
- "Ventilator ICU": "ICU ventilator",
- "Ventilator transport": "Transport ventilator",
- "Ventilator neonatal": "Neonatal ventilator",
- "CPAP": "CPAP",
- "BiPAP": "BiPAP",
- "Flowmeter oksigen medis": "Medical oxygen flowmeter",
- "Oxygen blender (parameter aliran)": "Oxygen blender (flow parameter)",
- "Peralatan neonatal": "Neonatal equipment",
- "Baby incubator": "Baby incubator",
- "Transport incubator": "Transport incubator",
- "Peralatan diagnostik": "Diagnostic equipment",
- "Electrocardiograph (ECG/EKG)": "Electrocardiograph (ECG/EKG)",
- "Peralatan monitoring": "Monitoring equipment",
- "ECG monitor": "ECG monitor",
- "Patient monitor": "Patient monitor",
- "Bedside monitor": "Bedside monitor",
- "Peralatan tekanan darah": "Blood pressure equipment",
- "Tensimeter digital": "Digital sphygmomanometer",
- "Tensimeter aneroid": "Aneroid sphygmomanometer",
- "NIBP monitor": "NIBP monitor",
- "Peralatan kegawatdaruratan": "Emergency equipment",
- "Defibrillator manual": "Manual defibrillator",
- "Automated External Defibrillator (AED)": "Automated External Defibrillator (AED)",
- "Peralatan penimbangan": "Weighing equipment",
- "Timbangan badan digital": "Digital body scale",
- "Timbangan badan mekanik": "Mechanical body scale",
- "Timbangan bayi": "Baby scale",
- "Timbangan kursi roda": "Wheelchair scale",
-"RUANG LINGKUP KALIBRASI": "CALIBRATION SCOPE",
-"Kenali berbagai alat standar yang mendukung layanan kalibrasi alat kesehatan kami.":
-  "Explore the standard equipment that supports our medical device calibration services.",
-"DAFTAR ALAT KALIBRATOR PSU": "PSU CALIBRATION EQUIPMENT",
-"Kontrol slider produk": "Product slider controls",
-"Geser produk ke kiri": "Scroll products left",
-"Geser produk ke kanan": "Scroll products right",
-"Lihat foto": "View photo",
-"Tutup foto produk": "Close product photo",
-"Alat kesehatan kalibrasi": "Medical device calibration equipment",
-"Anak Timbang F1": "F1 Calibration Weight",
-"Anak Timbang M2 (20 Kg)": "M2 Calibration Weight (20 kg)",
-"Anak Timbang M2 (10 Kg)": "M2 Calibration Weight (10 kg)",
-"Anak Timbang M2 (2 Kg)": "M2 Calibration Weight (2 kg)",
-"TAHAPAN": "STEPS",
-"Alur proses analisa laboratorium": "Laboratory analysis process flow",
-"Pilih gambar untuk melihat infografik dalam ukuran penuh.":
-  "Select the image to view the infographic at full size.",
-"Buka gambar untuk melihat ukuran penuh di tab baru":
-  "Open the image at full size in a new tab",
-"Buka sertifikat akreditasi ukuran penuh di tab baru":
-  "Open the accreditation certificate at full size in a new tab",
-"Buka sertifikat akreditasi laboratorium penguji ukuran penuh di tab baru":
-  "Open the testing laboratory accreditation certificate at full size in a new tab",
-"Buka gambar NIB ukuran penuh di tab baru":
-  "Open the business identification number document at full size in a new tab",
-"Lampiran ruang lingkup akreditasi LSPr-051-IDN":
-  "LSPr-051-IDN accreditation scope attachment",
-"Lampiran ruang lingkup akreditasi Laboratorium Pengujian LP-1554-IDN":
-  "LP-1554-IDN testing laboratory accreditation scope attachment",
-"Sertifikat akreditasi LSPr-051-IDN dari Komite Akreditasi Nasional":
-  "LSPr-051-IDN accreditation certificate issued by the National Accreditation Committee",
-"Sertifikat akreditasi Laboratorium Penguji LP-1554-IDN":
-  "LP-1554-IDN testing laboratory accreditation certificate",
-"Dokumen Nomor Induk Berusaha PT PENILAI STANDAR UJI":
-  "Business Identification Number document for PT PENILAI STANDAR UJI",
-"Klik gambar untuk membuka dokumen asli di tab baru.":
-  "Click the image to open the original document in a new tab.",
-"Bersihkan input": "Clear input",
-"Perhatian": "Attention",
-"Nomor sertifikat": "Certificate number",
-"tidak ditemukan pada database": "was not found in the database",
-"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0001)":
-  "Enter certificate number (e.g. PSU-SPPT-2026-0001)",
-"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0101)":
-  "Enter certificate number (e.g. PSU-SPPT-2026-0101)",
-"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0201)":
-  "Enter certificate number (e.g. PSU-SPPT-2026-0201)",
-"Masukkan No. Sertifikat (contoh: PSU-SPPT-2026-0301)":
-  "Enter certificate number (e.g. PSU-SPPT-2026-0301)",
-"Tidak dapat terhubung ke server API MySQL.":
-  "Unable to connect to the MySQL API server.",
-"Terjadi kesalahan saat memeriksa sertifikat.":
-  "An error occurred while checking the certificate.",
-"Gagal terhubung ke server backend (port 5000). Pastikan Anda sudah menjalankan 'npm start' di dalam folder backend dan MySQL di XAMPP sudah Start.":
-  "Could not connect to the backend server (port 5000). Make sure you have run 'npm start' in the backend folder and started MySQL in XAMPP.",
-"Preview Artikel": "Article preview",
-"Form Tambah Berita & Artikel Baru": "New News & Article Form",
-"Menyelenggarakan Layanan Penilaian Kesesuaian yang Profesional dan Terpercaya":
-  "Delivering professional and trusted conformity assessment services",
-"Menjamin Mutu, Akurasi, dan Keandalan Layanan":
-  "Ensuring service quality, accuracy, and reliability",
-"Mengembangkan Kompetensi dan Profesionalisme Sumber Daya Manusia":
-  "Developing the competence and professionalism of our people",
-"Mendorong Inovasi dan Transformasi Digital":
-  "Advancing innovation and digital transformation",
-"Memperkuat Kemitraan dan Daya Saing Industri Nasional":
-  "Strengthening partnerships and the competitiveness of national industries",
-"Ingin Mengetahui Lebih Lanjut Tentang Layanan Kami?":
-  "Would You Like to Learn More About Our Services?",
-"Silahkan Hubungi Kami": "Please Contact Us",
-"Ruang Lingkup Sertifikasi Produk": "Product Certification Scope",
-"Sertifikasi Awal (Sukarela)": "Initial Certification (Voluntary)",
-"Sertifikasi Awal (SIINAS)": "Initial Certification (SIINAS)",
-"Contoh produk diambil dan diuji sesuai persyaratan skema sertifikasi.":
-  "Product samples are collected and tested in accordance with the certification scheme requirements.",
-"Biaya dan Penawaran Sertifikasi Produk":
-  "Product Certification Fees and Quotation",
-"Wujudkan Kepercayaan dan Tingkatkan Daya Saing Produk Anda melalui Sertifikasi Produk.":
-  "Build Trust and Strengthen Your Product's Competitiveness through Product Certification.",
-"LSPro PT Penilai Standar Uji (PSU) menyediakan layanan sertifikasi produk sesuai dengan ruang lingkup sertifikasi yang berlaku, dengan proses yang profesional, independen, transparan, dan mengacu pada persyaratan standar serta ketentuan yang berlaku.":
-  "The Product Certification Body (LSPro) of PT Penilai Standar Uji (PSU) provides product certification services within its approved scope. Our process is professional, independent, transparent, and follows applicable standards and requirements.",
-"Biaya sertifikasi disesuaikan dengan jenis produk, ruang lingkup sertifikasi, skema sertifikasi, kebutuhan pengujian, serta tahapan evaluasi kesesuaian yang diperlukan.":
-  "Certification fees depend on the product type, certification scope and scheme, testing requirements, and conformity assessment stages required.",
-"Untuk memperoleh informasi lebih lanjut mengenai rincian biaya, persyaratan, dan penawaran sertifikasi produk, silakan menghubungi tim layanan pelanggan LSPro PSU.":
-  "For information about fees, requirements, and product certification quotations, please contact the PSU LSPro customer service team.",
-"Konsultasikan Kebutuhan Sertifikasi Produk Anda":
-  "Discuss Your Product Certification Needs",
-"Tim kami siap membantu memberikan informasi layanan dan penawaran sesuai kebutuhan sertifikasi produk Anda.":
-  "Our team is ready to provide service information and a quotation tailored to your product certification needs.",
-"Ajukan Permintaan Penawaran": "Request a Quotation",
-"Biaya dan Penawaran Layanan Pengujian":
-  "Testing Service Fees and Quotation",
-"Solusi Pengujian Produk yang Akurat, Andal, dan Profesional.":
-  "Accurate, Reliable, and Professional Product Testing Solutions.",
-"Laboratorium PT Penilai Standar Uji (PSU) menyediakan layanan pengujian produk berdasarkan metode pengujian, standar acuan, serta ruang lingkup kemampuan laboratorium yang berlaku.":
-  "The PT Penilai Standar Uji (PSU) laboratory provides product testing services using applicable test methods and reference standards within the laboratory's approved capabilities.",
-"Kami berkomitmen memberikan layanan pengujian yang profesional, objektif, dan terpercaya untuk mendukung pemenuhan persyaratan mutu, keamanan, serta kesesuaian produk terhadap standar yang ditetapkan.":
-  "We are committed to providing professional, objective, and trusted testing services to help products meet established quality, safety, and conformity requirements.",
-"Biaya pengujian ditentukan berdasarkan jenis produk atau sampel, parameter pengujian, metode atau standar yang digunakan, jumlah sampel, serta kebutuhan teknis pengujian.":
-  "Testing fees depend on the product or sample type, test parameters, methods or standards used, sample quantity, and technical testing requirements.",
-"Untuk mendapatkan informasi mengenai tarif pengujian, parameter yang tersedia, estimasi waktu penyelesaian, dan penawaran harga, silakan menghubungi tim layanan pelanggan Laboratorium PSU.":
-  "For information about testing rates, available parameters, estimated turnaround times, and quotations, please contact the PSU Laboratory customer service team.",
-"Dapatkan Penawaran Pengujian Sesuai Kebutuhan Anda":
-  "Get a Testing Quotation Tailored to Your Needs",
-"Sampaikan jenis produk dan parameter pengujian yang dibutuhkan. Tim kami siap membantu memberikan informasi teknis dan penawaran biaya pengujian.":
-  "Tell us the product type and test parameters you need. Our team can provide technical information and a testing quotation.",
-"Minta Penawaran Pengujian": "Request a Testing Quotation",
-"Untuk memenuhi kebutuhan sertifikasi sistem manajemen yang beragam, PT Penilai Standar Uji (PSU) menjalin kerja sama dengan lembaga sertifikasi yang telah terakreditasi, baik di dalam maupun luar negeri.":
-  "To address a range of management system certification needs, PT Penilai Standar Uji (PSU) works with accredited certification bodies in Indonesia and abroad.",
-"Untuk memenuhi kebutuhan sertifikasi sistem manajemen yang beragam,":
-  "To address a range of management system certification needs,",
-"PT Penilai Standar Uji (PSU) menjalin kerja sama dengan lembaga sertifikasi yang telah terakreditasi, baik di dalam maupun luar negeri.":
-  "PT Penilai Standar Uji (PSU) works with accredited certification bodies in Indonesia and abroad.",
-"Melalui kerja sama ini, PSU membantu perusahaan dan organisasi memperoleh akses terhadap layanan sertifikasi sistem manajemen sesuai standar nasional maupun internasional, kebutuhan operasional, dan ruang lingkup kegiatan usaha.":
-  "Through these partnerships, PSU helps companies and organizations access management system certification services suited to national and international standards, operational needs, and business scopes.",
-"Dengan dukungan mitra sertifikasi yang kompeten dan terakreditasi, PSU berkomitmen memberikan solusi sertifikasi yang profesional, terpercaya, dan sesuai kebutuhan perusahaan Anda.":
-  "With competent, accredited certification partners, PSU is committed to delivering professional, trusted certification solutions tailored to your organization's needs.",
-"Tingkatkan Kredibilitas, Kinerja, dan Kepercayaan terhadap Organisasi Anda melalui Sertifikasi Sistem Manajemen.":
-  "Strengthen Your Organization's Credibility, Performance, and Trust through Management System Certification.",
-"Konsultasikan Kebutuhan Sertifikasi Sistem Manajemen Anda":
-  "Discuss Your Management System Certification Needs",
-"Lembaga Sertifikasi Sistem Manajemen (LSSM) PT Penilai Standar Uji (PSU) menyediakan layanan sertifikasi sistem manajemen untuk mendukung organisasi dalam meningkatkan efektivitas pengelolaan, konsistensi penerapan standar, serta daya saing di tingkat nasional maupun internasional.":
-  "The Management System Certification Body (LSSM) of PT Penilai Standar Uji (PSU) provides certification services that help organizations improve management effectiveness, consistent implementation of standards, and competitiveness nationally and internationally.",
-"Dengan mengutamakan prinsip kompetensi, ketidakberpihakan, independensi, dan profesionalisme, LSSM PSU berkomitmen memberikan layanan sertifikasi yang objektif, transparan, dan sesuai dengan persyaratan standar serta ketentuan yang berlaku.":
-  "Guided by competence, impartiality, independence, and professionalism, LSSM PSU is committed to providing objective, transparent certification services that meet applicable standards and requirements.",
-"Biaya sertifikasi sistem manajemen ditentukan berdasarkan jenis standar sertifikasi, ruang lingkup kegiatan organisasi, jumlah personel efektif, jumlah lokasi operasional, kompleksitas proses, serta kebutuhan waktu audit sesuai dengan ketentuan skema sertifikasi yang berlaku.":
-  "Management system certification fees depend on the certification standard, organizational scope, number of effective personnel and operating locations, process complexity, and audit time required under the applicable certification scheme.",
-"Biaya dan Penawaran Sertifikasi Sistem Manajemen":
-  "Management System Certification Fees and Quotation",
-"Biaya sertifikasi sistem manajemen":
-  "Management system certification fees",
-"ditentukan berdasarkan jenis standar sertifikasi, ruang lingkup kegiatan organisasi, jumlah personel efektif, jumlah lokasi operasional, kompleksitas proses, serta kebutuhan waktu audit sesuai dengan ketentuan skema sertifikasi yang berlaku.":
-  "are determined by the certification standard, organizational scope, number of effective personnel and operating locations, process complexity, and audit time required under the applicable certification scheme.",
-"Untuk memperoleh informasi mengenai persyaratan sertifikasi, tahapan audit, estimasi biaya, dan penawaran resmi, silakan menghubungi tim layanan pelanggan LSSM PSU.":
-  "For information about certification requirements, audit stages, estimated fees, and official quotations, please contact the LSSM PSU customer service team.",
-"Tim kami siap membantu memberikan informasi dan penawaran sertifikasi yang disesuaikan dengan kebutuhan, karakteristik, dan ruang lingkup kegiatan organisasi Anda.":
-  "Our team is ready to provide certification information and a quotation tailored to your organization's needs, characteristics, and scope of activities.",
-"TAMBAH ARTIKEL": "ADD ARTICLE",
-"Tambah Artikel": "Add Article",
-"← Kembali ke Artikel": "← Back to Articles",
-"EDIT ARTIKEL": "EDIT ARTICLE",
-"Edit Artikel": "Edit Article",
-"Jasa Sertifikasi": "Certification Services",
-"Sertifikasi Jasa": "Service Certification",
-"Sertifikasi Produk": "Product Certification",
-"Pengujian Produk": "Product Testing",
-"Produk Logam": "Metal Products",
-"Kinerja Perusahaan": "Company Performance",
-"Sertifikasi": "Certification",
-"Kalibrasi": "Calibration",
-"Judul Berita / Artikel (Bahasa Inggris)":
-  "News / Article Title (English)",
-"Perubahan berita/artikel berhasil disimpan!":
-  "The news article changes were saved successfully!",
-"Divisi Sertifikasi Produk (LSPro)": "Product Certification Division (LSPro)",
-"Divisi Laboratorium Pengujian & Kalibrasi":
-  "Testing & Calibration Laboratory Division",
-"Tim Redaksi & Humas PSU": "PSU Editorial & Public Relations Team",
-"Isi formulir di bawah ini untuk mempublikasikan berita atau artikel baru ke halaman Beranda dan halaman Artikel.":
-  "Complete the form below to publish a new story or article on the Home and Articles pages.",
-"Kembali ke Artikel": "Back to Articles",
-"Judul Berita / Artikel (Bahasa Indonesia)": "News / Article Title (Indonesian)",
-"Judul Berita / Artikel (Bahasa Inggris - Opsional)":
-  "News / Article Title (English - Optional)",
-"Author / Penulis": "Author",
-"Kategori Utama": "Main Category",
-"Tanggal Publikasi": "Publication Date",
-"Status Publikasi": "Publication Status",
-"Published (Tampil di Website)": "Published (Visible on Website)",
-"Draft (Simpan sebagai Konsep)": "Draft (Save as Draft)",
-"Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)":
-  "Article Cover Image (Automatically Cropped to a 16:9 Ratio)",
-"Upload file gambar dari komputer Anda:": "Upload an image from your computer:",
-"Ganti gambar dari komputer Anda:": "Replace the image from your computer:",
-"Atau pilih gambar sampul yang tersedia:":
-  "Or choose an available cover image:",
-"-- Pilih Gambar Sampul --": "-- Select a Cover Image --",
-"Mengunggah gambar...": "Uploading image...",
-"Pratinjau Gambar (Rasio Seragam 16:9):":
-  "Image Preview (16:9 Ratio):",
-"Pratinjau Gambar Saat Ini (Rasio Seragam 16:9):":
-  "Current Image Preview (16:9 Ratio):",
-"Banner Kantor PSU 1": "PSU Office Banner 1",
-"Banner Kantor PSU 2": "PSU Office Banner 2",
-"Banner Kantor PSU 3": "PSU Office Banner 3",
-"Banner Kantor PSU 4": "PSU Office Banner 4",
-"Layanan LSPro": "Product Certification Body Services",
-"Laboratorium Pengujian": "Testing Laboratory",
-"Laboratorium Kalibrasi": "Calibration Laboratory",
-"Lembaga Pelatihan": "Training Institution",
-"Sistem Manajemen Mutu": "Quality Management System",
-"Daftar Tag / Tagline (Pisahkan dengan tanda koma)":
-  "Tags / Tagline (Separate with commas)",
-"Ringkasan Singkat / Excerpt (Tampil di Kartu Beranda)":
-  "Short Summary / Excerpt (Shown on the Home Card)",
-"Ringkasan Singkat / Excerpt": "Short Summary / Excerpt",
-"Ringkasan singkat 1-2 kalimat (jika dikosongkan akan diambil otomatis dari paragraf pertama)...":
-  "A 1–2 sentence summary (if left blank, it will be generated from the first paragraph)...",
-"Isi Lengkap Berita / Artikel (Bahasa Indonesia)":
-  "Full News / Article Content (Indonesian)",
-"Isi Lengkap Berita / Artikel (Bahasa Inggris - Opsional)":
-  "Full News / Article Content (English - Optional)",
-"Isi Lengkap Berita / Artikel (Bahasa Inggris)":
-  "Full News / Article Content (English)",
-"Gunakan baris kosong (Enter 2x) untuk memisahkan antar paragraf.":
-  "Use a blank line (press Enter twice) to separate paragraphs.",
-"Masukkan judul berita/artikel...": "Enter a news/article title...",
-"Kosongkan jika ingin disamakan dengan judul Bahasa Indonesia...":
-  "Leave blank to use the Indonesian title...",
-"Contoh: Press Release, Sertifikasi Produk, SNI, LSPro PSU, Kalibrasi":
-  "Example: Press Release, Product Certification, SNI, PSU LSPro, Calibration",
-"Jakarta — Tuliskan isi berita atau artikel lengkap di sini...":
-  "Jakarta — Write the full news story or article here...",
-"Kosongkan jika ingin menggunakan teks yang sama dengan Bahasa Indonesia...":
-  "Leave blank to use the same text as the Indonesian version...",
-"Menyimpan...": "Saving...",
-"Simpan & Publikasikan Artikel": "Save & Publish Article",
-"Simpan Perubahan": "Save Changes",
-"Batal": "Cancel",
-"Edit atau Hapus Berita & Artikel": "Edit or Delete News & Articles",
-"Pilih berita/artikel yang ingin diperbarui atau dihapus dari database.":
-  "Select the news article you want to update or delete from the database.",
-"Pilih Berita / Artikel yang Akan Diedit:":
-  "Select a News / Article to Edit:",
-"Hapus Berita / Artikel": "Delete News / Article",
-"Peringatan Hapus Artikel": "Delete Article Warning",
-"Apakah Anda yakin ingin menghapus artikel":
-  "Are you sure you want to delete the article",
-"? Data yang dihapus tidak dapat dikembalikan lagi.":
-  "? Deleted data cannot be recovered.",
-"Ya, Hapus Artikel": "Yes, Delete Article",
-"Menghapus...": "Deleting...",
-"Judul berita/artikel wajib diisi.": "News/article title is required.",
-"Isi berita/artikel wajib diisi.": "News/article content is required.",
-"Silakan pilih artikel yang akan diedit terlebih dahulu.":
-  "Please select an article to edit first.",
-"Gagal menyimpan artikel.": "Failed to save the article.",
-"Gagal memperbarui artikel.": "Failed to update the article.",
-"Gagal menghapus artikel.": "Failed to delete the article.",
-"Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan.":
-  "Could not connect to the MySQL server (port 5000). Make sure 'npm start' is running and MySQL is started in XAMPP.",
-"Berita/artikel baru berhasil disimpan dan dipublikasikan!":
-  "The new news article was saved and published successfully!",
-"Berita/artikel berhasil dihapus secara permanen.":
-  "The news article was permanently deleted.",
-};
-
 export function translateText(text, lang) {
   if (lang !== "en" || typeof text !== "string") return text;
-  const normalized = text.trim().replace(/\s+/g, " ");
-  return english[normalized] ?? certificationRightsEnglish[normalized] ?? additionalEnglish[normalized] ?? text;
+  return english[text] ?? text;
 }

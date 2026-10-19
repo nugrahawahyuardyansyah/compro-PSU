@@ -37,54 +37,6 @@
   margin-top: 8px;
 }
 
-.service-detail--legalitas-sertif .legalitas-document-content {
-  margin-top: 28px;
-}
-
-.service-detail--legalitas-sertif .legalitas-document {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 16px;
-  border: 1px solid #dfe4ec;
-  border-radius: 6px;
-  background: #f7f9fc;
-  text-align: center;
-}
-
-.service-detail--legalitas-sertif .legalitas-document__link {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  cursor: zoom-in;
-}
-
-.service-detail--legalitas-sertif .legalitas-document__image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 82vh;
-  object-fit: contain;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(29, 39, 51, 0.12);
-}
-
-.service-detail--legalitas-sertif .legalitas-document__pdf {
-  display: block;
-  width: 100%;
-  height: min(82vh, 1100px);
-  min-height: 640px;
-  border: 0;
-  background: #fff;
-}
-
-.service-detail--legalitas-sertif .legalitas-document__caption {
-  margin-top: 12px;
-  color: #5c6878;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
 @media (max-width: 720px) {
   .service-detail--legalitas-sertif {
     padding: 32px 0 56px;
@@ -92,18 +44,5 @@
 
   .service-detail--legalitas-sertif h1 {
     font-size: 1.5rem;
-  }
-
-  .service-detail--legalitas-sertif .legalitas-document-content {
-    margin-top: 20px;
-  }
-
-  .service-detail--legalitas-sertif .legalitas-document {
-    padding: 8px;
-  }
-
-  .service-detail--legalitas-sertif .legalitas-document__pdf {
-    height: 72vh;
-    min-height: 480px;
   }
 }

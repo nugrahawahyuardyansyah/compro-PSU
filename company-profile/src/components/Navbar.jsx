@@ -170,10 +170,6 @@ const menuLayanan = [
         label: "Inhouse Training",
         href: "/layanan/pelatihan/inhouse-training",
       },
-      {
-        label: "exhouse Training",
-        href: "/layanan/pelatihan/exhouse-training",
-      },
     ],
   },
 ];
@@ -200,7 +196,7 @@ const menuClient = [
 const menuLinks = [
   { label: "Artikel", href: "/artikel" },
   { label: "Kontak", href: "/kontak" },
-  { label: "Lacak", href: "https://nwyan.com", cta: true, extraClass: "navbar__login", external: true },
+  { label: "Login", href: "/login", cta: true, extraClass: "navbar__login" },
 ];
 
 const SUBMENU_GAP = 10;
@@ -561,7 +557,7 @@ export default function Navbar() {
 
           <ul className={`navbar__links ${menuOpen ? "is-open" : ""}`}>
             <li className="navbar__home-link">
-              <Link {...linkProps("/")}>{t("Beranda")}</Link>
+              <Link {...linkProps("/")}>{t("Home")}</Link>
             </li>
             <li className="navbar__menu-label" aria-hidden="true">
               {t("Menu")}
@@ -582,47 +578,29 @@ export default function Navbar() {
 
             {renderDropdown({
               id: "client",
-              label: "Klien",
+              label: "Client",
               items: menuClient,
               active: pathname.startsWith("/client"),
             })}
 
-            {menuLinks.map((item) =>
-              item.external ? (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={
-                      [item.cta && "navbar__cta", item.extraClass]
-                        .filter(Boolean)
-                        .join(" ") || undefined
-                    }
-                    onClick={closeAll}
-                  >
-                    {t(item.label)}
-                  </a>
-                </li>
-              ) : (
-                <li key={item.href}>
-                  <Link
-                    {...linkProps(item.href)}
-                    className={
-                      [
-                        isActive(item.href) && "is-active",
-                        item.cta && "navbar__cta",
-                        item.extraClass,
-                      ]
-                        .filter(Boolean)
-                        .join(" ") || undefined
-                    }
-                  >
-                    {t(item.label)}
-                  </Link>
-                </li>
-              )
-            )}
+            {menuLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  {...linkProps(item.href)}
+                  className={
+                    [
+                      isActive(item.href) && "is-active",
+                      item.cta && "navbar__cta",
+                      item.extraClass,
+                    ]
+                      .filter(Boolean)
+                      .join(" ") || undefined
+                  }
+                >
+                  {t(item.label)}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>

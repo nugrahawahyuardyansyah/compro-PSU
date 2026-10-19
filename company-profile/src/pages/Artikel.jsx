@@ -161,11 +161,7 @@ export default function Artikel() {
                 >
                   <option value="All">{lang === "en" ? "All" : "Semua"}</option>
                   {availableTags.map((tg) => (
-                    <option
-                      key={tg}
-                      value={tg}
-                      data-long={tg.length > 24 ? "true" : undefined}
-                    >
+                    <option key={tg} value={tg}>
                       {tg}
                     </option>
                   ))}

@@ -62,7 +62,6 @@ export default function Pangan() {
     <section className="sector-detail-page">
       <PageHeader
         title="Produk Pangan"
-        fullWidth
         breadcrumbs={[
           { label: "Produk Pangan", href: "/pangan" },
         ]}
