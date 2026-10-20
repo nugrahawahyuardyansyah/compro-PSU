@@ -86,7 +86,7 @@ function ContactIcon({ type }) {
 }
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   const isMobile = useIsMobile(BATAS_MOBILE);
 
   const wrapperStyle = {
@@ -177,7 +177,11 @@ export default function Footer() {
               {t("Alamat Kantor")}
             </h2>
             <address className="footer__list" style={addressStyle}>
-              <p>{kontak.alamat}</p>
+              <p>
+                {lang === "en"
+                  ? "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Pondok Bambu Urban Village, Duren Sawit District, East Jakarta - 13430"
+                  : kontak.alamat}
+              </p>
             </address>
           </div>
 

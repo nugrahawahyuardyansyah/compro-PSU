@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import { useLanguage } from "../context/useLanguage";
+import { translateArticleLabel } from "../context/translations";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Artikel.css";
 
@@ -34,7 +35,7 @@ function renderParagraphWithLead(paragraph, idx) {
 
 export default function ArtikelDetail() {
   const { slug } = useParams();
-  const { lang } = useLanguage();
+  const { lang, t } = useLanguage();
   const [article, setArticle] = useState(
     () => FALLBACK_ARTICLES.find((a) => a.slug === slug) || null
   );
@@ -93,8 +94,14 @@ export default function ArtikelDetail() {
     );
   }
 
-  const title = lang === "en" ? article.title_en || article.title_id : article.title_id;
-  const content = lang === "en" ? article.content_en || article.content_id : article.content_id;
+  const title =
+    lang === "en"
+      ? article.title_en || t("English translation not available yet.")
+      : article.title_id;
+  const content =
+    lang === "en"
+      ? article.content_en || t("This article is not available in English yet.")
+      : article.content_id;
   const paragraphs = String(content || "")
     .split(/\n\s*\n/)
     .map((p) => p.trim())
@@ -133,7 +140,7 @@ export default function ArtikelDetail() {
           <div className="news-detail__tags">
             {tags.map((tg, i) => (
               <span key={`${tg}-${i}`} className="news-detail__tag-pill">
-                {tg}
+                {translateArticleLabel(tg, lang)}
               </span>
             ))}
           </div>
@@ -211,19 +218,20 @@ export default function ArtikelDetail() {
 
             <div className="news-detail__contact">
               <strong>PT PENILAI STANDAR UJI</strong>
-              <div>Lembaga Penilaian Kesesuaian (LPK)</div>
+              <div>{lang === "en" ? "Conformity Assessment Body (CAB)" : "Lembaga Penilaian Kesesuaian (LPK)"}</div>
               <div>
-                Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu,
-                Kec. Duren Sawit, Jakarta Timur - 13430
+                {lang === "en"
+                  ? "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Pondok Bambu Urban Village, Duren Sawit District, East Jakarta - 13430"
+                  : "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Kel. Pondok Bambu, Kec. Duren Sawit, Jakarta Timur - 13430"}
               </div>
               <div>
-                Email :{" "}
+                {lang === "en" ? "Email:" : "Email :"}{" "}
                 <a href="mailto:psuindonesia.info@gmail.com">
                   psuindonesia.info@gmail.com
                 </a>
               </div>
-              <div>Telp : 021 - 8602367</div>
-              <div>WhatsApp : +62 819-0834-4114</div>
+              <div>{lang === "en" ? "Phone:" : "Telp :"} 021 - 8602367</div>
+              <div>{lang === "en" ? "WhatsApp:" : "WhatsApp :"} +62 819-0834-4114</div>
             </div>
           </div>
         </div>

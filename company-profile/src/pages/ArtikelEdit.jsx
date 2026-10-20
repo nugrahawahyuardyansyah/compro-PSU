@@ -174,7 +174,7 @@ export default function ArtikelEdit() {
     setSuccessMsg("");
 
     if (!selectedSlug) {
-      setErrorMsg("Silakan pilih artikel yang akan diedit terlebih dahulu.");
+      setErrorMsg(t("Silakan pilih artikel yang akan diedit terlebih dahulu."));
       return;
     }
 
@@ -218,7 +218,7 @@ export default function ArtikelEdit() {
             updated = json.data;
             break;
           } else {
-            lastMessage = json.message || "Gagal memperbarui artikel.";
+            lastMessage = json.message || t("Gagal memperbarui artikel.");
           }
         } catch (err) {
           lastMessage = err.message;
@@ -228,11 +228,11 @@ export default function ArtikelEdit() {
       if (!updated) {
         throw new Error(
           lastMessage ||
-            "Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan."
+            t("Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan.")
         );
       }
 
-      setSuccessMsg("Perubahan berita/artikel berhasil disimpan!");
+      setSuccessMsg(t("Perubahan berita/artikel berhasil disimpan!"));
       setArticlesList((prev) =>
         prev.map((item) => (item.slug === selectedSlug ? updated : item))
       );
@@ -240,7 +240,7 @@ export default function ArtikelEdit() {
         navigate(`/artikel/${updated.slug}`);
       }, 900);
     } catch (err) {
-      setErrorMsg(err.message);
+      setErrorMsg(t(err.message));
     } finally {
       setSubmitting(false);
     }
@@ -272,7 +272,7 @@ export default function ArtikelEdit() {
             deletedOk = true;
             break;
           } else {
-            lastMessage = json.message || "Gagal menghapus artikel.";
+            lastMessage = json.message || t("Gagal menghapus artikel.");
           }
         } catch (err) {
           lastMessage = err.message;
@@ -282,12 +282,12 @@ export default function ArtikelEdit() {
       if (!deletedOk) {
         throw new Error(
           lastMessage ||
-            "Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan."
+            t("Gagal terhubung ke server MySQL (port 5000). Pastikan 'npm start' dan MySQL di XAMPP sedang berjalan.")
         );
       }
 
       setShowDeleteModal(false);
-      setSuccessMsg("Berita/artikel berhasil dihapus secara permanen.");
+      setSuccessMsg(t("Berita/artikel berhasil dihapus secara permanen."));
       const remaining = articlesList.filter((a) => a.slug !== selectedSlug);
       setArticlesList(remaining);
 
@@ -296,7 +296,7 @@ export default function ArtikelEdit() {
       }, 900);
     } catch (err) {
       setShowDeleteModal(false);
-      setErrorMsg(err.message);
+      setErrorMsg(t(err.message));
     } finally {
       setDeleting(false);
     }
@@ -317,14 +317,11 @@ export default function ArtikelEdit() {
           <div className="news-form-card">
             <div className="news-form-header">
               <div>
-                <h2>Edit atau Hapus Berita & Artikel</h2>
-                <p>
-                  Pilih berita/artikel yang ingin diperbarui atau dihapus dari
-                  database.
-                </p>
+                <h2>{t("Edit atau Hapus Berita & Artikel")}</h2>
+                <p>{t("Pilih berita/artikel yang ingin diperbarui atau dihapus dari database.")}</p>
               </div>
               <Link to="/artikel" className="news-btn news-btn--secondary">
-                &larr; Kembali ke Artikel
+                &larr; {t("Kembali ke Artikel")}
               </Link>
             </div>
 
@@ -343,7 +340,7 @@ export default function ArtikelEdit() {
             {/* Dropdown Pemilih Artikel yang Sudah Ada */}
             <div className="news-form-selector-box">
               <label htmlFor="select-existing-article">
-                Pilih Berita / Artikel yang Akan Diedit:
+                {t("Pilih Berita / Artikel yang Akan Diedit:")}
               </label>
               <select
                 id="select-existing-article"
@@ -354,7 +351,9 @@ export default function ArtikelEdit() {
                 {articlesList.map((item) => (
                   <option key={item.slug} value={item.slug}>
                     [{item.published_at}]{" "}
-                    {lang === "en" ? item.title_en || t(item.title_id) : item.title_id} (
+                    {lang === "en"
+                      ? item.title_en || t("English translation not available yet.")
+                      : item.title_id} (
                     {t(item.author || "Corporate Secretary PSU")})
                   </option>
                 ))}
@@ -365,7 +364,7 @@ export default function ArtikelEdit() {
               <div className="news-form-grid">
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_title_id">
-                    Judul Berita / Artikel (Bahasa Indonesia)<span>*</span>
+                    {t("Judul Berita / Artikel (Bahasa Indonesia)")}<span>*</span>
                   </label>
                   <input
                     id="edit_title_id"
@@ -379,7 +378,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_title_en">
-                    Judul Berita / Artikel (Bahasa Inggris)
+                    {t("Judul Berita / Artikel (Bahasa Inggris)")}
                   </label>
                   <input
                     id="edit_title_en"
@@ -392,7 +391,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="edit_author">
-                    Author / Penulis<span>*</span>
+                    {t("Author / Penulis")}<span>*</span>
                   </label>
                   <select
                     id="edit_author"
@@ -410,7 +409,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="edit_category">
-                    Kategori Utama<span>*</span>
+                    {t("Kategori Utama")}<span>*</span>
                   </label>
                   <select
                     id="edit_category"
@@ -418,15 +417,15 @@ export default function ArtikelEdit() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="News">News</option>
-                    <option value="Article">Article</option>
-                    <option value="Press Release">Press Release</option>
+                    <option value="News">{lang === "en" ? "News" : "Berita"}</option>
+                    <option value="Article">{lang === "en" ? "Article" : "Artikel"}</option>
+                    <option value="Press Release">{lang === "en" ? "Press Release" : "Siaran Pers"}</option>
                   </select>
                 </div>
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="edit_published_at">
-                    Tanggal Publikasi<span>*</span>
+                    {t("Tanggal Publikasi")}<span>*</span>
                   </label>
                   <input
                     id="edit_published_at"
@@ -440,7 +439,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field">
                   <label className="news-form-label" htmlFor="edit_status">
-                    Status Publikasi
+                    {t("Status Publikasi")}
                   </label>
                   <select
                     id="edit_status"
@@ -448,20 +447,20 @@ export default function ArtikelEdit() {
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                   >
-                    <option value="Published">Published (Tampil di Website)</option>
-                    <option value="Draft">Draft (Simpan sebagai Konsep)</option>
+                    <option value="Published">{t("Published (Tampil di Website)")}</option>
+                    <option value="Draft">{t("Draft (Simpan sebagai Konsep)")}</option>
                   </select>
                 </div>
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label">
-                    Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)
+                    {t("Gambar Utama Artikel (Otomatis Disesuaikan ke Rasio 16:9)")}
                   </label>
                   <div className="news-form-image-box">
                     <div className="news-form-grid">
                       <div>
                         <span className="news-form-hint">
-                          Ganti gambar dari komputer Anda:
+                          {t("Ganti gambar dari komputer Anda:")}
                         </span>
                         <input
                           type="file"
@@ -473,7 +472,7 @@ export default function ArtikelEdit() {
                       </div>
                       <div>
                         <span className="news-form-hint">
-                          Atau pilih gambar sampul yang tersedia:
+                          {t("Atau pilih gambar sampul yang tersedia:")}
                         </span>
                         <select
                           className="news-form-select"
@@ -487,10 +486,10 @@ export default function ArtikelEdit() {
                           }}
                           style={{ marginTop: "6px" }}
                         >
-                          <option value="">-- Pilih Gambar Sampul --</option>
+                          <option value="">{t("-- Pilih Gambar Sampul --")}</option>
                           {PRESET_IMAGES.map((img) => (
                             <option key={img.value} value={img.value}>
-                              {img.label}
+                              {t(img.label)}
                             </option>
                           ))}
                         </select>
@@ -498,13 +497,13 @@ export default function ArtikelEdit() {
                     </div>
 
                     {uploadingImage && (
-                      <span className="news-form-hint">Mengunggah gambar...</span>
+                      <span className="news-form-hint">{t("Mengunggah gambar...")}</span>
                     )}
 
                     {imageUrl && (
                       <div>
                         <span className="news-form-hint">
-                          Pratinjau Gambar Saat Ini (Rasio Seragam 16:9):
+                          {t("Pratinjau Gambar Saat Ini (Rasio Seragam 16:9):")}
                         </span>
                         <div
                           className="news-form-image-preview-wrap"
@@ -523,7 +522,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_tags">
-                    Daftar Tag / Tagline (Pisahkan dengan tanda koma)
+                    {t("Daftar Tag / Tagline (Pisahkan dengan tanda koma)")}
                   </label>
                   <input
                     id="edit_tags"
@@ -545,7 +544,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_excerpt_id">
-                    Ringkasan Singkat / Excerpt
+                    {t("Ringkasan Singkat / Excerpt")}
                   </label>
                   <textarea
                     id="edit_excerpt_id"
@@ -557,7 +556,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_content_id">
-                    Isi Lengkap Berita / Artikel (Bahasa Indonesia)<span>*</span>
+                    {t("Isi Lengkap Berita / Artikel (Bahasa Indonesia)")}<span>*</span>
                   </label>
                   <textarea
                     id="edit_content_id"
@@ -570,7 +569,7 @@ export default function ArtikelEdit() {
 
                 <div className="news-form-field news-form-field--full">
                   <label className="news-form-label" htmlFor="edit_content_en">
-                    Isi Lengkap Berita / Artikel (Bahasa Inggris)
+                    {t("Isi Lengkap Berita / Artikel (Bahasa Inggris)")}
                   </label>
                   <textarea
                     id="edit_content_en"
@@ -597,19 +596,19 @@ export default function ArtikelEdit() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <span>Hapus Berita / Artikel</span>
+                  <span>{t("Hapus Berita / Artikel")}</span>
                 </button>
 
                 <div className="news-form-actions__right">
                   <Link to="/artikel" className="news-btn news-btn--secondary">
-                    Batal
+                    {t("Batal")}
                   </Link>
                   <button
                     type="submit"
                     className="news-btn news-btn--primary"
                     disabled={submitting || uploadingImage}
                   >
-                    {submitting ? "Menyimpan..." : "Simpan Perubahan"}
+                    {submitting ? t("Menyimpan...") : t("Simpan Perubahan")}
                   </button>
                 </div>
               </div>
@@ -639,12 +638,11 @@ export default function ArtikelEdit() {
               </svg>
             </div>
             <h3 id="delete-modal-title" className="news-modal__title">
-              Peringatan Hapus Artikel
+              {t("Peringatan Hapus Artikel")}
             </h3>
             <p className="news-modal__desc">
-              Apakah Anda yakin ingin menghapus artikel{" "}
-              <strong>&ldquo;{titleId}&rdquo;</strong>? Data yang dihapus tidak
-              dapat dikembalikan lagi.
+              {t("Apakah Anda yakin ingin menghapus artikel")}{" "}
+              <strong>&ldquo;{titleId}&rdquo;</strong>? {t("Data yang dihapus tidak dapat dikembalikan lagi.")}
             </p>
             <div className="news-modal__actions">
               <button
@@ -653,7 +651,7 @@ export default function ArtikelEdit() {
                 onClick={() => setShowDeleteModal(false)}
                 disabled={deleting}
               >
-                Batal
+                {t("Batal")}
               </button>
               <button
                 type="button"
@@ -661,7 +659,7 @@ export default function ArtikelEdit() {
                 onClick={handleConfirmDelete}
                 disabled={deleting}
               >
-                {deleting ? "Menghapus..." : "Ya, Hapus Artikel"}
+                {deleting ? t("Menghapus...") : t("Ya, Hapus Artikel")}
               </button>
             </div>
           </div>

@@ -26,7 +26,6 @@ const VALID_PAGE_ROUTES = new Set([
   "/client/sertifikasi-sistem-manajemen",
   "/artikel",
   "/kontak",
-  "/login",
   "/layanan/sertif-produk/legalitas",
   "/layanan/sertif-produk/ruang-lingkup",
   "/layanan/sertif-produk/permohonan-sertifikasi",

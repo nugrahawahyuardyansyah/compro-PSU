@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
 import { useLanguage } from "../context/useLanguage";
+import { translateArticleLabel } from "../context/translations";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
 import "./Artikel.css";
 
@@ -162,7 +163,7 @@ export default function Artikel() {
                   <option value="All">{lang === "en" ? "All" : "Semua"}</option>
                   {availableTags.map((tg) => (
                     <option key={tg} value={tg}>
-                      {tg}
+                      {translateArticleLabel(tg, lang)}
                     </option>
                   ))}
                 </select>
@@ -184,7 +185,10 @@ export default function Artikel() {
           {/* Grid 9 Kartu Artikel (3x3) */}
           <div className="news-grid">
             {paginatedArticles.map((item) => {
-              const title = lang === "en" ? item.title_en : item.title_id;
+              const title =
+                lang === "en"
+                  ? item.title_en || "English translation not available yet."
+                  : item.title_id;
               const tags = Array.isArray(item.tags) ? item.tags : [];
               const extraTagCount = Math.max(0, tags.length - 1);
 
@@ -203,7 +207,9 @@ export default function Artikel() {
                   </Link>
 
                   <div className="news-card__meta">
-                    <span className="news-card__pill">{item.category || "News"}</span>
+                    <span className="news-card__pill">
+                      {translateArticleLabel(item.category || "News", lang)}
+                    </span>
                     {extraTagCount > 0 && (
                       <span className="news-card__pill">{extraTagCount}+</span>
                     )}
