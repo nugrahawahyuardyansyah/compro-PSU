@@ -2,7 +2,7 @@
   --psu-navy: #0b2a5b;
   --psu-gold: #b09b00;
   --psu-line: #e3e7ee;
-  --psu-gutter: clamp(20px, 5vw, 96px);
+  --psu-gutter: max(clamp(20px, 5vw, 96px), calc((100vw - 1180px) / 2));
   width: calc(100% - 2 * var(--psu-gutter));
   max-width: 1180px;
   min-height: 55vh;

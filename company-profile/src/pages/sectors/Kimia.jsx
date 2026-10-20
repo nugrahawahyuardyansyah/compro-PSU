@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./Kimia.css";
 
 const FERTILIZERS = [
@@ -45,7 +46,7 @@ const FERTILIZERS = [
   {
     id: "Pupuk Urea Amonium Fosfat",
     en: "Urea Ammonium Phosphate Fertilizer",
-    image: "/10.webp",
+    image: "/10.jpeg",
   },
   {
     id: "Pupuk Tripel Super Fosfat Plus-ZN",
@@ -53,9 +54,14 @@ const FERTILIZERS = [
     image: "/11.webp",
   },
   {
+    id: "Pupuk Super Fosfat Plus-ZN",
+    en: "Super Phosphate Plus-ZN Fertilizer",
+    image: "/19.jpeg",
+  },
+  {
     id: "Pupuk Super Fosfat Tunggal",
     en: "Single Super Phosphate Fertilizer",
-    image: "/12.webp",
+    image: "/12.jpeg",
   },
   { id: "Pupuk Dolomit", en: "Dolomite Fertilizer", image: "/13.webp" },
   { id: "Pupuk Borat", en: "Borate Fertilizer", image: "/14.webp" },
@@ -87,10 +93,6 @@ export default function Kimia() {
   const totalPages = Math.ceil(FERTILIZERS.length / ITEMS_PER_PAGE);
   const [page, setPage] = useState(1);
   const cardsRef = useRef(null);
-  const title =
-    lang === "en"
-      ? "Chemical Materials and Products"
-      : "Bahan dan Produk Kimia";
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 992px)");
@@ -135,6 +137,7 @@ export default function Kimia() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Bahan dan Produk Kimia"
         breadcrumbs={[
           { label: "Bahan dan Produk Kimia", href: "/kimia" },
@@ -157,7 +160,7 @@ export default function Kimia() {
                 >
                   {rowItems.map((item) => (
                     <article className="kimia-card" key={item.id}>
-                      <img
+                      <LoadingImage
                         src={item.image}
                         alt={lang === "en" ? item.en : item.id}
                         className="kimia-card__img"

@@ -1,7 +1,7 @@
 import PageHeader from "../components/PageHeader";
 import { useEffect, useRef, useState } from "react";
 import arief from "../assets/arief.jpg";
-import amanda from "../assets/amanda.jpg";
+import amanda from "../assets/amanda.jpeg";
 import winda from "../assets/winda.jpg";
 import { useLanguage } from "../context/useLanguage";
 import "./Struktur.css";

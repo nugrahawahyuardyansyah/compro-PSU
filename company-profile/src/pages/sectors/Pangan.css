@@ -3,7 +3,7 @@
   --psu-gold: #b09b00;
   --psu-line: #e3e7ee;
   --psu-text: #1d2733;
-  --psu-gutter: clamp(20px, 5vw, 96px);
+  --psu-gutter: max(clamp(20px, 5vw, 96px), calc((100vw - 1180px) / 2));
   width: calc(100% - 2 * var(--psu-gutter));
   max-width: 1180px;
   min-height: 55vh;
@@ -133,26 +133,11 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 
               0 6px 6px rgba(0, 0, 0, 0.05);
   opacity: 0;
+  transform: translateY(72px);
   transition:
     opacity 700ms ease,
     transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1),
     box-shadow 0.4s ease;
-}
-
-.pangan-cards > .pangan-card:nth-child(4n + 1) {
-  transform: translateX(-80px);
-}
-
-.pangan-cards > .pangan-card:nth-child(4n + 2) {
-  transform: translateX(80px);
-}
-
-.pangan-cards > .pangan-card:nth-child(4n + 3) {
-  transform: translateX(-80px);
-}
-
-.pangan-cards > .pangan-card:nth-child(4n + 4) {
-  transform: translateX(80px);
 }
 
 .pangan-card.is-visible {
@@ -229,12 +214,25 @@
 
 @media (max-width: 650px) {
   .pangan-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 
   .pangan-card {
-    height: 380px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .pangan-card__content {
+    align-items: center;
+    padding: 12px;
+  }
+
+  .pangan-card__title {
+    margin: 0;
+    font-size: clamp(0.75rem, 3.5vw, 1.05rem);
+    line-height: 1.15;
+    text-align: center;
   }
 }
 

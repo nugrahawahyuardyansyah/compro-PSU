@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./Tanaman.css";
 
 const COMMODITIES = [
@@ -120,6 +121,7 @@ export default function Tanaman() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Produk Tanaman"
         breadcrumbs={[
           { label: "Produk Tanaman", href: "/tanaman" },
@@ -141,7 +143,7 @@ export default function Tanaman() {
               >
                 {rowItems.map((item) => (
                   <article className="tanaman-card" key={item.id}>
-                    <img
+                    <LoadingImage
                       src={item.image}
                       alt={lang === "en" ? item.en : item.id}
                       className="tanaman-card__img"

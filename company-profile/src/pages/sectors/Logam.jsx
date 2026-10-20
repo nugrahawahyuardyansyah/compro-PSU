@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./Logam.css";
 
 const COMMODITIES = [
@@ -48,6 +49,7 @@ export default function Logam() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Logam dan Produk Logam"
         breadcrumbs={[
           { label: "Logam dan Produk Logam", href: "/logam" },
@@ -56,7 +58,7 @@ export default function Logam() {
       <div className="logam-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="logam-card" key={index}>
-            <img
+            <LoadingImage
               src={item.image}
               alt={lang === "en" ? item.en : item.id}
               className="logam-card__img"

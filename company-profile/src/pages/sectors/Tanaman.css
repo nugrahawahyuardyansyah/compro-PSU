@@ -3,7 +3,7 @@
   --psu-gold: #b09b00;
   --psu-line: #e3e7ee;
   --psu-text: #1d2733;
-  --psu-gutter: clamp(20px, 5vw, 96px);
+  --psu-gutter: max(clamp(20px, 5vw, 96px), calc((100vw - 1180px) / 2));
   width: calc(100% - 2 * var(--psu-gutter));
   max-width: 1180px;
   min-height: 55vh;
@@ -250,7 +250,20 @@
   }
 
   .tanaman-card {
-    height: 380px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .tanaman-card__content {
+    align-items: center;
+    padding: 12px;
+  }
+
+  .tanaman-card__title {
+    margin: 0;
+    font-size: clamp(0.75rem, 3.5vw, 1.05rem);
+    line-height: 1.15;
+    text-align: center;
   }
 }
 

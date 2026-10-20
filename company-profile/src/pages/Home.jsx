@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingImage from "../components/LoadingImage";
 import { useLanguage } from "../context/useLanguage";
 import { translateArticleLabel } from "../context/translations";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
@@ -435,7 +436,7 @@ export default function Home() {
                     to={`/artikel/${item.slug}`}
                     className="home-news__img-link"
                   >
-                    <img
+                    <LoadingImage
                       src={item.image_url}
                       alt={title}
                       className="home-news__img"

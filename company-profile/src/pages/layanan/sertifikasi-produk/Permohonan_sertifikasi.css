@@ -31,6 +31,13 @@
   line-height: 1.25;
 }
 
+.permohonan-sertifikasi__process-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 24px auto 0;
+}
+
 .permohonan-sertifikasi__organization {
   margin: 10px 0 0;
   color: var(--service-muted);

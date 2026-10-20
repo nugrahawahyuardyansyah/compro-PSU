@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./Pangan.css";
 
 const COMMODITIES = [
@@ -61,6 +62,7 @@ export default function Pangan() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Produk Pangan"
         breadcrumbs={[
           { label: "Produk Pangan", href: "/pangan" },
@@ -69,7 +71,7 @@ export default function Pangan() {
       <div className="pangan-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="pangan-card" key={index}>
-            <img
+            <LoadingImage
               src={item.image}
               alt={lang === "en" ? item.en : item.id}
               className="pangan-card__img"

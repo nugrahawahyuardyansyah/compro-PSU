@@ -34,9 +34,10 @@
   background: #fff;
 }
 
-.service-detail--ruang-lingkup-sertif .ruang-lingkup__table[lang="en"] {
+.ruang-lingkup .ruang-lingkup__table[lang="en"] {
+  width: 100%;
   min-width: 1180px;
-  table-layout: fixed;
+  table-layout: auto;
 }
 
 .service-detail--ruang-lingkup-sertif .ruang-lingkup__table th,
@@ -59,7 +60,7 @@
   font-weight: 700;
 }
 
-.service-detail--ruang-lingkup-sertif .ruang-lingkup__table[lang="en"] th {
+.ruang-lingkup .ruang-lingkup__table[lang="en"] th {
   white-space: normal;
   overflow-wrap: break-word;
 }
