@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./JasaLainnya.css";
 
 export default function JasaLainnya() {
@@ -31,6 +32,7 @@ export default function JasaLainnya() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Jasa Lainnya"
         breadcrumbs={[
           { label: "Jasa Lainnya", href: "/jasa-lainnya" },
@@ -38,7 +40,7 @@ export default function JasaLainnya() {
       />
       <div className="jasa-cards">
         <article className="jasa-card" ref={cardRef}>
-          <img
+          <LoadingImage
             src="/Banner_Jasa.webp"
             alt="Pasar Rakyat"
             className="jasa-card__img"

@@ -1,9 +1,12 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import WaFloat from "./components/WaFloat";
 import Footer from "./components/Footer";
+import PageLoader from "./components/PageLoader";
+import PageErrorBoundary from "./components/PageErrorBoundary";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Struktur from "./pages/Struktur";
@@ -50,140 +53,160 @@ import Logam from "./pages/sectors/Logam";
 import JasaLainnya from "./pages/sectors/JasaLainnya";
 
 function App() {
+  const location = useLocation();
+  const [readyLocationKey, setReadyLocationKey] = useState(null);
+
+  useEffect(() => {
+    const timer = window.setTimeout(
+      () => setReadyLocationKey(location.key),
+      350,
+    );
+    return () => window.clearTimeout(timer);
+  }, [location.key]);
+
   return (
     <LanguageProvider>
       <div className="app-layout">
         <ScrollToTop />
         <Navbar />
         <main className="app-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/pertanian" element={<Pertanian />} />
-            <Route path="/tanaman" element={<Tanaman />} />
-            <Route path="/pangan" element={<Pangan />} />
-            <Route path="/kimia" element={<Kimia />} />
-            <Route path="/logam" element={<Logam />} />
-            <Route path="/jasa-lainnya" element={<JasaLainnya />} />
-            <Route path="/about/profile" element={<Profile />} />
-            <Route path="/about/struktur-organisasi" element={<Struktur />} />
-            <Route path="/client" element={<Client />} />
-            <Route
-              path="/client/sertifikasi-produk"
-              element={<ClientProductCertification />}
-            />
-            <Route path="/client/pengujian" element={<ClientTesting />} />
-            <Route path="/client/kalibrasi" element={<ClientCalibration />} />
-            <Route
-              path="/client/sertifikasi-sistem-manajemen"
-              element={<ClientManagementSystemCertification />}
-            />
-            <Route path="/artikel" element={<Artikel />} />
-            <Route path="/artikel/tambah" element={<ArtikelTambah />} />
-            <Route path="/artikel/edit" element={<ArtikelEdit />} />
-            <Route path="/artikel/edit/:slug" element={<ArtikelEdit />} />
-            <Route path="/artikel/:slug" element={<ArtikelDetail />} />
-            <Route path="/kontak" element={<Kontak />} />
-            <Route
-              path="/layanan/sertif-produk/legalitas"
-              element={<ProductLegalitas />}
-            />
-            <Route
-              path="/layanan/sertif-produk/ruang-lingkup"
-              element={<ProductScope />}
-            />
-            <Route
-              path="/layanan/sertif-produk/permohonan-sertifikasi"
-              element={<ProductApplication />}
-            />
-            <Route
-              path="/layanan/sertif-produk/tipe-1b"
-              element={<ProductType1B />}
-            />
-            <Route
-              path="/layanan/sertif-produk/tipe-5"
-              element={<ProductType5 />}
-            />
-            <Route
-              path="/layanan/sertif-produk/penggunaan-sni"
-              element={<ProductSniRules />}
-            />
-            <Route
-              path="/layanan/sertif-produk/keluhan-banding"
-              element={<ProductComplaints />}
-            />
-            <Route
-              path="/layanan/sertif-produk/hak-kewajiban-klien"
-              element={<ProductClientRights />}
-            />
-            <Route
-              path="/layanan/sertif-produk/biaya-sertif"
-              element={<ProductFees />}
-            />
-            <Route
-              path="/layanan/penguji/legalitas"
-              element={<TestingLegalitas />}
-            />
-            <Route
-              path="/layanan/penguji/ruang-lingkup"
-              element={<TestingScope />}
-            />
-            <Route
-              path="/layanan/kalibrasi/ruang-lingkup/alat-kesehatan"
-              element={<KalibrasiAlatKesehatan />}
-            />
-            <Route
-              path="/layanan/penguji/proses-pengujian"
-              element={<TestingProcess />}
-            />
-            <Route
-              path="/layanan/penguji/biaya-sertif"
-              element={<TestingFees />}
-            />
-            <Route
-              path="/layanan/kalibrasi/legalitas"
-              element={<CalibrationLegalitas />}
-            />
-            <Route
-              path="/layanan/kalibrasi/biaya-sertif"
-              element={<CalibrationFees />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/legalitas"
-              element={<ManagementLegalitas />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/ruang-lingkup"
-              element={<ManagementScope />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/proses-sertifikasi"
-              element={<ManagementProcess />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/keluhan-banding"
-              element={<ManagementComplaints />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/hak-kewajiban-klien"
-              element={<ManagementClientRights />}
-            />
-            <Route
-              path="/layanan/sertif-manajemen/biaya-sertif"
-              element={<ManagementFees />}
-            />
-            <Route
-              path="/layanan/pelatihan/general-training"
-              element={<GeneralTraining />}
-            />
-            <Route
-              path="/layanan/pelatihan/inhouse-training"
-              element={<InhouseTraining />}
-            />
-            <Route
-              path="/layanan/pelatihan/exhouse-training"
-              element={<ExhouseTraining />}
-            />
-          </Routes>
+          <PageErrorBoundary key={location.key}>
+            {readyLocationKey === location.key ? (
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/pertanian" element={<Pertanian />} />
+                <Route path="/tanaman" element={<Tanaman />} />
+                <Route path="/pangan" element={<Pangan />} />
+                <Route path="/kimia" element={<Kimia />} />
+                <Route path="/logam" element={<Logam />} />
+                <Route path="/jasa-lainnya" element={<JasaLainnya />} />
+                <Route path="/about/profile" element={<Profile />} />
+                <Route
+                  path="/about/struktur-organisasi"
+                  element={<Struktur />}
+                />
+                <Route path="/client" element={<Client />} />
+                <Route
+                  path="/client/sertifikasi-produk"
+                  element={<ClientProductCertification />}
+                />
+                <Route path="/client/pengujian" element={<ClientTesting />} />
+                <Route path="/client/kalibrasi" element={<ClientCalibration />} />
+                <Route
+                  path="/client/sertifikasi-sistem-manajemen"
+                  element={<ClientManagementSystemCertification />}
+                />
+                <Route path="/artikel" element={<Artikel />} />
+                <Route path="/artikel/tambah" element={<ArtikelTambah />} />
+                <Route path="/artikel/edit" element={<ArtikelEdit />} />
+                <Route path="/artikel/edit/:slug" element={<ArtikelEdit />} />
+                <Route path="/artikel/:slug" element={<ArtikelDetail />} />
+                <Route path="/kontak" element={<Kontak />} />
+                <Route
+                  path="/layanan/sertif-produk/legalitas"
+                  element={<ProductLegalitas />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/ruang-lingkup"
+                  element={<ProductScope />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/permohonan-sertifikasi"
+                  element={<ProductApplication />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/tipe-1b"
+                  element={<ProductType1B />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/tipe-5"
+                  element={<ProductType5 />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/penggunaan-sni"
+                  element={<ProductSniRules />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/keluhan-banding"
+                  element={<ProductComplaints />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/hak-kewajiban-klien"
+                  element={<ProductClientRights />}
+                />
+                <Route
+                  path="/layanan/sertif-produk/biaya-sertif"
+                  element={<ProductFees />}
+                />
+                <Route
+                  path="/layanan/penguji/legalitas"
+                  element={<TestingLegalitas />}
+                />
+                <Route
+                  path="/layanan/penguji/ruang-lingkup"
+                  element={<TestingScope />}
+                />
+                <Route
+                  path="/layanan/kalibrasi/ruang-lingkup/alat-kesehatan"
+                  element={<KalibrasiAlatKesehatan />}
+                />
+                <Route
+                  path="/layanan/penguji/proses-pengujian"
+                  element={<TestingProcess />}
+                />
+                <Route
+                  path="/layanan/penguji/biaya-sertif"
+                  element={<TestingFees />}
+                />
+                <Route
+                  path="/layanan/kalibrasi/legalitas"
+                  element={<CalibrationLegalitas />}
+                />
+                <Route
+                  path="/layanan/kalibrasi/biaya-sertif"
+                  element={<CalibrationFees />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/legalitas"
+                  element={<ManagementLegalitas />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/ruang-lingkup"
+                  element={<ManagementScope />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/proses-sertifikasi"
+                  element={<ManagementProcess />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/keluhan-banding"
+                  element={<ManagementComplaints />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/hak-kewajiban-klien"
+                  element={<ManagementClientRights />}
+                />
+                <Route
+                  path="/layanan/sertif-manajemen/biaya-sertif"
+                  element={<ManagementFees />}
+                />
+                <Route
+                  path="/layanan/pelatihan/general-training"
+                  element={<GeneralTraining />}
+                />
+                <Route
+                  path="/layanan/pelatihan/inhouse-training"
+                  element={<InhouseTraining />}
+                />
+                <Route
+                  path="/layanan/pelatihan/exhouse-training"
+                  element={<ExhouseTraining />}
+                />
+              </Routes>
+            ) : (
+              <PageLoader />
+            )}
+          </PageErrorBoundary>
         </main>
         <WaFloat />
         <Footer />

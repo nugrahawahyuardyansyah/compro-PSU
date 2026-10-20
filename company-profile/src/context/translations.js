@@ -47,7 +47,7 @@ const english = {
   "Tutup menu": "Close menu",
   "Buka": "Open",
   "Tutup": "Close",
-  "Alamat Kantor": "Office Address",
+  "Alamat Kantor dan Laboratorium": "Office and Laboratory Address",
   "Hubungi Kami": "Contact Us",
   "Alamat": "Address",
   "Telepon": "Phone",
@@ -1244,6 +1244,11 @@ const certificationRightsEnglish = {
   "Jalan Cipinang Muara 1 No. 21 RT.006 / RW.03, Pondok Bambu, Duren Sawit, East Jakarta – 13430",
 "Data yang dihapus tidak dapat dikembalikan lagi.":
   "Deleted data cannot be recovered.",
+"Alur Bisnis": "Business Flow",
+"Alur Proses Sertifikasi Produk": "Product Certification Process Flow",
+"Alur Proses Kalibrasi": "Calibration Process Flow",
+"Buka gambar alur proses kalibrasi ukuran penuh di tab baru":
+  "Open the full-size calibration process flow image in a new tab",
 "English translation not available yet.":
   "English translation not available yet.",
 "English summary not available yet.":

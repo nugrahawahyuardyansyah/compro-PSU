@@ -1,6 +1,7 @@
 import PageHeader from "../../../components/PageHeader";
 import "./Permohonan_sertifikasi.css";
 import LocalizedText from "../../../components/LocalizedText";
+import { useLanguage } from "../../../context/useLanguage";
 
 const tahapanPermohonan = [
   {
@@ -116,6 +117,8 @@ const tahapanPermohonan = [
 ];
 
 export default function Permohonansertifikasi() {
+  const { t } = useLanguage();
+
   return (
     <>
       <PageHeader
@@ -138,6 +141,11 @@ export default function Permohonansertifikasi() {
             <LocalizedText as="p" className="permohonan-sertifikasi__organization">
               PT Penilai Standar Uji (PSU)
             </LocalizedText>
+            <img
+              className="permohonan-sertifikasi__process-image"
+              src={`${import.meta.env.BASE_URL}Alur_Proses_Sertifikasi_Produk.jpg`}
+              alt={t("Alur Proses Sertifikasi Produk")}
+            />
           </header>
 
           <div className="permohonan-sertifikasi__content">

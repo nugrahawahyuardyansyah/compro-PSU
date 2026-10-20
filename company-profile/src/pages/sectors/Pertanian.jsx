@@ -2,6 +2,7 @@ import PageHeader from "../../components/PageHeader";
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/useLanguage";
+import LoadingImage from "../../components/LoadingImage";
 import "./Pertanian.css";
 
 const COMMODITIES = [
@@ -56,6 +57,7 @@ export default function Pertanian() {
   return (
     <section className="sector-detail-page">
       <PageHeader
+        fullWidth
         title="Pertanian dan Perkebunan"
         breadcrumbs={[
           { label: "Pertanian dan Perkebunan", href: "/pertanian" },
@@ -64,7 +66,7 @@ export default function Pertanian() {
       <div className="pertanian-cards" ref={cardsRef}>
         {COMMODITIES.map((item, index) => (
           <div className="pertanian-card" key={index}>
-            <img 
+            <LoadingImage
               src={item.image} 
               alt={lang === "en" ? item.en : item.id} 
               className="pertanian-card__img" 

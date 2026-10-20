@@ -486,16 +486,6 @@ export default function Ruanglingkuppenguji() {
       <div className="ruang-lingkup__content">
         <div className="ruang-lingkup__table-wrapper">
           <table className="ruang-lingkup__table" lang={lang}>
-            <colgroup>
-              <col style={{ width: "5%" }} />
-              <col style={{ width: "8%" }} />
-              <col style={{ width: "12%" }} />
-              <col style={{ width: "13%" }} />
-              <col style={{ width: "19%" }} />
-              <col style={{ width: "16%" }} />
-              <col style={{ width: "16%" }} />
-              <col style={{ width: "11%" }} />
-            </colgroup>
             <thead>
               <tr>
                 <th>{t("No")}</th>

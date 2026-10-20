@@ -899,6 +899,7 @@
 }
 
 .home-news__img-link {
+  position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 16 / 10;
@@ -949,6 +950,7 @@
   line-height: 1.42 !important;
   color: #1e293b !important;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -970,6 +972,7 @@
   font-size: 0.84rem;
   line-height: 1.55;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;

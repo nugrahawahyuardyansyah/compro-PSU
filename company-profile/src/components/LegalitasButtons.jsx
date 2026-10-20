@@ -29,9 +29,15 @@ const nibContent = (t) => (
   </figure>
 );
 
-export default function LegalitasButtons({ documentContent = {} }) {
+export default function LegalitasButtons({
+  documentContent = {},
+  additionalDocuments = [],
+}) {
   const { t } = useLanguage();
-  const availableDocuments = legalitasDocuments;
+  const availableDocuments = [
+    ...legalitasDocuments,
+    ...additionalDocuments.map(({ label }) => label),
+  ];
   const [activeDocument, setActiveDocument] = useState(
     () => availableDocuments[0],
   );
@@ -41,7 +47,9 @@ export default function LegalitasButtons({ documentContent = {} }) {
   const activeContent =
     selectedDocument === "NIB"
       ? nibContent(t)
-      : documentContent[selectedDocument] ?? (
+      : documentContent[selectedDocument] ??
+        additionalDocuments.find(({ label }) => label === selectedDocument)
+          ?.content ?? (
           <p className="legalitas-document__unavailable">
             {t("Dokumen untuk bagian ini belum tersedia.")}
           </p>

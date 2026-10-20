@@ -5,8 +5,8 @@
 }
 
 .page-header-shell--full-width {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: calc(100% + 2 * var(--psu-gutter, clamp(20px, 5vw, 96px)));
+  margin-left: calc(-1 * var(--psu-gutter, clamp(20px, 5vw, 96px)));
 }
 
 .page-header {

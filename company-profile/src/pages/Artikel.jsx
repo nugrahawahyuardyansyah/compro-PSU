@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+import LoadingImage from "../components/LoadingImage";
 import { useLanguage } from "../context/useLanguage";
 import { translateArticleLabel } from "../context/translations";
 import { FALLBACK_ARTICLES } from "../data/articlesFallback";
@@ -198,7 +199,7 @@ export default function Artikel() {
                     to={`/artikel/${item.slug}`}
                     className="news-card__img-link"
                   >
-                    <img
+                    <LoadingImage
                       src={item.image_url}
                       alt={title}
                       className="news-card__img"
