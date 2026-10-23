@@ -1,16 +1,12 @@
 -- ============================================================================
--- DATABASE: psu_company_profile
--- Sistem Tracking Sertifikat (4 Sub Menu Client Terpisah) & News/Artikel
--- PT PENILAI STANDAR UJI (PSU)
--- Kolom Tabel Sertifikat:
---   1. Nama Pabrik (nama_pabrik)
---   2. Produk (produk)
---   3. Nomor SNI (no_sni)
---   4. Nomor Sertifikat (no_sertifikat)
---   5. Terbit (terbit)
---   6. Berlaku s.d. (berlaku_sd)
---   7. Status (status: 'Aktif', 'Ditangguhkan', 'Dicabut')
--- Aturan: Sertifikat pada Tabel A tidak dapat dilacak di Halaman Client B, dst.
+-- DATABASE SCHEMA & SEED DATA: PT PENILAI STANDAR UJI (PSU)
+-- Mencakup:
+-- 1. Tabel Sertifikat (Produk, Pengujian, Kalibrasi, Sistem Manajemen)
+-- 2. Tabel Admin Users (`admin_users`) untuk Login JWT Dashboard Artikel
+-- 3. Tabel Artikel (`artikel`) dengan dukungan Status, Views, & Unggulan
+-- 4. Tabel Galeri Foto Artikel (`galeri_artikel`) untuk Media Library & Reuse Foto
+-- 5. Tabel Penulis Artikel (`penulis_artikel`)
+-- 6. Tabel Log Aktivitas Admin (`log_aktivitas_artikel`)
 -- ============================================================================
 
 CREATE DATABASE IF NOT EXISTS `psu_company_profile`
@@ -20,90 +16,159 @@ CREATE DATABASE IF NOT EXISTS `psu_company_profile`
 USE `psu_company_profile`;
 
 -- ----------------------------------------------------------------------------
--- 1. Tabel Sub Menu: Lembaga Sertifikasi Produk (sertifikat_produk)
---    Halaman: /client/sertifikasi-produk
+-- 1. TABEL SERTIFIKAT PELANGGAN
 -- ----------------------------------------------------------------------------
-DROP TABLE IF EXISTS `sertifikat_produk`;
-CREATE TABLE `sertifikat_produk` (
+CREATE TABLE IF NOT EXISTS `sertifikat_produk` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nama_pabrik` VARCHAR(255) NOT NULL COMMENT 'Nama Pabrik (Format: Nama Pabrik | Kota)',
-  `produk` VARCHAR(255) NOT NULL COMMENT 'Produk',
-  `no_sni` VARCHAR(100) NOT NULL COMMENT 'Nomor SNI',
-  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE COMMENT 'Nomor Sertifikat',
-  `terbit` VARCHAR(50) NOT NULL COMMENT 'Tanggal Terbit',
-  `berlaku_sd` VARCHAR(50) NOT NULL COMMENT 'Berlaku s.d. (Tanggal Berakhir)',
-  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif' COMMENT 'Status'
+  `nama_pabrik` VARCHAR(255) NOT NULL,
+  `produk` VARCHAR(255) NOT NULL,
+  `no_sni` VARCHAR(100) NOT NULL,
+  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE,
+  `terbit` VARCHAR(50) NOT NULL,
+  `berlaku_sd` VARCHAR(50) NOT NULL,
+  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `sertifikat_produk` (`nama_pabrik`, `produk`, `no_sni`, `no_sertifikat`, `terbit`, `berlaku_sd`, `status`) VALUES
-('PT. Simaju | Bekasi', 'Kakao Bubuk', 'SNI 3747:2009', 'PSU-SPPT-2026-GAHA', '14 Okt 2026', '13 Okt 2030', 'Aktif'),
-('Pasar ABC | Jakarta', 'Pasar Rakyat', 'SNI 8152:2021', 'PSU-2026-PPWIQADA', '14 Okt 2026', '13 Okt 2030', 'Aktif'),
-('PT. Sinar Abadi | Bekasi', 'Minyak Goreng Sawit', 'SNI 7709:2019', 'PSU-SPPT-2026-0001', '08 Okt 2026', '07 Okt 2030', 'Aktif'),
-('PT. Pangan Lestari | Tangerang', 'Biskuit', 'SNI 2973:2022', 'PSU-SPPT-2025-0012', '14 Mar 2025', '13 Mar 2029', 'Ditangguhkan'),
-('PT. Gula Manis Nusantara | Lampung', 'Gula Kristal Putih', 'SNI 3140.3:2020', 'PSU-SPPT-2024-0007', '19 Mei 2024', '18 Mei 2028', 'Dicabut');
-
--- ----------------------------------------------------------------------------
--- 2. Tabel Sub Menu: Lembaga Pengujian (sertifikat_pengujian)
---    Halaman: /client/pengujian
--- ----------------------------------------------------------------------------
-DROP TABLE IF EXISTS `sertifikat_pengujian`;
-CREATE TABLE `sertifikat_pengujian` (
+CREATE TABLE IF NOT EXISTS `sertifikat_pengujian` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nama_pabrik` VARCHAR(255) NOT NULL COMMENT 'Nama Pabrik (Format: Nama Pabrik | Kota)',
-  `produk` VARCHAR(255) NOT NULL COMMENT 'Produk',
-  `no_sni` VARCHAR(100) NOT NULL COMMENT 'Nomor SNI',
-  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE COMMENT 'Nomor Sertifikat',
-  `terbit` VARCHAR(50) NOT NULL COMMENT 'Tanggal Terbit',
-  `berlaku_sd` VARCHAR(50) NOT NULL COMMENT 'Berlaku s.d. (Tanggal Berakhir)',
-  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif' COMMENT 'Status'
+  `nama_pabrik` VARCHAR(255) NOT NULL,
+  `produk` VARCHAR(255) NOT NULL,
+  `no_sni` VARCHAR(100) NOT NULL,
+  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE,
+  `terbit` VARCHAR(50) NOT NULL,
+  `berlaku_sd` VARCHAR(50) NOT NULL,
+  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `sertifikat_pengujian` (`nama_pabrik`, `produk`, `no_sni`, `no_sertifikat`, `terbit`, `berlaku_sd`, `status`) VALUES
-('PT. Tirta Murni Sejahtera | Bogor', 'Air Mineral', 'SNI 3553:2015', 'PSU-LP-2026-BKLN', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
-('PT. Agro Pupuk Mandiri | Gresik', 'Pupuk NPK Padat', 'SNI 2803:2012', 'PSU-LP-2026-MNPQ', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
-('PT. Baja Mas Utama | Surabaya', 'Foodtray Baja Tahan Karat', 'SNI 9369:2025', 'PSU-SPPT-2026-0101', '12 Sep 2026', '11 Sep 2029', 'Ditangguhkan'),
-('CV. Pangan Makmur Jaya | Semarang', 'Tepung Terigu', 'SNI 3751:2018', 'PSU-LP-2024-RTYU', '05 Mei 2024', '04 Mei 2027', 'Dicabut');
-
--- ----------------------------------------------------------------------------
--- 3. Tabel Sub Menu: Lembaga Kalibrasi (sertifikat_kalibrasi)
---    Halaman: /client/kalibrasi
--- ----------------------------------------------------------------------------
-DROP TABLE IF EXISTS `sertifikat_kalibrasi`;
-CREATE TABLE `sertifikat_kalibrasi` (
+CREATE TABLE IF NOT EXISTS `sertifikat_kalibrasi` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nama_pabrik` VARCHAR(255) NOT NULL COMMENT 'Nama Pabrik / Instansi (Format: Nama Pabrik | Kota)',
-  `produk` VARCHAR(255) NOT NULL COMMENT 'Produk / Alat',
-  `no_sni` VARCHAR(100) NOT NULL COMMENT 'Nomor SNI / Standar',
-  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE COMMENT 'Nomor Sertifikat',
-  `terbit` VARCHAR(50) NOT NULL COMMENT 'Tanggal Terbit',
-  `berlaku_sd` VARCHAR(50) NOT NULL COMMENT 'Berlaku s.d. (Tanggal Berakhir)',
-  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif' COMMENT 'Status'
+  `nama_pabrik` VARCHAR(255) NOT NULL,
+  `produk` VARCHAR(255) NOT NULL,
+  `no_sni` VARCHAR(100) NOT NULL,
+  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE,
+  `terbit` VARCHAR(50) NOT NULL,
+  `berlaku_sd` VARCHAR(50) NOT NULL,
+  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `sertifikat_kalibrasi` (`nama_pabrik`, `produk`, `no_sni`, `no_sertifikat`, `terbit`, `berlaku_sd`, `status`) VALUES
-('RS. Harapan Sehat Sentosa | Jakarta', 'Tensimeter Digital', 'SNI IEC 80601-2-30', 'PSU-LK-2026-KLMN', '14 Okt 2026', '13 Okt 2027', 'Aktif'),
-('PT. Medika Alat Utama | Bandung', 'Inkubator Bayi', 'SNI IEC 60601-2-19', 'PSU-LK-2026-PQRS', '14 Okt 2026', '13 Okt 2027', 'Aktif'),
-('PT. Presisi Industri Teknika | Cikarang', 'Neraca Analitik Digital', 'SNI ISO/IEC 17025:2017', 'PSU-SPPT-2026-0201', '18 Okt 2026', '17 Okt 2027', 'Ditangguhkan'),
-('Klinik Utama Permata | Bekasi', 'Timbangan Pasien Elektronik', 'SNI OIML R76-1', 'PSU-LK-2024-WXYZ', '22 Agu 2024', '21 Agu 2025', 'Dicabut');
-
--- ----------------------------------------------------------------------------
--- 4. Tabel Sub Menu: Lembaga Sertifikasi Sistem Manajemen (sertifikat_sistem_manajemen)
---    Halaman: /client/sertifikasi-sistem-manajemen
--- ----------------------------------------------------------------------------
-DROP TABLE IF EXISTS `sertifikat_sistem_manajemen`;
-CREATE TABLE `sertifikat_sistem_manajemen` (
+CREATE TABLE IF NOT EXISTS `sertifikat_sistem_manajemen` (
   `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `nama_pabrik` VARCHAR(255) NOT NULL COMMENT 'Nama Pabrik / Organisasi (Format: Nama Pabrik | Kota)',
-  `produk` VARCHAR(255) NOT NULL COMMENT 'Produk / Ruang Lingkup',
-  `no_sni` VARCHAR(100) NOT NULL COMMENT 'Nomor SNI / ISO',
-  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE COMMENT 'Nomor Sertifikat',
-  `terbit` VARCHAR(50) NOT NULL COMMENT 'Tanggal Terbit',
-  `berlaku_sd` VARCHAR(50) NOT NULL COMMENT 'Berlaku s.d. (Tanggal Berakhir)',
-  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif' COMMENT 'Status'
+  `nama_pabrik` VARCHAR(255) NOT NULL,
+  `produk` VARCHAR(255) NOT NULL,
+  `no_sni` VARCHAR(100) NOT NULL,
+  `no_sertifikat` VARCHAR(100) NOT NULL UNIQUE,
+  `terbit` VARCHAR(50) NOT NULL,
+  `berlaku_sd` VARCHAR(50) NOT NULL,
+  `status` ENUM('Aktif', 'Ditangguhkan', 'Dicabut') NOT NULL DEFAULT 'Aktif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO `sertifikat_sistem_manajemen` (`nama_pabrik`, `produk`, `no_sni`, `no_sertifikat`, `terbit`, `berlaku_sd`, `status`) VALUES
-('PT. Konstruksi Karya Nusantara | Jakarta', 'Sistem Manajemen Mutu', 'SNI ISO 9001:2015', 'PSU-LSSM-2026-ABCD', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
-('PT. Hijau Lestari Industri | Karawang', 'Sistem Manajemen Lingkungan', 'SNI ISO 14001:2015', 'PSU-LSSM-2026-EFGH', '14 Okt 2026', '13 Okt 2029', 'Aktif'),
-('PT. Pangan Aman Sentosa | Sidoarjo', 'Sistem Manajemen Keamanan Pangan', 'SNI ISO 22000:2018', 'PSU-SPPT-2026-0301', '01 Okt 2026', '30 Sep 2029', 'Ditangguhkan'),
-('PT. Mitra Logistik Terpadu | Surabaya', 'Sistem Manajemen Mutu', 'SNI ISO 9001:2015', 'PSU-LSSM-2024-IJKL', '09 Feb 2024', '08 Feb 2027', 'Dicabut');
+-- ----------------------------------------------------------------------------
+-- 2. TABEL ADMIN USERS (UNTUK LOGIN DASHBOARD ARTIKEL & JWT SESSION)
+-- Catatan: Saat server.js dijalankan, akun default di-seed otomatis:
+--   Username: admin   | Password: AdminPSU2026!
+--   Username: redaksi | Password: RedaksiPSU2026!
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `admin_users` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `username` VARCHAR(100) NOT NULL UNIQUE,
+  `email` VARCHAR(150) NOT NULL UNIQUE,
+  `password_hash` VARCHAR(255) NOT NULL,
+  `full_name` VARCHAR(150) NOT NULL,
+  `role` ENUM('Super Admin', 'Editor', 'Author') NOT NULL DEFAULT 'Super Admin',
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `last_login` DATETIME NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 3. TABEL ARTIKEL (DENGAN KOLOM VIEWS, IS_FEATURED, TIMESTAMPS)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `artikel` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `slug` VARCHAR(255) NOT NULL UNIQUE,
+  `title_id` VARCHAR(255) NOT NULL,
+  `title_en` VARCHAR(255) NOT NULL,
+  `excerpt_id` TEXT NOT NULL,
+  `excerpt_en` TEXT NOT NULL,
+  `content_id` LONGTEXT NOT NULL,
+  `content_en` LONGTEXT NOT NULL,
+  `image_url` LONGTEXT NOT NULL,
+  `author` VARCHAR(150) NOT NULL DEFAULT 'Corporate Secretary PSU',
+  `category` ENUM('News', 'Article', 'Press Release') NOT NULL DEFAULT 'News',
+  `tags` JSON NOT NULL,
+  `published_at` DATE NOT NULL,
+  `status` ENUM('Published', 'Draft') NOT NULL DEFAULT 'Published',
+  `is_featured` TINYINT(1) NOT NULL DEFAULT 0,
+  `views` INT NOT NULL DEFAULT 0,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 4. TABEL GALERI FOTO ARTIKEL (MEDIA LIBRARY UNTUK DIGUNAKAN KEMBALI)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `galeri_artikel` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `title` VARCHAR(255) NOT NULL,
+  `filename` VARCHAR(255) NOT NULL,
+  `image_url` VARCHAR(500) NOT NULL UNIQUE,
+  `category` VARCHAR(100) NOT NULL DEFAULT 'Artikel Upload',
+  `alt_text` VARCHAR(255) NOT NULL DEFAULT '',
+  `file_size` INT NOT NULL DEFAULT 0,
+  `mime_type` VARCHAR(100) NOT NULL DEFAULT 'image/webp',
+  `uploaded_by` VARCHAR(150) NOT NULL DEFAULT 'Admin PSU',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 5. TABEL PENULIS ARTIKEL (DAFTAR PENULIS / DIVISI RESMI)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `penulis_artikel` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(150) NOT NULL UNIQUE,
+  `role_title` VARCHAR(150) NOT NULL DEFAULT 'Tim Redaksi PSU',
+  `division` VARCHAR(150) NOT NULL DEFAULT 'Corporate Communication',
+  `is_active` TINYINT(1) NOT NULL DEFAULT 1,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 6. TABEL LOG AKTIVITAS ADMIN ARTIKEL
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `log_aktivitas_artikel` (
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `admin_username` VARCHAR(100) NOT NULL,
+  `action_type` VARCHAR(50) NOT NULL,
+  `target_title` VARCHAR(255) NOT NULL DEFAULT '',
+  `details` TEXT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- SEED DATA AWAL PENULIS & GALERI
+-- ----------------------------------------------------------------------------
+INSERT IGNORE INTO `penulis_artikel` (`name`, `role_title`, `division`, `is_active`) VALUES
+('Corporate Secretary PSU', 'Sekretaris Perusahaan', 'Corporate Secretary', 1),
+('Tim Redaksi & Humas PSU', 'Editor Utama', 'Humas & Komunikasi Korporat', 1),
+('Divisi Sertifikasi Produk (LSPro)', 'Tim Teknis LSPro', 'Lembaga Sertifikasi Produk', 1),
+('Divisi Laboratorium Pengujian & Kalibrasi', 'Spesialis Laboratorium', 'Laboratorium Pengujian & Kalibrasi', 1),
+('Divisi LSSM PSU', 'Auditor Sistem Manajemen', 'Sertifikasi Sistem Manajemen', 1),
+('Divisi Pelatihan PSU', 'Koordinator Pelatihan', 'Lembaga Pelatihan', 1),
+('Arief Prihardono Darmawan', 'Direktur / Manajemen', 'Direksi PSU', 1),
+('Amanda Putri', 'Corporate Communication Officer', 'Humas & Kemitraan', 1),
+('Winda Arliny', 'Quality Assurance Specialist', 'Penjaminan Mutu', 1);
+
+INSERT IGNORE INTO `galeri_artikel` (`title`, `filename`, `image_url`, `category`, `alt_text`, `mime_type`, `uploaded_by`) VALUES
+('Banner Kantor PSU 1', 'Logo_PSU_banner1.webp', '/Logo_PSU_banner1.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 1', 'image/webp', 'System PSU'),
+('Banner Kantor PSU 2', 'Logo_PSU_banner2.webp', '/Logo_PSU_banner2.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 2', 'image/webp', 'System PSU'),
+('Banner Kantor PSU 3', 'Logo_PSU_banner3.webp', '/Logo_PSU_banner3.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 3', 'image/webp', 'System PSU'),
+('Banner Kantor PSU 4', 'Logo_PSU_banner4.webp', '/Logo_PSU_banner4.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 4', 'image/webp', 'System PSU'),
+('Banner Kantor PSU 5', 'Logo_PSU_banner5.webp', '/Logo_PSU_banner5.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 5', 'image/webp', 'System PSU'),
+('Banner Kantor PSU 6', 'Logo_PSU_banner6.webp', '/Logo_PSU_banner6.webp', 'Banner Default', 'Banner Utama PT Penilai Standar Uji 6', 'image/webp', 'System PSU'),
+('Layanan Sertifikasi Produk (LSPro)', 'LSPro.webp', '/LSPro.webp', 'Layanan PSU', 'Layanan Sertifikasi Produk LSPro PSU', 'image/webp', 'System PSU'),
+('Laboratorium Pengujian PSU', 'lab_pengujian.webp', '/lab_pengujian.webp', 'Layanan PSU', 'Fasilitas Laboratorium Pengujian PSU', 'image/webp', 'System PSU'),
+('Laboratorium Kalibrasi PSU', 'lab_kalibrasi.webp', '/lab_kalibrasi.webp', 'Layanan PSU', 'Fasilitas Laboratorium Kalibrasi PSU', 'image/webp', 'System PSU'),
+('Lembaga Pelatihan PSU', '_pelatihan.webp', '/_pelatihan.webp', 'Layanan PSU', 'Kegiatan Pelatihan Terpadu PSU', 'image/webp', 'System PSU'),
+('Sistem Manajemen Mutu (LSSM)', 'sistem_manajemen_mutu.webp', '/sistem_manajemen_mutu.webp', 'Layanan PSU', 'Sertifikasi Sistem Manajemen Mutu ISO', 'image/webp', 'System PSU'),
+('Tim Visi & Misi PSU', 'vision-mission-team.webp', '/vision-mission-team.webp', 'Dokumentasi Korporat', 'Transformasi Identitas PT Penilai Standar Uji', 'image/webp', 'System PSU');

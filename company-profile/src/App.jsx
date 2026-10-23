@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, useParams } from "react-router-dom";
 import { LanguageProvider } from "./context/LanguageContext";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
@@ -17,8 +17,7 @@ import ClientCalibration from "./pages/client/ClientCalibration";
 import ClientManagementSystemCertification from "./pages/client/ClientManagementSystemCertification";
 import Artikel from "./pages/Artikel";
 import ArtikelDetail from "./pages/ArtikelDetail";
-import ArtikelTambah from "./pages/ArtikelTambah";
-import ArtikelEdit from "./pages/ArtikelEdit";
+import DashboardArtikel from "./pages/DashboardArtikel";
 import Kontak from "./pages/Kontak";
 import KalibrasiAlatKesehatan from "./pages/layanan/kalibrasi/Alat_kesehatan_kalibrasi";
 import ProductLegalitas from "./pages/layanan/sertifikasi-produk/Legalitas_sertif";
@@ -52,26 +51,41 @@ import Kimia from "./pages/sectors/Kimia";
 import Logam from "./pages/sectors/Logam";
 import JasaLainnya from "./pages/sectors/JasaLainnya";
 
+function RedirectArtikelEdit() {
+  const { slug } = useParams();
+  return (
+    <Navigate
+      to={slug ? `/dashboard-artikel/edit/${encodeURIComponent(slug)}` : "/dashboard-artikel/edit"}
+      replace
+    />
+  );
+}
+
 function App() {
   const location = useLocation();
   const [readyLocationKey, setReadyLocationKey] = useState(null);
 
+  const isDashboardRoute =
+    location.pathname.startsWith("/dashboard-artikel") ||
+    location.pathname === "/admin" ||
+    location.pathname.startsWith("/admin/");
+
   useEffect(() => {
     const timer = window.setTimeout(
       () => setReadyLocationKey(location.key),
-      350,
+      isDashboardRoute ? 80 : 350,
     );
     return () => window.clearTimeout(timer);
-  }, [location.key]);
+  }, [location.key, isDashboardRoute]);
 
   return (
     <LanguageProvider>
       <div className="app-layout">
         <ScrollToTop />
-        <Navbar />
+        {!isDashboardRoute && <Navbar />}
         <main className="app-main">
           <PageErrorBoundary key={location.key}>
-            {readyLocationKey === location.key ? (
+            {readyLocationKey === location.key || isDashboardRoute ? (
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/pertanian" element={<Pertanian />} />
@@ -96,11 +110,42 @@ function App() {
                   path="/client/sertifikasi-sistem-manajemen"
                   element={<ClientManagementSystemCertification />}
                 />
+
+                {/* Rute Dashboard Admin Artikel (Terproteksi Sesi Login JWT) */}
+                <Route
+                  path="/admin"
+                  element={<Navigate to="/dashboard-artikel" replace />}
+                />
+                <Route
+                  path="/admin/*"
+                  element={<Navigate to="/dashboard-artikel" replace />}
+                />
+                <Route path="/dashboard-artikel" element={<DashboardArtikel />} />
+                <Route
+                  path="/dashboard-artikel/:subpage"
+                  element={<DashboardArtikel />}
+                />
+                <Route
+                  path="/dashboard-artikel/:subpage/:slug"
+                  element={<DashboardArtikel />}
+                />
+
+                {/* Rute Artikel Publik & Pengalihan URL Manual Tambah/Edit ke Dashboard */}
                 <Route path="/artikel" element={<Artikel />} />
-                <Route path="/artikel/tambah" element={<ArtikelTambah />} />
-                <Route path="/artikel/edit" element={<ArtikelEdit />} />
-                <Route path="/artikel/edit/:slug" element={<ArtikelEdit />} />
+                <Route
+                  path="/artikel/tambah"
+                  element={<Navigate to="/dashboard-artikel/tambah" replace />}
+                />
+                <Route
+                  path="/artikel/edit"
+                  element={<Navigate to="/dashboard-artikel/edit" replace />}
+                />
+                <Route
+                  path="/artikel/edit/:slug"
+                  element={<RedirectArtikelEdit />}
+                />
                 <Route path="/artikel/:slug" element={<ArtikelDetail />} />
+
                 <Route path="/kontak" element={<Kontak />} />
                 <Route
                   path="/layanan/sertif-produk/legalitas"
@@ -208,8 +253,8 @@ function App() {
             )}
           </PageErrorBoundary>
         </main>
-        <WaFloat />
-        <Footer />
+        {!isDashboardRoute && <WaFloat />}
+        {!isDashboardRoute && <Footer />}
       </div>
     </LanguageProvider>
   );
