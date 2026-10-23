@@ -13,11 +13,11 @@
 -- Aturan: Sertifikat pada Tabel A tidak dapat dilacak di Halaman Client B, dst.
 -- ============================================================================
 
-CREATE DATABASE IF NOT EXISTS `psu_compro`
+CREATE DATABASE IF NOT EXISTS `psu_company_profile`
   DEFAULT CHARACTER SET utf8mb4
   COLLATE utf8mb4_unicode_ci;
 
-USE `psu_compro`;
+USE `psu_company_profile`;
 
 -- ----------------------------------------------------------------------------
 -- 1. Tabel Sub Menu: Lembaga Sertifikasi Produk (sertifikat_produk)
