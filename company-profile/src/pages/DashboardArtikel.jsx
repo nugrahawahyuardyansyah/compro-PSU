@@ -185,7 +185,7 @@ function formatIndoDate(dateStr) {
 }
 
 async function apiRequest(pathUrl, options = {}, token = "") {
-  const bases = ["http://127.0.0.1:5000", "http://localhost:5000", ""];
+  const bases = [""];
   let lastError = null;
 
   for (const base of bases) {
@@ -254,6 +254,23 @@ export default function DashboardArtikel() {
   }, [subpage]);
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  useEffect(() => {
+    if (!sidebarOpen || !window.matchMedia("(max-width: 860px)").matches) {
+      return undefined;
+    }
+
+    const { body, documentElement } = document;
+    const previousBodyOverflow = body.style.overflow;
+    const previousDocumentOverflow = documentElement.style.overflow;
+    body.style.overflow = "hidden";
+    documentElement.style.overflow = "hidden";
+
+    return () => {
+      body.style.overflow = previousBodyOverflow;
+      documentElement.style.overflow = previousDocumentOverflow;
+    };
+  }, [sidebarOpen]);
 
   // ==========================================================================
   // STATE DATA UTAMA (ARTIKEL, GALERI, PENULIS, LOG, STATISTIK)
@@ -334,8 +351,10 @@ export default function DashboardArtikel() {
   // ==========================================================================
   // STATE MENU 7: PENGATURAN AKUN ADMIN & KEAMANAN JWT
   // ==========================================================================
-  const [profileFullName, setProfileFullName] = useState("");
-  const [profileEmail, setProfileEmail] = useState("");
+  const [profileFullName, setProfileFullName] = useState(
+    () => adminUser?.full_name || ""
+  );
+  const [profileEmail, setProfileEmail] = useState(() => adminUser?.email || "");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
@@ -434,11 +453,8 @@ export default function DashboardArtikel() {
           handleLogout();
         }
       } catch {
-        // Jika server API sedang mati namun ada token lokal
-        if (adminUser) {
-          setProfileFullName(adminUser.full_name || "");
-          setProfileEmail(adminUser.email || "");
-        }
+        // Gunakan data sesi tersimpan saat server API tidak tersedia.
+        setDbConnected(false);
       } finally {
         if (active) setAuthChecking(false);
       }
@@ -503,6 +519,7 @@ export default function DashboardArtikel() {
     const preselectImg = queryParams.get("image") || "";
 
     if (activeTab === "create") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- Form fields must reset when the URL enters the create route.
       resetCreateForm(preselectImg);
     } else if (activeTab === "edit") {
       const targetSlug = routeSlug || editingSlug || (articles[0] ? articles[0].slug : "");
@@ -516,7 +533,15 @@ export default function DashboardArtikel() {
         }
       }
     }
-  }, [activeTab, routeSlug, articles, location.search]);
+  }, [
+    activeTab,
+    routeSlug,
+    articles,
+    location.search,
+    editingSlug,
+    populateEditorFromArticle,
+    resetCreateForm,
+  ]);
 
   // ==========================================================================
   // HANDLER LOGIN ADMIN
@@ -547,32 +572,10 @@ export default function DashboardArtikel() {
         setLoginError(res.data.message || "Login gagal. Periksa username dan password Anda.");
       }
     } catch {
-      // Fallback jika server Express belum menyala saat pengujian frontend
-      if (
-        (loginUsername.trim().toLowerCase() === "admin" && loginPassword === "AdminPSU2026!") ||
-        (loginUsername.trim().toLowerCase() === "redaksi" && loginPassword === "RedaksiPSU2026!")
-      ) {
-        const fallbackToken = `local_jwt_${Date.now()}`;
-        const fallbackUser = {
-          id: 1,
-          username: loginUsername.trim().toLowerCase(),
-          email: `${loginUsername.trim().toLowerCase()}@penilaistandaruji.com`,
-          full_name:
-            loginUsername.trim().toLowerCase() === "admin"
-              ? "Administrator Utama PSU"
-              : "Tim Redaksi & Humas PSU",
-          role: loginUsername.trim().toLowerCase() === "admin" ? "Super Admin" : "Editor",
-        };
-        localStorage.setItem(TOKEN_STORAGE_KEY, fallbackToken);
-        localStorage.setItem(USER_STORAGE_KEY, JSON.stringify(fallbackUser));
-        setToken(fallbackToken);
-        setAdminUser(fallbackUser);
-        setDbConnected(false);
-      } else {
-        setLoginError(
-          "Gagal terhubung ke server API (port 5000) atau kredensial tidak sesuai. Gunakan akun default lokal jika server belum aktif."
-        );
-      }
+      // Tidak ada bypass login: tanpa server API yang valid, akses admin ditolak.
+      setLoginError(
+        "Gagal terhubung ke server API. Pastikan layanan backend sedang aktif, lalu coba lagi."
+      );
     } finally {
       setLoginLoading(false);
     }
@@ -1414,7 +1417,7 @@ export default function DashboardArtikel() {
       <aside className={`cms-sidebar ${sidebarOpen ? "is-open" : ""}`}>
         <div className="cms-sidebar__brand">
           <div className="cms-sidebar__logo-wrap">
-            <img src="/Logo_PSU1.webp" alt="Logo PSU" className="cms-sidebar__logo" />
+            <img src="/Logo_PSU.webp" alt="Logo PSU" className="cms-sidebar__logo" />
           </div>
           <div className="cms-sidebar__brand-text">
             <span className="cms-sidebar__brand-title">PSU Artikel CMS</span>
@@ -1530,6 +1533,13 @@ export default function DashboardArtikel() {
         </div>
       </aside>
 
+      <button
+        type="button"
+        className={`cms-sidebar-backdrop${sidebarOpen ? " is-visible" : ""}`}
+        aria-label="Tutup Menu Sidebar"
+        onClick={() => setSidebarOpen(false)}
+      />
+
       {/* AREA KONTEN UTAMA */}
       <div className="cms-main">
         {/* TOPBAR */}
@@ -1543,48 +1553,51 @@ export default function DashboardArtikel() {
             >
               ☰ Menu
             </button>
-            <h1 className="cms-topbar__title">
-              {activeTab === "overview" && "Ringkasan & Analitik Artikel"}
-              {activeTab === "articles" && "Manajemen Berita, Artikel & Press Release"}
-              {activeTab === "create" && "Tambah Berita / Artikel Baru"}
-              {activeTab === "edit" && "Edit & Perbarui Artikel"}
-              {activeTab === "gallery" && "Galeri Foto Artikel (Media Library)"}
-              {activeTab === "taxonomy" && "Manajemen Penulis, Kategori & Tag"}
-              {activeTab === "settings" && "Log Aktivitas & Pengaturan Keamanan JWT"}
-            </h1>
+            <div className="cms-topbar__heading">
+              <h1 className="cms-topbar__title">
+                {activeTab === "overview" && "Ringkasan & Analitik Artikel"}
+                {activeTab === "articles" && "Manajemen Berita, Artikel & Press Release"}
+                {activeTab === "create" && "Tambah Berita / Artikel Baru"}
+                {activeTab === "edit" && "Edit & Perbarui Artikel"}
+                {activeTab === "gallery" && "Galeri Foto Artikel (Media Library)"}
+                {activeTab === "taxonomy" && "Manajemen Penulis, Kategori & Tag"}
+                {activeTab === "settings" && "Log Aktivitas & Pengaturan Keamanan JWT"}
+              </h1>
+              <span
+                className={`cms-status-pill ${
+                  dbConnected ? "cms-status-pill--online" : "cms-status-pill--fallback"
+                }`}
+                title={
+                  dbConnected
+                    ? "Terhubung ke Database MySQL psu_company_profile"
+                    : "Menggunakan Penyimpanan Fallback Lokal"
+                }
+              >
+                <span className="cms-status-dot" />
+                <span>{dbConnected ? "MySQL Terhubung" : "Mode Fallback"}</span>
+              </span>
+            </div>
           </div>
 
           <div className="cms-topbar__right">
-            <span
-              className={`cms-status-pill ${
-                dbConnected ? "cms-status-pill--online" : "cms-status-pill--fallback"
-              }`}
-              title={
-                dbConnected
-                  ? "Terhubung ke Database MySQL psu_company_profile"
-                  : "Menggunakan Penyimpanan Fallback Lokal"
-              }
-            >
-              <span className="cms-status-dot" />
-              <span>{dbConnected ? "MySQL Terhubung" : "Mode Fallback"}</span>
-            </span>
+            <div className="cms-topbar__actions">
+              <button
+                type="button"
+                className="news-btn news-btn--primary"
+                style={{ height: "38px", padding: "0 16px", fontSize: "0.84rem" }}
+                onClick={() => switchTab("create")}
+              >
+                + Tulis Artikel Baru
+              </button>
 
-            <button
-              type="button"
-              className="news-btn news-btn--primary"
-              style={{ height: "38px", padding: "0 16px", fontSize: "0.84rem" }}
-              onClick={() => switchTab("create")}
-            >
-              + Tulis Artikel Baru
-            </button>
-
-            <Link
-              to="/artikel"
-              className="news-btn news-btn--secondary"
-              style={{ height: "38px", padding: "0 14px", fontSize: "0.84rem" }}
-            >
-              Lihat Halaman Publik &nearr;
-            </Link>
+              <Link
+                to="/artikel"
+                className="news-btn news-btn--secondary"
+                style={{ height: "38px", padding: "0 14px", fontSize: "0.84rem" }}
+              >
+                Lihat Halaman Publik
+              </Link>
+            </div>
           </div>
         </header>
 
