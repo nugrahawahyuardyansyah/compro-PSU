@@ -2,7 +2,7 @@
   "name": "company-profile",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://psu.nwyan.com/",
+  "homepage": "https://penilaistandaruji.com/",
   "type": "module",
   "scripts": {
     "start": "node ../start_all.js",
