@@ -202,7 +202,8 @@ const menuLinks = [
   { label: "Kontak", href: "/kontak" },
   {
     label: "Lacak",
-    href: "https://nwyan.com",
+    href: "#",
+    target: "_blank",
     external: true,
     cta: true,
     extraClass: "navbar__track",
