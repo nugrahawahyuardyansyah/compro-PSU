@@ -1,23 +1,7 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import PageHeader from "../components/PageHeader";
-import { useLanguage } from "../context/useLanguage";
-import { AUTHOR_OPTIONS } from "../data/articlesFallback";
-import "./Artikel.css";
-
-const PRESET_IMAGES = [
-  { label: "Banner Kantor PSU 1", value: "/Logo_PSU_banner1.webp" },
-  { label: "Banner Kantor PSU 2", value: "/Logo_PSU_banner2.webp" },
-  { label: "Banner Kantor PSU 3", value: "/Logo_PSU_banner3.webp" },
-  { label: "Banner Kantor PSU 4", value: "/Logo_PSU_banner4.webp" },
-  { label: "Layanan LSPro", value: "/LSPro.webp" },
-  { label: "Laboratorium Pengujian", value: "/lab_pengujian.webp" },
-  { label: "Laboratorium Kalibrasi", value: "/lab_kalibrasi.webp" },
-  { label: "Lembaga Pelatihan", value: "/_pelatihan.webp" },
-  { label: "Sistem Manajemen Mutu", value: "/sistem_manajemen_mutu.webp" },
-];
+import { Navigate } from "react-router-dom";
 
 export default function ArtikelTambah() {
+<<<<<<< HEAD
   const navigate = useNavigate();
   const { lang, t } = useLanguage();
   const today = new Date().toISOString().slice(0, 10);
@@ -452,4 +436,7 @@ export default function ArtikelTambah() {
       </section>
     </>
   );
+=======
+  return <Navigate to="/dashboard-artikel/tambah" replace />;
+>>>>>>> 63cb655f132dc8776a756ece8c5590b207e9bfe5
 }
