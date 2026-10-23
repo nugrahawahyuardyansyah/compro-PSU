@@ -75,8 +75,6 @@ export default function ArtikelEdit() {
     let active = true;
     async function loadAllArticles() {
       const endpoints = [
-        "http://127.0.0.1:5000/api/artikel?limit=500&all=1",
-        "http://localhost:5000/api/artikel?limit=500&all=1",
         "/api/artikel?limit=500&all=1",
       ];
       for (const url of endpoints) {
@@ -135,8 +133,6 @@ export default function ArtikelEdit() {
       const dataUrl = reader.result;
       try {
         const endpoints = [
-          "http://127.0.0.1:5000/api/upload-gambar",
-          "http://localhost:5000/api/upload-gambar",
           "/api/upload-gambar",
         ];
         let uploadedPath = "";
@@ -197,8 +193,6 @@ export default function ArtikelEdit() {
 
     try {
       const endpoints = [
-        `http://127.0.0.1:5000/api/artikel/${encodeURIComponent(targetIdentifier)}`,
-        `http://localhost:5000/api/artikel/${encodeURIComponent(targetIdentifier)}`,
         `/api/artikel/${encodeURIComponent(targetIdentifier)}`,
       ];
       let updated = null;
@@ -255,8 +249,6 @@ export default function ArtikelEdit() {
     const targetIdentifier = articleId || selectedSlug;
     try {
       const endpoints = [
-        `http://127.0.0.1:5000/api/artikel/${encodeURIComponent(targetIdentifier)}`,
-        `http://localhost:5000/api/artikel/${encodeURIComponent(targetIdentifier)}`,
         `/api/artikel/${encodeURIComponent(targetIdentifier)}`,
       ];
       let deletedOk = false;

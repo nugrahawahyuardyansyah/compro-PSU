@@ -31,8 +31,6 @@ export default function Artikel() {
     let active = true;
     async function loadArticles() {
       const endpoints = [
-        "http://127.0.0.1:5000/api/artikel?limit=500",
-        "http://localhost:5000/api/artikel?limit=500",
         "/api/artikel?limit=500",
       ];
       for (const url of endpoints) {

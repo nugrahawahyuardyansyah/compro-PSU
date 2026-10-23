@@ -9,10 +9,7 @@ const SUBMENU_KEY = "sertifikasi-produk";
 async function fetchCertificateFromApi(submenu, noSertifikat) {
   const encodedNo = encodeURIComponent(noSertifikat);
   const endpoints = [
-    `http://127.0.0.1:5000/api/sertifikat/${submenu}?no_sertifikat=${encodedNo}`,
-    `http://localhost:5000/api/sertifikat/${submenu}?no_sertifikat=${encodedNo}`,
     `/api/sertifikat/${submenu}?no_sertifikat=${encodedNo}`,
-    `http://localhost/api/cek_sertifikat.php?submenu=${submenu}&no_sertifikat=${encodedNo}`,
   ];
 
   let lastError = null;

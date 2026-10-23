@@ -116,8 +116,6 @@ export default function Home() {
     let active = true;
     async function fetchLatestNews() {
       const endpoints = [
-        "http://127.0.0.1:5000/api/artikel?limit=6",
-        "http://localhost:5000/api/artikel?limit=6",
         "/api/artikel?limit=6",
       ];
       for (const url of endpoints) {

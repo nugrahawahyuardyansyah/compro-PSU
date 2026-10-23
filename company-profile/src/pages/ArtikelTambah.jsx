@@ -57,8 +57,6 @@ export default function ArtikelTambah() {
       const dataUrl = reader.result;
       try {
         const endpoints = [
-          "http://127.0.0.1:5000/api/upload-gambar",
-          "http://localhost:5000/api/upload-gambar",
           "/api/upload-gambar",
         ];
         let uploadedPath = "";
@@ -126,8 +124,6 @@ export default function ArtikelTambah() {
 
     try {
       const endpoints = [
-        "http://127.0.0.1:5000/api/artikel",
-        "http://localhost:5000/api/artikel",
         "/api/artikel",
       ];
       let savedData = null;

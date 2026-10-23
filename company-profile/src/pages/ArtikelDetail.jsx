@@ -47,8 +47,6 @@ export default function ArtikelDetail() {
 
     async function fetchDetail() {
       const endpoints = [
-        `http://127.0.0.1:5000/api/artikel/${encodeURIComponent(slug)}`,
-        `http://localhost:5000/api/artikel/${encodeURIComponent(slug)}`,
         `/api/artikel/${encodeURIComponent(slug)}`,
       ];
       for (const url of endpoints) {
